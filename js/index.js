@@ -159,6 +159,7 @@
 
 				touchStart: function(event) {
 					var mSelf = this;
+					event.preventDefault();
 					this.longTouch = false;
 					this.touchTimer = window.setTimeout(function() {
 						mSelf.longTouch = true;
@@ -229,8 +230,8 @@
 				currentEl: undefined,
 				nextEl: undefined,
 				touchstartx: undefined,
-				touchstartx: undefined,
-				touchmovey: undefined,
+				touchstarty: undefined,
+				touchmovex: undefined,
 				longTouch: false,
 				delx: undefined,
 				swipe: 0, // Left Swipe means 0, Right means 1 & No swipe means 2
@@ -282,6 +283,7 @@
 				},
 				touchStart: function(event) {
 					this.init();
+					event.preventDefault();
 					var mSelf = this;
 					this.longTouch = false;
 					this.touchTimer = window.setTimeout(function() {
@@ -566,36 +568,3 @@
 	var portfolio = new Portfolio();
 	portfolio.init();
 })(window);
-
-/*
-	
-	function bindAndroidListeners(){
-		var count=0;
-		// Left
-		nexusBtns[2].addEventListener('click', function(){
-			if(androidAnimate(0, count)) count++;
-		})
-		// Right
-		nexusBtns[0].addEventListener('click', function(){
-			if(androidAnimate(1, count)) count--;
-		})
-	}
-	
-	
-	
-	// Listeners
-	bindWebListeners();
-	bindAndroidListeners();
-
-  
-
-	chromeFrameImg.addEventListener('load', function(){
-		setChromeFrameFontSize();
-	});
-	if(chromeFrameImg.complete){
-		
-	}
-	window.addEventListener('resize', function(){
-		setChromeFrameFontSize();											
-	})
-*/

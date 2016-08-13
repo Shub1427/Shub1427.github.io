@@ -140,9 +140,6 @@ a {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); }
   .navbar .logo {
     display: inline-block;
-    -webkit-flex: 1 1 100%;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
     text-align: center;
     font-size: 1.5em;
     height: 50px;
@@ -161,9 +158,6 @@ a {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex: 1 1 100%;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
     margin: 0;
     padding: 0;
     -webkit-justify-content: center;
@@ -523,14 +517,7 @@ a {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
-  #android-projects .inner .frame {
-    -webkit-flex: 1 1 100%;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%; }
   #android-projects .inner .project-details {
-    -webkit-flex: 1 1 100%;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
     padding: 0; }
 
 #android-projects .frame {
@@ -570,9 +557,6 @@ a {
   font-size: 1rem;
   margin-top: 15px;
   width: 100%;
-  -webkit-flex: 1 1 50%;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center; }
