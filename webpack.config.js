@@ -1,34 +1,72 @@
 var webpack = require('webpack');
 var path = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const extractText = new ExtractTextPlugin({
+  filename: "[name].css"
+})
+
 /**
  * devtool: provides Errors with Line Numbers
  */
 module.exports = {
   devtool: 'inline-source-map',
-  entry: [
-    'webpack-dev-server/client?http://127.0.0.1:8080/',
-    'webpack/hot/only-dev-server',
-    './src'
-  ],
+  devServer: {
+    compress: true,
+    port: 9000,
+    hot: true,
+    publicPath: "/public"
+  },
+  entry: {
+    index: './src/index.js'
+  },
+
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].js',
+    publicPath: "/public"
   },
+
   resolve: {
     modules: ['node_modules', 'src'],
     extensions: ['.js']
   },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: ['react-hot-loader', 'babel-loader?presets[]=react,presets[]=es2015']
+        use: [
+          {
+            loader: 'react-hot-loader'
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react' , 'es2015']
+            }
+          }
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: extractText.extract({
+          use: [
+            {
+              loader: 'css-loader'
+            },
+            {
+              loader: 'sass-loader'
+            }
+          ]
+        })
       }
     ]
   },
   plugins: [
+    extractText,
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
