@@ -12,7 +12,7 @@ const extractText = new ExtractTextPlugin({
  * devtool: provides Errors with Line Numbers
  */
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     compress: true,
     port: 9000,
@@ -54,12 +54,19 @@ module.exports = {
         use: extractText.extract({
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+              options: {
+                sourceMap: true
+              }
             },
             {
-              loader: 'sass-loader'
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
             }
-          ]
+          ],
+          fallback: "style-loader"
         })
       },
       {
