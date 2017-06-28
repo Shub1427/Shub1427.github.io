@@ -9,8 +9,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1> You are at {this.state.name} </h1>
+      <div id="main-app">
+        <h1> ... Work In Progress ... </h1>
       </div>
     );
   }
