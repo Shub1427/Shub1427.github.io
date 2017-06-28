@@ -84,7 +84,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Something Else...',
+      title: 'Subroto',
       filename: 'index.html',
       template: 'src/index.hbs'
     })
