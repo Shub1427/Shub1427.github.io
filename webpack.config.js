@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const extractText = new ExtractTextPlugin({
-  filename: "[name].css"
+  filename: "css/[name].css"
 })
 
 /**
@@ -19,17 +19,17 @@ module.exports = {
     hot: true
   },
   entry: {
-    index: './src/index.js'
+    index: './src/routes/index_client.jsx'
   },
 
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
+    path: path.join(__dirname),
+    filename: 'js/[name].js',
   },
 
   resolve: {
     modules: ['node_modules', 'src'],
-    extensions: ['.js']
+    extensions: ['.js', '.jsx']
   },
 
   module: {
