@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "lib": ["dom","es7"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "typeRoots": [
+        "./node_modules/@types"
+    ]
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "exclude": [
+    "node_modules",
+    "ngvas/e2e",
+    "e2e",
+    "ngvas/demo",
+    "**/*.spec.ts",
+    "**/*.e2e.ts",
+    "**/*.d.ts",
+    "**/*.ngfactory.ts",
+    "**/*.shim.ts"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "angularCompilerOptions": {
+    "genDir": "build",
+    "strictMetadataEmit" : false,
+    "entryModule": "./build/app/modules/app.module#AppModule"
+  }
+}

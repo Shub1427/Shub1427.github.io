@@ -3,7 +3,6 @@ node_modules/
 
 # Build Specific
 public/
-dist/
 out/
 
 # Specific Config Files...
