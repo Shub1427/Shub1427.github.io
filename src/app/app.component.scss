@@ -1,5 +1,24 @@
 @import "../scss/styles";
 
-.main-container {
+.nineties-font {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    display: flex;
+
+    &.fill {
+        height: 100vh;
+    }
+    
+    &.center {
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+}
+
+.text-center {
+    display: block;
     text-align: center;
 }
