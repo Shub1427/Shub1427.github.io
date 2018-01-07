@@ -88,9 +88,9 @@ module.exports = function(options = {}) {
         HMR: options.HMR,
         environment: options.environment
       }),
-      new CopyWebpackPlugin([
-        { from: 'assets', to: 'assets' }
-      ]),
+      // new CopyWebpackPlugin([
+      //   { from: 'assets', to: 'assets' }
+      // ]),
       new webpack.LoaderOptionsPlugin({
         options: {
           context: dir(),
