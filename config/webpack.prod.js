@@ -29,16 +29,16 @@ module.exports = function(options) {
       chunksSortMode: 'dependency',
       title: 'Subroto'
     }),
-    new HtmlWebpackIncludeAssetsPlugin({
-      files: 'index.html',
-      assets: [
-        {
-          path: 'assets/css/styles.css' + (process.env.APP_VERSION ? '?v='+process.env.APP_VERSION : ''),
-          type: 'css'
-        },       
-      ],
-      append: false
-    }),
+    // new HtmlWebpackIncludeAssetsPlugin({
+    //   files: 'index.html',
+    //   assets: [
+    //     {
+    //       path: 'assets/css/styles.css' + (process.env.APP_VERSION ? '?v='+process.env.APP_VERSION : ''),
+    //       type: 'css'
+    //     },       
+    //   ],
+    //   append: false
+    // }),
     new CleanWebpackPlugin(['dist'], {
       root: dir(),
       verbose: false,

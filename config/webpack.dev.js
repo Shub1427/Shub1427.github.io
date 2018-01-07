@@ -70,13 +70,13 @@ module.exports = function(options) {
         chunksSortMode: 'dependency',
         title: 'Subroto',
       }),
-      new HtmlWebpackIncludeAssetsPlugin({
-        files: 'index.html',
-        assets: [
-          'assets/css/styles.css',
-        ],
-        append: false
-      }),
+      // new HtmlWebpackIncludeAssetsPlugin({
+      //   files: 'index.html',
+      //   assets: [
+      //     'assets/css/styles.css',
+      //   ],
+      //   append: false
+      // }),
       new WebpackNotifierPlugin({
         excludeWarnings: true
       }),
