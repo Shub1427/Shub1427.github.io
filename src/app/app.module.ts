@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { IndexComponent } from './components/index-page/index.component';
 import { ZeroComponent } from './components/level-zero/zero.component';
 import { OneComponent } from './components/level-one/one.component';
 import { TwoComponent } from './components/level-two/two.component';
@@ -17,20 +18,17 @@ import { TwoComponent } from './components/level-two/two.component';
  */
 const routeBase = "shub1427"
 const appRoutes: Routes = [
-  { path: routeBase + '/zero',
+  { path: routeBase + '-zero',
     component: ZeroComponent
   },
-  { path: routeBase + '/one',
-    pathMatch: 'full',
+  { path: routeBase + '-one',
     component: OneComponent
   },
-  { path: routeBase + '/two',
-    pathMatch: 'full',
+  { path: routeBase + '-two',
     component: TwoComponent
   },
   { path: '',
-    redirectTo: '/' + routeBase + '/zero',
-    pathMatch: 'full'
+    component: IndexComponent
   },
 ]
 
@@ -38,6 +36,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    IndexComponent,
     ZeroComponent,
     OneComponent,
     TwoComponent,
