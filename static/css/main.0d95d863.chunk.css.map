@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,UAEE,QAAS,CACT,SACF,CAEA,KACE,sBAAuB,CAEvB,wBACF","file":"main.0d95d863.chunk.css","sourcesContent":["html,\nbody {\n  margin: 0;\n  padding: 0;\n}\n\nbody {\n  font-family: sans-serif;\n\n  background-color: #242424;\n}\n"]}
