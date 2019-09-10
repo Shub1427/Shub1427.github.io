@@ -5467,7 +5467,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 class Error extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   static getInitialProps(ctx) {
-    const statusCode = ctx.res ? ctx.res.statusCode : ctx.err ? ctx.err.statusCode : null;
+    const statusCode = ctx.res ? ctx.res.statusCode : ctx.err ? ctx.err.statusCode : 404;
     return {
       statusCode
     };
