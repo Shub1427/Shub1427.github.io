@@ -42,7 +42,7 @@ class CProfileDetailsHeader extends React.Component<IProfileDetailsHeader> {
       <>
         <TopContainer>
           <Nav
-            banner={<img src='/static/images/logo-small.png' alt="Shub's logo" />}
+            banner={<img height='100%' src='/static/images/logo-small.png' alt="Shub's logo" />}
             bannerUrl='/'
             links={navLinks}
           />

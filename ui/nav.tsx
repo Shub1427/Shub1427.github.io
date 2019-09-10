@@ -15,24 +15,37 @@ export interface INavProps extends Partial<MyTheme> {
   links: ILink[];
 }
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  box-sizing: border-box;
 
   .banner {
-    margin-right: 60px;
+    margin-right: 30px;
+
+    .banner-image {
+      height: 72px;
+    }
   }
 `;
 
 const NavWrapper = styled.ul<MyTheme>`
   list-style: none;
   margin: 0;
-  padding: 15px;
+  padding: 0;
   font-size: 24px;
   color: ${props => props.theme.colors.white};
 `;
 
 const NavLink = styled.li`
   display: inline-block;
-  margin-right: 30px;
+  margin-left: 30px;
+
+  & + & {
+    margin-right: 0;
+  }
 `;
 
 export const Nav: React.FC<INavProps> = props => {
@@ -40,7 +53,7 @@ export const Nav: React.FC<INavProps> = props => {
   return (
     <Wrapper>
       <Anchor className='banner' href={props.bannerUrl} withNextRoute>
-        <div style={{ height: 32 }}>{props.banner}</div>
+        <div className='banner-image'>{props.banner}</div>
       </Anchor>
       <NavWrapper theme={theme}>
         {props.links.map(link => (
