@@ -1,6 +1,13 @@
 import styled, { css } from 'styled-components';
 
-export const Avatar = styled.div`
+export interface IAvatarProps {
+  bordered?: boolean;
+  color: string;
+  size: number;
+  src: string;
+}
+
+export const Avatar = styled.div<IAvatarProps>`
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   border-radius: ${props => props.size}px;
