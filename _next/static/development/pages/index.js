@@ -61,6 +61,7 @@ class CProfileDetailsHeader extends react__WEBPACK_IMPORTED_MODULE_5___default.a
       __self: this
     }, __jsx(_ui_nav__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
       banner: __jsx("img", {
+        height: "100%",
         src: "/static/images/logo-small.png",
         alt: "Shub's logo",
         __source: {
@@ -12065,7 +12066,7 @@ var _jsxFileName = "/home/subroto/Subroto/projects/shub1427.github.io/ui/nav.tsx
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject3() {
-  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: inline-block;\n  margin-right: 30px;\n"]);
+  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: inline-block;\n  margin-left: 30px;\n\n  & + & {\n    margin-right: 0;\n  }\n"]);
 
   _templateObject3 = function () {
     return data;
@@ -12075,7 +12076,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  list-style: none;\n  margin: 0;\n  padding: 15px;\n  font-size: 24px;\n  color: ", ";\n"]);
+  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  font-size: 24px;\n  color: ", ";\n"]);
 
   _templateObject2 = function () {
     return data;
@@ -12085,7 +12086,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n\n  .banner {\n    margin-right: 60px;\n  }\n"]);
+  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 15px 30px;\n  box-sizing: border-box;\n\n  .banner {\n    margin-right: 30px;\n\n    .banner-image {\n      height: 72px;\n    }\n  }\n"]);
 
   _templateObject = function () {
     return data;
@@ -12105,7 +12106,7 @@ const Nav = props => {
   return __jsx(Wrapper, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 54
     },
     __self: undefined
   }, __jsx(_anchor__WEBPACK_IMPORTED_MODULE_3__["Anchor"], {
@@ -12114,30 +12115,28 @@ const Nav = props => {
     withNextRoute: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 55
     },
     __self: undefined
   }, __jsx("div", {
-    style: {
-      height: 32
-    },
+    className: "banner-image",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 56
     },
     __self: undefined
   }, props.banner)), __jsx(NavWrapper, {
     theme: theme,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 58
     },
     __self: undefined
   }, props.links.map(link => __jsx(NavLink, {
     key: link.label,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 60
     },
     __self: undefined
   }, __jsx(_anchor__WEBPACK_IMPORTED_MODULE_3__["Anchor"], {
@@ -12146,7 +12145,7 @@ const Nav = props => {
     withNextRoute: !link.newTab,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 61
     },
     __self: undefined
   }, link.label)))));
