@@ -19,7 +19,7 @@ var _jsxFileName = "/home/subroto/Subroto/projects/shub1427.github.io/components
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject() {
-  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  font-family: 'Special Elite', serif;\n\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-content: center;\n  align-items: center;\n  width: 100%;\n  min-height: 100vh;\n\n  .ufo {\n    width: 50%;\n    max-width: 800px;\n  }\n\n  .code {\n    font-size: 64px;\n    margin: 0 0 15px;\n  }\n\n  .description {\n    font-size: 24px;\n    margin: 0;\n  }\n"]);
+  const data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  font-family: 'Special Elite', serif;\n\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-content: center;\n  align-items: center;\n  width: 100%;\n  min-height: 100vh;\n\n  font-size: 16px;\n\n  @media (max-width: 600px) {\n    font-size: 10px;\n  }\n\n  .ufo {\n    width: 50%;\n    max-width: 800px;\n    min-width: 500px;\n  }\n\n  .code {\n    font-size: 4em;\n    margin: 0 0 15px;\n  }\n\n  .description {\n    font-size: 1.5em;\n    margin: 0;\n  }\n"]);
 
   _templateObject = function () {
     return data;
@@ -42,14 +42,14 @@ class Error404 extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
     return __jsx(Wrapper, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 48
       },
       __self: this
     }, __jsx("div", {
       className: "ufo",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 49
       },
       __self: this
     }, __jsx("img", {
@@ -58,21 +58,21 @@ class Error404 extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       alt: "ufo gif: https://dribbble.com/shots/6015680-404-Page-not-found-UFO",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 50
       },
       __self: this
     })), __jsx("p", {
       className: "code",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 56
       },
       __self: this
     }, "404"), __jsx("p", {
       className: "description",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 57
       },
       __self: this
     }, "You are at the wrong place at the wrong time..."));
