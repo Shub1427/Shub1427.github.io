@@ -1,8 +1,12 @@
-import { Avatar } from '@ui/avatar';
+import { ProfileDetailsHeader } from '@components/profile-details-header';
 import React from 'react';
 
 export default class IndexPage extends React.Component {
   public render() {
-    return <Avatar size={300} src='/static/images/profile.png' bordered color='#FFAB00' />;
+    return (
+      <div style={{ minHeight: '100vh' }}>
+        <ProfileDetailsHeader />
+      </div>
+    );
   }
 }

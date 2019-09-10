@@ -4,6 +4,7 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
+        "@components": "./components",
         "@ui": "./ui",
         "@pages": "./pages"
       }
