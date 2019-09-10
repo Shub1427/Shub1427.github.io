@@ -5466,37 +5466,24 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 class Error extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
+  // This is proper way to handle error pages... But since I am using Static Page (Github Pages)
+  // Following static method is never called thus, no statusCode is set...
+  // Check this for details: https://github.com/zeit/next.js#custom-error-handling
   static getInitialProps(ctx) {
-    const statusCode = ctx.res ? ctx.res.statusCode : ctx.err ? ctx.err.statusCode : 404;
+    const statusCode = ctx.res ? ctx.res.statusCode : ctx.err ? ctx.err.statusCode : null;
     return {
       statusCode
     };
   }
 
   render() {
-    return this.props.statusCode ? this.mapToPage(this.props.statusCode) : __jsx("p", {
+    return __jsx(_components_errors_404__WEBPACK_IMPORTED_MODULE_0__["Error404"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 18
       },
       __self: this
-    }, "An error occurred on client'");
-  }
-
-  mapToPage(code) {
-    switch (code) {
-      case 404:
-        return __jsx(_components_errors_404__WEBPACK_IMPORTED_MODULE_0__["Error404"], {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 25
-          },
-          __self: this
-        });
-
-      default:
-        return "An error ".concat(this.props.statusCode, " occurred on server");
-    }
+    });
   }
 
 }
