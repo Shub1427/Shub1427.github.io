@@ -31,6 +31,14 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link
+            href='https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i&display=swap'
+            rel='stylesheet'
+          />
+          <link
+            href='https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap'
+            rel='stylesheet'
+          />
           <link href='/static/css/main.css' rel='stylesheet' />
         </Head>
         <body>
