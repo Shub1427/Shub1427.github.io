@@ -1,5 +1,7 @@
 import { Avatar } from '@ui/avatar';
+import { Nav } from '@ui/nav';
 import { Typography } from '@ui/typography';
+import { navLinks } from '@utils/models/nav-links';
 import { theme } from '@utils/theme';
 import React from 'react';
 import styled, { ThemeProps, withTheme } from 'styled-components';
@@ -39,7 +41,11 @@ class CProfileDetailsHeader extends React.Component<IProfileDetailsHeader> {
     return (
       <>
         <TopContainer>
-          <div>Navbar will come here</div>
+          <Nav
+            banner={<img src='/static/images/logo-small.png' alt="Shub's logo" />}
+            bannerUrl='/'
+            links={navLinks}
+          />
         </TopContainer>
         <BottomContainer>
           <div className='profile-avatar-wrapper'>
