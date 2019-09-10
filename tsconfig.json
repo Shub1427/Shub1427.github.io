@@ -11,6 +11,7 @@
       "@components/*": ["./components/*"],
       "@ui/*": ["./ui/*"],
       "@pages/*": ["./pages/*"],
+      "@utils/*": ["./utils/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,

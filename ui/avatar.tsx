@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export interface IAvatarProps {
   bordered?: boolean;
+  withShadow?: boolean;
   color: string;
   size: number;
   src: string;
@@ -19,5 +20,10 @@ export const Avatar = styled.div<IAvatarProps>`
     props.bordered &&
     css`
       border: 3px solid ${props.color};
+    `}
+  ${props =>
+    props.withShadow &&
+    css`
+      box-shadow: 0 3px 15px -5px rgba(0, 0, 0, 0.8);
     `}
 `;
