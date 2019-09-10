@@ -32,6 +32,10 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
+            href='https://fonts.googleapis.com/css?family=Special+Elite&display=swap'
+            rel='stylesheet'
+          />
+          <link
             href='https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i&display=swap'
             rel='stylesheet'
           />
