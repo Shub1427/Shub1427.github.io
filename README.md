@@ -1,6 +1,10 @@
-# Shub1427.github.io
+<h1 align="center">My Portfolio</h1>
 
-## Some helpful sites to take ideas from...
-ReadME - https://medium.com/@bestfolios/10-fantastic-portfolio-websites-from-silicon-valley-design-leads-2d84b384dba6
+<p align="center">
+	<img src="./static/images/logo-small.png" />
+	<br />
+  <span>Check my Portfolio <a href="https://shub1427.github.io/">here</a></span>
+</p>
+
 
 
