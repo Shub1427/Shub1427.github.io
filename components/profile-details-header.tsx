@@ -1,26 +1,23 @@
 import { Avatar } from '@ui/avatar';
 import { Nav } from '@ui/nav';
 import { Typography } from '@ui/typography';
+import { MyTheme } from '@utils/interface';
 import { navLinks } from '@utils/models/nav-links';
-import { theme } from '@utils/theme';
 import React from 'react';
-import styled, { ThemeProps, withTheme } from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 
-interface IProfileDetailsHeader {
-  theme: ThemeProps<typeof theme>;
-}
-
-const TopContainer = styled.div<IProfileDetailsHeader>`
+const TopContainer = styled.div`
   align-items: center;
-  background: ${props => props.theme.colors.blackDark};
+  background: ${(props: MyTheme) => props.theme.colors.darkBlack};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
   min-height: 250px;
+  border-bottom: 5px solid ${(props: MyTheme) => props.theme.colors.yellow};
 `;
 
-const BottomContainer = styled.div`
+const BottomContainer = styled.div<MyTheme>`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -28,7 +25,7 @@ const BottomContainer = styled.div`
 
   .profile-avatar-wrapper {
     position: relative;
-    transform: translate(0, -50%);
+    transform: translate(0, -51%);
   }
 
   .about-wrapper {
@@ -36,7 +33,7 @@ const BottomContainer = styled.div`
   }
 `;
 
-class CProfileDetailsHeader extends React.Component<IProfileDetailsHeader> {
+class CProfileDetailsHeader extends React.Component<MyTheme> {
   public render() {
     return (
       <>
@@ -53,8 +50,7 @@ class CProfileDetailsHeader extends React.Component<IProfileDetailsHeader> {
               size={200}
               src='/static/images/profile.png'
               bordered
-              withShadow
-              color='#FFAB00'
+              color={this.props.theme.colors.yellow}
             />
           </div>
           <div className='about-wrapper'>
