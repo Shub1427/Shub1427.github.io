@@ -9,15 +9,10 @@ let theme = createMuiTheme({
       white: common.white,
       black: '#333',
     },
-    // primary: {
-    //   main: '#5491da',
-    //   light: '#7ea7dd',
-    //   dark: '#3f5ea5',
-    // },
     primary: {
-      main: '#DEC6A2',
-      light: '#FAF9F2',
-      dark: '#8E8369',
+      main: '#5491da',
+      light: '#7ea7dd',
+      dark: '#3f5ea5',
     },
     secondary: {
       main: '#8FADDC',

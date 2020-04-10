@@ -6,13 +6,20 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { Button, Typography } from '@material-ui/core';
+import { Button, Typography, Link } from '@material-ui/core';
+import Blockquote from '@components/blockquote';
+import MDXH1 from '@components/mdx-h1';
+import MDXH2 from '@components/mdx-h2';
+import CodeBlock from '@components/code-block';
 
 const mdComponents = {
-  h1: (props: any) => <Typography variant="h2" {...props} />,
-  h2: (props: any) => <Typography variant="h3" {...props} />,
-  h3: (props: any) => <Typography variant="h4" {...props} />,
+  a: (props: any) => <Link target="_blank" {...props} />,
+  h1: (props: any) => <MDXH1 {...props} />,
+  h2: (props: any) => <MDXH2 {...props} />,
+  h3: (props: any) => <Typography variant="h6" {...props} />,
   p: (props: any) => <Typography variant="body1" {...props} />,
+  blockquote: (props: any) => <Blockquote {...props} />,
+  code: CodeBlock,
   Button,
 };
 

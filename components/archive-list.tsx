@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -19,12 +19,19 @@ const useStyles = makeStyles({
     margin: '0 auto',
     padding: '32px 16px',
   },
+  centered: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
 });
 
 export default function ArchiveList() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <Typography className={classes.centered} variant="h4">
+        Archives
+      </Typography>
       <List component="nav" aria-label="main mailbox folders">
         {pages.map(page => {
           return (

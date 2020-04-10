@@ -3,3 +3,54 @@
 This Tutorial is mostly made up from Astro Blaster example from
 Ggez game engine in Rust.
 
+> __NOTE__: It is assumed that you have little bit experience in Rust lang
+> already. Rust book is a great place to start and learn Rust
+> if already not read.
+
+## What are we Building
+
+We will be building a Nostalgic Astro Blaster Game from 90s.
+The purpose of this post is to keep an archive for myself (and
+others), who are very beginners in game programming and does'nt
+know some basic concepts used in game dev.
+
+> **TLDR;** You can find the code here: [rustschool](https://github.com/Shub1427/rustschool/tree/master/gui/ggez_basics/src/bin/astro_blaster_v2)
+
+## Draw Black Background on Screen
+
+```rs
+use ggez::event;
+use ggez::graphics;
+use ggez::{Context, ContextBuilder, GameResult};
+
+struct World {
+    stage: usize, // Nothing else for now.
+}
+
+impl World {
+    fn new() -> Self {
+        World {
+            stage: 0
+        }
+    }
+}
+
+impl event::EventHandler for World {
+    fn update(&mut self, _ctx: &mut Context) -> GameResult {
+        Ok(())
+    }
+
+    fn draw(&mut self, ctx: &mut Context) -> GameResult {
+        graphics::clear(ctx, graphics::BLACK); // Clear with Black Background
+        graphics::present(ctx)?; // It's important to present the buffer on Screen
+        Ok(())
+    }
+}
+
+fn main() -> GameResult {
+    let (ctx, event_loop) = &mut ContextBuilder::new("Astro Blaster v2", "Subroto Biswas")
+        .build()?;
+    let mut state = World::new();
+    event::run(ctx, event_loop, &mut state)
+}
+```
