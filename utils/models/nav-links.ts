@@ -1,6 +1,4 @@
-import { ILink } from '@ui/nav';
-
-export const navLinks: ILink[] = [
+export const navLinks: any[] = [
   {
     label: 'Blogs',
     newTab: true,

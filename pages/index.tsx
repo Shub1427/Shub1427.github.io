@@ -1,12 +1,22 @@
-import { ProfileDetailsHeader } from '@components/profile-details-header';
 import React from 'react';
 
-export default class IndexPage extends React.Component {
-  public render() {
-    return (
-      <div style={{ minHeight: '100vh' }}>
-        <ProfileDetailsHeader />
-      </div>
-    );
-  }
+import { Container, makeStyles } from '@material-ui/core';
+import ArchiveList from '@components/archive-list';
+import ProfileDetailsHeader from '@components/profile-details-header';
+
+const useStyles = makeStyles({
+  root: {
+    minHeight: '100vh',
+    background: '#f2f2f2',
+  },
+});
+
+export default function IndexPage() {
+  const classes = useStyles();
+  return (
+    <Container maxWidth="md" className={classes.root}>
+      <ProfileDetailsHeader />
+      <ArchiveList />
+    </Container>
+  );
 }
