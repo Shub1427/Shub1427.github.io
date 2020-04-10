@@ -6,60 +6,38 @@ import { navLinks } from '@utils/models/nav-links';
 import React from 'react';
 import styled, { withTheme } from 'styled-components';
 
-const TopContainer = styled.div`
-  align-items: center;
-  background: ${(props: MyTheme) => props.theme.colors.darkBlack};
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 250px;
-  border-bottom: 5px solid ${(props: MyTheme) => props.theme.colors.yellow};
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  background: #f2f2f2;
 `;
 
-const BottomContainer = styled.div<MyTheme>`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-
-  .profile-avatar-wrapper {
-    position: relative;
-    transform: translate(0, -51%);
-  }
-
-  .about-wrapper {
-    margin-top: -90px;
-  }
+const Description = styled(Typography)`
+  margin-top: 32px;
+  max-width: 900px;
 `;
 
 class CProfileDetailsHeader extends React.Component<MyTheme> {
   public render() {
     return (
-      <>
-        <TopContainer>
-          <Nav
-            banner={<img height='100%' src='/static/images/logo-small.png' alt="Shub's logo" />}
-            bannerUrl='/'
-            links={navLinks}
-          />
-        </TopContainer>
-        <BottomContainer>
-          <div className='profile-avatar-wrapper'>
-            <Avatar
-              size={200}
-              src='/static/images/profile.png'
-              bordered
-              color={this.props.theme.colors.yellow}
-            />
-          </div>
-          <div className='about-wrapper'>
-            <Typography type='h1' weight='bold'>
-              Subroto Biswas
-            </Typography>
-          </div>
-        </BottomContainer>
-      </>
+      <Container>
+        <img height='100%' src='/static/images/logo-small.png' alt="Shub's logo" />
+        <Typography type='h2' weight='bold'>
+          Hey! You can call me Subroto Biswas.
+        </Typography>
+        <Description type='subtitle' className='description'>
+          I am always less with words. This site is about my work, not myself and my work defines
+          me. I am interested in various kinds of Graphics programming, and am a student by heart.
+          Most of my work here reflects my learning and research I am doing in Graphics using Rust
+          lang.
+        </Description>
+      </Container>
     );
   }
 }

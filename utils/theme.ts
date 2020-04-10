@@ -8,16 +8,16 @@ export const theme = {
   },
   typography: {
     font: {
-      default: 'Montserrat',
-      special: 'Playfair Display',
+      default: "'Roboto'",
+      special: "'Roboto'",
     },
     size: {
       body: 16,
-      h1: 32,
-      h2: 24,
-      h3: 18,
-      h4: 14,
-      subTitle: 20,
+      h1: 48,
+      h2: 32,
+      h3: 26,
+      h4: 20,
+      subtitle: 18,
       title: 24,
     },
   },

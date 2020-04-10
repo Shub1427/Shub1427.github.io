@@ -32,15 +32,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href='https://fonts.googleapis.com/css?family=Special+Elite&display=swap'
-            rel='stylesheet'
-          />
-          <link
-            href='https://fonts.googleapis.com/css?family=Montserrat:400,400i,600,600i&display=swap'
-            rel='stylesheet'
-          />
-          <link
-            href='https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap'
+            href='https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'
             rel='stylesheet'
           />
           <link href='/static/css/main.css' rel='stylesheet' />

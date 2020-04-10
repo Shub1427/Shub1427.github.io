@@ -1,7 +1,7 @@
 import { theme } from '@utils/theme';
 import styled, { ThemeProps } from 'styled-components';
 
-type FontTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'title' | 'subTitle' | 'body';
+type FontTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'title' | 'subtitle' | 'body';
 type FontWeights = 'regular' | 'medium' | 'bold';
 
 export interface ITypography extends ThemeProps<typeof theme> {
@@ -14,7 +14,7 @@ const mapToFontFamily = (props: ITypography) => {
     case 'h1':
     case 'h2':
     case 'title':
-    case 'subTitle':
+    case 'subtitle':
       return `${props.theme.typography.font.special}, serif`;
     default:
       return `${props.theme.typography.font.default}, sans-serif`;
@@ -24,11 +24,11 @@ const mapToFontFamily = (props: ITypography) => {
 const mapToFontWeights = (props: ITypography) => {
   switch (props.weight) {
     case 'medium':
-      return 600;
+      return 500;
     case 'bold':
-      return 900;
+      return 700;
     default:
-      return 400;
+      return 300;
   }
 };
 
