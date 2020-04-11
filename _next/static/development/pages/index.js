@@ -28,7 +28,11 @@ const useStyles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeSty
   root: {
     margin: '0 auto',
     padding: '32px 16px',
-    width: '90%'
+    width: '90%',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      padding: 0
+    }
   },
   centered: {
     display: 'flex',
@@ -47,6 +51,7 @@ const useStyles = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["makeSty
   dates: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
     color: '#aaa',
     fontSize: '0.8rem',
     marginBottom: 16
@@ -62,7 +67,7 @@ const getTagComponent = page => {
       __self: undefined,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 57,
         columnNumber: 12
       }
     });
@@ -76,7 +81,7 @@ function ArchiveList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 64,
       columnNumber: 5
     }
   }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -85,7 +90,7 @@ function ArchiveList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 65,
       columnNumber: 7
     }
   }, "Archives"), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["List"], {
@@ -94,7 +99,7 @@ function ArchiveList() {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 68,
       columnNumber: 7
     }
   }, _constants_archive_list__WEBPACK_IMPORTED_MODULE_4__["archiveList"].map(page => {
@@ -103,7 +108,7 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65,
+        lineNumber: 71,
         columnNumber: 13
       }
     }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Card"], {
@@ -111,14 +116,14 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 66,
+        lineNumber: 72,
         columnNumber: 15
       }
     }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardContent"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 67,
+        lineNumber: 73,
         columnNumber: 17
       }
     }, __jsx("div", {
@@ -126,7 +131,7 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 68,
+        lineNumber: 74,
         columnNumber: 19
       }
     }, getTagComponent(page)), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -136,7 +141,7 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 69,
+        lineNumber: 75,
         columnNumber: 19
       }
     }, page.title), __jsx("div", {
@@ -144,21 +149,21 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76,
+        lineNumber: 82,
         columnNumber: 19
       }
     }, __jsx("span", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 83,
         columnNumber: 21
       }
     }, "Updated: ", Object(date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_2__["default"])(page.updateAt, new Date()), " ago"), __jsx("span", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 80,
+        lineNumber: 86,
         columnNumber: 21
       }
     }, "Created: ", Object(date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_2__["default"])(page.createdAt, new Date()), " ago")), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
@@ -167,14 +172,14 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84,
+        lineNumber: 90,
         columnNumber: 19
       }
     }, page.description)), __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CardActions"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 94,
         columnNumber: 17
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_0___default.a, {
@@ -182,7 +187,7 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 95,
         columnNumber: 19
       }
     }, __jsx(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Button"], {
@@ -191,7 +196,7 @@ function ArchiveList() {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90,
+        lineNumber: 96,
         columnNumber: 21
       }
     }, "Visit")))));
