@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container, makeStyles } from '@material-ui/core';
-import Chap01 from './chap-01.mdx';
+import Chap01 from './chap-01.md';
 
 const useStyles = makeStyles({
   root: {

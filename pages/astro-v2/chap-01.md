@@ -54,3 +54,9 @@ fn main() -> GameResult {
     event::run(ctx, event_loop, &mut state)
 }
 ```
+
+Diff: [74bae4596c1cf1f0bec324946860422023d77d0c](https://github.com/Shub1427/rustschool/commit/74bae4596c1cf1f0bec324946860422023d77d0c)
+
+## Add a player to Screen
+
+

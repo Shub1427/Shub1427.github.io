@@ -28,6 +28,7 @@
   "homepage": "https://shub1427.github.io",
   "dependencies": {
     "@material-ui/core": "^4.9.9",
+    "@material-ui/icons": "^4.9.1",
     "@mdx-js/loader": "^1.4.5",
     "@mdx-js/mdx": "^1.5.8",
     "@next/mdx": "^9.0.5",
