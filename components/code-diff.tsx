@@ -8,9 +8,11 @@ import { makeStyles } from '@material-ui/core';
 SyntaxHighlighter.registerLanguage('js', jsx);
 SyntaxHighlighter.registerLanguage('rust', rust);
 
-export interface ICodeBlockProps {
-  showLines?: boolean;
-  className: string;
+export interface ICodeDiffProps {
+  lang: 'rs' | 'jsx';
+  hideLines?: boolean;
+  addedLineNumbers: number[];
+  removedLineNumbers: number[];
   children: React.ReactChild;
 }
 
@@ -20,26 +22,36 @@ const useStyles = makeStyles({
   },
 });
 
-export default function CodeBlock({
-  children,
-  className,
-  showLines = true,
-}: ICodeBlockProps) {
+export default function CodeDiff(props: ICodeDiffProps) {
   const classes = useStyles();
-  let language = className.replace(/language-/, '');
+  let language: string = props.lang;
   switch (language) {
     case 'rs':
       language = 'rust';
       break;
+    default:
+      language = 'jsx';
+      break;
   }
+
   return (
     <div className={classes.root}>
       <SyntaxHighlighter
         language={language}
         style={atomDark}
-        showLineNumbers={showLines}
+        showLineNumbers={!props.hideLines}
+        wrapLines
+        lineProps={(lineNumber: number) => {
+          const style: any = { display: 'block' };
+          if (props.addedLineNumbers.includes(lineNumber)) {
+            style.background = 'rgba(139, 195, 74, 0.5)';
+          } else if (props.removedLineNumbers.includes(lineNumber)) {
+            style.background = '#ffecec';
+          }
+          return { style };
+        }}
       >
-        {children}
+        {props.children}
       </SyntaxHighlighter>
     </div>
   );

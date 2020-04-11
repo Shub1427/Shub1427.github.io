@@ -11,6 +11,8 @@ import Blockquote from '@components/blockquote';
 import MDXH1 from '@components/mdx-h1';
 import MDXH2 from '@components/mdx-h2';
 import CodeBlock from '@components/code-block';
+import InlineCode from '@components/inline-code';
+import CodeDiff from '@components/code-diff';
 
 const mdComponents = {
   a: (props: any) => <Link target="_blank" {...props} />,
@@ -20,7 +22,10 @@ const mdComponents = {
   p: (props: any) => <Typography variant="body1" {...props} />,
   blockquote: (props: any) => <Blockquote {...props} />,
   code: CodeBlock,
+  inlineCode: InlineCode,
   Button,
+  Diff: CodeDiff,
+  CodeBlock, // Using codeblock as is gives us more control
 };
 
 export default class MyApp extends App {
