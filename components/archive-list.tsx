@@ -22,6 +22,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0 auto',
     padding: '32px 16px',
     width: '90%',
+
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+      padding: 0,
+    },
   },
   centered: {
     display: 'flex',
@@ -40,6 +45,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   dates: {
     display: 'flex',
     justifyContent: 'space-between',
+    flexWrap: 'wrap',
     color: '#aaa',
     fontSize: '0.8rem',
     marginBottom: 16,
