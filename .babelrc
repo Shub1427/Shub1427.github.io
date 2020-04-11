@@ -5,6 +5,7 @@
       "root": ["./src"],
       "alias": {
         "@components": "./components",
+        "@constants": "./constants",
         "@ui": "./ui",
         "@pages": "./pages",
         "@utils": "./utils"

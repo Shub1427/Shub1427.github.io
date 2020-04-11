@@ -16,6 +16,7 @@
     "noEmit": true,
     "paths": {
       "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
       "@ui/*": ["./ui/*"],
       "@pages/*": ["./pages/*"],
       "@utils/*": ["./utils/*"],
