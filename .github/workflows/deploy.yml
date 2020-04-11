@@ -1,0 +1,25 @@
+name: Github Pages
+on:
+  push:
+    # Since I haven't yet figured out how Github Actions work,
+    # This deployment seems tricky and is not working right now
+    # Thus, changed the branch name, so that action never triggers.
+    branches:
+      - xyz
+
+# I can add more jobs here, like test and buid, if needed
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use NodeJS ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: 'Deploy as Github Pages'
+      run: npm install && npm run deploy
+
