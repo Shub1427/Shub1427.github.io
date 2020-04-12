@@ -1,3 +1,10 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
+  integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG"
+  crossOrigin="anonymous"
+/>
+
 # Astro Blaster
 
 <Blockquote type="warn">
@@ -30,6 +37,7 @@ written in the world of Game dev, like:
 
 * How to show some images on screen.
 * How to use Game units instead of pixel, to get a resolution independent code.
+  * This is something I will cover later sometime, for now I don't have a good understanding for this.
 * How to use keyboard for inputs. What `Edge-Triggered` and `Level-Triggered` keyboard events are.
 
 Concepts of applying Physics, once these things are clear becomes easy.
@@ -223,11 +231,87 @@ Now we just need to call `player.update` in `world.update` to reflect it on the 
 Diff: [d8a9730f134f056acd451692834722cd75b020a6](https://github.com/Shub1427/rustschool/commit/d8a9730f134f056acd451692834722cd75b020a6)
 
 
+## Fix the upside down coordinates of screen:
+
+If you have noticed, I am having negative delta y for `UP` event ($dy = -1.0$), that's because
+our world right now is upside down. This is because Screen coordinates in computer graphics has
+origin at `top-left` corner, where $+X-axis$ goes towards right of the screen and $+Y-axis$ goes
+to the bottom of the screen. We need to revert it back to how we use coordinates in real world, so
+that our usual Physics and Maths can be applied as is.
+
+<Diff lang="rs" addedLineNumbers={[5, 6, 7, 11, 12, 18, 19, 20, 21]} removedLineNumbers={[]} hideLines>
+{`// physics.rs
+...
+pub fn new(ctx: &mut Context) -> GameResult<Self> {
+    let image = graphics::Image::new(ctx, "/playerShip1_blue.png")?;
+    let pos = nalgebra::Point2::new(72.0, 0.0);
+    let y_offset = constants::VIEWPORT_HEIGHT - image.height() as f32;
+    let bbox = graphics::Rect::new(0., 0., image.width() as f32, image.height() as f32);
+    Ok(Player {
+        image,
+        pos,
+        offset: nalgebra::Vector2::new(0.0, y_offset),
+        bbox,
+        facing: 0.,
+    })
+}
+...
+fn draw(&mut self, ctx: &mut Context) -> GameResult {
+    let reverted_pos = nalgebra::Point2::new(
+        self.offset.x + self.pos.x,
+        self.offset.y - self.pos.y
+    );
+    let params = graphics::DrawParam::new()
+        .dest(reverted_pos);
+    ...
+}`}
+</Diff>
+
+We are drawing the image with an offset, where whatever the Y position is, we will subtract it to
+window height and add image height, to keep the origin of the image still at top-left corner of the image,
+but any delta modification can be done with natural $X-Y axis$, without worrying about the inversion.
+
+<br />
+
+Note that `bbox` added to player is just for debugging purpose and not actually required for our game.
+
+Diff: [d6379bd1f9226026ad1e313a4a3653e04767532d](https://github.com/Shub1427/rustschool/commit/d6379bd1f9226026ad1e313a4a3653e04767532d)
+
+## Add Physics to Player's Movements:
+
+Moving in the world with some max velocity and constant accelaration, applied to the spaceship
+when user presses direction buttons.
+
+<br />
+
+Keeping Acceleration ($a$) constant and having a max velocity ($V$), we can derive,
+distance travelled in unit time:
+
+* Acceleration is: $a = \frac{v}{t}$
+  * So at any instant: $v = a \times t$
+* Once velocity is found, we can derive distance from that velocity,
+  for that instant $d = v \times t$
+  * Keeping a check for $v \leq V$
+
+Once $d$ is found, we can use it as our delta distance, that will be added to current position.
+Now everything defined above is for 1D, but we are making game for 2D, so we need direction as well.
+Our Acceleration ($a$) and Velocity ($v$) both will have a direction bound to it. We need to go back
+to the basics of trignometry now.
+
+
 ## Use Resolution independent Game Units:
+
+<Blockquote type="warn">
+    <strong>NOTE</strong>: I will elaborate on this topic, when I will feel more confident on how to
+    achieve it more naturally. Actually I want to use Game Units that resembles Natural Units like
+    <InlineCode>meters</InlineCode>, where the viewport can be considered in meters. Something, like
+    10 pixels equals 1 meter. For now using that logic in game is getting difficult for me, thus will
+    keep using pixels directly
+</Blockquote>
 
 Our game is very simple till now, and it will remain the same for sometime. So it is very hard
 to justify, how a movement of player done using pixel calculation is any different from using
 some random Game unit. To properly understand, please follow the coming image demonstrations carefully.
 
-<Image src="https://user-images.githubusercontent.com/11786283/79061650-08167800-7cb0-11ea-8a7d-cc1096560e0a.jpeg" placeholder="https://user-images.githubusercontent.com/11786283/79061723-7e1adf00-7cb0-11ea-8398-03e3e5b56f8e.jpg" alt="Descriptive relative speed to varying viewport or the world" />
+<Image src="https://user-images.githubusercontent.com/11786283/79068488-e4b9f000-7ce4-11ea-834b-2f36ebf49edd.png" placeholder="https://user-images.githubusercontent.com/11786283/79068483-d4a21080-7ce4-11ea-9cb5-f5f6a13f4b2c.png" alt="Descriptive relative speed to varying viewport or the world" />
 
