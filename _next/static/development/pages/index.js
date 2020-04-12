@@ -430,7 +430,7 @@ const archiveList = [{
   description: 'A very minimal game making tutorial in Rust using ggez',
   tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].TUTORIAL],
   createdAt: new Date('2020/04/10'),
-  updateAt: new Date('2020/04/11')
+  updateAt: new Date('2020/04/12')
 }];
 
 /***/ }),
