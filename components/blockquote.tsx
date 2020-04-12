@@ -1,10 +1,14 @@
 import React from 'react';
-
+import cx from 'classnames';
 import { Card, makeStyles, colors } from '@material-ui/core';
+
+export interface IBlockquoteProps {
+  type: 'info' | 'warn' | 'error';
+  children: React.ReactChild;
+}
 
 const useStyles = makeStyles({
   root: {
-    borderLeft: `12px solid ${colors.blue['300']}`,
     background: '#f2f2f2',
     padding: '16px 8px',
     color: '#777',
@@ -14,13 +18,27 @@ const useStyles = makeStyles({
       fontSize: '0.9rem',
     },
   },
+  info: {
+    borderLeft: `12px solid ${colors.blue['300']}`,
+  },
+  warn: {
+    borderLeft: `12px solid ${colors.amber['300']}`,
+  },
+  error: {
+    borderLeft: `12px solid ${colors.red['400']}`,
+  },
 });
 
-export default function Blockquote(props: any) {
+export default function Blockquote(props: IBlockquoteProps) {
   const classes = useStyles();
+  const rootClasses = cx(classes.root, classes[props.type]);
   return (
-    <Card elevation={0} className={classes.root}>
+    <Card elevation={0} className={rootClasses}>
       {props.children}
     </Card>
   );
 }
+
+Blockquote.defaultProps = {
+  type: 'info',
+};

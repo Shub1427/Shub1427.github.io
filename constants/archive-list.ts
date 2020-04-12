@@ -20,6 +20,6 @@ export const archiveList: IArchiveItem[] = [
     description: 'A very minimal game making tutorial in Rust using ggez',
     tags: [Tags.TUTORIAL],
     createdAt: new Date('2020/04/10'),
-    updateAt: new Date('2020/04/11'),
+    updateAt: new Date('2020/04/12'),
   },
 ];

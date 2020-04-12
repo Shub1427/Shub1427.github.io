@@ -13,6 +13,7 @@ import MDXH2 from '@components/mdx-h2';
 import CodeBlock from '@components/code-block';
 import InlineCode from '@components/inline-code';
 import CodeDiff from '@components/code-diff';
+import Image from '@components/progressive-image';
 
 const mdComponents = {
   a: (props: any) => <Link target="_blank" {...props} />,
@@ -24,8 +25,11 @@ const mdComponents = {
   code: CodeBlock,
   inlineCode: InlineCode,
   Button,
+  Blockquote,
   Diff: CodeDiff,
   CodeBlock, // Using codeblock as is gives us more control
+  InlineCode,
+  Image,
 };
 
 export default class MyApp extends App {

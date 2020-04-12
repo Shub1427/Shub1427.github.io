@@ -5,7 +5,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     padding: '0',
-    margin: '32px 0 16px',
+    margin: '48px 0 16px',
   },
 });
 

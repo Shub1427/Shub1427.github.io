@@ -1,5 +1,12 @@
 # Astro Blaster
 
+<Blockquote type="warn">
+    <strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to
+    properly write the important thing. I am trying to learn Game Dev, using various sources,
+    from scratch using Vulkan API, using minimal game engine like <InlineCode>ggez</InlineCode> and Godot Engine.
+    Combining that knowledge and writing that down here will take time.
+</Blockquote>
+
 This Tutorial is mostly made up from Astro Blaster example from
 Ggez game engine in Rust.
 
@@ -146,3 +153,81 @@ fn draw(&mut self, ctx: &mut Context) -> GameResult {
 </Diff>
 
 Diff: [c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e](https://github.com/Shub1427/rustschool/commit/c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e)
+
+
+## Move the Player with Keyboard events
+
+Ggez uses `edge-triggered` keyboard events, simulated to look like `level-triggered`.
+
+<br />
+
+In simple words, `Edge Triggered` refers to single keyboard event, no matter
+how long we keep the key pressed. For eg. If I have pressed `Up` button
+and also press `Right` button after sometime, without leaving the `Up` button, we lose
+event on `Up` button, as a new keycode `Right` overrides it.
+
+> Using `key_down_event` from `event::EventHandler` trait, actually simulates
+> the above as level triggered, but once the keycode change, old keypress is lost.
+
+On the other hand, `Level Triggered` refers to continous events, that keeps on triggering
+untill user stops the keypress. it can also handle more than one keypress at a time.
+
+<br />
+
+To hack ggez to get the desired output from keyboard events, i.e., to get events `Up`
+and `Right` simultaneously, we use `input::keyboard::is_key_pressed` instead, with
+multiple `if/else` instead of `key_down_event` in trait impl.
+
+```rs
+// player.rs
+impl Player {
+    ...
+    pub fn handle_events(&mut self, ctx: &mut Context) -> GameResult {
+        let mut dy = 0.;
+        let mut dx = 0.;
+        if input::keyboard::is_key_pressed(ctx, event::KeyCode::Up) {
+            dy = -1.0;
+        }
+        if input::keyboard::is_key_pressed(ctx, event::KeyCode::Right) {
+            dx = 1.0;
+        }
+        if input::keyboard::is_key_pressed(ctx, event::KeyCode::Down) {
+            dy = 1.0;
+        }
+        if input::keyboard::is_key_pressed(ctx, event::KeyCode::Left) {
+            dx = -1.0;
+        }
+        self.pos = nalgebra::Point2::new(self.pos.x + dx, self.pos.y + dy);
+        Ok(())
+    }
+}
+
+impl event::EventHandler for Player {
+    fn update(&mut self, ctx: &mut Context) -> GameResult {
+        self.handle_events(ctx)?;
+        Ok(())
+    }
+    ...
+}
+```
+
+We are directly updating the `position` of the player, instead of deriving it from velocity and time,
+which give precise control over the Player's movement. Anyways, for simplicity change the position
+directly for now is fine. We will later on update it to use `velocity * time` to get the `dpos` moved
+in unit time.
+
+<br />
+
+Now we just need to call `player.update` in `world.update` to reflect it on the screen.
+
+Diff: [d8a9730f134f056acd451692834722cd75b020a6](https://github.com/Shub1427/rustschool/commit/d8a9730f134f056acd451692834722cd75b020a6)
+
+
+## Use Resolution independent Game Units:
+
+Our game is very simple till now, and it will remain the same for sometime. So it is very hard
+to justify, how a movement of player done using pixel calculation is any different from using
+some random Game unit. To properly understand, please follow the coming image demonstrations carefully.
+
+<Image src="https://user-images.githubusercontent.com/11786283/79061650-08167800-7cb0-11ea-8a7d-cc1096560e0a.jpeg" placeholder="https://user-images.githubusercontent.com/11786283/79061723-7e1adf00-7cb0-11ea-8398-03e3e5b56f8e.jpg" alt="Descriptive relative speed to varying viewport or the world" />
+
