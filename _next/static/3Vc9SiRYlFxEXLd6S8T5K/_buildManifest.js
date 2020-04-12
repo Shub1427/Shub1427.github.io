@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = (function(a){return {"/astro-v2":[a],"/astro-v2/chap-01":[a]}}("static\u002Fchunks\u002F7f0db0b56a583fd767de8b3c069a37661067254b.9b049dd7e5849992ffac.js"));self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
