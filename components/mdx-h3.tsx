@@ -5,11 +5,11 @@ import { Typography, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     padding: '0',
-    margin: '48px 0 16px',
+    margin: '32px 0 12px',
   },
 });
 
-export default function MDXH2(props: any) {
+export default function MDXH3(props: any) {
   const classes = useStyles();
-  return <Typography variant="h4" className={classes.root} {...props} />;
+  return <Typography variant="h5" className={classes.root} {...props} />;
 }

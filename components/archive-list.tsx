@@ -16,6 +16,7 @@ import {
 } from '@material-ui/core';
 
 import { archiveList, IArchiveItem } from '@constants/archive-list';
+import { sortBy, SortTypes, SortOrder } from '@utils/sort-by';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -60,16 +61,21 @@ const getTagComponent = (page: IArchiveItem) => {
 
 export default function ArchiveList() {
   const classes = useStyles();
+  const sortedArchiveList = sortBy(
+    archiveList,
+    SortTypes.CREATED_AT,
+    SortOrder.DESC
+  );
   return (
     <div className={classes.root}>
       <Typography className={classes.centered} variant="h4">
         Archives
       </Typography>
       <List component="nav" aria-label="main mailbox folders">
-        {archiveList.map(page => {
+        {sortedArchiveList.map(page => {
           return (
             <ListItem key={page.key}>
-              <Card className={classes.root}>
+              <Card className={classes.root} elevation={4}>
                 <CardContent>
                   <div className={classes.tags}>{getTagComponent(page)}</div>
                   <Typography

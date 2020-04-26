@@ -21,6 +21,11 @@ declare module 'react-syntax-highlighter/dist/esm/languages/prism/rust' {
   export default language;
 }
 
+declare module 'react-syntax-highlighter/dist/cjs/languages/prism/toml' {
+  const language: any;
+  export default language;
+}
+
 // Styles
 declare module 'react-syntax-highlighter/dist/cjs/styles/prism' {
   export { default as atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';

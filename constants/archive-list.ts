@@ -1,12 +1,12 @@
 import { Tags } from './tags';
+import { ISortParams } from '@utils/sort-by';
 
-export interface IArchiveItem {
+export interface IArchiveItem extends ISortParams {
   key: string;
   link: string;
   title: React.ReactNode;
   description: React.ReactNode;
   tags: Tags[];
-  createdAt: Date;
   updateAt: Date;
 }
 
@@ -21,5 +21,15 @@ export const archiveList: IArchiveItem[] = [
     tags: [Tags.TUTORIAL],
     createdAt: new Date('2020/04/10'),
     updateAt: new Date('2020/04/12'),
+  },
+  {
+    key: 'gfx-hal-basics',
+    link: '/gfx-hal-initials',
+    title: 'Basics on Vulkan using gfx-hal',
+    description:
+      'Reference Notes for me (and others) to help get started with Rust and Vulkan',
+    tags: [Tags.TUTORIAL],
+    createdAt: new Date('2020/04/26'),
+    updateAt: new Date('2020/04/26'),
   },
 ];
