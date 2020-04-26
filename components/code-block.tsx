@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 export default function CodeBlock({
   children,
   className,
-  showLines = true,
+  showLines = false,
 }: ICodeBlockProps) {
   const classes = useStyles();
   const details = className.replace(/language-/, '');

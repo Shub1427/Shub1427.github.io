@@ -17,6 +17,7 @@ import CodeDiff from '@components/code-diff';
 import Image from '@components/progressive-image';
 import ThematicBreak from '@components/thematic-break';
 import PolkaContainer from '@components/polka-container';
+import NoteSubtitle from '@components/note-subtitle';
 
 const mdComponents = {
   a: (props: any) => <Link target="_blank" {...props} />,
@@ -37,6 +38,7 @@ const mdComponents = {
   InlineCode,
   Image,
   PolkaContainer,
+  NoteSubtitle,
 };
 
 export default class MyApp extends App {

@@ -1,6 +1,7 @@
 <PolkaContainer>
 
 # Basics on Rust & Cargo
+<NoteSubtitle date={new Date("2020/04/26")} totalWords={820} />
 
 ## Rust
 <Blockquote type="warn">
@@ -174,7 +175,7 @@ by defining `features` in `Cargo.toml` file, and later when running the Project 
 
 __Example `Cargo.toml`__
 
-```toml.false
+```toml
 [features]
 default = []
 metal = ["gfx-backend-metal"]
@@ -198,7 +199,7 @@ optional = true
 Once above is done, we can now use feature-toggles in our code, to remove part of code
 that does not satisfy the `feature`. For Eg,
 
-```rs.false
+```rs
 #[cfg(feature = "dx12")]
 use gfx_backend_dx12 as back;
 #[cfg(feature = "metal")]
@@ -209,7 +210,7 @@ use gfx_backend_vulkan as back;
 
 And not the final part to run the code with features enabled.
 
-```sh.false
+```sh
 cargo run --features metal
 ```
 
