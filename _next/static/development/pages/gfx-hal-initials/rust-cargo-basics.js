@@ -415,7 +415,7 @@ function MDXContent(_ref) {
     }
   }, "Basics on Rust & Cargo"), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_3__["mdx"])(NoteSubtitle, {
     date: new Date("2020/04/26"),
-    totalWords: 820,
+    totalWords: 686,
     mdxType: "NoteSubtitle",
     __self: this,
     __source: {

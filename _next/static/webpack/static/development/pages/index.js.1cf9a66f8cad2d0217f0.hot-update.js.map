@@ -1,0 +1,1 @@
+{"version":3,"file":"static/webpack/static/development/pages/index.js.1cf9a66f8cad2d0217f0.hot-update.js","sources":["webpack:///./constants/tags.ts"],"sourcesContent":["export enum Tags {\n  // type\n  TUTORIAL = 'tutorial',\n\n  // lang\n  RUST = 'rust',\n}\n"],"mappings":";;;;;;;;;;AAAA;AAAA;AAAA;AACA;AADA;AAAA;AAAA;AAAA;;;;A","sourceRoot":""}
