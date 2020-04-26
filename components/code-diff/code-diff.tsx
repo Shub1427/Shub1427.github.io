@@ -1,9 +1,10 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import rust from 'react-syntax-highlighter/dist/cjs/languages/prism/rust';
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
-import { makeStyles } from '@material-ui/core';
+import DiffItem from './item';
 
 SyntaxHighlighter.registerLanguage('js', jsx);
 SyntaxHighlighter.registerLanguage('rust', rust);
@@ -16,11 +17,37 @@ export interface ICodeDiffProps {
   children: React.ReactChild;
 }
 
+export interface IRowRenderer {
+  rows: any[];
+  stylesheet: string;
+  useInlineStyles: any;
+}
+
 const useStyles = makeStyles({
   root: {
     marginBottom: 16,
   },
 });
+
+const rowRenderer = (addedLines: number[], removedLines: number[]) => ({
+  rows,
+  stylesheet,
+  useInlineStyles,
+}: IRowRenderer) => {
+  return rows.map((row: any, index: number) => {
+    return (
+      <DiffItem
+        key={`code-segement${index}`}
+        isAddedLine={addedLines.includes(index + 1)}
+        isRemovedLine={removedLines.includes(index + 1)}
+        index={index}
+        row={row}
+        stylesheet={stylesheet}
+        useInlineStyles={useInlineStyles}
+      />
+    );
+  });
+};
 
 export default function CodeDiff(props: ICodeDiffProps) {
   const classes = useStyles();
@@ -41,15 +68,7 @@ export default function CodeDiff(props: ICodeDiffProps) {
         style={atomDark}
         showLineNumbers={!props.hideLines}
         wrapLines
-        lineProps={(lineNumber: number) => {
-          const style: any = { display: 'block' };
-          if (props.addedLineNumbers.includes(lineNumber)) {
-            style.background = 'rgba(139, 195, 74, 0.5)';
-          } else if (props.removedLineNumbers.includes(lineNumber)) {
-            style.background = '#ffecec';
-          }
-          return { style };
-        }}
+        renderer={rowRenderer(props.addedLineNumbers, props.removedLineNumbers)}
       >
         {props.children}
       </SyntaxHighlighter>

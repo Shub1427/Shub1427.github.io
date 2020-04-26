@@ -18,10 +18,14 @@ export default function PolkaPattern() {
           x="0"
           y="0"
           patternUnits="userSpaceOnUse"
-          width="25"
-          height="25"
+          width="50"
+          height="50"
         >
-          <circle cx="12.5" cy="12.5" r="2" fill="#e3f2fd"></circle>
+          <circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle>
+          <circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle>
+          <circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle>
+          <circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle>
+          <circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle>
         </pattern>
       </defs>
 

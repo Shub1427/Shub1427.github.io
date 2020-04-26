@@ -23,7 +23,7 @@ let theme = createMuiTheme({
       main: red.A400,
     },
     background: {
-      default: '#FCFCF4',
+      default: '#FFFFFF',
       paper: common.white,
     },
   },

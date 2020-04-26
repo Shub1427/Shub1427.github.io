@@ -25,17 +25,18 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es6",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ]
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
     "next-env.d.ts",
+    "typings",
     "**/*.ts",
     "**/*.tsx"
-  ],
-  "typeRoots": [
-    "./node_modules/@types",
-    "./typings"
   ]
 }
