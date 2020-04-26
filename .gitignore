@@ -10,6 +10,7 @@
 out/
 /build
 .next/
+scripts/target/
 
 # misc
 .DS_Store

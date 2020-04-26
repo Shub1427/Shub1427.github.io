@@ -1,9 +1,9 @@
 [package]
-name = "personal scripts"
+name = "personal-scripts"
 version = "0.1.0"
 authors = ["Shub1427 <shub1493biswas@gmail.com>"]
 edition = "2018"
 
 
 [dependencies]
-
+regex = "1"

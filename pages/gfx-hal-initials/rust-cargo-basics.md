@@ -1,7 +1,7 @@
 <PolkaContainer>
 
 # Basics on Rust & Cargo
-<NoteSubtitle date={new Date("2020/04/26")} totalWords={820} />
+<NoteSubtitle date={new Date("2020/04/26")} totalWords={686} />
 
 ## Rust
 <Blockquote type="warn">

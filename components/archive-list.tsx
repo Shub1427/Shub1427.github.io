@@ -37,6 +37,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: 14,
     marginBottom: 12,
   },
+  tagItem: {
+    '& + &': {
+      marginLeft: 8,
+    },
+  },
   title: {
     display: 'flex',
     justifyContent: 'center',
@@ -53,9 +58,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const getTagComponent = (page: IArchiveItem) => {
+const getTagComponent = (
+  page: IArchiveItem,
+  classes: ReturnType<typeof useStyles>
+) => {
   return page.tags.map(tag => {
-    return <Chip key={tag} label={tag} size="small" />;
+    return (
+      <Chip key={tag} className={classes.tagItem} label={tag} size="small" />
+    );
   });
 };
 
@@ -77,7 +87,9 @@ export default function ArchiveList() {
             <ListItem key={page.key}>
               <Card className={classes.root} elevation={4}>
                 <CardContent>
-                  <div className={classes.tags}>{getTagComponent(page)}</div>
+                  <div className={classes.tags}>
+                    {getTagComponent(page, classes)}
+                  </div>
                   <Typography
                     className={classes.title}
                     variant="h5"

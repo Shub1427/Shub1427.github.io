@@ -1,6 +1,7 @@
 <PolkaContainer>
 
 # Display Window
+<NoteSubtitle date={new Date("2020/04/26")} totalWords={520} />
 
 Vulkan is a very low-level spec, which intends to keep as less overhead of code as it can.
 `gfx-hal` is a library which closely resembles the Vulkan specs (not entirely though), to provide
@@ -33,7 +34,7 @@ Vulkan Backend is cross-compatible and has support in Linux/Widnows, on AMD, Int
 
 To work with `gfx-hal` we need to create an instance of a specific Backend which can be controlled using Rust Feature Configurations.
 
-```rs.false
+```rs
 #[cfg(feature = "dx12")]
 use gfx_backend_dx12 as back;
 #[cfg(feature = "metal")]
@@ -58,7 +59,7 @@ cross-platform. It requires two major steps to display a blank window:
 Vulkan instance is the starting point to work with Vulkan. A Vulkan instance actually takes the name
 of Application, and provides us with various APIs, specially to `enumerate_devices`.
 
-```rs.false
+```rs
 // create(application_name, application_version);
 let instance = back::Instance::create("Backend Instance", 1)
   .expect("Failed to create an instance!");
@@ -70,7 +71,7 @@ Vulkan requires a canvas or `surface` to draw things into and a `surface` can on
 a OS App Window. Usually we will be using a 3rd-party module to create OS specific Window instances,
 like `winit`, and thw window instance to create a `surface`.
 
-```rs.false
+```rs
 // `wb` is `winit` window_builder.
 let window = wb.build(event_loop).unwrap();
 
