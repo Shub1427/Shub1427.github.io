@@ -3,9 +3,10 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    background: '#eee',
+    background: 'rgba(0, 0, 0, 0.05)',
     color: '#933',
-    padding: '4px 8px',
+    padding: '1px 8px',
+    margin: '0 2px',
   },
 });
 
