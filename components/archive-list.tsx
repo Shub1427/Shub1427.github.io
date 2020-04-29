@@ -111,7 +111,11 @@ export default function ArchiveList() {
                 </CardContent>
                 <CardActions>
                   <Link href={page.link}>
-                    <Button color="primary" size="small">
+                    <Button
+                      disabled={!page.isPublished}
+                      color="primary"
+                      size="small"
+                    >
                       Visit
                     </Button>
                   </Link>
