@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/6kJMM_TxDVEvXWcLUXavL/pages/gfx-hal-initials/rust-cargo-basics.js" as="script"/><link rel="preload" href="/_next/static/6kJMM_TxDVEvXWcLUXavL/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/84f5e2cf560b18cf029e9a13831ba2d8c5e3e6e5.ba00559c5f0e1cef9da2.js" as="script"/><link rel="preload" href="/_next/static/chunks/9bd90c1e007ffb861d857acf4f3e794df5aae144.1aa22e475cd9906a59d1.js" as="script"/><link rel="preload" href="/_next/static/chunks/6bab59c3dfd08aadeb27244d40658a4e31f084ec.9bf916f3b67eff4ae3db.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-294284df1e808cb28370.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/pages/gfx-hal-initials/rust-cargo-basics.js" as="script"/><link rel="preload" href="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/335d9c81c6fe80fd60ed89ddf642b60a2e8465f0.161ee28d277efe0b043d.js" as="script"/><link rel="preload" href="/_next/static/chunks/377a1a855ae08df62ccfafe91ce5f7b23fe35a16.bc7ae3b4011521cd836a.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-ad4399c6022832cad37d.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -470,6 +470,21 @@ body::backdrop {
   .jss48 {
     border-left: 12px solid #ef5350;
   }
+  .jss41 {
+    color: #888;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+  }
+  .jss42 {
+    display: inline-block;
+  }
+  .jss43 {
+    margin: 0 4px;
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 0.8;
+  }
   .jss10 {
     padding: 0;
     margin-bottom: 48px;
@@ -507,23 +522,7 @@ body::backdrop {
   .jss1 {
     padding: 64px 32px;
     position: relative;
-  }
-  .jss41 {
-    color: #888;
-    display: flex;
-    font-size: 12px;
-    margin-top: -48px;
-    align-items: center;
-  }
-  .jss42 {
-    display: inline-block;
-  }
-  .jss43 {
-    margin: 0 4px;
-    display: inline-block;
-    font-size: 1.5em;
-    line-height: 0.8;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><h2 class="MuiTypography-root jss10 MuiTypography-h2">Basics on Rust &amp; Cargo</h2><div class="jss41"><p class="MuiTypography-root jss42 MuiTypography-body2">Apr 26</p><span class="jss43">•</span><p class="MuiTypography-root jss42 MuiTypography-body2">4<!-- --> min read</p></div><h4 class="MuiTypography-root jss44 MuiTypography-h4">Rust</h4><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">I am a very beginner in Rust and Low Level Programming, and parts of my research might be falsy or wrong (as I forget things very soon, due to me trying new things most often). Don&#x27;t take everything I write here, as the only source of truth. Please do verify my writings here from different sources. If found falsy, please do let me know by <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/shub1427.github.io/issues/new/choose">raising an issue here</a>.</div><br/><p class="MuiTypography-root MuiTypography-body1">Anyways, keeping aside the above talk, I am trying my best to improve these notes. If anything
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><h2 class="MuiTypography-root MuiTypography-h2">Basics on Rust &amp; Cargo</h2><div class="jss41"><p class="MuiTypography-root jss42 MuiTypography-body2">Apr 26</p><span class="jss43">•</span><p class="MuiTypography-root jss42 MuiTypography-body2">4<!-- --> min read</p></div></div><h4 class="MuiTypography-root jss44 MuiTypography-h4">Rust</h4><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">I am a very beginner in Rust and Low Level Programming, and parts of my research might be falsy or wrong (as I forget things very soon, due to me trying new things most often). Don&#x27;t take everything I write here, as the only source of truth. Please do verify my writings here from different sources. If found falsy, please do let me know by <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/shub1427.github.io/issues/new/choose">raising an issue here</a>.</div><br/><p class="MuiTypography-root MuiTypography-body1">Anyways, keeping aside the above talk, I am trying my best to improve these notes. If anything
 I find misleading, I will update in later revisions of this site. Mostly I will write only those
 things, which I have worked with and faced some issues before.</p><br/><p class="MuiTypography-root MuiTypography-body1">Hope this helps you as well.</p><h5 class="MuiTypography-root jss84 MuiTypography-h5">Some basics on Lifetimes:</h5><p class="MuiTypography-root MuiTypography-body1">Every reference in global context in <code class="jss85">rust</code> has a lifetime
 of <code class="jss85">static</code>, and by default we don&#x27;t have to assign a specifc
@@ -639,4 +638,4 @@ that does not satisfy the <code class="jss85">feature</code>. For Eg,</p><pre><d
 </code></pre></div></pre><p class="MuiTypography-root MuiTypography-body1">And not the final part to run the code with features enabled.</p><pre><div class="jss86"><pre style="color:#c5c8c6;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Inconsolata, Monaco, Consolas, &#x27;Courier New&#x27;, Courier, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em;background:#1d1f21"><code style="color:#c5c8c6;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Inconsolata, Monaco, Consolas, &#x27;Courier New&#x27;, Courier, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none">cargo run --features metal
 </code></pre></div></pre><p class="MuiTypography-root MuiTypography-body1">Above code runs our code, enabling the <code class="jss85">metal</code> feature-toggle, which compiles our
 code for MacOS Platform. We can also pass more features in one go, if they are supported
-during compilation, with comma separated values.</p></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/rust-cargo-basics","query":{},"buildId":"6kJMM_TxDVEvXWcLUXavL","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-fcdaceb475a9116d3d01.js"></script><script async="" data-next-page="/gfx-hal-initials/rust-cargo-basics" src="/_next/static/6kJMM_TxDVEvXWcLUXavL/pages/gfx-hal-initials/rust-cargo-basics.js"></script><script async="" data-next-page="/_app" src="/_next/static/6kJMM_TxDVEvXWcLUXavL/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/84f5e2cf560b18cf029e9a13831ba2d8c5e3e6e5.ba00559c5f0e1cef9da2.js" async=""></script><script src="/_next/static/chunks/9bd90c1e007ffb861d857acf4f3e794df5aae144.1aa22e475cd9906a59d1.js" async=""></script><script src="/_next/static/chunks/6bab59c3dfd08aadeb27244d40658a4e31f084ec.9bf916f3b67eff4ae3db.js" async=""></script><script src="/_next/static/runtime/main-294284df1e808cb28370.js" async=""></script><script src="/_next/static/6kJMM_TxDVEvXWcLUXavL/_buildManifest.js" async=""></script><script src="/_next/static/6kJMM_TxDVEvXWcLUXavL/_ssgManifest.js" async=""></script></body></html>
+during compilation, with comma separated values.</p></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/rust-cargo-basics","query":{},"buildId":"Nfq7T5F9KLIoK3vPBz1fn","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-ef69e3520fae86d5dd27.js"></script><script async="" data-next-page="/gfx-hal-initials/rust-cargo-basics" src="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/pages/gfx-hal-initials/rust-cargo-basics.js"></script><script async="" data-next-page="/_app" src="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/335d9c81c6fe80fd60ed89ddf642b60a2e8465f0.161ee28d277efe0b043d.js" async=""></script><script src="/_next/static/chunks/377a1a855ae08df62ccfafe91ce5f7b23fe35a16.bc7ae3b4011521cd836a.js" async=""></script><script src="/_next/static/runtime/main-ad4399c6022832cad37d.js" async=""></script><script src="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/_buildManifest.js" async=""></script><script src="/_next/static/Nfq7T5F9KLIoK3vPBz1fn/_ssgManifest.js" async=""></script></body></html>
