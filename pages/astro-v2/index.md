@@ -1,3 +1,5 @@
+import { archiveRecord } from '@constants/archive-list';
+
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
@@ -5,7 +7,11 @@
   crossOrigin="anonymous"
 />
 
-# Astro Blaster
+<PolkaContainer>
+
+<H1 updatedAt={archiveRecord['astro-v2'].updatedAt} wordCount={1200}>
+  Astro Blaster
+</H1>
 
 <Blockquote type="warn">
     <strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to
@@ -315,3 +321,4 @@ some random Game unit. To properly understand, please follow the coming image de
 
 <Image src="https://user-images.githubusercontent.com/11786283/79068488-e4b9f000-7ce4-11ea-834b-2f36ebf49edd.png" placeholder="https://user-images.githubusercontent.com/11786283/79068483-d4a21080-7ce4-11ea-9cb5-f5f6a13f4b2c.png" alt="Descriptive relative speed to varying viewport or the world" />
 
+</PolkaContainer>

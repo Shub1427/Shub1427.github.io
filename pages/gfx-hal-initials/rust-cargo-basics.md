@@ -1,7 +1,12 @@
+import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+
+export const record = halArchiveRecord['rust-cargo-basics'];
+
 <PolkaContainer>
 
-# Basics on Rust & Cargo
-<NoteSubtitle date={new Date("2020/04/26")} totalWords={686} />
+<H1 updatedAt={record.updatedAt} wordCount={686}>
+  {record.title}
+</H1>
 
 ## Rust
 <Blockquote type="warn">

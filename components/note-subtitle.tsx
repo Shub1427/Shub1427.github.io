@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { format } from 'date-fns';
 
 import { Typography, makeStyles } from '@material-ui/core';
@@ -6,6 +7,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 export interface INoteSubtitle {
   date: Date;
   totalWords: number;
+  className?: string;
 }
 
 const useStyles = makeStyles({
@@ -14,7 +16,6 @@ const useStyles = makeStyles({
     alignItems: 'center',
     fontSize: 12,
     color: '#888',
-    marginTop: '-48px',
   },
   description: {
     display: 'inline-block',
@@ -37,8 +38,9 @@ const useStyles = makeStyles({
  */
 export default function NoteSubtitle(props: INoteSubtitle) {
   const classes = useStyles();
+  const rootClasses = cx(classes.root, props.className);
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <Typography variant="body2" className={classes.description}>
         {format(props.date, 'MMM dd')}
       </Typography>

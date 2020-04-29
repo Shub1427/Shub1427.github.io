@@ -1,6 +1,11 @@
+import { archiveRecord } from '@constants/archive-list';
+import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+
 <PolkaContainer>
 
-# `gfx-hal` & `vulkan` basics
+<H1 updatedAt={archiveRecord['gfx-hal-basics'].updatedAt} wordCount={325}>
+  <InlineCode>gfx-hal</InlineCode> & <InlineCode>vulkan</InlineCode> basics
+</H1>
 
 I have found that learning new things every often,
 leads to chaos, and people (specifically ME) tend to forget many things they have already
@@ -35,7 +40,7 @@ __Special Thanks to__:
   * [Vulkan Tutorials](https://vulkan-tutorial.com/Introduction)
 
 > Before moving forward, I would like to clear some basics on Rust and Cargo.
-> _Follow <Link href="/gfx-hal-initials/rust-cargo-basics">this guide</Link>_, if you want to
+> _Follow <Link href={halArchiveRecord['rust-cargo-basics'].link}>this guide</Link>_, if you want to
 > clear some basics on the same.
 
 ***
@@ -43,6 +48,6 @@ __Special Thanks to__:
 ## Table of Contents
 
 ### Draw a Cube
-* <Link href="/gfx-hal-initials/display-window">Display a Window</Link>
+* <Link href={halArchiveRecord['display-window'].link}>Display a Window</Link>
 
 </PolkaContainer>

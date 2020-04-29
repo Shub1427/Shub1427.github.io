@@ -1,7 +1,10 @@
+import { archiveRecord } from '@constants/archive-list';
+
 <PolkaContainer>
 
-# Up And Up (up-n-up)
-<NoteSubtitle date={new Date("2020/04/26")} totalWords={564} />
+<H1 updatedAt={archiveRecord['upload-client-logs'].updatedAt} wordCount={564}>
+  Up And Up (up-n-up)
+</H1>
 
 >
 > Up and Up our logs you go. <br/>

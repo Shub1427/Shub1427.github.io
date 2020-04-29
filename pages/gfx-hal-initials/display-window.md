@@ -1,7 +1,12 @@
+import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+
+export const record = halArchiveRecord['display-window'];
+
 <PolkaContainer>
 
-# Display Window
-<NoteSubtitle date={new Date("2020/04/26")} totalWords={520} />
+<H1 updatedAt={record.updatedAt} wordCount={520}>
+  {record.title}
+</H1>
 
 Vulkan is a very low-level spec, which intends to keep as less overhead of code as it can.
 `gfx-hal` is a library which closely resembles the Vulkan specs (not entirely though), to provide

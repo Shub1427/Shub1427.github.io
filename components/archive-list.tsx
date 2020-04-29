@@ -99,7 +99,7 @@ export default function ArchiveList() {
                   </Typography>
                   <div className={classes.dates}>
                     <span>
-                      Updated: {fromDistance(page.updateAt, new Date())} ago
+                      Updated: {fromDistance(page.updatedAt, new Date())} ago
                     </span>
                     <span>
                       Created: {fromDistance(page.createdAt, new Date())} ago

@@ -30,6 +30,7 @@ const mdComponents = {
   inlineCode: InlineCode,
   thematicBreak: ThematicBreak,
   hr: ThematicBreak,
+  H1: MDXH1,
   Link,
   Button,
   Blockquote,

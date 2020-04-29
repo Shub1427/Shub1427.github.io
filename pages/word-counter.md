@@ -1,7 +1,10 @@
+import { archiveRecord } from '@constants/archive-list';
+
 <PolkaContainer>
 
-# Word Counter
-<NoteSubtitle date={new Date("2020/04/26")} totalWords={564} />
+<H1 updatedAt={archiveRecord['word-counter'].updatedAt} wordCount={564}>
+  Word Counter
+</H1>
 
 This is a fun script, that I am trying out to learn rust. Also benifitting myself,
 with a script that will automate to get an approx. count of words from my MDX notes,
