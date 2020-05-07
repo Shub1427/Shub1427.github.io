@@ -56,8 +56,7 @@ needing a `surface` instance. Creation of Window in Rust is done using `winit` l
 cross-platform. It requires two major steps to display a blank window:
 
 * Window Dimensions
-* Event Loop, that will help us to know when to redraw, w.r.t CPU and GPU capabilities
-  * We will discuss this on some other thread.
+* Event Loop, that will help us to know when to redraw, w.r.t CPU and GPU capabilities, and listen to user events. _We will discuss this on some other thread, in detail._
 
 ## Instance
 

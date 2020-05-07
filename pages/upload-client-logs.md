@@ -47,4 +47,29 @@ be extracted, i.e. should we get the chunk after 2 seconds or should we get the 
 size threshold of let's say 100kb, so that the API calls we make are more effective.
 </Blockquote>
 
+## Solution
+
+Using `RxJS`, to simplify the concept of buffering. Understanding `RxJS` took
+me a lot of time. There are four main concepts for `RxJS`.
+
+1. Observable/Observer (Publisher/Subscriber)
+2. Cold and Hot Publisher
+3. Schedulers
+4. Operators
+
+I will discuss these in a separate Note. For now we will just talk about
+buffering.
+
+### Logic:
+
+* Create an instance of the Logger.
+  * The moment the instance is created, create just one `RxJS Subjects` which
+    will manage the buffers and simultaneously `subscribe` them as well.
+* On any API call for `log`, `warn` etc., a call to `subject.next` would be
+made, so as to publish the log string.
+* Which when received to the `subscriber` will be piped with some compression
+  operator then `buffer` operator, and for each `buffer` complete, we
+  will make an HTTP call pushing the buffer to our remote server.
+
+
 </PolkaContainer>

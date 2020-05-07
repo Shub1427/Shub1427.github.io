@@ -15,6 +15,17 @@ export interface IArchiveItem extends ISortParams {
 // I know, it is good to have a DB and a Backend, but
 // for simplicity and saving cost, I am ignoring the Backend
 export const archiveRecord: Record<string, IArchiveItem> = {
+  'performance-reactjs': {
+    key: 'performance-reactjs',
+    link: '/performance-reactjs',
+    title: 'Performance Improvements in JS and ReactJS',
+    description:
+      'Recent Performance related findings of mine, which I am jotting down here for later reference',
+    tags: [Tags.RESEARCH, Tags.JS, Tags.REACT],
+    createdAt: new Date('2020/05/07 09:15:00'),
+    updatedAt: new Date('2020/05/07 09:15:00'),
+    isPublished: true,
+  },
   'upload-client-logs': {
     key: 'upload-client-logs',
     link: '/upload-client-logs',
@@ -22,9 +33,9 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     description:
       "Sometimes (like to get details on performance) there is a requirement to log data \
       from end-user's browser to you own servers, for which this note will talk about.",
-    tags: [Tags.TUTORIAL, Tags.RUST],
+    tags: [Tags.PROJECT, Tags.JS, Tags.REACT],
     createdAt: new Date('2020/04/29 08:30:00'),
-    updatedAt: new Date('2020/04/28 22:30:00'),
+    updatedAt: new Date('2020/05/03 23:30:00'),
     isPublished: false,
   },
   'word-counter': {
@@ -33,7 +44,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     title: 'Word Counter in Rust',
     description:
       'Just a fun bin script for my project, to count words in my MDX files.',
-    tags: [Tags.TUTORIAL, Tags.RUST],
+    tags: [Tags.PROJECT, Tags.RUST],
     createdAt: new Date('2020/04/26 22:00:00'),
     updatedAt: new Date('2020/04/26 22:00:00'),
     isPublished: true,
