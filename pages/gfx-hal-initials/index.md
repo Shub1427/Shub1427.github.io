@@ -9,7 +9,7 @@ import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
 
 <Blockquote type="warn">
   This blog is a <b>Work in Progress</b>. As I complete learning few things one by one,
-  I will update the doc accordinly.
+  I will update the doc accordingly.
 
   <br />
   <br />

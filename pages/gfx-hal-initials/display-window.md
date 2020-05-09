@@ -84,7 +84,7 @@ let surface = unsafe {
   instance
     .create_surface(&window)
     .expect("Failed to create a surface!")
-};****
+};
 ```
 
 </PolkaContainer>
