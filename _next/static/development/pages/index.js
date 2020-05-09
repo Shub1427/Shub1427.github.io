@@ -429,7 +429,7 @@ function ProfileDetailsHeader() {
       lineNumber: 41,
       columnNumber: 9
     }
-  }, "upGrad"), ", as a Software Engineer. This site is about his work, learnings and research. He is interested in various kinds of Graphics programming and is a student by heart. Most of his professional work, involves Web Development, using Javascript and ReactJS, but he is also quite fond of Graphics and in his leisure time he works on Game Dev and Render engines using Rust Lang."), __jsx("div", {
+  }, "upGrad"), ", as a Senior Software Engineer. This site is about his work, learnings and research. He is interested in various kinds of Graphics programming and is a student by heart. Most of his professional work, involves Web Development, using Javascript and ReactJS, but he is also quite fond of Graphics and in his leisure time he works on Game Dev and Render engines using Rust Lang."), __jsx("div", {
     className: classes.socialWrapper,
     __self: this,
     __source: {
@@ -482,23 +482,33 @@ __webpack_require__.r(__webpack_exports__);
 // I know, it is good to have a DB and a Backend, but
 // for simplicity and saving cost, I am ignoring the Backend
 const archiveRecord = {
+  'performance-reactjs': {
+    key: 'performance-reactjs',
+    link: '/performance-reactjs',
+    title: 'Performance Improvements in JS and ReactJS',
+    description: 'Recent Performance related findings of mine, which I am jotting down here for later reference',
+    tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RESEARCH, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].JS, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].REACT],
+    createdAt: new Date('2020/05/07 09:15:00'),
+    updatedAt: new Date('2020/05/07 09:15:00'),
+    isPublished: true
+  },
   'upload-client-logs': {
     key: 'upload-client-logs',
     link: '/upload-client-logs',
     title: 'Client Browser Log to your Server',
     description: "Sometimes (like to get details on performance) there is a requirement to log data \
       from end-user's browser to you own servers, for which this note will talk about.",
-    tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].TUTORIAL, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RUST],
+    tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].PROJECT, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].JS, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].REACT],
     createdAt: new Date('2020/04/29 08:30:00'),
-    updatedAt: new Date('2020/04/28 22:30:00'),
-    isPublished: false
+    updatedAt: new Date('2020/05/03 23:30:00'),
+    isPublished: true
   },
   'word-counter': {
     key: 'word-counter',
     link: '/word-counter',
     title: 'Word Counter in Rust',
     description: 'Just a fun bin script for my project, to count words in my MDX files.',
-    tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].TUTORIAL, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RUST],
+    tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].PROJECT, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RUST],
     createdAt: new Date('2020/04/26 22:00:00'),
     updatedAt: new Date('2020/04/26 22:00:00'),
     isPublished: true
@@ -511,7 +521,7 @@ const archiveRecord = {
     tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].TUTORIAL, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RUST],
     createdAt: new Date('2020/04/26 10:00:00'),
     updatedAt: new Date('2020/04/26 16:00:00'),
-    isPublished: false
+    isPublished: true
   },
   'astro-v2': {
     key: 'astro-v2',
@@ -521,7 +531,7 @@ const archiveRecord = {
     tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].TUTORIAL, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RUST],
     createdAt: new Date('2020/04/10'),
     updatedAt: new Date('2020/04/12'),
-    isPublished: false
+    isPublished: true
   }
 };
 const archiveList = Object(_utils_array_utils__WEBPACK_IMPORTED_MODULE_1__["toArray"])(archiveRecord);
@@ -630,7 +640,11 @@ let Tags;
 
 (function (Tags) {
   Tags["TUTORIAL"] = "tutorial";
+  Tags["PROJECT"] = "project";
+  Tags["RESEARCH"] = "research";
   Tags["RUST"] = "rust";
+  Tags["JS"] = "javascript";
+  Tags["REACT"] = "reactjs";
 })(Tags || (Tags = {}));
 
 /***/ }),
@@ -55709,7 +55723,7 @@ const sortBy = (data, type, order = SortOrder.ASC) => {
 
 /***/ }),
 
-/***/ 6:
+/***/ 2:
 /*!*********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fsubroto.biswas%2FSubroto%2Fshub1427.github.io%2Fpages%2Findex.tsx ***!
   \*********************************************************************************************************************************************/
@@ -55732,5 +55746,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
