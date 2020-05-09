@@ -7,6 +7,16 @@ import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
   <InlineCode>gfx-hal</InlineCode> & <InlineCode>vulkan</InlineCode> basics
 </H1>
 
+<Blockquote type="warn">
+  This blog is a <b>Work in Progress</b>. As I complete learning few things one by one,
+  I will update the doc accordinly.
+
+  <br />
+  <br />
+
+  :warning: &nbsp;For now, read it at your own risk!!!
+</Blockquote>
+
 I have found that learning new things every often,
 leads to chaos, and people (specifically ME) tend to forget many things they have already
 learnt before.

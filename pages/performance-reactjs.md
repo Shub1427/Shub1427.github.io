@@ -6,6 +6,17 @@ import { archiveRecord } from '@constants/archive-list';
   Improve Performance in JS and ReactJS
 </H1>
 
+<Blockquote type="warn">
+  This blog is a <b>Work in Progress</b>, and I am hoping to work on it part by part when I
+  would have already worked on it once. Parts of the doc are complete as I have worked on
+  it before and can asure, that they will surely benefit in Improving Performance.
+
+  <br />
+  <br />
+
+  :warning: &nbsp;For now, read it at your own risk!!!
+</Blockquote>
+
 ## References to take a look at:
 
 * [Addy Osmani's Profiling ReactJS](https://addyosmani.com/blog/profiling-react-js/)

@@ -20,17 +20,23 @@ for better perfomance and accurate results.
 <i>
   References to read later:
   <br/>
-  <Link href="https://github.com/syntax-tree/unist#syntax-tree" target="_blank">
-    Syntax Tree
-  </Link>
-  <Link href="https://ruslanspivak.com/lsbasi-part1/" target="_blank">
-    Let's build an Interpreter
-  </Link>
-  &nbsp;and&nbsp;
-  <Link href="https://compilers.iecc.com/crenshaw/" target="_blank">
-    Let's build a Compiler
-  </Link>
-  .
+  <ul>
+    <li>
+      <Link href="https://github.com/syntax-tree/unist#syntax-tree" target="_blank">
+        Syntax Tree
+      </Link>
+    </li>
+    <li>
+      <Link href="https://ruslanspivak.com/lsbasi-part1/" target="_blank">
+        Let's build an Interpreter
+      </Link>
+    </li>
+    <li>
+      <Link href="https://compilers.iecc.com/crenshaw/" target="_blank">
+        Let's build a Compiler
+      </Link>
+    </li>
+  </ul>
 </i>
 </Blockquote>
 

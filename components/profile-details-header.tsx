@@ -38,7 +38,7 @@ export default function ProfileDetailsHeader() {
       </Typography>
       <Typography variant="subtitle1" className={classes.description}>
         Subroto Biswas is a working professional, currently working at &nbsp;
-        <span className={classes.highlight}>upGrad</span>, as a Software
+        <span className={classes.highlight}>upGrad</span>, as a Senior Software
         Engineer. This site is about his work, learnings and research. He is
         interested in various kinds of Graphics programming and is a student by
         heart. Most of his professional work, involves Web Development, using

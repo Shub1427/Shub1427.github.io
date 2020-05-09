@@ -44,6 +44,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   codeBlock: {
     marginBottom: '-64px !important',
     padding: '0 0 64px 0 !important',
+
+    '& *::selection': {
+      background: 'rgba(255,171,0,0.2)',
+    },
+    '& *::-moz-selection': {
+      background: 'rgba(255,171,0,0.2)',
+    },
   },
 }));
 

@@ -14,10 +14,15 @@ import { archiveRecord } from '@constants/archive-list';
 </H1>
 
 <Blockquote type="warn">
-    <strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to
-    properly write the important thing. I am trying to learn Game Dev, using various sources,
-    from scratch using Vulkan API, using minimal game engine like <InlineCode>ggez</InlineCode> and Godot Engine.
-    Combining that knowledge and writing that down here will take time.
+  <strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to
+  properly write the important thing. I am trying to learn Game Dev, using various sources,
+  from scratch using Vulkan API, using minimal game engine like <InlineCode>ggez</InlineCode> and Godot Engine.
+  Combining that knowledge and writing that down here will take time.
+
+  <br />
+  <br />
+
+  :warning: &nbsp;For now, read it at your own risk!!!
 </Blockquote>
 
 This Tutorial is mostly made up from Astro Blaster example from

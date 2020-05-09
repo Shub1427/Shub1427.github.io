@@ -58,7 +58,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     tags: [Tags.TUTORIAL, Tags.RUST],
     createdAt: new Date('2020/04/26 10:00:00'),
     updatedAt: new Date('2020/04/26 16:00:00'),
-    isPublished: false,
+    isPublished: true,
   },
   'astro-v2': {
     key: 'astro-v2',
@@ -68,7 +68,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     tags: [Tags.TUTORIAL, Tags.RUST],
     createdAt: new Date('2020/04/10'),
     updatedAt: new Date('2020/04/12'),
-    isPublished: false,
+    isPublished: true,
   },
 };
 

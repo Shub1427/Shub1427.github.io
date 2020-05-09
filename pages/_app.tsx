@@ -6,7 +6,8 @@ import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { Button, Typography, Link } from '@material-ui/core';
+import { Button, Link } from '@material-ui/core';
+import Para from '@components/para';
 import Blockquote from '@components/blockquote';
 import MDXH1 from '@components/mdx-h1';
 import MDXH2 from '@components/mdx-h2';
@@ -24,7 +25,7 @@ const mdComponents = {
   h1: (props: any) => <MDXH1 {...props} />,
   h2: (props: any) => <MDXH2 {...props} />,
   h3: (props: any) => <MDXH3 {...props} />,
-  p: (props: any) => <Typography variant="body1" {...props} />,
+  p: (props: any) => <Para {...props} />,
   blockquote: (props: any) => <Blockquote {...props} />,
   code: CodeBlock,
   inlineCode: InlineCode,
