@@ -35,3 +35,13 @@ declare module 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark' {
   const style: any;
   export default style;
 }
+
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism/vs-dark' {
+  const style: any;
+  export default style;
+}
+
+declare module 'react-syntax-highlighter/dist/cjs/styles/prism/darcula' {
+  const style: any;
+  export default style;
+}

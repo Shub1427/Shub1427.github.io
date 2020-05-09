@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     right: 0,
     bottom: 0,
     left: 0,
-    marginLeft: '-14px',
+    marginLeft: '-16px',
   },
   diffAdd: {
     background: 'rgba(139, 195, 74, 0.2)',

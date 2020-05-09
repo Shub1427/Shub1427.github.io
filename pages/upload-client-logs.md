@@ -3,7 +3,7 @@ import { archiveRecord } from '@constants/archive-list';
 <PolkaContainer>
 
 <H1 updatedAt={archiveRecord['upload-client-logs'].updatedAt} wordCount={564}>
-  Up And Up (up-n-up)
+  Up And Up <InlineCode>up-n-up</InlineCode>
 </H1>
 
 >
@@ -70,6 +70,49 @@ made, so as to publish the log string.
 * Which when received to the `subscriber` will be piped with some compression
   operator then `buffer` operator, and for each `buffer` complete, we
   will make an HTTP call pushing the buffer to our remote server.
+
+## Pseudo Implementation:
+
+<Blockquote type="warn">
+  Following implentation is not tested or written in real code. It's just for
+  explanatory purpose.
+</Blockquote>
+
+### Payload structures:
+
+#### DefaultPayload
+This payload will be extended by every other `LogPayload` that end-user would want to log to the service.
+
+```ts
+interface DefaultEventPayload {
+  /**
+   * Name of the OS, like Windows/Android etc.
+   */
+  client_os: string;
+  /**
+   * Version of the OS being used, would come handy to figure out what CPU processor might
+   * be used
+   */
+  client_version: number | null;
+  /**
+   * Browser details, still don't know how to read this
+   */
+  user_agent: string;
+  /**
+   * Following Log Level doesn't actually refer to Log Levels, but they denote the weight
+   * of a Log, depending on the feature.
+   *
+   * `debug`: being the least weighted, and these logs should be removed, once we are done with improvements
+   * `error`: being the medium weighted.
+   * `perf`: being the medium weighted, which we can keep to track performance details of end-user's per browser
+   * `data`: Never to be removed, they denote a Log, required by Data-Analysts.
+   */
+  log_level: 'error' | 'debug' | 'perf' | 'data';
+}
+```
+
+
+* **We need to create server, which will listen to some HTTP endpoints**
 
 
 </PolkaContainer>

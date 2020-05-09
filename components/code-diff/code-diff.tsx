@@ -1,10 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import rust from 'react-syntax-highlighter/dist/cjs/languages/prism/rust';
-import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
 import DiffItem from './item';
+import WindowControlIcons from '@components/window-control-icons';
 
 SyntaxHighlighter.registerLanguage('js', jsx);
 SyntaxHighlighter.registerLanguage('rust', rust);
@@ -23,11 +24,31 @@ export interface IRowRenderer {
   useInlineStyles: any;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginBottom: 16,
+    marginTop: 16,
+    marginBottom: 48,
+    padding: 0,
+    borderRadius: 4,
+    background: theme.palette.primary.main,
+    overflow: 'hidden',
+    boxShadow: 'rgba(0, 0, 0, 0.55) 0px 10px 32px',
   },
-});
+  windowBlock: {
+    position: 'relative',
+    padding: 16,
+    borderRadius: 4,
+  },
+  windowControls: {
+    position: 'relative',
+    paddingBottom: 8,
+  },
+  codeBlock: {
+    marginBottom: '-64px !important',
+    // marginLeft: '-16px !important',
+    padding: '0 0 64px 16px !important',
+  },
+}));
 
 const rowRenderer = (addedLines: number[], removedLines: number[]) => ({
   rows,
@@ -63,15 +84,30 @@ export default function CodeDiff(props: ICodeDiffProps) {
 
   return (
     <div className={classes.root}>
-      <SyntaxHighlighter
-        language={language}
-        style={atomDark}
-        showLineNumbers={!props.hideLines}
-        wrapLines
-        renderer={rowRenderer(props.addedLineNumbers, props.removedLineNumbers)}
+      <div
+        className={classes.windowBlock}
+        style={{
+          background:
+            atomDark[':not(pre) > code[class*="language-"]'].background,
+        }}
       >
-        {props.children}
-      </SyntaxHighlighter>
+        <div className={classes.windowControls}>
+          <WindowControlIcons />
+        </div>
+        <SyntaxHighlighter
+          className={classes.codeBlock}
+          language={language}
+          style={atomDark}
+          showLineNumbers={!props.hideLines}
+          wrapLines
+          renderer={rowRenderer(
+            props.addedLineNumbers,
+            props.removedLineNumbers
+          )}
+        >
+          {props.children}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
 }

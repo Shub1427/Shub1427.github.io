@@ -1,14 +1,17 @@
 import React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
+import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx';
 import rust from 'react-syntax-highlighter/dist/cjs/languages/prism/rust';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 // Remove this, once `react-syntax-highlighter` is updated to support `toml` lang
 import toml from 'refractor/lang/toml';
-import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
-import { makeStyles } from '@material-ui/core';
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
+import { makeStyles, Theme } from '@material-ui/core';
+import WindowControlIcons from './window-control-icons';
 
 SyntaxHighlighter.registerLanguage('js', jsx);
+SyntaxHighlighter.registerLanguage('ts', tsx);
 SyntaxHighlighter.registerLanguage('rust', rust);
 SyntaxHighlighter.registerLanguage('toml', toml);
 SyntaxHighlighter.registerLanguage('bash', bash);
@@ -19,11 +22,30 @@ export interface ICodeBlockProps {
   children: React.ReactChild;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginBottom: 16,
+    marginTop: 16,
+    marginBottom: 48,
+    padding: 0,
+    borderRadius: 4,
+    background: theme.palette.primary.main,
+    overflow: 'hidden',
+    boxShadow: 'rgba(0, 0, 0, 0.55) 0px 10px 32px',
   },
-});
+  windowBlock: {
+    position: 'relative',
+    padding: 16,
+    borderRadius: 4,
+  },
+  windowControls: {
+    position: 'relative',
+    paddingBottom: 8,
+  },
+  codeBlock: {
+    marginBottom: '-64px !important',
+    padding: '0 0 64px 0 !important',
+  },
+}));
 
 export default function CodeBlock({
   children,
@@ -34,7 +56,6 @@ export default function CodeBlock({
   const details = className.replace(/language-/, '');
   // eslint-disable-next-line prefer-const
   let [language, linesEnabledStr] = details.split('.');
-  console.log(language, linesEnabledStr);
   const linesEnabled = /true/i.test(linesEnabledStr);
   switch (language) {
     case 'rs':
@@ -47,13 +68,25 @@ export default function CodeBlock({
   }
   return (
     <div className={classes.root}>
-      <SyntaxHighlighter
-        language={language}
-        style={atomDark}
-        showLineNumbers={linesEnabledStr == null ? showLines : linesEnabled}
+      <div
+        className={classes.windowBlock}
+        style={{
+          background:
+            atomDark[':not(pre) > code[class*="language-"]'].background,
+        }}
       >
-        {children}
-      </SyntaxHighlighter>
+        <div className={classes.windowControls}>
+          <WindowControlIcons />
+        </div>
+        <SyntaxHighlighter
+          language={language}
+          className={classes.codeBlock}
+          style={atomDark}
+          showLineNumbers={linesEnabledStr == null ? showLines : linesEnabled}
+        >
+          {children}
+        </SyntaxHighlighter>
+      </div>
     </div>
   );
 }

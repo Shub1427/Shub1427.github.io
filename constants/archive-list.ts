@@ -36,7 +36,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     tags: [Tags.PROJECT, Tags.JS, Tags.REACT],
     createdAt: new Date('2020/04/29 08:30:00'),
     updatedAt: new Date('2020/05/03 23:30:00'),
-    isPublished: false,
+    isPublished: true,
   },
   'word-counter': {
     key: 'word-counter',
