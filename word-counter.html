@@ -1,4 +1,38 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/jq242jKQxKmraGUIld70l/pages/word-counter.js" as="script"/><link rel="preload" href="/_next/static/jq242jKQxKmraGUIld70l/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/c29c712ab4ce17a4a1af910056c44831749b3160.161ee28d277efe0b043d.js" as="script"/><link rel="preload" href="/_next/static/chunks/727b40c2621c321afde5719c7e51cac0aeaacce2.bc7ae3b4011521cd836a.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="5"/><link rel="preload" href="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/word-counter.js" as="script"/><link rel="preload" href="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/ea833a594efc23a0da3970ffa911887435d154c7.161ee28d277efe0b043d.js" as="script"/><link rel="preload" href="/_next/static/chunks/db50daf1ffaed9128ca38489cecbeae532df5c42.cc9af86369dd01a06a7b.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" as="script"/><style id="jss-server-side">.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #7ea7dd;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #8FADDC;
+}
+.MuiSvgIcon-colorAction {
+  color: #fff;
+}
+.MuiSvgIcon-colorError {
+  color: #ff1744;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,33 +44,32 @@ strong, b {
   font-weight: 700;
 }
 body {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   margin: 0;
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
-  background-color: #FFFFFF;
+  background-color: #222;
 }
 @media print {
   body {
-    background-color: #fff;
+    background-color: #ccc;
   }
 }
 body::backdrop {
-  background-color: #FFFFFF;
+  background-color: #222;
 }
 .MuiPaper-root {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #fff;
+  background-color: #333;
 }
 .MuiPaper-rounded {
   border-radius: 4px;
 }
 .MuiPaper-outlined {
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .MuiPaper-elevation0 {
   box-shadow: none;
@@ -113,44 +146,66 @@ body::backdrop {
 .MuiPaper-elevation24 {
   box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
 }
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
 .MuiTypography-root {
   margin: 0;
 }
 .MuiTypography-body2 {
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
 }
 .MuiTypography-body1 {
   font-size: 1rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
 }
 .MuiTypography-caption {
   font-size: 0.75rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.66;
-  letter-spacing: 0.03333em;
 }
 .MuiTypography-button {
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 500;
   line-height: 1.75;
-  letter-spacing: 0.02857em;
   text-transform: uppercase;
 }
 .MuiTypography-h1 {
   font-size: 3.5rem;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 300;
   line-height: 1.167;
-  letter-spacing: -0.01562em;
 }
 @media (min-width:600px) {
   .MuiTypography-h1 {
@@ -169,10 +224,9 @@ body::backdrop {
 }
   .MuiTypography-h2 {
     font-size: 2.375rem;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 300;
     line-height: 1.2;
-    letter-spacing: -0.00833em;
   }
 @media (min-width:600px) {
   .MuiTypography-h2 {
@@ -191,10 +245,9 @@ body::backdrop {
 }
   .MuiTypography-h3 {
     font-size: 2rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.167;
-    letter-spacing: 0em;
   }
 @media (min-width:600px) {
   .MuiTypography-h3 {
@@ -213,10 +266,9 @@ body::backdrop {
 }
   .MuiTypography-h4 {
     font-size: 1.5625rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.235;
-    letter-spacing: 0.00735em;
   }
 @media (min-width:600px) {
   .MuiTypography-h4 {
@@ -235,10 +287,9 @@ body::backdrop {
 }
   .MuiTypography-h5 {
     font-size: 1.25rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.334;
-    letter-spacing: 0em;
   }
 @media (min-width:600px) {
   .MuiTypography-h5 {
@@ -257,10 +308,9 @@ body::backdrop {
 }
   .MuiTypography-h6 {
     font-size: 1.125rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 500;
     line-height: 1.6;
-    letter-spacing: 0.0075em;
   }
 @media (min-width:600px) {
   .MuiTypography-h6 {
@@ -279,24 +329,21 @@ body::backdrop {
 }
   .MuiTypography-subtitle1 {
     font-size: 1rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.75;
-    letter-spacing: 0.00938em;
   }
   .MuiTypography-subtitle2 {
     font-size: 0.875rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 500;
     line-height: 1.57;
-    letter-spacing: 0.00714em;
   }
   .MuiTypography-overline {
     font-size: 0.75rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 2.66;
-    letter-spacing: 0.08333em;
     text-transform: uppercase;
   }
   .MuiTypography-srOnly {
@@ -332,16 +379,16 @@ body::backdrop {
     color: inherit;
   }
   .MuiTypography-colorPrimary {
-    color: #5491da;
+    color: #7ea7dd;
   }
   .MuiTypography-colorSecondary {
     color: #8FADDC;
   }
   .MuiTypography-colorTextPrimary {
-    color: rgba(0, 0, 0, 0.87);
+    color: #fff;
   }
   .MuiTypography-colorTextSecondary {
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(255, 255, 255, 0.7);
   }
   .MuiTypography-colorError {
     color: #ff1744;
@@ -354,6 +401,75 @@ body::backdrop {
   }
   .MuiCard-root {
     overflow: hidden;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: #fff;
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #7ea7dd;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(126, 167, 221, 0.08);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.08);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
   }
   .MuiContainer-root {
     width: 100%;
@@ -419,6 +535,504 @@ body::backdrop {
     max-width: 1920px;
   }
 }
+  .MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .MuiGrid-item {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .MuiGrid-zeroMinWidth {
+    min-width: 0;
+  }
+  .MuiGrid-direction-xs-column {
+    flex-direction: column;
+  }
+  .MuiGrid-direction-xs-column-reverse {
+    flex-direction: column-reverse;
+  }
+  .MuiGrid-direction-xs-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .MuiGrid-wrap-xs-nowrap {
+    flex-wrap: nowrap;
+  }
+  .MuiGrid-wrap-xs-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+  .MuiGrid-align-items-xs-center {
+    align-items: center;
+  }
+  .MuiGrid-align-items-xs-flex-start {
+    align-items: flex-start;
+  }
+  .MuiGrid-align-items-xs-flex-end {
+    align-items: flex-end;
+  }
+  .MuiGrid-align-items-xs-baseline {
+    align-items: baseline;
+  }
+  .MuiGrid-align-content-xs-center {
+    align-content: center;
+  }
+  .MuiGrid-align-content-xs-flex-start {
+    align-content: flex-start;
+  }
+  .MuiGrid-align-content-xs-flex-end {
+    align-content: flex-end;
+  }
+  .MuiGrid-align-content-xs-space-between {
+    align-content: space-between;
+  }
+  .MuiGrid-align-content-xs-space-around {
+    align-content: space-around;
+  }
+  .MuiGrid-justify-xs-center {
+    justify-content: center;
+  }
+  .MuiGrid-justify-xs-flex-end {
+    justify-content: flex-end;
+  }
+  .MuiGrid-justify-xs-space-between {
+    justify-content: space-between;
+  }
+  .MuiGrid-justify-xs-space-around {
+    justify-content: space-around;
+  }
+  .MuiGrid-justify-xs-space-evenly {
+    justify-content: space-evenly;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 8px);
+    margin: -4px;
+  }
+  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    padding: 4px;
+  }
+  .MuiGrid-spacing-xs-2 {
+    width: calc(100% + 16px);
+    margin: -8px;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    padding: 8px;
+  }
+  .MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin: -12px;
+  }
+  .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 12px;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 32px);
+    margin: -16px;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+  .MuiGrid-spacing-xs-5 {
+    width: calc(100% + 40px);
+    margin: -20px;
+  }
+  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+    padding: 20px;
+  }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(100% + 48px);
+    margin: -24px;
+  }
+  .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+    padding: 24px;
+  }
+  .MuiGrid-spacing-xs-7 {
+    width: calc(100% + 56px);
+    margin: -28px;
+  }
+  .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+    padding: 28px;
+  }
+  .MuiGrid-spacing-xs-8 {
+    width: calc(100% + 64px);
+    margin: -32px;
+  }
+  .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+    padding: 32px;
+  }
+  .MuiGrid-spacing-xs-9 {
+    width: calc(100% + 72px);
+    margin: -36px;
+  }
+  .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+    padding: 36px;
+  }
+  .MuiGrid-spacing-xs-10 {
+    width: calc(100% + 80px);
+    margin: -40px;
+  }
+  .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+    padding: 40px;
+  }
+  .MuiGrid-grid-xs-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xs-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xs-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xs-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xs-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xs-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xs-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xs-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xs-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xs-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xs-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xs-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xs-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xs-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+@media (min-width:600px) {
+  .MuiGrid-grid-sm-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-sm-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-sm-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-sm-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-sm-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-sm-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-sm-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-sm-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-sm-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-sm-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-sm-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-sm-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:960px) {
+  .MuiGrid-grid-md-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-md-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-md-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-md-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-md-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-md-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-md-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-md-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-md-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-md-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-md-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-md-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-md-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1280px) {
+  .MuiGrid-grid-lg-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-lg-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-lg-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-lg-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-lg-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-lg-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-lg-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-lg-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-lg-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-lg-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-lg-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-lg-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-lg-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-lg-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1920px) {
+  .MuiGrid-grid-xl-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xl-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xl-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xl-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xl-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xl-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xl-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xl-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xl-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xl-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xl-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xl-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xl-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xl-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
   .MuiLink-underlineNone {
     text-decoration: none;
   }
@@ -452,113 +1066,159 @@ body::backdrop {
   .MuiLink-button.Mui-focusVisible {
     outline: auto;
   }
-  .jss44 + .jss44 {
-    margin-top: 16px;
+  .jss172 {
+    color: #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 1.7;
+    word-spacing: 3px;
   }
-  .jss45 {
-    color: #777;
+  .jss172 + .jss172, ol + .jss172, ul + .jss172 {
+    margin-top: 32px;
+  }
+  .jss173 {
+    color: #aaa;
     margin: 12px 0;
     padding: 16px 8px;
-    background: #f2f2f2;
+    background: #444;
   }
-  .jss45 > p {
+  .jss173 > p, .jss173 > ul, .jss173 > ol {
+    color: #999;
     font-size: 0.9rem;
   }
-  .jss46 {
-    border-left: 12px solid #64b5f6;
+  p + .jss173, .jss173 + p, .jss173 + .jss173 {
+    margin-top: 32px;
   }
-  .jss47 {
-    border-left: 12px solid #ffd54f;
+  .jss174 {
+    border-left: 12px solid #1565c0;
   }
-  .jss48 {
-    border-left: 12px solid #ef5350;
+  .jss175 {
+    border-left: 12px solid #f9a825;
   }
-  .jss41 {
+  .jss176 {
+    border-left: 12px solid #bf360c;
+  }
+  .jss169 {
     color: #888;
     display: flex;
     font-size: 12px;
     align-items: center;
   }
-  .jss42 {
+  .jss170 {
     display: inline-block;
   }
-  .jss43 {
+  .jss171 {
     margin: 0 4px;
     display: inline-block;
     font-size: 1.5em;
     line-height: 0.8;
   }
-  .jss10 {
+  .jss135 {
+    color: #e2e2e2;
     padding: 0;
     margin-bottom: 48px;
   }
-  .jss85 {
+  .jss136 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+  }
+  .jss137 {
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .jss138 {
+    font-weight: 600;
+  }
+  .jss214 {
+    color: #e2e2e2;
     margin: 48px 0 16px;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
   }
-  .jss90 {
+  .jss219 {
+    color: #e2e2e2;
     margin: 32px 0 12px;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
   }
-  .jss86 {
+  .jss215 {
     padding: 0;
     overflow: hidden;
-    background: #5491da;
+    background: #7ea7dd;
     box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
-    margin-top: 16px;
+    margin-top: 32px;
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss87 {
+  .jss216 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss88 {
+  .jss217 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss89 {
+  .jss218 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss89 *::selection {
+  .jss218 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss89 *::-moz-selection {
+  .jss218 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss78 {
-    color: #933;
+  .jss206 {
+    color: #c66;
     margin: 0 2px;
     padding: 1px 8px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(78, 78, 78, 0.7);
   }
-  .jss91 {
+  .jss220 {
+    color: #d2d2d2;
     border: medium none;
     font-size: 32px;
     margin-top: 32px;
     text-align: center;
     font-weight: 300;
   }
-  .jss91:before {
+  .jss220:before {
     content: '***';
     line-height: 1.4;
     text-indent: 1em;
     letter-spacing: 1em;
   }
+  .jss10 {
+    width: 100%;
+    height: 100%;
+  }
   .jss1 {
     padding: 64px 32px;
     position: relative;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><h2 class="MuiTypography-root MuiTypography-h2">Word Counter</h2><div class="jss41"><p class="MuiTypography-root jss42 MuiTypography-body2">Apr 26</p><span class="jss43">•</span><p class="MuiTypography-root jss42 MuiTypography-body2">3<!-- --> min read</p></div></div><p class="MuiTypography-root jss44 MuiTypography-body1">This is a fun script, that I am trying out to learn rust. Also benifitting myself,
+  }
+  .jss207 {
+    color: #ccc;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.7;
+  }
+  p + .jss207 {
+    margin-top: 32px;
+  }
+  li > .jss207 {
+    margin-top: initial;
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="rgba(249,168,37,0.15)" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="0" cy="37.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="25" cy="37.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg></span></button></div><div class="jss135"><h2 class="MuiTypography-root jss136 MuiTypography-h2">Word Counter</h2><div class="jss169 jss137"><p class="MuiTypography-root jss170 jss138 MuiTypography-body2">Apr 26</p><span class="jss171">•</span><p class="MuiTypography-root jss170 jss138 MuiTypography-body2">3<!-- --> min read</p></div></div><p class="MuiTypography-root jss172 MuiTypography-body1">This is a fun script, that I am trying out to learn rust. Also benifitting myself,
 with a script that will automate to get an approx. count of words from my MDX notes,
-which later on will help me to get the read time per notes.</p><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">The Word Counter code is written in 2hrs time, and is not optimal. It uses brute force to remove templates matched by different <code class="jss78">regex</code>expressions, one by one in sequence. I will someday improve this script, to use AST for better perfomance and accurate results.<br/><br/><i>References to read later:<br/><ul><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/syntax-tree/unist#syntax-tree" target="_blank">Syntax Tree</a></li><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://ruslanspivak.com/lsbasi-part1/" target="_blank">Let&#x27;s build an Interpreter</a></li><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://compilers.iecc.com/crenshaw/" target="_blank">Let&#x27;s build a Compiler</a></li></ul></i></div><h4 class="MuiTypography-root jss85 MuiTypography-h4">Code Breakup</h4><p class="MuiTypography-root jss44 MuiTypography-body1">First of all, I am using <code class="jss78">regex</code> crate, which is offical crate support by Rust.</p><p class="MuiTypography-root jss44 MuiTypography-body1">Using <code class="jss78">regex</code> is simple and it uses <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax,
-which is a superset for Javascript <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>.</p><p class="MuiTypography-root jss44 MuiTypography-body1">Reading data from <code class="jss78">stdin</code>, required as we will use our build as a pipe function later:</p><pre><div class="jss86"><div class="jss87" style="background:#2b2b2b"><div class="jss88"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss89" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">use</span> std<span class="token" style="color:#a9b7c6">::</span>io<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">{</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span> Read<span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+which later on will help me to get the read time per notes.</p><div class="MuiPaper-root MuiCard-root jss173 jss175 MuiPaper-elevation0 MuiPaper-rounded">The Word Counter code is written in 2hrs time, and is not optimal. It uses brute force to remove templates matched by different <code class="jss206">regex</code>expressions, one by one in sequence. I will someday improve this script, to use AST for better perfomance and accurate results.<br/><br/><i>References to read later:<br/><ul class="jss207"><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/syntax-tree/unist#syntax-tree" target="_blank">Syntax Tree</a></li><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://ruslanspivak.com/lsbasi-part1/" target="_blank">Let&#x27;s build an Interpreter</a></li><li><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://compilers.iecc.com/crenshaw/" target="_blank">Let&#x27;s build a Compiler</a></li></ul></i></div><h4 class="MuiTypography-root jss214 MuiTypography-h4">Code Breakup</h4><p class="MuiTypography-root jss172 MuiTypography-body1">First of all, I am using <code class="jss206">regex</code> crate, which is offical crate support by Rust.</p><p class="MuiTypography-root jss172 MuiTypography-body1">Using <code class="jss206">regex</code> is simple and it uses <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/google/re2/wiki/Syntax">RE2</a> syntax,
+which is a superset for Javascript <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>.</p><p class="MuiTypography-root jss172 MuiTypography-body1">Reading data from <code class="jss206">stdin</code>, required as we will use our build as a pipe function later:</p><pre><div class="jss215"><div class="jss216" style="background:#2b2b2b"><div class="jss217"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss218" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">use</span> std<span class="token" style="color:#a9b7c6">::</span>io<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">{</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span> Read<span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#a9b7c6">...</span>
 <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#cc7832">mut</span> buffer <span class="token" style="color:#a9b7c6">=</span> String<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
 io<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">stdin</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">read_to_string</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> buffer<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#a9b7c6">...</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss44 MuiTypography-body1">Now we need few regular expressions to be pre-compiled, so as to use them later</p><pre><div class="jss86"><div class="jss87" style="background:#2b2b2b"><div class="jss88"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss89" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
+</code></pre></div></div></pre><p class="MuiTypography-root jss172 MuiTypography-body1">Now we need few regular expressions to be pre-compiled, so as to use them later</p><pre><div class="jss215"><div class="jss216" style="background:#2b2b2b"><div class="jss217"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss218" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
 </span><span class="react-syntax-highlighter-line-number">2
 </span><span class="react-syntax-highlighter-line-number">3
 </span><span class="react-syntax-highlighter-line-number">4
@@ -576,21 +1236,21 @@ io<span class="token" style="color:#a9b7c6">::</span><span class="token" style="
     <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">dot_matches_new_line</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">true</span><span class="token" style="color:#a9b7c6">)</span>
     <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">build</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
 <span class="token" style="color:#a9b7c6">...</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss44 MuiTypography-body1"><strong>Line 3.</strong> creates a regex for all HTML Container Tags, extracting out the inner strings,
-so as to word count them later.</p><p class="MuiTypography-root jss44 MuiTypography-body1"><strong>Line 4.</strong> creates a regex from all HTML Empty Tags and previously uncatched Opening/Closing Tags.</p><p class="MuiTypography-root jss44 MuiTypography-body1"><strong>Line 5.</strong> helps to create a multi-line flagged regexp, so as to match all the Code Blocks.</p><div class="MuiPaper-root MuiCard-root jss45 jss46 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss44 MuiTypography-body1">Note: Code Diff Blocks are still remaining to be checked. Currently the content inside Code
-Diff block will be part of Word counts.</p></div><p class="MuiTypography-root jss44 MuiTypography-body1">All the above regex will later on be used to replace their matches with empty string,
-so as to remove them. 🎉 ✌️</p><h5 class="MuiTypography-root jss90 MuiTypography-h5">Some more regex:</h5><pre><div class="jss86"><div class="jss87" style="background:#2b2b2b"><div class="jss88"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss89" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> return_to_space <span class="token" style="color:#a9b7c6">=</span> Regex<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">r&quot;\n&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss172 MuiTypography-body1"><strong>Line 3.</strong> creates a regex for all HTML Container Tags, extracting out the inner strings,
+so as to word count them later.</p><p class="MuiTypography-root jss172 MuiTypography-body1"><strong>Line 4.</strong> creates a regex from all HTML Empty Tags and previously uncatched Opening/Closing Tags.</p><p class="MuiTypography-root jss172 MuiTypography-body1"><strong>Line 5.</strong> helps to create a multi-line flagged regexp, so as to match all the Code Blocks.</p><div class="MuiPaper-root MuiCard-root jss173 jss174 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss172 MuiTypography-body1">Note: Code Diff Blocks are still remaining to be checked. Currently the content inside Code
+Diff block will be part of Word counts.</p></div><p class="MuiTypography-root jss172 MuiTypography-body1">All the above regex will later on be used to replace their matches with empty string,
+so as to remove them. 🎉 ✌️</p><h5 class="MuiTypography-root jss219 MuiTypography-h5">Some more regex:</h5><pre><div class="jss215"><div class="jss216" style="background:#2b2b2b"><div class="jss217"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss218" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> return_to_space <span class="token" style="color:#a9b7c6">=</span> Regex<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">r&quot;\n&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#cc7832">let</span> space_re <span class="token" style="color:#a9b7c6">=</span> Regex<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">r&quot;\s&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss44 MuiTypography-body1"><code class="jss78">return_to_space</code> regex will be used to remove all the remaing <code class="jss78">return</code>s from the output string,
-that we will get, using previous regex.</p><p class="MuiTypography-root jss44 MuiTypography-body1"><code class="jss78">space_re</code> regex, will later on be used to filter out extra spaces, so as to improve word count
-accuracy.</p><h5 class="MuiTypography-root jss90 MuiTypography-h5">Final Regex to extract Words</h5><pre><div class="jss86"><div class="jss87" style="background:#2b2b2b"><div class="jss88"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss89" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> word_counter_re <span class="token" style="color:#a9b7c6">=</span> RegexBuilder<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">r&quot;[^\s#\*]*&quot;</span><span class="token" style="color:#a9b7c6">)</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss172 MuiTypography-body1"><code class="jss206">return_to_space</code> regex will be used to remove all the remaing <code class="jss206">return</code>s from the output string,
+that we will get, using previous regex.</p><p class="MuiTypography-root jss172 MuiTypography-body1"><code class="jss206">space_re</code> regex, will later on be used to filter out extra spaces, so as to improve word count
+accuracy.</p><h5 class="MuiTypography-root jss219 MuiTypography-h5">Final Regex to extract Words</h5><pre><div class="jss215"><div class="jss216" style="background:#2b2b2b"><div class="jss217"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss218" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> word_counter_re <span class="token" style="color:#a9b7c6">=</span> RegexBuilder<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">r&quot;[^\s#\*]*&quot;</span><span class="token" style="color:#a9b7c6">)</span>
   <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">multi_line</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">true</span><span class="token" style="color:#a9b7c6">)</span>
   <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">dot_matches_new_line</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">true</span><span class="token" style="color:#a9b7c6">)</span>
   <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">build</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
   <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss44 MuiTypography-body1">Do note, above regex is not for pure words, as in our <code class="jss78">mdx</code> files, we have inline code-snippets,
-and more stuff, which breaks if <code class="jss78">\w+</code> is directly used. Thus we needed to get all chars which are
-not space, <code class="jss78">#</code> and <code class="jss78">*</code>. I know, this regex might be incomplete, or needs more chars for proper filter,
-but for now it&#x27;s fine as we need approximate results, not accurate.</p><br/><p class="MuiTypography-root jss44 MuiTypography-body1">Finally, using the above regex and filtering our extra spaces, we can get an approximate
+</code></pre></div></div></pre><p class="MuiTypography-root jss172 MuiTypography-body1">Do note, above regex is not for pure words, as in our <code class="jss206">mdx</code> files, we have inline code-snippets,
+and more stuff, which breaks if <code class="jss206">\w+</code> is directly used. Thus we needed to get all chars which are
+not space, <code class="jss206">#</code> and <code class="jss206">*</code>. I know, this regex might be incomplete, or needs more chars for proper filter,
+but for now it&#x27;s fine as we need approximate results, not accurate.</p><br/><p class="MuiTypography-root jss172 MuiTypography-body1">Finally, using the above regex and filtering our extra spaces, we can get an approximate
 count of all the words present in our Notes, so as to later on generate Read Time for
-our Notes.</p><br/><div class="MuiPaper-root MuiCard-root jss45 jss46 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss44 MuiTypography-body1">You can find full code, for this note, <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/shub1427.github.io/tree/react/scripts/src/bin/word-counter.rs">here</a>.</p></div><hr class="jss91"/></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/word-counter","query":{},"buildId":"jq242jKQxKmraGUIld70l","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-0c80ce1998674409fed0.js"></script><script async="" data-next-page="/word-counter" src="/_next/static/jq242jKQxKmraGUIld70l/pages/word-counter.js"></script><script async="" data-next-page="/_app" src="/_next/static/jq242jKQxKmraGUIld70l/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/c29c712ab4ce17a4a1af910056c44831749b3160.161ee28d277efe0b043d.js" async=""></script><script src="/_next/static/chunks/727b40c2621c321afde5719c7e51cac0aeaacce2.bc7ae3b4011521cd836a.js" async=""></script><script src="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" async=""></script><script src="/_next/static/jq242jKQxKmraGUIld70l/_buildManifest.js" async=""></script><script src="/_next/static/jq242jKQxKmraGUIld70l/_ssgManifest.js" async=""></script></body></html>
+our Notes.</p><br/><div class="MuiPaper-root MuiCard-root jss173 jss174 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss172 MuiTypography-body1">You can find full code, for this note, <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/shub1427.github.io/tree/react/scripts/src/bin/word-counter.rs">here</a>.</p></div><hr class="jss220"/></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/word-counter","query":{},"buildId":"IiA8zq1Jvb3zeY5OmvvIb","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-0c80ce1998674409fed0.js"></script><script async="" data-next-page="/word-counter" src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/word-counter.js"></script><script async="" data-next-page="/_app" src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/ea833a594efc23a0da3970ffa911887435d154c7.161ee28d277efe0b043d.js" async=""></script><script src="/_next/static/chunks/db50daf1ffaed9128ca38489cecbeae532df5c42.cc9af86369dd01a06a7b.js" async=""></script><script src="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" async=""></script><script src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/_buildManifest.js" async=""></script><script src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/_ssgManifest.js" async=""></script></body></html>

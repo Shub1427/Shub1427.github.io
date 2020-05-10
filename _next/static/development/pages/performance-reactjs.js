@@ -25,7 +25,7 @@ const archiveRecord = {
     description: 'Recent Performance related findings of mine, which I am jotting down here for later reference',
     tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].RESEARCH, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].JS, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].REACT],
     createdAt: new Date('2020/05/07 09:15:00'),
-    updatedAt: new Date('2020/05/07 09:15:00'),
+    updatedAt: new Date('2020/05/09 23:15:00'),
     isPublished: true
   },
   'upload-client-logs': {
@@ -36,7 +36,7 @@ const archiveRecord = {
       from end-user's browser to you own servers, for which this note will talk about.",
     tags: [_tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].PROJECT, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].JS, _tags__WEBPACK_IMPORTED_MODULE_0__["Tags"].REACT],
     createdAt: new Date('2020/04/29 08:30:00'),
-    updatedAt: new Date('2020/05/03 23:30:00'),
+    updatedAt: new Date('2020/05/09 12:30:00'),
     isPublished: true
   },
   'word-counter': {
@@ -1103,7 +1103,7 @@ function MDXContent(_ref) {
       columnNumber: 10
     }
   }, "I think I will try to build a virtualized list in Rust,someday. Let's see!!!"), " ", Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_3__["mdx"])("img", {
-    class: "emoji",
+    className: "emoji",
     title: ":bowtie:",
     alt: ":bowtie:",
     src: "https://github.githubassets.com/images/icons/emoji/bowtie.png",
@@ -1849,7 +1849,7 @@ const toArray = (record = {}) => {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*****************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fperformance-reactjs&absolutePagePath=%2FUsers%2Fsubroto.biswas%2FSubroto%2Fshub1427.github.io%2Fpages%2Fperformance-reactjs.md ***!
   \*****************************************************************************************************************************************************************************/
@@ -1872,5 +1872,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=performance-reactjs.js.map

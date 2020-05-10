@@ -1,4 +1,38 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/jq242jKQxKmraGUIld70l/pages/upload-client-logs.js" as="script"/><link rel="preload" href="/_next/static/jq242jKQxKmraGUIld70l/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/c29c712ab4ce17a4a1af910056c44831749b3160.161ee28d277efe0b043d.js" as="script"/><link rel="preload" href="/_next/static/chunks/727b40c2621c321afde5719c7e51cac0aeaacce2.bc7ae3b4011521cd836a.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="next-head-count" content="5"/><link rel="preload" href="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/upload-client-logs.js" as="script"/><link rel="preload" href="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.934881a8a2d3672acc22.js" as="script"/><link rel="preload" href="/_next/static/chunks/ea833a594efc23a0da3970ffa911887435d154c7.161ee28d277efe0b043d.js" as="script"/><link rel="preload" href="/_next/static/chunks/db50daf1ffaed9128ca38489cecbeae532df5c42.cc9af86369dd01a06a7b.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" as="script"/><style id="jss-server-side">.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #7ea7dd;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #8FADDC;
+}
+.MuiSvgIcon-colorAction {
+  color: #fff;
+}
+.MuiSvgIcon-colorError {
+  color: #ff1744;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,33 +44,32 @@ strong, b {
   font-weight: 700;
 }
 body {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   margin: 0;
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
-  background-color: #FFFFFF;
+  background-color: #222;
 }
 @media print {
   body {
-    background-color: #fff;
+    background-color: #ccc;
   }
 }
 body::backdrop {
-  background-color: #FFFFFF;
+  background-color: #222;
 }
 .MuiPaper-root {
-  color: rgba(0, 0, 0, 0.87);
+  color: #fff;
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #fff;
+  background-color: #333;
 }
 .MuiPaper-rounded {
   border-radius: 4px;
 }
 .MuiPaper-outlined {
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .MuiPaper-elevation0 {
   box-shadow: none;
@@ -113,44 +146,66 @@ body::backdrop {
 .MuiPaper-elevation24 {
   box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
 }
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
 .MuiTypography-root {
   margin: 0;
 }
 .MuiTypography-body2 {
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
 }
 .MuiTypography-body1 {
   font-size: 1rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0.00938em;
 }
 .MuiTypography-caption {
   font-size: 0.75rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 400;
   line-height: 1.66;
-  letter-spacing: 0.03333em;
 }
 .MuiTypography-button {
   font-size: 0.875rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 500;
   line-height: 1.75;
-  letter-spacing: 0.02857em;
   text-transform: uppercase;
 }
 .MuiTypography-h1 {
   font-size: 3.5rem;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: "Montserrat",sans-serif;
   font-weight: 300;
   line-height: 1.167;
-  letter-spacing: -0.01562em;
 }
 @media (min-width:600px) {
   .MuiTypography-h1 {
@@ -169,10 +224,9 @@ body::backdrop {
 }
   .MuiTypography-h2 {
     font-size: 2.375rem;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 300;
     line-height: 1.2;
-    letter-spacing: -0.00833em;
   }
 @media (min-width:600px) {
   .MuiTypography-h2 {
@@ -191,10 +245,9 @@ body::backdrop {
 }
   .MuiTypography-h3 {
     font-size: 2rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.167;
-    letter-spacing: 0em;
   }
 @media (min-width:600px) {
   .MuiTypography-h3 {
@@ -213,10 +266,9 @@ body::backdrop {
 }
   .MuiTypography-h4 {
     font-size: 1.5625rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.235;
-    letter-spacing: 0.00735em;
   }
 @media (min-width:600px) {
   .MuiTypography-h4 {
@@ -235,10 +287,9 @@ body::backdrop {
 }
   .MuiTypography-h5 {
     font-size: 1.25rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.334;
-    letter-spacing: 0em;
   }
 @media (min-width:600px) {
   .MuiTypography-h5 {
@@ -257,10 +308,9 @@ body::backdrop {
 }
   .MuiTypography-h6 {
     font-size: 1.125rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 500;
     line-height: 1.6;
-    letter-spacing: 0.0075em;
   }
 @media (min-width:600px) {
   .MuiTypography-h6 {
@@ -279,24 +329,21 @@ body::backdrop {
 }
   .MuiTypography-subtitle1 {
     font-size: 1rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 1.75;
-    letter-spacing: 0.00938em;
   }
   .MuiTypography-subtitle2 {
     font-size: 0.875rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 500;
     line-height: 1.57;
-    letter-spacing: 0.00714em;
   }
   .MuiTypography-overline {
     font-size: 0.75rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-family: "Montserrat",sans-serif;
     font-weight: 400;
     line-height: 2.66;
-    letter-spacing: 0.08333em;
     text-transform: uppercase;
   }
   .MuiTypography-srOnly {
@@ -332,16 +379,16 @@ body::backdrop {
     color: inherit;
   }
   .MuiTypography-colorPrimary {
-    color: #5491da;
+    color: #7ea7dd;
   }
   .MuiTypography-colorSecondary {
     color: #8FADDC;
   }
   .MuiTypography-colorTextPrimary {
-    color: rgba(0, 0, 0, 0.87);
+    color: #fff;
   }
   .MuiTypography-colorTextSecondary {
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(255, 255, 255, 0.7);
   }
   .MuiTypography-colorError {
     color: #ff1744;
@@ -354,6 +401,75 @@ body::backdrop {
   }
   .MuiCard-root {
     overflow: hidden;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: #fff;
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #7ea7dd;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(126, 167, 221, 0.08);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.08);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
   }
   .MuiContainer-root {
     width: 100%;
@@ -419,131 +535,683 @@ body::backdrop {
     max-width: 1920px;
   }
 }
-  .jss78 + .jss78 {
-    margin-top: 16px;
+  .MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
   }
-  .jss45 {
-    color: #777;
+  .MuiGrid-item {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .MuiGrid-zeroMinWidth {
+    min-width: 0;
+  }
+  .MuiGrid-direction-xs-column {
+    flex-direction: column;
+  }
+  .MuiGrid-direction-xs-column-reverse {
+    flex-direction: column-reverse;
+  }
+  .MuiGrid-direction-xs-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .MuiGrid-wrap-xs-nowrap {
+    flex-wrap: nowrap;
+  }
+  .MuiGrid-wrap-xs-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+  .MuiGrid-align-items-xs-center {
+    align-items: center;
+  }
+  .MuiGrid-align-items-xs-flex-start {
+    align-items: flex-start;
+  }
+  .MuiGrid-align-items-xs-flex-end {
+    align-items: flex-end;
+  }
+  .MuiGrid-align-items-xs-baseline {
+    align-items: baseline;
+  }
+  .MuiGrid-align-content-xs-center {
+    align-content: center;
+  }
+  .MuiGrid-align-content-xs-flex-start {
+    align-content: flex-start;
+  }
+  .MuiGrid-align-content-xs-flex-end {
+    align-content: flex-end;
+  }
+  .MuiGrid-align-content-xs-space-between {
+    align-content: space-between;
+  }
+  .MuiGrid-align-content-xs-space-around {
+    align-content: space-around;
+  }
+  .MuiGrid-justify-xs-center {
+    justify-content: center;
+  }
+  .MuiGrid-justify-xs-flex-end {
+    justify-content: flex-end;
+  }
+  .MuiGrid-justify-xs-space-between {
+    justify-content: space-between;
+  }
+  .MuiGrid-justify-xs-space-around {
+    justify-content: space-around;
+  }
+  .MuiGrid-justify-xs-space-evenly {
+    justify-content: space-evenly;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 8px);
+    margin: -4px;
+  }
+  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    padding: 4px;
+  }
+  .MuiGrid-spacing-xs-2 {
+    width: calc(100% + 16px);
+    margin: -8px;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    padding: 8px;
+  }
+  .MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin: -12px;
+  }
+  .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 12px;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 32px);
+    margin: -16px;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+  .MuiGrid-spacing-xs-5 {
+    width: calc(100% + 40px);
+    margin: -20px;
+  }
+  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+    padding: 20px;
+  }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(100% + 48px);
+    margin: -24px;
+  }
+  .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+    padding: 24px;
+  }
+  .MuiGrid-spacing-xs-7 {
+    width: calc(100% + 56px);
+    margin: -28px;
+  }
+  .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+    padding: 28px;
+  }
+  .MuiGrid-spacing-xs-8 {
+    width: calc(100% + 64px);
+    margin: -32px;
+  }
+  .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+    padding: 32px;
+  }
+  .MuiGrid-spacing-xs-9 {
+    width: calc(100% + 72px);
+    margin: -36px;
+  }
+  .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+    padding: 36px;
+  }
+  .MuiGrid-spacing-xs-10 {
+    width: calc(100% + 80px);
+    margin: -40px;
+  }
+  .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+    padding: 40px;
+  }
+  .MuiGrid-grid-xs-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xs-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xs-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xs-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xs-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xs-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xs-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xs-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xs-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xs-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xs-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xs-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xs-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xs-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+@media (min-width:600px) {
+  .MuiGrid-grid-sm-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-sm-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-sm-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-sm-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-sm-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-sm-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-sm-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-sm-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-sm-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-sm-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-sm-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-sm-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:960px) {
+  .MuiGrid-grid-md-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-md-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-md-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-md-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-md-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-md-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-md-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-md-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-md-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-md-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-md-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-md-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-md-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1280px) {
+  .MuiGrid-grid-lg-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-lg-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-lg-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-lg-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-lg-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-lg-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-lg-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-lg-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-lg-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-lg-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-lg-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-lg-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-lg-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-lg-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1920px) {
+  .MuiGrid-grid-xl-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xl-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xl-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xl-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xl-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xl-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xl-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xl-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xl-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xl-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xl-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xl-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xl-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xl-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+  .jss206 {
+    color: #ccc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 1.7;
+    word-spacing: 3px;
+  }
+  .jss206 + .jss206, ol + .jss206, ul + .jss206 {
+    margin-top: 32px;
+  }
+  .jss173 {
+    color: #aaa;
     margin: 12px 0;
     padding: 16px 8px;
-    background: #f2f2f2;
+    background: #444;
   }
-  .jss45 > p {
+  .jss173 > p, .jss173 > ul, .jss173 > ol {
+    color: #999;
     font-size: 0.9rem;
   }
-  .jss46 {
-    border-left: 12px solid #64b5f6;
+  p + .jss173, .jss173 + p, .jss173 + .jss173 {
+    margin-top: 32px;
   }
-  .jss47 {
-    border-left: 12px solid #ffd54f;
+  .jss174 {
+    border-left: 12px solid #1565c0;
   }
-  .jss48 {
-    border-left: 12px solid #ef5350;
+  .jss175 {
+    border-left: 12px solid #f9a825;
   }
-  .jss42 {
+  .jss176 {
+    border-left: 12px solid #bf360c;
+  }
+  .jss170 {
     color: #888;
     display: flex;
     font-size: 12px;
     align-items: center;
   }
-  .jss43 {
+  .jss171 {
     display: inline-block;
   }
-  .jss44 {
+  .jss172 {
     margin: 0 4px;
     display: inline-block;
     font-size: 1.5em;
     line-height: 0.8;
   }
-  .jss10 {
+  .jss135 {
+    color: #e2e2e2;
     padding: 0;
     margin-bottom: 48px;
   }
-  .jss80 {
+  .jss136 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+  }
+  .jss137 {
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .jss138 {
+    font-weight: 600;
+  }
+  .jss208 {
+    color: #e2e2e2;
     margin: 48px 0 16px;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
   }
-  .jss79 {
+  .jss207 {
+    color: #e2e2e2;
     margin: 32px 0 12px;
     padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
   }
-  .jss81 {
+  .jss209 {
+    color: #e2e2e2;
+    margin: 32px 0 12px;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+  }
+  .jss210 {
     padding: 0;
     overflow: hidden;
-    background: #5491da;
+    background: #7ea7dd;
     box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
-    margin-top: 16px;
+    margin-top: 32px;
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss82 {
+  .jss211 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss83 {
+  .jss212 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss84 {
+  .jss213 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss84 *::selection {
+  .jss213 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss84 *::-moz-selection {
+  .jss213 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss41 {
-    color: #933;
+  .jss169 {
+    color: #c66;
     margin: 0 2px;
     padding: 1px 8px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(78, 78, 78, 0.7);
   }
-  .jss86 {
+  .jss216 {
     width: 100%;
     margin: 32px 0;
   }
-  .jss87 {
+  .jss217 {
     width: 100%;
     filter: blur(0);
     transition: 0.3s ease-out;
   }
-  .jss88 {
+  .jss218 {
     filter: blur(3px);
   }
-  .jss89 {
+  .jss219 {
     color: #aaa;
     margin: 0;
     font-style: italic;
     text-align: center;
   }
-  .jss85 {
+  .jss214 {
+    color: #d2d2d2;
     border: medium none;
     font-size: 32px;
     margin-top: 32px;
     text-align: center;
     font-weight: 300;
   }
-  .jss85:before {
+  .jss214:before {
     content: '***';
     line-height: 1.4;
     text-indent: 1em;
     letter-spacing: 1em;
   }
+  .jss10 {
+    width: 100%;
+    height: 100%;
+  }
   .jss1 {
     padding: 64px 32px;
     position: relative;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><h2 class="MuiTypography-root MuiTypography-h2">Up And Up <code class="jss41">up-n-up</code></h2><div class="jss42"><p class="MuiTypography-root jss43 MuiTypography-body2">May 03</p><span class="jss44">•</span><p class="MuiTypography-root jss43 MuiTypography-body2">3<!-- --> min read</p></div></div><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">This blog is a <b>Work in Progress</b>, and I am hoping to work on it part by part when I will really start implementing th idea mentioned in here. Gradually noting down what hurdles I faced or if some changes I made, that needs to be reflected here as well.<br/><br/><p class="MuiTypography-root jss78 MuiTypography-body1">  ⚠️ <!-- --> <!-- -->For now, read it at your own risk!!!</p></div><div class="MuiPaper-root MuiCard-root jss45 jss46 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss78 MuiTypography-body1">Up and Up our logs you go. <br/>
+  }
+  .jss215 {
+    color: #ccc;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.7;
+  }
+  p + .jss215 {
+    margin-top: 32px;
+  }
+  li > .jss215 {
+    margin-top: initial;
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="rgba(249,168,37,0.15)" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="0" cy="37.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="25" cy="37.5" r="2.0833"></circle><circle fill="rgba(249,168,37,0.15)" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg></span></button></div><div class="jss135"><h2 class="MuiTypography-root jss136 MuiTypography-h2">Up And Up <code class="jss169">up-n-up</code></h2><div class="jss170 jss137"><p class="MuiTypography-root jss171 jss138 MuiTypography-body2">May 09</p><span class="jss172">•</span><p class="MuiTypography-root jss171 jss138 MuiTypography-body2">3<!-- --> min read</p></div></div><div class="MuiPaper-root MuiCard-root jss173 jss175 MuiPaper-elevation0 MuiPaper-rounded">This blog is a <b>Work in Progress</b>, and I am hoping to work on it part by part when I will really start implementing th idea mentioned in here. Gradually noting down what hurdles I faced or if some changes I made, that needs to be reflected here as well.<br/><br/><p class="MuiTypography-root jss206 MuiTypography-body1">  ⚠️ <!-- --> <!-- -->For now, read it at your own risk!!!</p></div><div class="MuiPaper-root MuiCard-root jss173 jss174 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss206 MuiTypography-body1">Up and Up our logs you go. <br/>
 To give an insight <br/>
-Of what should you Hope. 🎼</p></div><h5 class="MuiTypography-root jss79 MuiTypography-h5">What/Why the hell???</h5><p class="MuiTypography-root jss78 MuiTypography-body1">This project is meant to get essential logs from client&#x27;s browser, so as to later verify what went wrong.
+Of what should you Hope. 🎼</p></div><h5 class="MuiTypography-root jss207 MuiTypography-h5">What/Why the hell???</h5><p class="MuiTypography-root jss206 MuiTypography-body1">This project is meant to get essential logs from client&#x27;s browser, so as to later verify what went wrong.
 Usually, in Front-end development, developers tend to disable logs to improve performance and
 many other good reasons, but in intial days of development of a product sometimes require&#x27;s
 us to monitor how tha app is performing on the end-user&#x27;s browsers. This project is developed
 to support an idea that I had yesterday (it&#x27;s similar to what Google Analytics or Rollbar or Sentry does),
 to get small chunks of performance related data, on a constant
-interval, that we can later on verify what went wrong, or where an improvement can be made.</p><h4 class="MuiTypography-root jss80 MuiTypography-h4">Pseudo Implementation:</h4><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">Following implentation is not tested or written in real code. It&#x27;s just for explanatory purpose.</div><h5 class="MuiTypography-root jss79 MuiTypography-h5">Payload structures:</h5><h4><code class="jss41">DefaultPayload</code></h4><p class="MuiTypography-root jss78 MuiTypography-body1">This payload will be extended by every other <code class="jss41">LogPayload</code> that end-user would want to log to the service.</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">DefaultPayload</span> <span class="token" style="color:#a9b7c6">{</span>
+interval, that we can later on verify what went wrong, or where an improvement can be made.</p><h4 class="MuiTypography-root jss208 MuiTypography-h4">Pseudo Implementation:</h4><div class="MuiPaper-root MuiCard-root jss173 jss175 MuiPaper-elevation0 MuiPaper-rounded">Following implentation is not tested or written in real code. It&#x27;s just for explanatory purpose.</div><h5 class="MuiTypography-root jss207 MuiTypography-h5">Payload structures:</h5><h6 class="MuiTypography-root jss209 MuiTypography-h6"><code class="jss169">DefaultPayload</code></h6><p class="MuiTypography-root jss206 MuiTypography-body1">This payload will be extended by every other <code class="jss169">LogPayload</code> that end-user would want to log to the service.</p><pre><div class="jss210"><div class="jss211" style="background:#2b2b2b"><div class="jss212"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss213" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">DefaultPayload</span> <span class="token" style="color:#a9b7c6">{</span>
  <span class="token doc-comment" style="color:#808080"> /**
    * Name of the OS, like Windows/Android etc.
    */</span>
@@ -568,8 +1236,8 @@ interval, that we can later on verify what went wrong, or where an improvement c
    */</span>
   log_level<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6a8759">&#x27;error&#x27;</span> <span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#6a8759">&#x27;debug&#x27;</span> <span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#6a8759">&#x27;perf&#x27;</span> <span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#6a8759">&#x27;data&#x27;</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><h4><code class="jss41">LogPayload</code></h4><p class="MuiTypography-root jss78 MuiTypography-body1">This is a custom payload and might differ as per developer&#x27;s implementation, since
-various apps have various logs they want to track or later on do elastic search or something.</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">LogPayload</span> <span class="token" style="color:#cc7832">extends</span> <span class="token class-name">DefaultPayload</span> <span class="token" style="color:#a9b7c6">{</span>
+</code></pre></div></div></pre><h6 class="MuiTypography-root jss209 MuiTypography-h6"><code class="jss169">LogPayload</code></h6><p class="MuiTypography-root jss206 MuiTypography-body1">This is a custom payload and might differ as per developer&#x27;s implementation, since
+various apps have various logs they want to track or later on do elastic search or something.</p><pre><div class="jss210"><div class="jss211" style="background:#2b2b2b"><div class="jss212"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss213" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">LogPayload</span> <span class="token" style="color:#cc7832">extends</span> <span class="token class-name">DefaultPayload</span> <span class="token" style="color:#a9b7c6">{</span>
  <span class="token doc-comment" style="color:#808080"> /**
    * Could relate to various features/modules being used in an App.
    */</span>
@@ -604,8 +1272,8 @@ various apps have various logs they want to track or later on do elastic search 
    */</span>
   meta<span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">:</span> <span class="token maybe-class-name">Record</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#e8bf6a">string</span><span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#e8bf6a">any</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
-</code></pre></div></div></pre><h4><code class="jss41">MeasurePayload</code></h4><p class="MuiTypography-root jss78 MuiTypography-body1">This payload defines the details on what performance measure were for a particular subfeature.
-Will help to get details on performance of our app.</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">MeasurePayload</span> <span class="token" style="color:#a9b7c6">{</span>
+</code></pre></div></div></pre><h6 class="MuiTypography-root jss209 MuiTypography-h6"><code class="jss169">MeasurePayload</code></h6><p class="MuiTypography-root jss206 MuiTypography-body1">This payload defines the details on what performance measure were for a particular subfeature.
+Will help to get details on performance of our app.</p><pre><div class="jss210"><div class="jss211" style="background:#2b2b2b"><div class="jss212"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss213" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">interface</span> <span class="token class-name">MeasurePayload</span> <span class="token" style="color:#a9b7c6">{</span>
  <span class="token doc-comment" style="color:#808080"> /**
    * name: corelates to the sub_feature we are working on, so that it is easier to understand
    * for which feature time delta was taken for.
@@ -625,19 +1293,19 @@ Will help to get details on performance of our app.</p><pre><div class="jss81"><
    */</span>
   datetime<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#e8bf6a">string</span><span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
-</code></pre></div></div></pre><hr class="jss85"/><h4 class="MuiTypography-root jss80 MuiTypography-h4">We need to create server, which will listen to some HTTP endpoints</h4><p class="MuiTypography-root jss78 MuiTypography-body1">Enpoints like:</p><ul><li><code class="jss41">/debug</code></li><li><code class="jss41">/error</code></li><li><code class="jss41">/perf</code></li><li><code class="jss41">/data</code></li></ul><p class="MuiTypography-root jss78 MuiTypography-body1">Following APIs will need an array as payload, as they will have a batch of data
-to be sent to server.</p><ul><li><code class="jss41">/batch/debug</code></li><li><code class="jss41">/batch/error</code></li><li><code class="jss41">/batch/perf</code></li><li><code class="jss41">/batch/data</code></li></ul><p class="MuiTypography-root jss78 MuiTypography-body1">Whatever Logs we receive in server, can be put into a log file, that can be dumped into some warehouse
+</code></pre></div></div></pre><hr class="jss214"/><h4 class="MuiTypography-root jss208 MuiTypography-h4">We need to create server, which will listen to some HTTP endpoints</h4><p class="MuiTypography-root jss206 MuiTypography-body1">Enpoints like:</p><ul class="jss215"><li><code class="jss169">/debug</code></li><li><code class="jss169">/error</code></li><li><code class="jss169">/perf</code></li><li><code class="jss169">/data</code></li></ul><p class="MuiTypography-root jss206 MuiTypography-body1">Following APIs will need an array as payload, as they will have a batch of data
+to be sent to server.</p><ul class="jss215"><li><code class="jss169">/batch/debug</code></li><li><code class="jss169">/batch/error</code></li><li><code class="jss169">/batch/perf</code></li><li><code class="jss169">/batch/data</code></li></ul><p class="MuiTypography-root jss206 MuiTypography-body1">Whatever Logs we receive in server, can be put into a log file, that can be dumped into some warehouse
 or can be processed in an Elastic Search or completely sent to some Analytics server like Google Analytics
-without saving them to file.</p><p class="MuiTypography-root jss78 MuiTypography-body1">What I am thinking is, any payload that come to <code class="jss41">/data</code> or <code class="jss41">/bulk/data</code> will be sent to whatever
-analytics backend we will link to our server, like Google Analytics or Segment or anything.</p><hr class="jss85"/><h4 class="MuiTypography-root jss80 MuiTypography-h4">We need to create a Frontend library as well that will manage all these calls to backend</h4><p class="MuiTypography-root jss78 MuiTypography-body1">Since we want to send single or batched payloads to server, we need a library to manage that
-burden from a dev, and provide a clean API that the dev can usee to</p><h5 class="MuiTypography-root jss79 MuiTypography-h5">Concept</h5><p class="MuiTypography-root jss78 MuiTypography-body1">The thought behind building this library is simple:</p><ul><li><p class="MuiTypography-root jss78 MuiTypography-body1">Keep the Library as small as possible and with less overhead.</p></li><li><p class="MuiTypography-root jss78 MuiTypography-body1">We will be creating a Class (<em>UpNUp</em>), that will provide us with few APIs</p><ul><li><code class="jss41">debug</code> - to add debug logs</li><li><code class="jss41">error</code> - to send errors on any UI failure, like Rollbar does.</li><li><code class="jss41">perf</code> - performance logs that can be used to get a better insight on what feature is bloating the app</li><li><code class="jss41">data</code> - data analysis logs. These logs will be directly sent to some other third party libraries like
-Google Analytics from our Backend Server.</li></ul></li><li><p class="MuiTypography-root jss78 MuiTypography-body1">These APIs can be called anytime and they all will update specific queues, to push the
+without saving them to file.</p><p class="MuiTypography-root jss206 MuiTypography-body1">What I am thinking is, any payload that come to <code class="jss169">/data</code> or <code class="jss169">/bulk/data</code> will be sent to whatever
+analytics backend we will link to our server, like Google Analytics or Segment or anything.</p><hr class="jss214"/><h4 class="MuiTypography-root jss208 MuiTypography-h4">We need to create a Frontend library as well that will manage all these calls to backend</h4><p class="MuiTypography-root jss206 MuiTypography-body1">Since we want to send single or batched payloads to server, we need a library to manage that
+burden from a dev, and provide a clean API that the dev can usee to</p><h5 class="MuiTypography-root jss207 MuiTypography-h5">Concept</h5><p class="MuiTypography-root jss206 MuiTypography-body1">The thought behind building this library is simple:</p><ul class="jss215"><li><p class="MuiTypography-root jss206 MuiTypography-body1">Keep the Library as small as possible and with less overhead.</p></li><li><p class="MuiTypography-root jss206 MuiTypography-body1">We will be creating a Class (<em>UpNUp</em>), that will provide us with few APIs</p><ul class="jss215"><li><code class="jss169">debug</code> - to add debug logs</li><li><code class="jss169">error</code> - to send errors on any UI failure, like Rollbar does.</li><li><code class="jss169">perf</code> - performance logs that can be used to get a better insight on what feature is bloating the app</li><li><code class="jss169">data</code> - data analysis logs. These logs will be directly sent to some other third party libraries like
+Google Analytics from our Backend Server.</li></ul></li><li><p class="MuiTypography-root jss206 MuiTypography-body1">These APIs can be called anytime and they all will update specific queues, to push the
 logs in the queue, so as to keep the logging burden off the shelf (I think I can later on add Webworkers
-to move the burden off the main thread.)</p></li><li><p class="MuiTypography-root jss78 MuiTypography-body1">On every interval, which the user will configure, chunk of each queue would be popped out and an
-HTTP request will be made the endpoint configured before.</p><div class="jss86"><img class="jss87 jss88" src="https://user-images.githubusercontent.com/11786283/81470875-de973080-920a-11ea-99a3-5397f40b85b0.png" alt="Flow Diagram for Log Upload"/><p class="jss89">Flow Diagram for Log Upload</p></div></li></ul><div class="MuiPaper-root MuiCard-root jss45 jss47 MuiPaper-elevation0 MuiPaper-rounded">If we do use <b>Webworkers</b>, someday in future, all the above logic will become parallel and it will become trivial to use <i>Mutex/Locks</i> to manage manipulation of queues, which also gives us more control over when the data chunk should be extracted, i.e. should we get the chunk after 2 seconds or should we get the chunk when it crosses a size threshold of let&#x27;s say 100kb, so that the API calls we make are more effective.</div><h5 class="MuiTypography-root jss79 MuiTypography-h5">Solution</h5><div class="MuiPaper-root MuiCard-root jss45 jss46 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss78 MuiTypography-body1">Using <code class="jss41">RxJS</code>, to simplify the concept of buffering. Understanding <code class="jss41">RxJS</code> took
-me a lot of time. There are four main concepts for <code class="jss41">RxJS</code>.</p><ol><li>Observable/Observer (Publisher/Subscriber)</li><li>Cold and Hot Publisher</li><li>Schedulers</li><li>Operators</li></ol><p class="MuiTypography-root jss78 MuiTypography-body1">I will discuss these in a separate Note. For now we will just talk about
-buffering.</p></div><ul><li>Create an instance of the Logger.<ul><li>The moment the instance is created, create just one <code class="jss41">RxJS Subjects</code> which
-will manage the buffers and simultaneously <code class="jss41">subscribe</code> them as well.</li></ul></li><li>On any API call for <code class="jss41">debug</code>, <code class="jss41">perf</code> etc., a call to <code class="jss41">subject.next</code> would be
-made, so as to publish the log string.</li><li>Which when received to the <code class="jss41">subscriber</code> will be piped with some compression
-operator then <code class="jss41">buffer</code> operator, and for each <code class="jss41">buffer</code> complete, we
-will make an HTTP call pushing the buffer to our remote server.</li></ul></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/upload-client-logs","query":{},"buildId":"jq242jKQxKmraGUIld70l","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-0c80ce1998674409fed0.js"></script><script async="" data-next-page="/upload-client-logs" src="/_next/static/jq242jKQxKmraGUIld70l/pages/upload-client-logs.js"></script><script async="" data-next-page="/_app" src="/_next/static/jq242jKQxKmraGUIld70l/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/c29c712ab4ce17a4a1af910056c44831749b3160.161ee28d277efe0b043d.js" async=""></script><script src="/_next/static/chunks/727b40c2621c321afde5719c7e51cac0aeaacce2.bc7ae3b4011521cd836a.js" async=""></script><script src="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" async=""></script><script src="/_next/static/jq242jKQxKmraGUIld70l/_buildManifest.js" async=""></script><script src="/_next/static/jq242jKQxKmraGUIld70l/_ssgManifest.js" async=""></script></body></html>
+to move the burden off the main thread.)</p></li><li><p class="MuiTypography-root jss206 MuiTypography-body1">On every interval, which the user will configure, chunk of each queue would be popped out and an
+HTTP request will be made the endpoint configured before.</p><div class="jss216"><img class="jss217 jss218" src="https://user-images.githubusercontent.com/11786283/81470875-de973080-920a-11ea-99a3-5397f40b85b0.png" alt="Flow Diagram for Log Upload"/><p class="jss219">Flow Diagram for Log Upload</p></div></li></ul><div class="MuiPaper-root MuiCard-root jss173 jss175 MuiPaper-elevation0 MuiPaper-rounded">If we do use <b>Webworkers</b>, someday in future, all the above logic will become parallel and it will become trivial to use <i>Mutex/Locks</i> to manage manipulation of queues, which also gives us more control over when the data chunk should be extracted, i.e. should we get the chunk after 2 seconds or should we get the chunk when it crosses a size threshold of let&#x27;s say 100kb, so that the API calls we make are more effective.</div><h5 class="MuiTypography-root jss207 MuiTypography-h5">Solution</h5><div class="MuiPaper-root MuiCard-root jss173 jss174 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss206 MuiTypography-body1">Using <code class="jss169">RxJS</code>, to simplify the concept of buffering. Understanding <code class="jss169">RxJS</code> took
+me a lot of time. There are four main concepts for <code class="jss169">RxJS</code>.</p><ol class="jss215"><li>Observable/Observer (Publisher/Subscriber)</li><li>Cold and Hot Publisher</li><li>Schedulers</li><li>Operators</li></ol><p class="MuiTypography-root jss206 MuiTypography-body1">I will discuss these in a separate Note. For now we will just talk about
+buffering.</p></div><ul class="jss215"><li>Create an instance of the Logger.<ul class="jss215"><li>The moment the instance is created, create just one <code class="jss169">RxJS Subjects</code> which
+will manage the buffers and simultaneously <code class="jss169">subscribe</code> them as well.</li></ul></li><li>On any API call for <code class="jss169">debug</code>, <code class="jss169">perf</code> etc., a call to <code class="jss169">subject.next</code> would be
+made, so as to publish the log string.</li><li>Which when received to the <code class="jss169">subscriber</code> will be piped with some compression
+operator then <code class="jss169">buffer</code> operator, and for each <code class="jss169">buffer</code> complete, we
+will make an HTTP call pushing the buffer to our remote server.</li></ul></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/upload-client-logs","query":{},"buildId":"IiA8zq1Jvb3zeY5OmvvIb","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-0c80ce1998674409fed0.js"></script><script async="" data-next-page="/upload-client-logs" src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/upload-client-logs.js"></script><script async="" data-next-page="/_app" src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/pages/_app.js"></script><script src="/_next/static/runtime/webpack-b65cab0b00afd201cbda.js" async=""></script><script src="/_next/static/chunks/framework.934881a8a2d3672acc22.js" async=""></script><script src="/_next/static/chunks/ea833a594efc23a0da3970ffa911887435d154c7.161ee28d277efe0b043d.js" async=""></script><script src="/_next/static/chunks/db50daf1ffaed9128ca38489cecbeae532df5c42.cc9af86369dd01a06a7b.js" async=""></script><script src="/_next/static/runtime/main-f4eaf786b50d65f6e432.js" async=""></script><script src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/_buildManifest.js" async=""></script><script src="/_next/static/IiA8zq1Jvb3zeY5OmvvIb/_ssgManifest.js" async=""></script></body></html>

@@ -1,0 +1,71 @@
+webpackHotUpdate("static/development/pages/index.js",{
+
+/***/ "./hoc/palette-mode.tsx":
+/*!******************************!*\
+  !*** ./hoc/palette-mode.tsx ***!
+  \******************************/
+/*! exports provided: usePaletteModeStore, withPaletteModeProvider */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usePaletteModeStore", function() { return usePaletteModeStore; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "withPaletteModeProvider", function() { return withPaletteModeProvider; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _hooks_use_local_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hooks/use-local-storage */ "./hooks/use-local-storage.ts");
+
+var _jsxFileName = "/Users/subroto.biswas/Subroto/shub1427.github.io/hoc/palette-mode.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+const PaletteModeContext = react__WEBPACK_IMPORTED_MODULE_1___default.a.createContext({
+  darkMode: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setDarkMode: () => {}
+});
+
+const PaletteModeProvider = ({
+  children
+}) => {
+  const [darkMode, setDarkMode] = Object(_hooks_use_local_storage__WEBPACK_IMPORTED_MODULE_2__["useLocalStorage"])('darkMode', false);
+  return __jsx(PaletteModeContext.Provider, {
+    value: {
+      darkMode,
+      setDarkMode
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 5
+    }
+  }, children);
+};
+
+const usePaletteModeStore = () => Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(PaletteModeContext);
+function withPaletteModeProvider(Component) {
+  return function PaletteModeWrapperComponent(props) {
+    return __jsx(PaletteModeProvider, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 7
+      }
+    }, __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39,
+        columnNumber: 9
+      }
+    })));
+  };
+}
+
+/***/ })
+
+})
+//# sourceMappingURL=index.js.c28ed546aafd02e08f37.hot-update.js.map
