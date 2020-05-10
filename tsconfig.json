@@ -17,6 +17,8 @@
     "paths": {
       "@components/*": ["./components/*"],
       "@constants/*": ["./constants/*"],
+      "@hoc/*": ["./hoc/*"],
+      "@hooks/*": ["./hooks/*"],
       "@ui/*": ["./ui/*"],
       "@pages/*": ["./pages/*"],
       "@utils/*": ["./utils/*"],

@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
-import theme from '@utils/theme';
+import defaultTheme, { darkTheme } from '@utils/theme';
 import Head from 'next/head';
-import App from 'next/app';
+import App, { AppInitialProps } from 'next/app';
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -21,6 +21,11 @@ import ThematicBreak from '@components/thematic-break';
 import PolkaContainer from '@components/polka-container';
 import NoteSubtitle from '@components/note-subtitle';
 import { MDXOL, MDXUL, MDXLI } from '@components/mdx-list';
+import { NextComponentType } from 'next';
+import {
+  withPaletteModeProvider,
+  usePaletteModeStore,
+} from '@hoc/palette-mode';
 
 const mdComponents = {
   a: (props: any) => <Link target="_blank" {...props} />,
@@ -49,6 +54,23 @@ const mdComponents = {
   NoteSubtitle,
 };
 
+const Content = (props: AppInitialProps & { Component: NextComponentType }) => {
+  const { Component, pageProps } = props;
+  const { darkMode } = usePaletteModeStore();
+  const theme = darkMode ? darkTheme : defaultTheme;
+  return (
+    <ThemeProvider theme={theme}>
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      <CssBaseline />
+      <MDXProvider components={mdComponents}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    </ThemeProvider>
+  );
+};
+
+const WithPaletteModeContent = withPaletteModeProvider(Content);
+
 export default class MyApp extends App {
   componentDidMount() {
     // Remove the server-side injected CSS.
@@ -59,7 +81,6 @@ export default class MyApp extends App {
   }
 
   public render() {
-    const { Component, pageProps } = this.props;
     return (
       <React.Fragment>
         <Head>
@@ -73,13 +94,7 @@ export default class MyApp extends App {
           />
           <link href="/css/main.css" rel="stylesheet" />
         </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <MDXProvider components={mdComponents}>
-            <Component {...pageProps} />
-          </MDXProvider>
-        </ThemeProvider>
+        <WithPaletteModeContent {...this.props} />
       </React.Fragment>
     );
   }

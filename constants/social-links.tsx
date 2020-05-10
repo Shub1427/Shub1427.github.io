@@ -28,32 +28,75 @@ const StackOverflow = (props: any) => {
 export const socialLinks = [
   {
     key: 'twitter',
+    mode: 'light',
     link: 'https://twitter.com/Shub7241',
     color: 'rgb(29, 161, 242)',
     icon: TwitterIcon,
   },
   {
     key: 'github',
+    mode: 'light',
     link: 'https://github.com/Shub1427',
     color: '#24292e',
     icon: Github,
   },
   {
     key: 'stackoverflow',
+    mode: 'light',
     link: 'https://stackoverflow.com/users/2849127/subroto',
     color: '#adb5bd',
     icon: StackOverflow,
   },
   {
     key: 'gmail',
+    mode: 'light',
     link: 'mailto:sub14biswas@gmail.com',
     color: '#D44638',
     icon: EmailIcon,
   },
   {
     key: 'linkedin',
+    mode: 'light',
     link: 'https://www.linkedin.com/in/shub1427/',
     color: '#0077b5',
+    icon: LinkedIn,
+  },
+];
+
+export const socialLinksDark = [
+  {
+    key: 'twitter',
+    mode: 'dark',
+    link: 'https://twitter.com/Shub7241',
+    color: 'rgb(29, 161, 242)',
+    icon: TwitterIcon,
+  },
+  {
+    key: 'github-light',
+    mode: 'dark',
+    link: 'https://github.com/Shub1427',
+    color: '#f2f2f2',
+    icon: Github,
+  },
+  {
+    key: 'stackoverflow',
+    mode: 'dark',
+    link: 'https://stackoverflow.com/users/2849127/subroto',
+    color: '#adb5bd',
+    icon: StackOverflow,
+  },
+  {
+    key: 'gmail',
+    mode: 'dark',
+    link: 'mailto:sub14biswas@gmail.com',
+    color: '#D44638',
+    icon: EmailIcon,
+  },
+  {
+    key: 'linkedin',
+    mode: 'dark',
+    link: 'https://www.linkedin.com/in/shub1427/',
+    color: '#0088d7',
     icon: LinkedIn,
   },
 ];

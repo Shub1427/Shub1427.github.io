@@ -1,8 +1,9 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   thematicBreak: {
+    color: theme.palette.type === 'dark' ? '#d2d2d2' : '#666',
     textAlign: 'center',
     marginTop: '32px',
     fontSize: '32px',
@@ -15,7 +16,7 @@ const useStyles = makeStyles({
       letterSpacing: '1em',
     },
   },
-});
+}));
 
 export default function ThematicBreak() {
   const classes = useStyles();

@@ -11,7 +11,7 @@
     "preexport": "npm run build",
     "export": "next export",
     "postexport": "cpx .nojekyll ./out/",
-    "serve": "serve -l 3000 ./out/",
+    "serve": "serve -l 5000 ./out/",
     "predeploy": "npm run export",
     "deploy": "cross-env NODE_DEBUG=gh-pages gh-pages -t -b master -d out"
   },

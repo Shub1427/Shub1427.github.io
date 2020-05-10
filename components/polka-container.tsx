@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container, makeStyles } from '@material-ui/core';
 import PolkaPattern from '@components/polka-pattern';
+import DarkModeSwitch from 'components/dark-mode-switch';
 
 const useStyles = makeStyles({
   root: {
@@ -15,6 +16,7 @@ export default function PolkaContainer(props: any) {
   return (
     <Container maxWidth="md" className={classes.root}>
       <PolkaPattern />
+      <DarkModeSwitch />
       {props.children}
     </Container>
   );

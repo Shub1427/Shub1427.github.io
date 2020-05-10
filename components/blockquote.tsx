@@ -1,20 +1,21 @@
 import React from 'react';
 import cx from 'classnames';
-import { Card, makeStyles, colors } from '@material-ui/core';
+import { Card, makeStyles, colors, Theme } from '@material-ui/core';
 
 export interface IBlockquoteProps {
   type: 'info' | 'warn' | 'error';
   children: React.ReactChild;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    background: '#f2f2f2',
+    background: theme.palette.type === 'dark' ? '#444' : '#f2f2f2',
     padding: '16px 8px',
-    color: '#777',
+    color: theme.palette.type === 'dark' ? '#aaa' : '#777',
     margin: '12px 0',
 
     '& > p, & > ul, & > ol': {
+      color: theme.palette.type === 'dark' ? '#999' : '#888',
       fontSize: '0.9rem',
     },
 
@@ -23,15 +24,23 @@ const useStyles = makeStyles({
     },
   },
   info: {
-    borderLeft: `12px solid ${colors.blue['300']}`,
+    borderLeft: `12px solid ${
+      theme.palette.type === 'dark' ? colors.blue['800'] : colors.blue['300']
+    }`,
   },
   warn: {
-    borderLeft: `12px solid ${colors.amber['300']}`,
+    borderLeft: `12px solid ${
+      theme.palette.type === 'dark' ? colors.yellow['800'] : colors.amber['300']
+    }`,
   },
   error: {
-    borderLeft: `12px solid ${colors.red['400']}`,
+    borderLeft: `12px solid ${
+      theme.palette.type === 'dark'
+        ? colors.deepOrange['900']
+        : colors.red['400']
+    }`,
   },
-});
+}));
 
 export default function Blockquote(props: IBlockquoteProps) {
   const classes = useStyles();

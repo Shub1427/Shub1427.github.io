@@ -1,6 +1,9 @@
 import React from 'react';
+import { usePaletteModeStore } from '@hoc/palette-mode';
 
 export default function PolkaPattern() {
+  const { darkMode } = usePaletteModeStore();
+  const color = darkMode ? 'rgba(249,168,37,0.15)' : '#e3f2fd';
   return (
     <svg
       width="100%"
@@ -21,11 +24,11 @@ export default function PolkaPattern() {
           width="50"
           height="50"
         >
-          <circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle>
-          <circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle>
-          <circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle>
-          <circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle>
-          <circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle>
+          <circle fill={color} cx="12.5" cy="12.5" r="2.0833"></circle>
+          <circle fill={color} cx="37.5" cy="12.5" r="2.0833"></circle>
+          <circle fill={color} cx="0" cy="37.5" r="2.0833"></circle>
+          <circle fill={color} cx="25" cy="37.5" r="2.0833"></circle>
+          <circle fill={color} cx="50" cy="37.5" r="2.0833"></circle>
         </pattern>
       </defs>
 

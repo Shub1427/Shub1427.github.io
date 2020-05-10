@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography, makeStyles } from '@material-ui/core';
+import { Typography, makeStyles, Theme } from '@material-ui/core';
 import NoteSubtitle from './note-subtitle';
 
 export interface IMDXH1Props {
@@ -9,8 +9,9 @@ export interface IMDXH1Props {
   wordCount: number;
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    color: theme.palette.type === 'dark' ? '#e2e2e2' : '#222',
     padding: '0',
     marginBottom: 48,
   },
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
   subtitle: {
     fontWeight: 600,
   },
-});
+}));
 
 export default function MDXH1(props: IMDXH1Props) {
   const classes = useStyles();

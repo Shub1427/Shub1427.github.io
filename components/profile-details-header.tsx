@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles, Typography, Theme, IconButton } from '@material-ui/core';
-import { socialLinks } from '@constants/social-links';
+import { socialLinks, socialLinksDark } from '@constants/social-links';
+
+import { usePaletteModeStore } from '@hoc/palette-mode';
+import DarkModeSwitch from 'components/dark-mode-switch';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -21,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     wordSpacing: 3,
     lineHeight: 1.7,
     fontWeight: 400,
-    color: '#666',
+    color: theme.palette.type === 'dark' ? theme.palette.common.white : '#666',
   },
   highlight: {
     color: `${theme.palette.primary.light}`,
@@ -37,8 +40,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function ProfileDetailsHeader() {
   const classes = useStyles();
+  const { darkMode } = usePaletteModeStore();
+  const links = darkMode ? socialLinksDark : socialLinks;
   return (
     <div className={classes.root}>
+      <DarkModeSwitch />
       <img height="100%" src="/images/logo-small.png" alt="Shub's logo" />
       <Typography className={classes.title} variant="h3" color="primary">
         Subroto Biswas
@@ -53,7 +59,7 @@ export default function ProfileDetailsHeader() {
         leisure time he works on Game Dev and Render engines using Rust Lang.
       </Typography>
       <div className={classes.socialWrapper}>
-        {socialLinks.map(social => (
+        {links.map(social => (
           <IconButton
             key={social.key}
             href={social.link}

@@ -1,10 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    color: theme.palette.type === 'dark' ? '#ccc' : '#444',
     fontSize: '1rem',
     lineHeight: 1.7,
+    fontWeight: 200,
 
     'p + &': {
       marginTop: 32,
@@ -14,7 +16,7 @@ const useStyles = makeStyles({
       marginTop: 'initial',
     },
   },
-});
+}));
 
 export const MDXUL = (props: any) => {
   const classes = useStyles();
