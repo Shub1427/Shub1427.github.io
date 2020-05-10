@@ -16,6 +16,15 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginTop: 'initial',
     },
   },
+  item: {
+    '& + &': {
+      marginTop: 8,
+    },
+
+    '& > ul > &, & > ol > &': {
+      marginTop: '0',
+    },
+  },
 }));
 
 export const MDXUL = (props: any) => {
@@ -29,5 +38,6 @@ export const MDXOL = (props: any) => {
 };
 
 export const MDXLI = (props: any) => {
-  return <li {...props} />;
+  const classes = useStyles();
+  return <li className={classes.item} {...props} />;
 };

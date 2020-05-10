@@ -192,7 +192,9 @@ The thought behind building this library is simple:
 * On every interval, which the user will configure, chunk of each queue would be popped out and an
   HTTP request will be made the endpoint configured before.
 
-  <Image src="https://user-images.githubusercontent.com/11786283/81470865-cde6ba80-920a-11ea-8429-6df2a2ac0595.png" placeholder="https://user-images.githubusercontent.com/11786283/81470875-de973080-920a-11ea-99a3-5397f40b85b0.png" alt="Flow Diagram for Log Upload" />
+
+<Image src="https://user-images.githubusercontent.com/11786283/81470865-cde6ba80-920a-11ea-8429-6df2a2ac0595.png" placeholder="https://user-images.githubusercontent.com/11786283/81470875-de973080-920a-11ea-99a3-5397f40b85b0.png" alt="Flow Diagram for Log Upload" fullWidth />
+
 
 <Blockquote type="warn">
 If we do use&nbsp;

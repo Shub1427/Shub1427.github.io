@@ -93,7 +93,7 @@ export default class MyApp extends App {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap"
             rel="stylesheet"
           />
           <link href="/css/main.css" rel="stylesheet" />

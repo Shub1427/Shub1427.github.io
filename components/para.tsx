@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     color: theme.palette.type === 'dark' ? '#ccc' : '#444',
     fontFamily: "'Montserrat', sans-serif",
-    fontWeight: 200,
+    fontWeight: 300,
     wordSpacing: 3,
     lineHeight: 1.7,
     '& + &, ol + &, ul + &': {

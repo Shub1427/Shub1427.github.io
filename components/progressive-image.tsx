@@ -1,12 +1,13 @@
 import React from 'react';
+import cx from 'classnames';
 import ProgressiveImage, {
   ProgressiveImageProps,
 } from 'react-progressive-image';
-import { makeStyles } from '@material-ui/core';
-import cx from 'classnames';
+import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
+    position: 'relative',
     width: '100%',
     margin: '32px 0',
   },
@@ -22,6 +23,8 @@ const useStyles = makeStyles({
     margin: 0,
     textAlign: 'center',
     fontStyle: 'italic',
+    fontWeight: 400,
+    fontSize: '0.8rem',
     color: '#aaa',
   },
 });
@@ -32,8 +35,9 @@ interface IImageProps extends ProgressiveImageProps {
 
 export default function Image(props: IImageProps) {
   const classes = useStyles();
+  const rootClasses = cx(classes.root);
   return (
-    <div className={classes.root}>
+    <div className={rootClasses}>
       <ProgressiveImage src={props.src} placeholder={props.placeholder}>
         {(src: string, loading: boolean) => {
           const rootClasses = cx(classes.image, {
@@ -42,7 +46,9 @@ export default function Image(props: IImageProps) {
           return <img className={rootClasses} src={src} alt={props.alt} />;
         }}
       </ProgressiveImage>
-      <p className={classes.description}>{props.alt}</p>
+      <Typography className={classes.description} variant="body2">
+        {props.alt}
+      </Typography>
     </div>
   );
 }

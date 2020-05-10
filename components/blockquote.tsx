@@ -11,15 +11,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     background: theme.palette.type === 'dark' ? '#444' : '#f2f2f2',
     padding: '16px 8px',
-    color: theme.palette.type === 'dark' ? '#aaa' : '#777',
+    color: theme.palette.type === 'dark' ? '#999' : '#888',
+    fontWeight: 400,
     margin: '12px 0',
 
-    '& > p, & > ul, & > ol': {
+    '& > p, & > ul, & > ol, & > div': {
       color: theme.palette.type === 'dark' ? '#999' : '#888',
       fontSize: '0.9rem',
+      fontWeight: 400,
     },
 
-    'p + &, & + p, & + &': {
+    'p + &, & + &': {
       marginTop: 32,
     },
   },
