@@ -27,13 +27,11 @@ let theme = createMuiTheme({
       paper: common.white,
     },
   },
+  typography: {
+    fontFamily: ['"Montserrat"', 'sans-serif'].join(','),
+  },
 });
 
 theme = responsiveFontSizes(theme);
-
-export const HEADER_FONT_FACE = "'Merriweather Sans', sans-serif";
-
-theme.typography.h1.fontFamily = HEADER_FONT_FACE;
-theme.typography.h2.fontFamily = HEADER_FONT_FACE;
 
 export default theme;

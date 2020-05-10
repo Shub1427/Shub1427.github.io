@@ -12,9 +12,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '0 auto',
     padding: '32px 16px',
   },
+  title: {
+    fontFamily: "'Oswald', sans-serif",
+    fontWeight: 200,
+  },
   description: {
     marginTop: 16,
-    maxWidth: 900,
+    wordSpacing: 3,
+    lineHeight: 1.7,
+    fontWeight: 400,
+    color: '#666',
   },
   highlight: {
     color: `${theme.palette.primary.light}`,
@@ -33,7 +40,7 @@ export default function ProfileDetailsHeader() {
   return (
     <div className={classes.root}>
       <img height="100%" src="/images/logo-small.png" alt="Shub's logo" />
-      <Typography variant="h3" color="primary">
+      <Typography className={classes.title} variant="h3" color="primary">
         Subroto Biswas
       </Typography>
       <Typography variant="subtitle1" className={classes.description}>

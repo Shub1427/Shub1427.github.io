@@ -3,8 +3,11 @@ import { Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
-    '& + &': {
-      marginTop: 16,
+    fontFamily: "'Montserrat', sans-serif",
+    wordSpacing: 3,
+    lineHeight: 1.7,
+    '& + &, ol + &, ul + &': {
+      marginTop: 32,
     },
   },
 });

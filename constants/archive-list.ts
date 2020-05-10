@@ -23,7 +23,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
       'Recent Performance related findings of mine, which I am jotting down here for later reference',
     tags: [Tags.RESEARCH, Tags.JS, Tags.REACT],
     createdAt: new Date('2020/05/07 09:15:00'),
-    updatedAt: new Date('2020/05/07 09:15:00'),
+    updatedAt: new Date('2020/05/09 23:15:00'),
     isPublished: true,
   },
   'upload-client-logs': {
@@ -35,7 +35,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
       from end-user's browser to you own servers, for which this note will talk about.",
     tags: [Tags.PROJECT, Tags.JS, Tags.REACT],
     createdAt: new Date('2020/04/29 08:30:00'),
-    updatedAt: new Date('2020/05/03 23:30:00'),
+    updatedAt: new Date('2020/05/09 12:30:00'),
     isPublished: true,
   },
   'word-counter': {

@@ -33,11 +33,18 @@ using `gfx-hal` library, which is a wrapper over Vulkan Specs.
 
 Backends are specific to what GPU u have and what specs it supports.
 
-Vulkan Backend is cross-compatible and has support in Linux/Widnows, on AMD, Intel, NVidia etc.
-> Apple stays out, and I hate this thing about it, it doesn't support Vulkan, and has speicifc
-> backend in Metal. Though `gfx-hal` has `metal` backend as well.
+Vulkan Backend is cross-compatible and has support in Linux/Windows, on AMD, Intel, NVidia etc.
+> Apple stays out, and I hate this thing about it, it doesn't support Vulkan, and has specific
+> graphics backend called `Metal`. Though `gfx-hal` has `metal` backend as well and since I am using
+> Mac (Yeah! Now don't come and bash me, can't use my Linux system a.t.m.), it would be a good
+> way to know the support of `gfx-hal` for MacOS as well.
 
-To work with `gfx-hal` we need to create an instance of a specific Backend which can be controlled using Rust Feature Configurations.
+<br />
+<br />
+
+***Moving forward***, we now need to import various `backends` in our code to have cross-compatibility.
+`gfx-hal` needs an instance of a specific Backend which can be controlled
+using Rust Feature Configurations.
 
 ```rs
 #[cfg(feature = "dx12")]
@@ -48,6 +55,45 @@ use gfx_backend_metal as back;
 use gfx_backend_vulkan as back;
 ```
 
+***
+
+> From here on, we will deep dive into Rust Programming. By the time we are done coding, we would be
+> able to show a blank window on our Monitors.
+
+## Define Backend Struct:
+
+I am trying to keep my code, matching to how people write for real life projects. Thus, we won't be
+just writing down lines of code all inside `main` function, instead we will try to manage our code,
+as much as we can from the beginning (not overdoing to much).
+
+So first thing we need is to manage Window Instance and Vulkan Backend Surface Objects (what these things
+are, is defined in next sections).
+
+```rs
+struct BackendState<B: Backend> {
+    // Vulkan backend instance object
+    instance: Option<B::Instance>,
+    // Vulkan backend surface object
+    surface: ManuallyDrop<B::Surface>,
+    // `winit` Window object.
+    window: window::Window,
+}
+
+impl<B: Backend> Drop for BackendState<B> {
+    fn drop(&mut self) {
+        if let Some(instance) = &self.instance {
+            unsafe {
+                let surface = ManuallyDrop::into_inner(ptr::read(&self.surface));
+                instance.destroy_surface(surface);
+            }
+        }
+    }
+}
+```
+
+Since `gfx-hal` does not manage every peace of Memory, we need to define the Vulkan `surface`
+as manually managed, using `ManuallyDrop` struc. Also, we need to drop `surface` once done with it,
+i.e. when `BackendState` struct gets dropped.
 
 ## Creating Window instance
 Now let's come back to our code. In real world, to draw anything we need a canvas, right. Similary, in
@@ -57,6 +103,7 @@ cross-platform. It requires two major steps to display a blank window:
 
 * Window Dimensions
 * Event Loop, that will help us to know when to redraw, w.r.t CPU and GPU capabilities, and listen to user events. _We will discuss this on some other thread, in detail._
+
 
 ## Instance
 

@@ -29,9 +29,17 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: 0,
     },
   },
-  centered: {
+  heading: {
     display: 'flex',
     justifyContent: 'center',
+    fontFamily: "'Oswald', sans-serif",
+    fontWeight: 200,
+    marginBottom: 32,
+  },
+  item: {
+    '& + &': {
+      marginTop: 32,
+    },
   },
   tags: {
     fontSize: 14,
@@ -43,10 +51,21 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   title: {
-    display: 'flex',
-    justifyContent: 'center',
+    display: 'block',
+    textAlign: 'center',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
     color: `${theme.palette.secondary.dark}`,
     padding: '0 0 16px',
+    fontFamily: "'Oswald', sans-serif",
+    fontWeight: 300,
+  },
+  description: {
+    display: '-webkit-box',
+    '-webkit-line-clamp': 3,
+    '-webkit-box-orient': 'vertical',
+    overflow: 'hidden',
   },
   dates: {
     display: 'flex',
@@ -78,13 +97,13 @@ export default function ArchiveList() {
   );
   return (
     <div className={classes.root}>
-      <Typography className={classes.centered} variant="h4">
+      <Typography className={classes.heading} variant="h2">
         Archives
       </Typography>
       <List component="nav" aria-label="main mailbox folders">
         {sortedArchiveList.map(page => {
           return (
-            <ListItem key={page.key}>
+            <ListItem className={classes.item} key={page.key}>
               <Card className={classes.root} elevation={4}>
                 <CardContent>
                   <div className={classes.tags}>
@@ -92,7 +111,7 @@ export default function ArchiveList() {
                   </div>
                   <Typography
                     className={classes.title}
-                    variant="h5"
+                    variant="h4"
                     component="h2"
                   >
                     {page.title}
@@ -105,7 +124,11 @@ export default function ArchiveList() {
                       Created: {fromDistance(page.createdAt, new Date())} ago
                     </span>
                   </div>
-                  <Typography variant="body2" component="p">
+                  <Typography
+                    className={classes.description}
+                    variant="body2"
+                    component="p"
+                  >
                     {page.description}
                   </Typography>
                 </CardContent>
@@ -114,9 +137,9 @@ export default function ArchiveList() {
                     <Button
                       disabled={!page.isPublished}
                       color="primary"
-                      size="small"
+                      fullWidth
                     >
-                      Visit
+                      <b>Visit</b>
                     </Button>
                   </Link>
                 </CardActions>

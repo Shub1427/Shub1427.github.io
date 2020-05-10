@@ -6,6 +6,8 @@ const useStyles = makeStyles({
   root: {
     padding: '0',
     margin: '32px 0 12px',
+    fontFamily: "'Oswald', sans-serif",
+    fontWeight: 400,
   },
 });
 

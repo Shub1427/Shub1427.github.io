@@ -8,6 +8,7 @@ export interface INoteSubtitle {
   date: Date;
   totalWords: number;
   className?: string;
+  fontClasses?: string;
 }
 
 const useStyles = makeStyles({
@@ -39,13 +40,14 @@ const useStyles = makeStyles({
 export default function NoteSubtitle(props: INoteSubtitle) {
   const classes = useStyles();
   const rootClasses = cx(classes.root, props.className);
+  const descriptionClasses = cx(classes.description, props.fontClasses);
   return (
     <div className={rootClasses}>
-      <Typography variant="body2" className={classes.description}>
+      <Typography variant="body2" className={descriptionClasses}>
         {format(props.date, 'MMM dd')}
       </Typography>
       <span className={classes.separator}>•</span>
-      <Typography variant="body2" className={classes.description}>
+      <Typography variant="body2" className={descriptionClasses}>
         {Math.ceil(props.totalWords / 225)} min read
       </Typography>
     </div>

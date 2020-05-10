@@ -14,15 +14,33 @@ const useStyles = makeStyles({
     padding: '0',
     marginBottom: 48,
   },
+  heading: {
+    fontFamily: "'Oswald', sans-serif",
+    fontWeight: 200,
+  },
+  subtitleWrapper: {
+    marginTop: 12,
+    fontWeight: 600,
+  },
+  subtitle: {
+    fontWeight: 600,
+  },
 });
 
 export default function MDXH1(props: IMDXH1Props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant="h2">{props.children}</Typography>
+      <Typography className={classes.heading} variant="h2">
+        {props.children}
+      </Typography>
       {props.updatedAt && props.wordCount && (
-        <NoteSubtitle date={props.updatedAt} totalWords={props.wordCount} />
+        <NoteSubtitle
+          className={classes.subtitleWrapper}
+          fontClasses={classes.subtitle}
+          date={props.updatedAt}
+          totalWords={props.wordCount}
+        />
       )}
     </div>
   );

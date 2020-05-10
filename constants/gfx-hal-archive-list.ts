@@ -20,7 +20,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
       'Displaying Window using winit and bind it to gfx-hal surface instance',
     tags: [Tags.RUST],
     createdAt: new Date('2020/04/25 17:00:00'),
-    updatedAt: new Date('2020/04/25 17:00:00'),
+    updatedAt: new Date('2020/05/09 23:50:00'),
     isPublished: false,
   },
 };

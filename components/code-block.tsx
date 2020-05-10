@@ -24,7 +24,7 @@ export interface ICodeBlockProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginTop: 16,
+    marginTop: 32,
     marginBottom: 48,
     padding: 0,
     borderRadius: 4,

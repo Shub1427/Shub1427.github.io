@@ -119,7 +119,7 @@ You can get a very detailed explanation of what virtualization is, and
 what hurdles we need to resolve while building a Virtualized List,
 [here @ Complexities of Infinite Scroller](https://developers.google.com/web/updates/2016/07/infinite-scroller).
 
-*I think I will try to build a virtualized list in Rust,someday. Let's see!!!* <img class="emoji" title=":bowtie:" alt=":bowtie:" src="https://github.githubassets.com/images/icons/emoji/bowtie.png" width="20" height="20" align="absmiddle" />
+*I think I will try to build a virtualized list in Rust,someday. Let's see!!!* <img className="emoji" title=":bowtie:" alt=":bowtie:" src="https://github.githubassets.com/images/icons/emoji/bowtie.png" width="20" height="20" align="absmiddle" />
 
 <br />
 

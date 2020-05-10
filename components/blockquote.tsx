@@ -14,8 +14,12 @@ const useStyles = makeStyles({
     color: '#777',
     margin: '12px 0',
 
-    '& > p': {
+    '& > p, & > ul, & > ol': {
       fontSize: '0.9rem',
+    },
+
+    'p + &, & + p, & + &': {
+      marginTop: 32,
     },
   },
   info: {
