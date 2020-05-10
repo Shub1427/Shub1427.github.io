@@ -1,5 +1,8 @@
-import React, { useContext } from 'react';
-import { useLocalStorage } from '@hooks/use-local-storage';
+import React, { useContext, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setMode } from '@store/reducers/storage';
+import { RootState } from '@store/reducers';
 
 interface IContextProps {
   darkMode: boolean;
@@ -16,13 +19,35 @@ interface IPaletteModeProps {
   children?: React.ReactNode;
 }
 
+export const LOCAL_KEY = 'darkMode';
+
 const PaletteModeProvider: React.FC<IPaletteModeProps> = ({ children }) => {
-  const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+  const [isInitialized, setIsInitialized] = useState(false);
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state: RootState) => state.storageStore.mode);
+
+  useEffect(() => {
+    if (isInitialized) {
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(darkMode));
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    const storageMode = localStorage.getItem(LOCAL_KEY);
+    dispatch(
+      setMode({
+        mode: JSON.parse(storageMode || 'false'),
+      })
+    );
+
+    setIsInitialized(true);
+  }, []);
+
   return (
     <PaletteModeContext.Provider
       value={{
         darkMode,
-        setDarkMode,
+        setDarkMode: (mode: boolean) => dispatch(setMode({ mode })),
       }}
     >
       {children}

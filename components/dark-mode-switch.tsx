@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles, Grid, IconButton } from '@material-ui/core';
 import { Brightness4, Brightness7 } from '@material-ui/icons';
 
@@ -13,13 +13,8 @@ const useStyles = makeStyles({
 
 const DarkModeSwitch = () => {
   const classes = useStyles();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [forceCount, setForceCount] = useState(false);
   const { darkMode, setDarkMode } = usePaletteModeStore();
 
-  setTimeout(() => {
-    setForceCount(true);
-  }, 0);
   return (
     <Grid
       className={classes.root}

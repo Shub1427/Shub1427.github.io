@@ -9,6 +9,7 @@
         "@hoc": "./hoc",
         "@hooks": "./hooks",
         "@ui": "./ui",
+        "@store": "./store",
         "@pages": "./pages",
         "@utils": "./utils"
       }

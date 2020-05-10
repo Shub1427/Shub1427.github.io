@@ -10,8 +10,8 @@ export function useLocalStorage(key: string, initialValue: any) {
   const _localStorage = process.browser
     ? localStorage
     : {
-        getItem: (key: string) => {
-          return JSON.stringify(!!key);
+        getItem: (_key: string) => {
+          return JSON.stringify(false);
         },
         setItem: () => {
           console.error('Not Implemented');

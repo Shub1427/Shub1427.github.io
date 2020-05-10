@@ -3,9 +3,13 @@ import defaultTheme, { darkTheme } from '@utils/theme';
 import Head from 'next/head';
 import App, { AppInitialProps } from 'next/app';
 import React from 'react';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+// Using Redux Store is the only way to use LocalStorage with NextJS app
+// right now, it doesn't support pure static builds
+import { staticStore } from 'store';
 import { Button, Link } from '@material-ui/core';
 import Para from '@components/para';
 import Blockquote from '@components/blockquote';
@@ -94,7 +98,9 @@ export default class MyApp extends App {
           />
           <link href="/css/main.css" rel="stylesheet" />
         </Head>
-        <WithPaletteModeContent {...this.props} />
+        <Provider store={staticStore}>
+          <WithPaletteModeContent {...this.props} />
+        </Provider>
       </React.Fragment>
     );
   }
