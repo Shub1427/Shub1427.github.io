@@ -4,8 +4,10 @@ import jsx from 'react-syntax-highlighter/dist/cjs/languages/prism/jsx';
 import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx';
 import rust from 'react-syntax-highlighter/dist/cjs/languages/prism/rust';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
+
 // Remove this, once `react-syntax-highlighter` is updated to support `toml` lang
 import toml from 'refractor/lang/toml';
+import { log4rs } from '@utils/prism-langs';
 import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula';
 import { makeStyles, Theme } from '@material-ui/core';
 import WindowControlIcons from './window-control-icons';
@@ -15,6 +17,7 @@ SyntaxHighlighter.registerLanguage('ts', tsx);
 SyntaxHighlighter.registerLanguage('rust', rust);
 SyntaxHighlighter.registerLanguage('toml', toml);
 SyntaxHighlighter.registerLanguage('bash', bash);
+SyntaxHighlighter.registerLanguage('log4rs', log4rs);
 
 export interface ICodeBlockProps {
   showLines?: boolean;
@@ -71,6 +74,9 @@ export default function CodeBlock({
     case 'sh':
     case 'bash':
       language = 'bash';
+      break;
+    case 'log':
+      language = 'log4rs';
       break;
   }
   return (

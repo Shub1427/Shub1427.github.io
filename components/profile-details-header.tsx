@@ -46,7 +46,7 @@ export default function ProfileDetailsHeader() {
     <div className={classes.root}>
       <DarkModeSwitch />
       <img height="100%" src="/images/logo-small.png" alt="Shub's logo" />
-      <Typography className={classes.title} variant="h3" color="primary">
+      <Typography className={classes.title} variant="h2" color="primary">
         Subroto Biswas
       </Typography>
       <Typography variant="subtitle1" className={classes.description}>
