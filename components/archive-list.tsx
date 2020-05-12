@@ -81,7 +81,7 @@ const getTagComponent = (
   page: IArchiveItem,
   classes: ReturnType<typeof useStyles>
 ) => {
-  return page.tags.map(tag => {
+  return page.tags.map((tag) => {
     return (
       <Chip key={tag} className={classes.tagItem} label={tag} size="small" />
     );
@@ -101,7 +101,7 @@ export default function ArchiveList() {
         Archives
       </Typography>
       <List component="nav" aria-label="main mailbox folders">
-        {sortedArchiveList.map(page => {
+        {sortedArchiveList.map((page) => {
           return (
             <ListItem className={classes.item} key={page.key}>
               <Card className={classes.root} elevation={4}>

@@ -20,7 +20,7 @@ export const sortBy = <T extends ISortParams>(
   switch (type) {
     case SortTypes.CREATED_AT:
       sortedData = data
-        .map(datum => datum)
+        .map((datum) => datum)
         .sort((datum1: T, datum2: T) => {
           if (order === SortOrder.ASC) {
             return +datum1.createdAt - +datum2.createdAt;

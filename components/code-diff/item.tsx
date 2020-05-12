@@ -47,7 +47,7 @@ export default function DiffItem(props: IDiffItemProps) {
   useEffect(() => {
     if (rootRef.current) {
       const width = rootRef.current.parentElement?.parentElement?.scrollWidth;
-      updateWidth(draft => {
+      updateWidth((draft) => {
         draft.width = `${width}px`;
       });
     }

@@ -59,7 +59,7 @@ export default function ProfileDetailsHeader() {
         leisure time he works on Game Dev and Render engines using Rust Lang.
       </Typography>
       <div className={classes.socialWrapper}>
-        {links.map(social => (
+        {links.map((social) => (
           <IconButton
             key={social.key}
             href={social.link}
