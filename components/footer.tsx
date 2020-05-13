@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 import cx from 'classnames';
 import { makeStyles, Button, Theme, Typography, Grid } from '@material-ui/core';
-import { Facebook, Twitter } from '@material-ui/icons';
-import { ShareIcon } from './icons';
+import { Share, Facebook, Twitter } from '@material-ui/icons';
+// import { ShareIcon } from './icons';
 
 interface IFixedNavbarProps {
   title: string;
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     flexWrap: 'wrap',
   },
-  button: {
+  buttonSpan: {
     '&+&': {
       marginTop: 0,
       marginLeft: 16,
@@ -68,7 +68,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const facebookShare = (url: string) => {
+const facebookShare = (event: SyntheticEvent, url: string) => {
+  event.preventDefault();
   window.open(
     `https://www.facebook.com/sharer/sharer.php?u=${url}`,
     'facebook-share-dialog',
@@ -97,17 +98,18 @@ const renderShare = (
     classes: ReturnType<typeof useStyles>;
   }
 ) => {
-  const shareClasses = cx(props.classes.button, props.classes.share);
-  const fbClasses = cx(props.classes.button, props.classes.fb);
-  const twClasses = cx(props.classes.button, props.classes.tw);
+  const shareClasses = cx(props.classes.share);
+  const fbClasses = cx(props.classes.fb);
+  const twClasses = cx(props.classes.tw);
   let allShare = null;
   if (props.navigator.share) {
     allShare = (
       <Button
+        key="share"
         size="small"
         variant="contained"
         className={shareClasses}
-        startIcon={<ShareIcon />}
+        startIcon={<Share />}
         onClick={() => shareLink(props)}
       >
         Share
@@ -117,35 +119,46 @@ const renderShare = (
 
   return (
     <Grid item className={props.classes.buttonWrapper} xs={12} sm={6}>
-      {allShare}
-      <Button
-        size="small"
-        variant="contained"
-        className={twClasses}
-        startIcon={<Twitter />}
-        target="_blank"
-        rel="noopener noreferrer"
-        href={`https://twitter.com/intent/tweet?text=${props.url} - ${props.title}`}
-      >
-        Share
-      </Button>
-      <Button
-        size="small"
-        variant="contained"
-        className={fbClasses}
-        startIcon={<Facebook />}
-        onClick={() => facebookShare(props.url)}
-      >
-        Share
-      </Button>
+      <span className={props.classes.buttonSpan}>{allShare}</span>
+      <span className={props.classes.buttonSpan}>
+        <Button
+          key="twitter"
+          size="small"
+          variant="contained"
+          className={twClasses}
+          startIcon={<Twitter />}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://twitter.com/intent/tweet?text=${props.url} - ${props.title}`}
+        >
+          Share
+        </Button>
+      </span>
+      <span className={props.classes.buttonSpan}>
+        <Button
+          key="facebook"
+          size="small"
+          variant="contained"
+          className={fbClasses}
+          startIcon={<Facebook />}
+          onClick={(event) => facebookShare(event, props.url)}
+        >
+          Share
+        </Button>
+      </span>
     </Grid>
   );
 };
 
 export function Footer(props: IFixedNavbarProps) {
+  const [isBrowser, setIsBrowser] = useState(process.browser);
   const classes = useStyles();
   const rootClasses = cx(classes.root, props.className);
-  const _navigator = process.browser ? window.navigator : {};
+  const _navigator = isBrowser ? window.navigator : {};
+
+  useEffect(() => {
+    setIsBrowser(process.browser);
+  }, [process.browser]);
   return (
     <Grid container item xs={12} className={rootClasses}>
       <Typography variant="body2" className={classes.copyright}>

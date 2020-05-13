@@ -74,6 +74,7 @@
     "gh-pages": "^2.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.0.7",
+    "localtunnel": "^2.0.0",
     "prettier": "^2.0.5",
     "serve": "^11.1.0",
     "typescript": "^3.6.2"
