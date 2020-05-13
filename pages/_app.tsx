@@ -88,6 +88,9 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
+          <meta name="author" content="Subroto Biswas"></meta>
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap"
             rel="stylesheet"

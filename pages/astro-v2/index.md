@@ -1,5 +1,7 @@
 import { archiveRecord } from '@constants/archive-list';
 
+export const record = archiveRecord['astro-v2'];
+
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css"
@@ -7,9 +9,15 @@ import { archiveRecord } from '@constants/archive-list';
   crossOrigin="anonymous"
 />
 
-<PolkaContainer>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Astro Blaster']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
 
-<H1 updatedAt={archiveRecord['astro-v2'].updatedAt} wordCount={1200}>
+<H1 updatedAt={record.updatedAt} wordCount={1200}>
   Astro Blaster
 </H1>
 

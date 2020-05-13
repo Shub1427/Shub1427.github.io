@@ -1,15 +1,23 @@
 import { archiveRecord } from '@constants/archive-list';
 
-<PolkaContainer>
+export const record = archiveRecord['performance-reactjs']'
 
-<H1 updatedAt={archiveRecord['performance-reactjs'].updatedAt} wordCount={971}>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Performance']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
+
+<H1 updatedAt={record.updatedAt} wordCount={971}>
   Improve Performance in JS and ReactJS
 </H1>
 
 <Blockquote type="warn">
   This blog is a <b>Work in Progress</b>, and I am hoping to work on it part by part when I
   would have already worked on it once. Parts of the doc are complete as I have worked on
-  it before and can asure, that they will surely benefit in Improving Performance.
+  it before and can assure, that they will surely benefit in Improving Performance.
 
   <br />
   <br />
@@ -38,7 +46,7 @@ Ok. So, if you are lazy and don't want to put too much effort on
 finding Performance glitches, Profiling is the best option.
 
 React DevTools provides a developer with `Profiler`, which provides
-re-redering data of components in Flame-Graph. This flame graph was
+re-rendering data of components in Flame-Graph. This flame graph was
 developed by [Brian Vaughn](https://github.com/bvaughn), creator
 of [react-window](https://github.com/bvaughn/react-window), which
 he is using to virtualize the flame graphs as well.
@@ -56,7 +64,7 @@ are getting rendered unnecessarily.
 Once you get to know which Components are getting re-rendered, due to some
 prop changes that shouldn't re-render them, you can use:
 
-* `shouldComponentUpdate` - is a React Component Lifecycle Method to render
+* `shouldComponentUpdate` - is a React Component life cycle Method to render
   the component only according to your own logic. Apply some shallow
   comparisons here, and you are good to go.
 * `React.memo` - If you are not using Class Components, `React.memo` is
@@ -119,7 +127,7 @@ You can get a very detailed explanation of what virtualization is, and
 what hurdles we need to resolve while building a Virtualized List,
 [here @ Complexities of Infinite Scroller](https://developers.google.com/web/updates/2016/07/infinite-scroller).
 
-*I think I will try to build a virtualized list in Rust,someday. Let's see!!!* <img className="emoji" title=":bowtie:" alt=":bowtie:" src="https://github.githubassets.com/images/icons/emoji/bowtie.png" width="20" height="20" align="absmiddle" />
+*I think I will try to build a virtualized list in Rust,someday. Let's see!!!* <img className="emoji" title=":bowtie:" alt=":bowtie:" src="https://github.githubassets.com/images/icons/emoji/bowtie.png" width="20" height="20" align="middle" />
 
 <br />
 

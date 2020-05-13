@@ -1,9 +1,17 @@
 import { archiveRecord } from '@constants/archive-list';
 import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
 
-<PolkaContainer>
+export const record = archiveRecord['gfx-hal-basics'];
 
-<H1 updatedAt={archiveRecord['gfx-hal-basics'].updatedAt} wordCount={325}>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
+
+<H1 updatedAt={record.updatedAt} wordCount={325}>
   <InlineCode>gfx-hal</InlineCode> & <InlineCode>vulkan</InlineCode> basics
 </H1>
 

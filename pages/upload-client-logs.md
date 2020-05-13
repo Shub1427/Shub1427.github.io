@@ -1,8 +1,16 @@
 import { archiveRecord } from '@constants/archive-list';
 
-<PolkaContainer>
+export const record = archiveRecord['upload-client-logs'];
 
-<H1 updatedAt={archiveRecord['upload-client-logs'].updatedAt} wordCount={564}>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Client Logs']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
+
+<H1 updatedAt={record.updatedAt} wordCount={564}>
   Up And Up <InlineCode>up-n-up</InlineCode>
 </H1>
 
@@ -27,7 +35,7 @@ import { archiveRecord } from '@constants/archive-list';
 
 This project is meant to get essential logs from client's browser, so as to later verify what went wrong.
 Usually, in Front-end development, developers tend to disable logs to improve performance and
-many other good reasons, but in intial days of development of a product sometimes require's
+many other good reasons, but in initial days of development of a product sometimes requires
 us to monitor how tha app is performing on the end-user's browsers. This project is developed
 to support an idea that I had yesterday (it's similar to what Google Analytics or Rollbar or Sentry does),
 to get small chunks of performance related data, on a constant
@@ -36,7 +44,7 @@ interval, that we can later on verify what went wrong, or where an improvement c
 ## Pseudo Implementation:
 
 <Blockquote type="warn">
-  Following implentation is not tested or written in real code. It's just for
+  Following implementation is not tested or written in real code. It's just for
   explanatory purpose.
 </Blockquote>
 
@@ -117,29 +125,31 @@ interface LogPayload extends DefaultPayload {
 
 #### `MeasurePayload`
 
-This payload defines the details on what performance measure were for a particular subfeature.
+This payload defines the details on what performance measure were for a particular sub-feature.
 Will help to get details on performance of our app.
 
 ```ts
 interface MeasurePayload {
   /**
-   * name: corelates to the sub_feature we are working on, so that it is easier to understand
+   * name: correlates to the sub_feature we are working on, so that it is easier to understand
    * for which feature time delta was taken for.
    */
   name: string;
   /**
    * Time Delta, between Start Time and End Time for this sub-feature.
    *
-   * delta = 0, if sub_feature is instantanous, i.e., we don't want to log perf delta
+   * delta = 0, if sub_feature is instantaneous, i.e., we don't want to log perf delta
    */
   delta: number;
   /**
-   * Should always be an ISO string
+   * Should always be an timestamp number
    *
-   * whether or not delta is present, we should have DateTime details when logging any
+   * whether or not delta is present, we should have Timestamp details when logging any
    * sub-feature, for later references
+   *
+   * Maps to `Date.note()`
    */
-  datetime: string;
+  timestamp: string;
 };
 ```
 
@@ -147,7 +157,7 @@ interface MeasurePayload {
 
 ## We need to create server, which will listen to some HTTP endpoints
 
-Enpoints like:
+Endpoints like:
 
 * `/debug`
 * `/error`

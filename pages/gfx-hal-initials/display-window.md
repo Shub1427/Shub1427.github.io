@@ -2,7 +2,13 @@ import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
 
 export const record = halArchiveRecord['display-window'];
 
-<PolkaContainer>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'Surface', 'Window', 'gfx-hal']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
 
 <H1 updatedAt={record.updatedAt} wordCount={520}>
   {record.title}
@@ -24,8 +30,8 @@ which is written in `C++`. I am trying to learn `Rust` and converting that tutor
 using `gfx-hal` library, which is a wrapper over Vulkan Specs.
 
 * Application: is what we will build using `gfx-hal`
-* Loader: here refers to `gfx-hal` and `gfx-backend-vulkan` libraries. An isntance of
-  `gfx-backend-vulkan` inititalizes a Loader. Creating an instance, intializes the loader.
+* Loader: here refers to `gfx-hal` and `gfx-backend-vulkan` libraries. An instance of
+  `gfx-backend-vulkan` initializes a Loader. Creating an instance, initializes the loader.
 * Layers: is something advanced, and am not sure when or if I will talk about it at-all.
 
 ## Backend
@@ -92,7 +98,7 @@ impl<B: Backend> Drop for BackendState<B> {
 ```
 
 Since `gfx-hal` does not manage every peace of Memory, we need to define the Vulkan `surface`
-as manually managed, using `ManuallyDrop` struc. Also, we need to drop `surface` once done with it,
+as manually managed, using `ManuallyDrop` struct. Also, we need to drop `surface` once done with it,
 i.e. when `BackendState` struct gets dropped.
 
 ## Creating OS Window
@@ -127,7 +133,7 @@ fn main() {
 }
 ```
 
-where, `build_window()` is doing the main job, of instatiating
+where, `build_window()` is doing the main job, of instantiating
 the main OS window, with some logical window size, scaled to
 match the actual physical size.
 

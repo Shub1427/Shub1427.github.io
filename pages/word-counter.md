@@ -1,12 +1,20 @@
 import { archiveRecord } from '@constants/archive-list';
 
-<PolkaContainer>
+export const record = archiveRecord['word-counter'];
 
-<H1 updatedAt={archiveRecord['word-counter'].updatedAt} wordCount={564}>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Word Counter']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
+
+<H1 updatedAt={record.updatedAt} wordCount={564}>
   Word Counter
 </H1>
 
-This is a fun script, that I am trying out to learn rust. Also benifitting myself,
+This is a fun script, that I am trying out to learn rust. Also benefitting myself,
 with a script that will automate to get an approx. count of words from my MDX notes,
 which later on will help me to get the read time per notes.
 
@@ -14,7 +22,7 @@ which later on will help me to get the read time per notes.
 The Word Counter code is written in 2hrs time, and is not optimal. It uses
 brute force to remove templates matched by different <InlineCode>regex</InlineCode>
 expressions, one by one in sequence. I will someday improve this script, to use AST
-for better perfomance and accurate results.
+for better performance and accurate results.
 <br/>
 <br/>
 <i>
@@ -42,7 +50,7 @@ for better perfomance and accurate results.
 
 ## Code Breakup
 
-First of all, I am using `regex` crate, which is offical crate support by Rust.
+First of all, I am using `regex` crate, which is official crate support by Rust.
 
 Using `regex` is simple and it uses [RE2](https://github.com/google/re2/wiki/Syntax) syntax,
 which is a superset for Javascript [RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp).
@@ -74,7 +82,7 @@ let re3 = RegexBuilder::new(r"^(`{3}\w)[^`]*(`{3})$")
 __Line 3.__ creates a regex for all HTML Container Tags, extracting out the inner strings,
 so as to word count them later.
 
-__Line 4.__ creates a regex from all HTML Empty Tags and previously uncatched Opening/Closing Tags.
+__Line 4.__ creates a regex from all HTML Empty Tags and previously uncaught Opening/Closing Tags.
 
 __Line 5.__ helps to create a multi-line flagged regexp, so as to match all the Code Blocks.
 
@@ -91,7 +99,7 @@ let return_to_space = Regex::new(r"\n").unwrap();
 let space_re = Regex::new(r"\s").unwrap();
 ```
 
-`return_to_space` regex will be used to remove all the remaing `return`s from the output string,
+`return_to_space` regex will be used to remove all the remaining `return`s from the output string,
 that we will get, using previous regex.
 
 `space_re` regex, will later on be used to filter out extra spaces, so as to improve word count

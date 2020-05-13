@@ -2,7 +2,13 @@ import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
 
 export const record = halArchiveRecord['rust-cargo-basics'];
 
-<PolkaContainer>
+<PolkaContainer
+  pageTitle={record.title}
+  pageDescription={record.description}
+  keywords={['Basics', 'Fundamental', 'Beginner']}
+  publishDate={record.createdAt}
+  ogImage={record.ogImage}
+>
 
 <H1 updatedAt={record.updatedAt} wordCount={686}>
   {record.title}
@@ -31,7 +37,7 @@ Hope this helps you as well.
 ### Some basics on Lifetimes:
 
 Every reference in global context in `rust` has a lifetime
-of `static`, and by default we don't have to assign a specifc
+of `static`, and by default we don't have to assign a specific
 lifetime to variables or global function args etc. `static`
 lifetime defines that, that particular entity will live long enough,
 till the main process dies. So, following:
@@ -100,7 +106,7 @@ fn main() {
 ```
 
 where, `&str` is a string slice, which means I could've passed part of the string as well,
-istead of the whole `String` data, as `check_str(&s[2..6])`.
+instead of the whole `String` data, as `check_str(&s[2..6])`.
 
 
 ### How to drop struct properties manually.
@@ -165,7 +171,7 @@ in Rust Book.
 
 ### Cargo Features
 
-`features` is a wornderful option provided by Rust Cargo, which makes compiling your code
+`features` is a wonderful option provided by Rust Cargo, which makes compiling your code
 conditionally. For Eg, If we want specific features to be enabled only for Linux, we
 can do so easily using `features` option.
 
