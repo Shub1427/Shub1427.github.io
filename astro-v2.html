@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><title></title><meta name="next-head-count" content="7"/><link rel="preload" href="/_next/static/UfUzgSg1aU6fdiEufQzEH/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/UfUzgSg1aU6fdiEufQzEH/pages/astro-v2.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/0a8bb3f001ed515a33ce786ba15cf5a99009e7ae.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/9fbd6d86380a6d360e781b704880b609533850ab.820e0a7be02e948ae5e1.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-fa3fbea9157538928a30.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Astro Blaster v2 in Rust"/><meta name="twitter:description" content="A very minimal game making tutorial in Rust using ggez"/><meta property="og:type" content="article"/><meta property="og:title" content="Astro Blaster v2 in Rust"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/astro-v2"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/81768159-f1a24d00-94f7-11ea-83e3-8b9212d4851c.jpg"/><meta property="article:published_time" content="2020/04/10"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Astro Blaster v2 in Rust</title><meta name="description" content="A very minimal game making tutorial in Rust using ggez"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Astro Blaster"/><meta name="next-head-count" content="20"/><link rel="preload" href="/_next/static/W8ENtMUPhN_OghaT2xOIR/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/W8ENtMUPhN_OghaT2xOIR/pages/astro-v2.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/e03bb2ee4b6ee04da1697670d98f8838c1fe3d27.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/7703b22a48072edc4605494022b188e023c0596b.7f8b17ccac343e27f9c0.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-fa3fbea9157538928a30.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -404,6 +404,225 @@ body::backdrop {
   .MuiTypography-displayBlock {
     display: block;
   }
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #5491da;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #8FADDC;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #5491da;
+    border: 1px solid rgba(84, 145, 218, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #5491da;
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #8FADDC;
+    border: 1px solid rgba(143, 173, 220, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #8FADDC;
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #5491da;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f5ea5;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #5491da;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #8FADDC;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #6E7882;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #8FADDC;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
   .MuiCard-root {
     overflow: hidden;
   }
@@ -540,504 +759,6 @@ body::backdrop {
     max-width: 1920px;
   }
 }
-  .MuiGrid-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-  }
-  .MuiGrid-item {
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .MuiGrid-zeroMinWidth {
-    min-width: 0;
-  }
-  .MuiGrid-direction-xs-column {
-    flex-direction: column;
-  }
-  .MuiGrid-direction-xs-column-reverse {
-    flex-direction: column-reverse;
-  }
-  .MuiGrid-direction-xs-row-reverse {
-    flex-direction: row-reverse;
-  }
-  .MuiGrid-wrap-xs-nowrap {
-    flex-wrap: nowrap;
-  }
-  .MuiGrid-wrap-xs-wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-  .MuiGrid-align-items-xs-center {
-    align-items: center;
-  }
-  .MuiGrid-align-items-xs-flex-start {
-    align-items: flex-start;
-  }
-  .MuiGrid-align-items-xs-flex-end {
-    align-items: flex-end;
-  }
-  .MuiGrid-align-items-xs-baseline {
-    align-items: baseline;
-  }
-  .MuiGrid-align-content-xs-center {
-    align-content: center;
-  }
-  .MuiGrid-align-content-xs-flex-start {
-    align-content: flex-start;
-  }
-  .MuiGrid-align-content-xs-flex-end {
-    align-content: flex-end;
-  }
-  .MuiGrid-align-content-xs-space-between {
-    align-content: space-between;
-  }
-  .MuiGrid-align-content-xs-space-around {
-    align-content: space-around;
-  }
-  .MuiGrid-justify-xs-center {
-    justify-content: center;
-  }
-  .MuiGrid-justify-xs-flex-end {
-    justify-content: flex-end;
-  }
-  .MuiGrid-justify-xs-space-between {
-    justify-content: space-between;
-  }
-  .MuiGrid-justify-xs-space-around {
-    justify-content: space-around;
-  }
-  .MuiGrid-justify-xs-space-evenly {
-    justify-content: space-evenly;
-  }
-  .MuiGrid-spacing-xs-1 {
-    width: calc(100% + 8px);
-    margin: -4px;
-  }
-  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
-    padding: 4px;
-  }
-  .MuiGrid-spacing-xs-2 {
-    width: calc(100% + 16px);
-    margin: -8px;
-  }
-  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
-    padding: 8px;
-  }
-  .MuiGrid-spacing-xs-3 {
-    width: calc(100% + 24px);
-    margin: -12px;
-  }
-  .MuiGrid-spacing-xs-3 > .MuiGrid-item {
-    padding: 12px;
-  }
-  .MuiGrid-spacing-xs-4 {
-    width: calc(100% + 32px);
-    margin: -16px;
-  }
-  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
-    padding: 16px;
-  }
-  .MuiGrid-spacing-xs-5 {
-    width: calc(100% + 40px);
-    margin: -20px;
-  }
-  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
-    padding: 20px;
-  }
-  .MuiGrid-spacing-xs-6 {
-    width: calc(100% + 48px);
-    margin: -24px;
-  }
-  .MuiGrid-spacing-xs-6 > .MuiGrid-item {
-    padding: 24px;
-  }
-  .MuiGrid-spacing-xs-7 {
-    width: calc(100% + 56px);
-    margin: -28px;
-  }
-  .MuiGrid-spacing-xs-7 > .MuiGrid-item {
-    padding: 28px;
-  }
-  .MuiGrid-spacing-xs-8 {
-    width: calc(100% + 64px);
-    margin: -32px;
-  }
-  .MuiGrid-spacing-xs-8 > .MuiGrid-item {
-    padding: 32px;
-  }
-  .MuiGrid-spacing-xs-9 {
-    width: calc(100% + 72px);
-    margin: -36px;
-  }
-  .MuiGrid-spacing-xs-9 > .MuiGrid-item {
-    padding: 36px;
-  }
-  .MuiGrid-spacing-xs-10 {
-    width: calc(100% + 80px);
-    margin: -40px;
-  }
-  .MuiGrid-spacing-xs-10 > .MuiGrid-item {
-    padding: 40px;
-  }
-  .MuiGrid-grid-xs-auto {
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-  }
-  .MuiGrid-grid-xs-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-  }
-  .MuiGrid-grid-xs-1 {
-    flex-grow: 0;
-    max-width: 8.333333%;
-    flex-basis: 8.333333%;
-  }
-  .MuiGrid-grid-xs-2 {
-    flex-grow: 0;
-    max-width: 16.666667%;
-    flex-basis: 16.666667%;
-  }
-  .MuiGrid-grid-xs-3 {
-    flex-grow: 0;
-    max-width: 25%;
-    flex-basis: 25%;
-  }
-  .MuiGrid-grid-xs-4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-  .MuiGrid-grid-xs-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-  .MuiGrid-grid-xs-6 {
-    flex-grow: 0;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-  .MuiGrid-grid-xs-7 {
-    flex-grow: 0;
-    max-width: 58.333333%;
-    flex-basis: 58.333333%;
-  }
-  .MuiGrid-grid-xs-8 {
-    flex-grow: 0;
-    max-width: 66.666667%;
-    flex-basis: 66.666667%;
-  }
-  .MuiGrid-grid-xs-9 {
-    flex-grow: 0;
-    max-width: 75%;
-    flex-basis: 75%;
-  }
-  .MuiGrid-grid-xs-10 {
-    flex-grow: 0;
-    max-width: 83.333333%;
-    flex-basis: 83.333333%;
-  }
-  .MuiGrid-grid-xs-11 {
-    flex-grow: 0;
-    max-width: 91.666667%;
-    flex-basis: 91.666667%;
-  }
-  .MuiGrid-grid-xs-12 {
-    flex-grow: 0;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-@media (min-width:600px) {
-  .MuiGrid-grid-sm-auto {
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-  }
-  .MuiGrid-grid-sm-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-  }
-  .MuiGrid-grid-sm-1 {
-    flex-grow: 0;
-    max-width: 8.333333%;
-    flex-basis: 8.333333%;
-  }
-  .MuiGrid-grid-sm-2 {
-    flex-grow: 0;
-    max-width: 16.666667%;
-    flex-basis: 16.666667%;
-  }
-  .MuiGrid-grid-sm-3 {
-    flex-grow: 0;
-    max-width: 25%;
-    flex-basis: 25%;
-  }
-  .MuiGrid-grid-sm-4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-  .MuiGrid-grid-sm-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-  .MuiGrid-grid-sm-6 {
-    flex-grow: 0;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-  .MuiGrid-grid-sm-7 {
-    flex-grow: 0;
-    max-width: 58.333333%;
-    flex-basis: 58.333333%;
-  }
-  .MuiGrid-grid-sm-8 {
-    flex-grow: 0;
-    max-width: 66.666667%;
-    flex-basis: 66.666667%;
-  }
-  .MuiGrid-grid-sm-9 {
-    flex-grow: 0;
-    max-width: 75%;
-    flex-basis: 75%;
-  }
-  .MuiGrid-grid-sm-10 {
-    flex-grow: 0;
-    max-width: 83.333333%;
-    flex-basis: 83.333333%;
-  }
-  .MuiGrid-grid-sm-11 {
-    flex-grow: 0;
-    max-width: 91.666667%;
-    flex-basis: 91.666667%;
-  }
-  .MuiGrid-grid-sm-12 {
-    flex-grow: 0;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-}
-@media (min-width:960px) {
-  .MuiGrid-grid-md-auto {
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-  }
-  .MuiGrid-grid-md-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-  }
-  .MuiGrid-grid-md-1 {
-    flex-grow: 0;
-    max-width: 8.333333%;
-    flex-basis: 8.333333%;
-  }
-  .MuiGrid-grid-md-2 {
-    flex-grow: 0;
-    max-width: 16.666667%;
-    flex-basis: 16.666667%;
-  }
-  .MuiGrid-grid-md-3 {
-    flex-grow: 0;
-    max-width: 25%;
-    flex-basis: 25%;
-  }
-  .MuiGrid-grid-md-4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-  .MuiGrid-grid-md-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-  .MuiGrid-grid-md-6 {
-    flex-grow: 0;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-  .MuiGrid-grid-md-7 {
-    flex-grow: 0;
-    max-width: 58.333333%;
-    flex-basis: 58.333333%;
-  }
-  .MuiGrid-grid-md-8 {
-    flex-grow: 0;
-    max-width: 66.666667%;
-    flex-basis: 66.666667%;
-  }
-  .MuiGrid-grid-md-9 {
-    flex-grow: 0;
-    max-width: 75%;
-    flex-basis: 75%;
-  }
-  .MuiGrid-grid-md-10 {
-    flex-grow: 0;
-    max-width: 83.333333%;
-    flex-basis: 83.333333%;
-  }
-  .MuiGrid-grid-md-11 {
-    flex-grow: 0;
-    max-width: 91.666667%;
-    flex-basis: 91.666667%;
-  }
-  .MuiGrid-grid-md-12 {
-    flex-grow: 0;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-}
-@media (min-width:1280px) {
-  .MuiGrid-grid-lg-auto {
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-  }
-  .MuiGrid-grid-lg-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-  }
-  .MuiGrid-grid-lg-1 {
-    flex-grow: 0;
-    max-width: 8.333333%;
-    flex-basis: 8.333333%;
-  }
-  .MuiGrid-grid-lg-2 {
-    flex-grow: 0;
-    max-width: 16.666667%;
-    flex-basis: 16.666667%;
-  }
-  .MuiGrid-grid-lg-3 {
-    flex-grow: 0;
-    max-width: 25%;
-    flex-basis: 25%;
-  }
-  .MuiGrid-grid-lg-4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-  .MuiGrid-grid-lg-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-  .MuiGrid-grid-lg-6 {
-    flex-grow: 0;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-  .MuiGrid-grid-lg-7 {
-    flex-grow: 0;
-    max-width: 58.333333%;
-    flex-basis: 58.333333%;
-  }
-  .MuiGrid-grid-lg-8 {
-    flex-grow: 0;
-    max-width: 66.666667%;
-    flex-basis: 66.666667%;
-  }
-  .MuiGrid-grid-lg-9 {
-    flex-grow: 0;
-    max-width: 75%;
-    flex-basis: 75%;
-  }
-  .MuiGrid-grid-lg-10 {
-    flex-grow: 0;
-    max-width: 83.333333%;
-    flex-basis: 83.333333%;
-  }
-  .MuiGrid-grid-lg-11 {
-    flex-grow: 0;
-    max-width: 91.666667%;
-    flex-basis: 91.666667%;
-  }
-  .MuiGrid-grid-lg-12 {
-    flex-grow: 0;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-}
-@media (min-width:1920px) {
-  .MuiGrid-grid-xl-auto {
-    flex-grow: 0;
-    max-width: none;
-    flex-basis: auto;
-  }
-  .MuiGrid-grid-xl-true {
-    flex-grow: 1;
-    max-width: 100%;
-    flex-basis: 0;
-  }
-  .MuiGrid-grid-xl-1 {
-    flex-grow: 0;
-    max-width: 8.333333%;
-    flex-basis: 8.333333%;
-  }
-  .MuiGrid-grid-xl-2 {
-    flex-grow: 0;
-    max-width: 16.666667%;
-    flex-basis: 16.666667%;
-  }
-  .MuiGrid-grid-xl-3 {
-    flex-grow: 0;
-    max-width: 25%;
-    flex-basis: 25%;
-  }
-  .MuiGrid-grid-xl-4 {
-    flex-grow: 0;
-    max-width: 33.333333%;
-    flex-basis: 33.333333%;
-  }
-  .MuiGrid-grid-xl-5 {
-    flex-grow: 0;
-    max-width: 41.666667%;
-    flex-basis: 41.666667%;
-  }
-  .MuiGrid-grid-xl-6 {
-    flex-grow: 0;
-    max-width: 50%;
-    flex-basis: 50%;
-  }
-  .MuiGrid-grid-xl-7 {
-    flex-grow: 0;
-    max-width: 58.333333%;
-    flex-basis: 58.333333%;
-  }
-  .MuiGrid-grid-xl-8 {
-    flex-grow: 0;
-    max-width: 66.666667%;
-    flex-basis: 66.666667%;
-  }
-  .MuiGrid-grid-xl-9 {
-    flex-grow: 0;
-    max-width: 75%;
-    flex-basis: 75%;
-  }
-  .MuiGrid-grid-xl-10 {
-    flex-grow: 0;
-    max-width: 83.333333%;
-    flex-basis: 83.333333%;
-  }
-  .MuiGrid-grid-xl-11 {
-    flex-grow: 0;
-    max-width: 91.666667%;
-    flex-basis: 91.666667%;
-  }
-  .MuiGrid-grid-xl-12 {
-    flex-grow: 0;
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-}
   .MuiLink-underlineNone {
     text-decoration: none;
   }
@@ -1071,79 +792,79 @@ body::backdrop {
   .MuiLink-button.Mui-focusVisible {
     outline: auto;
   }
-  .jss206 {
+  .jss103 {
     color: #444;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     word-spacing: 3px;
   }
-  .jss206 + .jss206, ol + .jss206, ul + .jss206 {
+  .jss103 + .jss103, ol + .jss103, ul + .jss103 {
     margin-top: 32px;
   }
-  .jss172 {
+  .jss69 {
     color: #888;
     margin: 12px 0;
     padding: 16px 8px;
     background: #f2f2f2;
     font-weight: 400;
   }
-  .jss172 > p, .jss172 > ul, .jss172 > ol, .jss172 > div {
+  .jss69 > p, .jss69 > ul, .jss69 > ol, .jss69 > div {
     color: #888;
     font-size: 0.9rem;
     font-weight: 400;
   }
-  p + .jss172, .jss172 + .jss172 {
+  p + .jss69, .jss69 + .jss69 {
     margin-top: 32px;
   }
-  .jss173 {
+  .jss70 {
     border-left: 12px solid #64b5f6;
   }
-  .jss174 {
+  .jss71 {
     border-left: 12px solid #ffd54f;
   }
-  .jss175 {
+  .jss72 {
     border-left: 12px solid #ef5350;
   }
-  .jss169 {
+  .jss66 {
     color: #888;
     display: flex;
     font-size: 12px;
     align-items: center;
   }
-  .jss170 {
+  .jss67 {
     display: inline-block;
   }
-  .jss171 {
+  .jss68 {
     margin: 0 4px;
     display: inline-block;
     font-size: 1.5em;
     line-height: 0.8;
   }
-  .jss135 {
+  .jss32 {
     color: #222;
     padding: 0;
     margin-bottom: 48px;
   }
-  .jss136 {
+  .jss33 {
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
   }
-  .jss137 {
+  .jss34 {
     margin-top: 12px;
     font-weight: 600;
   }
-  .jss138 {
+  .jss35 {
     font-weight: 600;
   }
-  .jss207 {
+  .jss104 {
     color: #222;
     margin: 48px 0 16px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
   }
-  .jss216 {
+  .jss113 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1152,35 +873,35 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss217 {
+  .jss114 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss218 {
+  .jss115 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss219 {
+  .jss116 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss219 *::selection {
+  .jss116 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss219 *::-moz-selection {
+  .jss116 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss205 {
+  .jss102 {
     color: #933;
     margin: 0 2px;
     padding: 1px 8px;
     background: rgba(0, 0, 0, 0.05);
   }
-  .jss224 {
+  .jss121 {
     position: relative;
   }
-  .jss225 {
+  .jss122 {
     top: 0;
     left: 0;
     right: 0;
@@ -1188,15 +909,15 @@ body::backdrop {
     position: absolute;
     margin-left: -16px;
   }
-  .jss226 {
+  .jss123 {
     background: rgba(139, 195, 74, 0.2);
     border-left: 4px solid rgb(139, 195, 74);
   }
-  .jss227 {
+  .jss124 {
     background: rgba(239, 154, 154, 0.2);
     border-left: 4px solid rgb(239, 154, 154);
   }
-  .jss220 {
+  .jss117 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1205,39 +926,39 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss221 {
+  .jss118 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss222 {
+  .jss119 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss223 {
+  .jss120 {
     padding: 0 0 64px 16px !important;
     margin-bottom: -64px !important;
   }
-  .jss223 *::selection {
+  .jss120 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss223 *::-moz-selection {
+  .jss120 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss228 {
+  .jss125 {
     width: 100%;
     margin: 32px 0;
     position: relative;
   }
-  .jss229 {
+  .jss126 {
     width: 100%;
     filter: blur(0);
     transition: 0.3s ease-out;
   }
-  .jss230 {
+  .jss127 {
     filter: blur(3px);
   }
-  .jss231 {
+  .jss128 {
     color: #aaa;
     margin: 0;
     font-size: 0.8rem;
@@ -1247,39 +968,70 @@ body::backdrop {
   }
   .jss10 {
     width: 100%;
-    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+  }
+  .jss129 {
+    width: 100%;
+    display: flex;
+    margin-top: 128px;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+  .jss130 {
+    color: #aaa;
+    font-weight: bold;
+  }
+  .jss131 + .jss131 {
+    margin-left: 16px;
+  }
+  .jss132 {
+    color: #fff;
+    background: #4361b3;
+  }
+  .jss132:hover, .jss132focus, .jss132:active {
+    background: #254395;
+  }
+  .jss133 {
+    color: #fff;
+    background: #4fafed;
+  }
+  .jss133:hover, .jss133focus, .jss133:active {
+    background: #3191CF;
   }
   .jss1 {
     padding: 64px 32px;
     position: relative;
   }
-  .jss214 {
+  .jss111 {
     color: #444;
     font-size: 1rem;
     font-weight: 200;
     line-height: 1.7;
   }
-  p + .jss214 {
+  p + .jss111 {
     margin-top: 32px;
   }
-  li > .jss214 {
+  li > .jss111 {
     margin-top: initial;
   }
-  .jss215 + .jss215 {
+  .jss112 + .jss112 {
     margin-top: 8px;
   }
-  .jss215 > ul > .jss215, .jss215 > ol > .jss215 {
+  .jss112 > ul > .jss112, .jss112 > ol > .jss112 {
     margin-top: 0;
-  }</style></head><body><div id="__next"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous"/><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-xs-flex-end"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss135"><h2 class="MuiTypography-root jss136 MuiTypography-h2">Astro Blaster</h2><div class="jss169 jss137"><p class="MuiTypography-root jss170 jss138 MuiTypography-body2">Apr 12</p><span class="jss171">•</span><p class="MuiTypography-root jss170 jss138 MuiTypography-body2">6<!-- --> min read</p></div></div><div class="MuiPaper-root MuiCard-root jss172 jss174 MuiPaper-elevation0 MuiPaper-rounded"><strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to properly write the important thing. I am trying to learn Game Dev, using various sources, from scratch using Vulkan API, using minimal game engine like <code class="jss205">ggez</code> and Godot Engine. Combining that knowledge and writing that down here will take time.<br/><br/><p class="MuiTypography-root jss206 MuiTypography-body1">  ⚠️ <!-- --> <!-- -->For now, read it at your own risk!!!</p></div><p class="MuiTypography-root jss206 MuiTypography-body1">This Tutorial is mostly made up from Astro Blaster example from
-Ggez game engine in Rust.</p><div class="MuiPaper-root MuiCard-root jss172 jss173 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss206 MuiTypography-body1"><strong>NOTE</strong>: It is assumed that you have little bit experience in Rust lang
+  }</style></head><body><div id="__next"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous"/><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Astro Blaster</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">Apr 12</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">6<!-- --> min read</p></div></div><div class="MuiPaper-root MuiCard-root jss69 jss71 MuiPaper-elevation0 MuiPaper-rounded"><strong>NOTE</strong>: This Tutorial is not finished and requires a lot of effort and learnings, to properly write the important thing. I am trying to learn Game Dev, using various sources, from scratch using Vulkan API, using minimal game engine like <code class="jss102">ggez</code> and Godot Engine. Combining that knowledge and writing that down here will take time.<br/><br/><p class="MuiTypography-root jss103 MuiTypography-body1">  ⚠️ <!-- --> <!-- -->For now, read it at your own risk!!!</p></div><p class="MuiTypography-root jss103 MuiTypography-body1">This Tutorial is mostly made up from Astro Blaster example from
+Ggez game engine in Rust.</p><div class="MuiPaper-root MuiCard-root jss69 jss70 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss103 MuiTypography-body1"><strong>NOTE</strong>: It is assumed that you have little bit experience in Rust lang
 already. Rust book is a great place to start and learn Rust
-if already not read.</p></div><h4 class="MuiTypography-root jss207 MuiTypography-h4">What are we Building</h4><p class="MuiTypography-root jss206 MuiTypography-body1">We will be building a Nostalgic Astro Blaster Game from 90s.
+if already not read.</p></div><h4 class="MuiTypography-root jss104 MuiTypography-h4">What are we Building</h4><p class="MuiTypography-root jss103 MuiTypography-body1">We will be building a Nostalgic Astro Blaster Game from 90s.
 The purpose of this post is to keep an archive for myself (and
 others), who are very beginners in game programming and does&#x27;nt
-know some basic concepts used in game dev.</p><div class="MuiPaper-root MuiCard-root jss172 jss173 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss206 MuiTypography-body1"><strong>TLDR;</strong> You can find the code here: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/tree/master/gui/ggez_basics/src/bin/astro_blaster_v2">rustschool</a></p></div><p class="MuiTypography-root jss206 MuiTypography-body1">Do keep in mind, I am not writing best code, or better said this might be the worst code
+know some basic concepts used in game dev.</p><div class="MuiPaper-root MuiCard-root jss69 jss70 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss103 MuiTypography-body1"><strong>TLDR;</strong> You can find the code here: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/tree/master/gui/ggez_basics/src/bin/astro_blaster_v2">rustschool</a></p></div><p class="MuiTypography-root jss103 MuiTypography-body1">Do keep in mind, I am not writing best code, or better said this might be the worst code
 ever written 😜.
 What I am trying to achieve here is a minimal understanding for the type of code
-written in the world of Game dev, like:</p><ul class="jss214"><li class="jss215">How to show some images on screen.</li><li class="jss215">How to use Game units instead of pixel, to get a resolution independent code.<ul class="jss214"><li class="jss215">This is something I will cover later sometime, for now I don&#x27;t have a good understanding for this.</li></ul></li><li class="jss215">How to use keyboard for inputs. What <code class="jss205">Edge-Triggered</code> and <code class="jss205">Level-Triggered</code> keyboard events are.</li></ul><p class="MuiTypography-root jss206 MuiTypography-body1">Concepts of applying Physics, once these things are clear becomes easy.</p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Draw Black Background on Screen</h4><pre><div class="jss216"><div class="jss217" style="background:#2b2b2b"><div class="jss218"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss219" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">use</span> ggez<span class="token" style="color:#a9b7c6">::</span>event<span class="token" style="color:#a9b7c6">;</span>
+written in the world of Game dev, like:</p><ul class="jss111"><li class="jss112">How to show some images on screen.</li><li class="jss112">How to use Game units instead of pixel, to get a resolution independent code.<ul class="jss111"><li class="jss112">This is something I will cover later sometime, for now I don&#x27;t have a good understanding for this.</li></ul></li><li class="jss112">How to use keyboard for inputs. What <code class="jss102">Edge-Triggered</code> and <code class="jss102">Level-Triggered</code> keyboard events are.</li></ul><p class="MuiTypography-root jss103 MuiTypography-body1">Concepts of applying Physics, once these things are clear becomes easy.</p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Draw Black Background on Screen</h4><pre><div class="jss113"><div class="jss114" style="background:#2b2b2b"><div class="jss115"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss116" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">use</span> ggez<span class="token" style="color:#a9b7c6">::</span>event<span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#cc7832">use</span> ggez<span class="token" style="color:#a9b7c6">::</span>graphics<span class="token" style="color:#a9b7c6">;</span>
 <span class="token" style="color:#cc7832">use</span> ggez<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">{</span>Context<span class="token" style="color:#a9b7c6">,</span> ContextBuilder<span class="token" style="color:#a9b7c6">,</span> GameResult<span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
 
@@ -1313,18 +1065,18 @@ written in the world of Game dev, like:</p><ul class="jss214"><li class="jss215"
     <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#cc7832">mut</span> state <span class="token" style="color:#a9b7c6">=</span> World<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
     event<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">run</span><span class="token" style="color:#a9b7c6">(</span>ctx<span class="token" style="color:#a9b7c6">,</span> event_loop<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> state<span class="token" style="color:#a9b7c6">)</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss206 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/74bae4596c1cf1f0bec324946860422023d77d0c">74bae4596c1cf1f0bec324946860422023d77d0c</a></p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Add an Image Resource root</h4><p class="MuiTypography-root jss206 MuiTypography-body1">We need to to create a Player now. The player needs some image to represent itself.
+</code></pre></div></div></pre><p class="MuiTypography-root jss103 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/74bae4596c1cf1f0bec324946860422023d77d0c">74bae4596c1cf1f0bec324946860422023d77d0c</a></p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Add an Image Resource root</h4><p class="MuiTypography-root jss103 MuiTypography-body1">We need to to create a Player now. The player needs some image to represent itself.
 Thus we need to load resources someway. Following changes, helps us to setup root dir
-to look into for all our resources.</p><div class="jss220"><div class="jss221" style="background:#2b2b2b"><div class="jss222"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss223" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss224"><span><span class="token" style="color:#808080">// main.rs</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#808080">// in fn main()</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span></span><span class="token" style="color:#cc7832">let</span><span> resource_dir </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#6a8759">&quot;./src/bin/astro_blaster_v2/resources&quot;</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> event_loop</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> ContextBuilder</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Astro Blaster v2&quot;</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6a8759">&quot;Subroto Biswas&quot;</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">add_resource_path</span><span class="token" style="color:#a9b7c6">(</span><span>resource_dir</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">build</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> state </span><span class="token" style="color:#a9b7c6">=</span><span> World</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span>event</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">run</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> event_loop</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> state</span><span class="token" style="color:#a9b7c6">)</span></span></div></code></pre></div></div><p class="MuiTypography-root jss206 MuiTypography-body1">Now, Calling this simple function, will load resources from this root directory.
-For example:</p><div class="jss216"><div class="jss217" style="background:#2b2b2b"><div class="jss218"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss219" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> player_image <span class="token" style="color:#a9b7c6">=</span> graphics<span class="token" style="color:#a9b7c6">::</span>Image<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>ctx<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#6a8759">&quot;/player.png&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span></code></pre></div></div><p class="MuiTypography-root jss206 MuiTypography-body1">So, we now know how to load our resources, we now need to create a <code class="jss205">Player</code> instance and draw it&#x27;s image
-on screen.</p><p class="MuiTypography-root jss206 MuiTypography-body1">First thing, to create a new <code class="jss205">mod</code> for <code class="jss205">Player</code> struct and it&#x27;s implementations.</p><ul class="jss214"><li class="jss215">Create a file <code class="jss205">player.rs</code></li></ul><pre><div class="jss216"><div class="jss217" style="background:#2b2b2b"><div class="jss218"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss219" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// player.rs</span>
+to look into for all our resources.</p><div class="jss117"><div class="jss118" style="background:#2b2b2b"><div class="jss119"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss120" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss121"><span><span class="token" style="color:#808080">// main.rs</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#808080">// in fn main()</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span></span><span class="token" style="color:#cc7832">let</span><span> resource_dir </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#6a8759">&quot;./src/bin/astro_blaster_v2/resources&quot;</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> event_loop</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> ContextBuilder</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Astro Blaster v2&quot;</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6a8759">&quot;Subroto Biswas&quot;</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">add_resource_path</span><span class="token" style="color:#a9b7c6">(</span><span>resource_dir</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">build</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> state </span><span class="token" style="color:#a9b7c6">=</span><span> World</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span>event</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">run</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> event_loop</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> state</span><span class="token" style="color:#a9b7c6">)</span></span></div></code></pre></div></div><p class="MuiTypography-root jss103 MuiTypography-body1">Now, Calling this simple function, will load resources from this root directory.
+For example:</p><div class="jss113"><div class="jss114" style="background:#2b2b2b"><div class="jss115"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss116" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> player_image <span class="token" style="color:#a9b7c6">=</span> graphics<span class="token" style="color:#a9b7c6">::</span>Image<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>ctx<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#6a8759">&quot;/player.png&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span></code></pre></div></div><p class="MuiTypography-root jss103 MuiTypography-body1">So, we now know how to load our resources, we now need to create a <code class="jss102">Player</code> instance and draw it&#x27;s image
+on screen.</p><p class="MuiTypography-root jss103 MuiTypography-body1">First thing, to create a new <code class="jss102">mod</code> for <code class="jss102">Player</code> struct and it&#x27;s implementations.</p><ul class="jss111"><li class="jss112">Create a file <code class="jss102">player.rs</code></li></ul><pre><div class="jss113"><div class="jss114" style="background:#2b2b2b"><div class="jss115"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss116" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// player.rs</span>
 
 <span class="token" style="color:#cc7832">pub</span> <span class="token" style="color:#cc7832">struct</span> Player <span class="token" style="color:#a9b7c6">{</span>
     image<span class="token" style="color:#a9b7c6">:</span> graphics<span class="token" style="color:#a9b7c6">::</span>Image<span class="token" style="color:#a9b7c6">,</span>
@@ -1357,21 +1109,21 @@ on screen.</p><p class="MuiTypography-root jss206 MuiTypography-body1">First thi
         <span class="token" style="color:#ffc66d">Ok</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span>
     <span class="token" style="color:#a9b7c6">}</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss206 MuiTypography-body1">Now we just need to call the <code class="jss205">draw</code> implementation of <code class="jss205">Player</code> in <code class="jss205">World</code>s <code class="jss205">draw</code> calls.</p><div class="jss220"><div class="jss221" style="background:#2b2b2b"><div class="jss222"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss223" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss224"><span><span class="token" style="color:#808080">// main.rs</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#808080">//</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span><span> ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss224"><span><span>    graphics</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">clear</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>BLACK</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span> </span><span class="token" style="color:#808080">// Clear with Black Background</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>player</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span>    graphics</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">present</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span> </span><span class="token" style="color:#808080">// It&#x27;s important to present the buffer on Screen</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#ffc66d">Ok</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#a9b7c6">}</span></span></div></code></pre></div></div><p class="MuiTypography-root jss206 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e">c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e</a></p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Move the Player with Keyboard events</h4><p class="MuiTypography-root jss206 MuiTypography-body1">Ggez uses <code class="jss205">edge-triggered</code> keyboard events, simulated to look like <code class="jss205">level-triggered</code>.</p><br/><p class="MuiTypography-root jss206 MuiTypography-body1">In simple words, <code class="jss205">Edge Triggered</code> refers to single keyboard event, no matter
-how long we keep the key pressed. For eg. If I have pressed <code class="jss205">Up</code> button
-and also press <code class="jss205">Right</code> button after sometime, without leaving the <code class="jss205">Up</code> button, we lose
-event on <code class="jss205">Up</code> button, as a new keycode <code class="jss205">Right</code> overrides it.</p><div class="MuiPaper-root MuiCard-root jss172 jss173 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss206 MuiTypography-body1">Using <code class="jss205">key_down_event</code> from <code class="jss205">event::EventHandler</code> trait, actually simulates
-the above as level triggered, but once the keycode change, old keypress is lost.</p></div><p class="MuiTypography-root jss206 MuiTypography-body1">On the other hand, <code class="jss205">Level Triggered</code> refers to continous events, that keeps on triggering
-untill user stops the keypress. it can also handle more than one keypress at a time.</p><br/><p class="MuiTypography-root jss206 MuiTypography-body1">To hack ggez to get the desired output from keyboard events, i.e., to get events <code class="jss205">Up</code>
-and <code class="jss205">Right</code> simultaneously, we use <code class="jss205">input::keyboard::is_key_pressed</code> instead, with
-multiple <code class="jss205">if/else</code> instead of <code class="jss205">key_down_event</code> in trait impl.</p><pre><div class="jss216"><div class="jss217" style="background:#2b2b2b"><div class="jss218"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss219" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// player.rs</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss103 MuiTypography-body1">Now we just need to call the <code class="jss102">draw</code> implementation of <code class="jss102">Player</code> in <code class="jss102">World</code>s <code class="jss102">draw</code> calls.</p><div class="jss117"><div class="jss118" style="background:#2b2b2b"><div class="jss119"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss120" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss121"><span><span class="token" style="color:#808080">// main.rs</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#808080">//</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span><span> ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss121"><span><span>    graphics</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">clear</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>BLACK</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span> </span><span class="token" style="color:#808080">// Clear with Black Background</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>player</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span>    graphics</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">present</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span> </span><span class="token" style="color:#808080">// It&#x27;s important to present the buffer on Screen</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#ffc66d">Ok</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#a9b7c6">}</span></span></div></code></pre></div></div><p class="MuiTypography-root jss103 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e">c207cd3b5810b7a2775ccffcc77cc4e4db1a7b5e</a></p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Move the Player with Keyboard events</h4><p class="MuiTypography-root jss103 MuiTypography-body1">Ggez uses <code class="jss102">edge-triggered</code> keyboard events, simulated to look like <code class="jss102">level-triggered</code>.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">In simple words, <code class="jss102">Edge Triggered</code> refers to single keyboard event, no matter
+how long we keep the key pressed. For eg. If I have pressed <code class="jss102">Up</code> button
+and also press <code class="jss102">Right</code> button after sometime, without leaving the <code class="jss102">Up</code> button, we lose
+event on <code class="jss102">Up</code> button, as a new keycode <code class="jss102">Right</code> overrides it.</p><div class="MuiPaper-root MuiCard-root jss69 jss70 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss103 MuiTypography-body1">Using <code class="jss102">key_down_event</code> from <code class="jss102">event::EventHandler</code> trait, actually simulates
+the above as level triggered, but once the keycode change, old keypress is lost.</p></div><p class="MuiTypography-root jss103 MuiTypography-body1">On the other hand, <code class="jss102">Level Triggered</code> refers to continous events, that keeps on triggering
+untill user stops the keypress. it can also handle more than one keypress at a time.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">To hack ggez to get the desired output from keyboard events, i.e., to get events <code class="jss102">Up</code>
+and <code class="jss102">Right</code> simultaneously, we use <code class="jss102">input::keyboard::is_key_pressed</code> instead, with
+multiple <code class="jss102">if/else</code> instead of <code class="jss102">key_down_event</code> in trait impl.</p><pre><div class="jss113"><div class="jss114" style="background:#2b2b2b"><div class="jss115"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss116" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// player.rs</span>
 <span class="token" style="color:#cc7832">impl</span> Player <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#a9b7c6">...</span>
     <span class="token" style="color:#cc7832">pub</span> <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">handle_events</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span> ctx<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> Context<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> GameResult <span class="token" style="color:#a9b7c6">{</span>
@@ -1401,45 +1153,45 @@ multiple <code class="jss205">if/else</code> instead of <code class="jss205">key
     <span class="token" style="color:#a9b7c6">}</span>
     <span class="token" style="color:#a9b7c6">...</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss206 MuiTypography-body1">We are directly updating the <code class="jss205">position</code> of the player, instead of deriving it from velocity and time,
+</code></pre></div></div></pre><p class="MuiTypography-root jss103 MuiTypography-body1">We are directly updating the <code class="jss102">position</code> of the player, instead of deriving it from velocity and time,
 which give precise control over the Player&#x27;s movement. Anyways, for simplicity change the position
-directly for now is fine. We will later on update it to use <code class="jss205">velocity * time</code> to get the <code class="jss205">dpos</code> moved
-in unit time.</p><br/><p class="MuiTypography-root jss206 MuiTypography-body1">Now we just need to call <code class="jss205">player.update</code> in <code class="jss205">world.update</code> to reflect it on the screen.</p><p class="MuiTypography-root jss206 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/d8a9730f134f056acd451692834722cd75b020a6">d8a9730f134f056acd451692834722cd75b020a6</a></p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Fix the upside down coordinates of screen:</h4><p class="MuiTypography-root jss206 MuiTypography-body1">If you have noticed, I am having negative delta y for <code class="jss205">UP</code> event (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>y</mi><mo>=</mo><mo>−</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">dy = -1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em">y</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em"></span><span class="mord">−</span><span class="mord">1</span><span class="mord">.</span><span class="mord">0</span></span></span></span></span>), that&#x27;s because
+directly for now is fine. We will later on update it to use <code class="jss102">velocity * time</code> to get the <code class="jss102">dpos</code> moved
+in unit time.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">Now we just need to call <code class="jss102">player.update</code> in <code class="jss102">world.update</code> to reflect it on the screen.</p><p class="MuiTypography-root jss103 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/d8a9730f134f056acd451692834722cd75b020a6">d8a9730f134f056acd451692834722cd75b020a6</a></p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Fix the upside down coordinates of screen:</h4><p class="MuiTypography-root jss103 MuiTypography-body1">If you have noticed, I am having negative delta y for <code class="jss102">UP</code> event (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>y</mi><mo>=</mo><mo>−</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">dy = -1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em"></span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em">y</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em"></span><span class="mord">−</span><span class="mord">1</span><span class="mord">.</span><span class="mord">0</span></span></span></span></span>), that&#x27;s because
 our world right now is upside down. This is because Screen coordinates in computer graphics has
-origin at <code class="jss205">top-left</code> corner, where <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>X</mi><mo>−</mo><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">+X-axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.07847em">X</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span> goes towards right of the screen and <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>Y</mi><mo>−</mo><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">+Y-axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.22222em">Y</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span> goes
+origin at <code class="jss102">top-left</code> corner, where <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>X</mi><mo>−</mo><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">+X-axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.07847em">X</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span> goes towards right of the screen and <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mi>Y</mi><mo>−</mo><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">+Y-axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord">+</span><span class="mord mathdefault" style="margin-right:0.22222em">Y</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span> goes
 to the bottom of the screen. We need to revert it back to how we use coordinates in real world, so
-that our usual Physics and Maths can be applied as is.</p><div class="jss220"><div class="jss221" style="background:#2b2b2b"><div class="jss222"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss223" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss224"><span><span class="token" style="color:#808080">// physics.rs</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#cc7832">pub</span><span> </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#cc7832">Self</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> image </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>Image</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6a8759">&quot;/playerShip1_blue.png&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> pos </span><span class="token" style="color:#a9b7c6">=</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Point2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">72.0</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">0.0</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> y_offset </span><span class="token" style="color:#a9b7c6">=</span><span> constants</span><span class="token" style="color:#a9b7c6">::</span><span>VIEWPORT_HEIGHT </span><span class="token" style="color:#a9b7c6">-</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">height</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> bbox </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>Rect</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">width</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">,</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">height</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#ffc66d">Ok</span><span class="token" style="color:#a9b7c6">(</span><span>Player </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss224"><span><span>        image</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><span><span>        pos</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>        offset</span><span class="token" style="color:#a9b7c6">:</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Vector2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0.0</span><span class="token" style="color:#a9b7c6">,</span><span> y_offset</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>        bbox</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><span><span>        facing</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span><span> ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> reverted_pos </span><span class="token" style="color:#a9b7c6">=</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Point2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>offset</span><span class="token" style="color:#a9b7c6">.</span><span>x </span><span class="token" style="color:#a9b7c6">+</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>pos</span><span class="token" style="color:#a9b7c6">.</span><span>x</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>offset</span><span class="token" style="color:#a9b7c6">.</span><span>y </span><span class="token" style="color:#a9b7c6">-</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>pos</span><span class="token" style="color:#a9b7c6">.</span><span>y
-</span></span></div><div class="jss224"><div class="jss225 jss226" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> params </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>DrawParam</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss224"><span><span>        </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">dest</span><span class="token" style="color:#a9b7c6">(</span><span>reverted_pos</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss224"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss224"><span><span></span><span class="token" style="color:#a9b7c6">}</span></span></div></code></pre></div></div><p class="MuiTypography-root jss206 MuiTypography-body1">We are drawing the image with an offset, where whatever the Y position is, we will subtract it to
+that our usual Physics and Maths can be applied as is.</p><div class="jss117"><div class="jss118" style="background:#2b2b2b"><div class="jss119"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss120" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss121"><span><span class="token" style="color:#808080">// physics.rs</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#cc7832">pub</span><span> </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#cc7832">Self</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> image </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>Image</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>ctx</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6a8759">&quot;/playerShip1_blue.png&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">?</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> pos </span><span class="token" style="color:#a9b7c6">=</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Point2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">72.0</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">0.0</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> y_offset </span><span class="token" style="color:#a9b7c6">=</span><span> constants</span><span class="token" style="color:#a9b7c6">::</span><span>VIEWPORT_HEIGHT </span><span class="token" style="color:#a9b7c6">-</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">height</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> bbox </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>Rect</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">width</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">,</span><span> image</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">height</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#cc7832">as</span><span> f32</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#ffc66d">Ok</span><span class="token" style="color:#a9b7c6">(</span><span>Player </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss121"><span><span>        image</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><span><span>        pos</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>        offset</span><span class="token" style="color:#a9b7c6">:</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Vector2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0.0</span><span class="token" style="color:#a9b7c6">,</span><span> y_offset</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>        bbox</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><span><span>        facing</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">draw</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span><span> ctx</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> Context</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> GameResult </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> reverted_pos </span><span class="token" style="color:#a9b7c6">=</span><span> nalgebra</span><span class="token" style="color:#a9b7c6">::</span><span>Point2</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>offset</span><span class="token" style="color:#a9b7c6">.</span><span>x </span><span class="token" style="color:#a9b7c6">+</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>pos</span><span class="token" style="color:#a9b7c6">.</span><span>x</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>offset</span><span class="token" style="color:#a9b7c6">.</span><span>y </span><span class="token" style="color:#a9b7c6">-</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>pos</span><span class="token" style="color:#a9b7c6">.</span><span>y
+</span></span></div><div class="jss121"><div class="jss122 jss123" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> params </span><span class="token" style="color:#a9b7c6">=</span><span> graphics</span><span class="token" style="color:#a9b7c6">::</span><span>DrawParam</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss121"><span><span>        </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">dest</span><span class="token" style="color:#a9b7c6">(</span><span>reverted_pos</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss121"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss121"><span><span></span><span class="token" style="color:#a9b7c6">}</span></span></div></code></pre></div></div><p class="MuiTypography-root jss103 MuiTypography-body1">We are drawing the image with an offset, where whatever the Y position is, we will subtract it to
 window height and add image height, to keep the origin of the image still at top-left corner of the image,
-but any delta modification can be done with natural <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>−</mo><mi>Y</mi><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">X-Y axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord mathdefault" style="margin-right:0.07847em">X</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">Y</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span>, without worrying about the inversion.</p><br/><p class="MuiTypography-root jss206 MuiTypography-body1">Note that <code class="jss205">bbox</code> added to player is just for debugging purpose and not actually required for our game.</p><p class="MuiTypography-root jss206 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/d6379bd1f9226026ad1e313a4a3653e04767532d">d6379bd1f9226026ad1e313a4a3653e04767532d</a></p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Add Physics to Player&#x27;s Movements:</h4><p class="MuiTypography-root jss206 MuiTypography-body1">Moving in the world with some max velocity and constant accelaration, applied to the spaceship
-when user presses direction buttons.</p><br/><p class="MuiTypography-root jss206 MuiTypography-body1">Keeping Acceleration (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault">a</span></span></span></span></span>) constant and having a max velocity (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">V</span></span></span></span></span>), we can derive,
-distance travelled in unit time:</p><ul class="jss214"><li class="jss215">Acceleration is: <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mfrac><mi>v</mi><mi>t</mi></mfrac></mrow><annotation encoding="application/x-tex">a = \frac{v}{t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em"><span style="top:-2.6550000000000002em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em"><span class="pstrut" style="height:3em"></span><span class="frac-line" style="border-bottom-width:0.04em"></span></span><span style="top:-3.394em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><ul class="jss214"><li class="jss215">So at any instant: <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mi>a</mi><mo>×</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">v = a \times t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em"></span><span class="mord mathdefault">t</span></span></span></span></span></li></ul></li><li class="jss215">Once velocity is found, we can derive distance from that velocity,
-for that instant <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>v</mi><mo>×</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">d = v \times t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em"></span><span class="mord mathdefault">t</span></span></span></span></span><ul class="jss214"><li class="jss215">Keeping a check for <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>≤</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v \leq V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">V</span></span></span></span></span></li></ul></li></ul><p class="MuiTypography-root jss206 MuiTypography-body1">Once <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em"></span><span class="mord mathdefault">d</span></span></span></span></span> is found, we can use it as our delta distance, that will be added to current position.
+but any delta modification can be done with natural <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>−</mo><mi>Y</mi><mi>a</mi><mi>x</mi><mi>i</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">X-Y axis</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em"></span><span class="mord mathdefault" style="margin-right:0.07847em">X</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">Y</span><span class="mord mathdefault">a</span><span class="mord mathdefault">x</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span></span></span></span></span>, without worrying about the inversion.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">Note that <code class="jss102">bbox</code> added to player is just for debugging purpose and not actually required for our game.</p><p class="MuiTypography-root jss103 MuiTypography-body1">Diff: <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/commit/d6379bd1f9226026ad1e313a4a3653e04767532d">d6379bd1f9226026ad1e313a4a3653e04767532d</a></p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Add Physics to Player&#x27;s Movements:</h4><p class="MuiTypography-root jss103 MuiTypography-body1">Moving in the world with some max velocity and constant accelaration, applied to the spaceship
+when user presses direction buttons.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">Keeping Acceleration (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault">a</span></span></span></span></span>) constant and having a max velocity (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">V</span></span></span></span></span>), we can derive,
+distance travelled in unit time:</p><ul class="jss111"><li class="jss112">Acceleration is: <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>=</mo><mfrac><mi>v</mi><mi>t</mi></mfrac></mrow><annotation encoding="application/x-tex">a = \frac{v}{t}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1.040392em;vertical-align:-0.345em"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em"><span style="top:-2.6550000000000002em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em"><span class="pstrut" style="height:3em"></span><span class="frac-line" style="border-bottom-width:0.04em"></span></span><span style="top:-3.394em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em">v</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span><ul class="jss111"><li class="jss112">So at any instant: <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mi>a</mi><mo>×</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">v = a \times t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em"></span><span class="mord mathdefault">t</span></span></span></span></span></li></ul></li><li class="jss112">Once velocity is found, we can derive distance from that velocity,
+for that instant <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mo>=</mo><mi>v</mi><mo>×</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">d = v \times t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em"></span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2222222222222222em"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em"></span><span class="mord mathdefault">t</span></span></span></span></span><ul class="jss111"><li class="jss112">Keeping a check for <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>≤</mo><mi>V</mi></mrow><annotation encoding="application/x-tex">v \leq V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span><span class="mspace" style="margin-right:0.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.22222em">V</span></span></span></span></span></li></ul></li></ul><p class="MuiTypography-root jss103 MuiTypography-body1">Once <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em"></span><span class="mord mathdefault">d</span></span></span></span></span> is found, we can use it as our delta distance, that will be added to current position.
 Now everything defined above is for 1D, but we are making game for 2D, so we need direction as well.
 Our Acceleration (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault">a</span></span></span></span></span>) and Velocity (<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi></mrow><annotation encoding="application/x-tex">v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em"></span><span class="mord mathdefault" style="margin-right:0.03588em">v</span></span></span></span></span>) both will have a direction bound to it. We need to go back
-to the basics of trignometry now.</p><h4 class="MuiTypography-root jss207 MuiTypography-h4">Use Resolution independent Game Units:</h4><div class="MuiPaper-root MuiCard-root jss172 jss174 MuiPaper-elevation0 MuiPaper-rounded"><strong>NOTE</strong>: I will elaborate on this topic, when I will feel more confident on how to achieve it more naturally. Actually I want to use Game Units that resembles Natural Units like<code class="jss205">meters</code>, where the viewport can be considered in meters. Something, like 10 pixels equals 1 meter. For now using that logic in game is getting difficult for me, thus will keep using pixels directly</div><p class="MuiTypography-root jss206 MuiTypography-body1">Our game is very simple till now, and it will remain the same for sometime. So it is very hard
+to the basics of trignometry now.</p><h4 class="MuiTypography-root jss104 MuiTypography-h4">Use Resolution independent Game Units:</h4><div class="MuiPaper-root MuiCard-root jss69 jss71 MuiPaper-elevation0 MuiPaper-rounded"><strong>NOTE</strong>: I will elaborate on this topic, when I will feel more confident on how to achieve it more naturally. Actually I want to use Game Units that resembles Natural Units like<code class="jss102">meters</code>, where the viewport can be considered in meters. Something, like 10 pixels equals 1 meter. For now using that logic in game is getting difficult for me, thus will keep using pixels directly</div><p class="MuiTypography-root jss103 MuiTypography-body1">Our game is very simple till now, and it will remain the same for sometime. So it is very hard
 to justify, how a movement of player done using pixel calculation is any different from using
-some random Game unit. To properly understand, please follow the coming image demonstrations carefully.</p><div class="jss228"><img class="jss229 jss230" src="https://user-images.githubusercontent.com/11786283/79068483-d4a21080-7ce4-11ea-9cb5-f5f6a13f4b2c.png" alt="Descriptive relative speed to varying viewport or the world"/><p class="MuiTypography-root jss231 MuiTypography-body2">Descriptive relative speed to varying viewport or the world</p></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/astro-v2","query":{},"buildId":"UfUzgSg1aU6fdiEufQzEH","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-07e15e0d81524aaaf609.js"></script><script async="" data-next-page="/_app" src="/_next/static/UfUzgSg1aU6fdiEufQzEH/pages/_app.js"></script><script async="" data-next-page="/astro-v2" src="/_next/static/UfUzgSg1aU6fdiEufQzEH/pages/astro-v2.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/0a8bb3f001ed515a33ce786ba15cf5a99009e7ae.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/9fbd6d86380a6d360e781b704880b609533850ab.820e0a7be02e948ae5e1.js" async=""></script><script src="/_next/static/runtime/main-fa3fbea9157538928a30.js" async=""></script><script src="/_next/static/UfUzgSg1aU6fdiEufQzEH/_buildManifest.js" async=""></script><script src="/_next/static/UfUzgSg1aU6fdiEufQzEH/_ssgManifest.js" async=""></script></body></html>
+some random Game unit. To properly understand, please follow the coming image demonstrations carefully.</p><div class="jss125"><img class="jss126 jss127" src="https://user-images.githubusercontent.com/11786283/79068483-d4a21080-7ce4-11ea-9cb5-f5f6a13f4b2c.png" alt="Descriptive relative speed to varying viewport or the world"/><p class="MuiTypography-root jss128 MuiTypography-body2">Descriptive relative speed to varying viewport or the world</p></div><div class="jss129"><p class="MuiTypography-root jss130 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss131 jss133 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/astro-v2 - Astro Blaster v2 in Rust"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss131 jss132 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/astro-v2","query":{},"buildId":"W8ENtMUPhN_OghaT2xOIR","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-07e15e0d81524aaaf609.js"></script><script async="" data-next-page="/_app" src="/_next/static/W8ENtMUPhN_OghaT2xOIR/pages/_app.js"></script><script async="" data-next-page="/astro-v2" src="/_next/static/W8ENtMUPhN_OghaT2xOIR/pages/astro-v2.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/e03bb2ee4b6ee04da1697670d98f8838c1fe3d27.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/7703b22a48072edc4605494022b188e023c0596b.7f8b17ccac343e27f9c0.js" async=""></script><script src="/_next/static/runtime/main-fa3fbea9157538928a30.js" async=""></script><script src="/_next/static/W8ENtMUPhN_OghaT2xOIR/_buildManifest.js" async=""></script><script src="/_next/static/W8ENtMUPhN_OghaT2xOIR/_ssgManifest.js" async=""></script></body></html>
