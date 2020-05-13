@@ -1,7 +1,8 @@
 import React from 'react';
 import cx from 'classnames';
 import { makeStyles, Button, Theme, Typography, Grid } from '@material-ui/core';
-import { Share, Facebook, Twitter } from '@material-ui/icons';
+import { Facebook, Twitter } from '@material-ui/icons';
+import { ShareIcon } from './icons';
 
 interface IFixedNavbarProps {
   title: string;
@@ -106,7 +107,7 @@ const renderShare = (
         size="small"
         variant="contained"
         className={shareClasses}
-        startIcon={<Share />}
+        startIcon={<ShareIcon />}
         onClick={() => shareLink(props)}
       >
         Share
