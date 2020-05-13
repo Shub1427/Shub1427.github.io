@@ -5,7 +5,8 @@ import Head from 'next/head';
 
 import { Container, makeStyles } from '@material-ui/core';
 import PolkaPattern from '@components/polka-pattern';
-import DarkModeSwitch from 'components/dark-mode-switch';
+import { FixedNavbar } from 'components/fixed-navbar';
+import { Footer } from 'components/footer';
 
 import { getSiteLink } from '@utils/generic-utils';
 
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
 export default function PolkaContainer(props: IPolkaContainer) {
   const classes = useStyles();
   const router = useRouter();
+  const pageLink = getSiteLink(router);
   return (
     <>
       <Head>
@@ -40,7 +42,7 @@ export default function PolkaContainer(props: IPolkaContainer) {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={props.pageTitle} />
         <meta property="og:site_name" content="Subroto" />
-        <meta property="og:url" content={getSiteLink(router)} />
+        <meta property="og:url" content={pageLink} />
         <meta property="og:image" content={props.ogImage} />
         <meta
           property="article:published_time"
@@ -61,8 +63,9 @@ export default function PolkaContainer(props: IPolkaContainer) {
       </Head>
       <Container maxWidth="md" className={classes.root}>
         <PolkaPattern />
-        <DarkModeSwitch />
+        <FixedNavbar />
         {props.children}
+        <Footer title={props.pageTitle} text={pageLink} url={pageLink} />
       </Container>
     </>
   );

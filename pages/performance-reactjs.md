@@ -1,6 +1,6 @@
 import { archiveRecord } from '@constants/archive-list';
 
-export const record = archiveRecord['performance-reactjs']'
+export const record = archiveRecord['performance-reactjs'];
 
 <PolkaContainer
   pageTitle={record.title}

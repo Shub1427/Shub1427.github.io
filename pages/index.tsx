@@ -7,17 +7,20 @@ import PolkaPattern from '@components/polka-pattern';
 import ArchiveList from '@components/archive-list';
 import ProfileDetailsHeader from '@components/profile-details-header';
 import { getSiteLink } from '@utils/generic-utils';
+import { Footer } from '@components/footer';
 
 const useStyles = makeStyles({
   root: {
     position: 'relative',
     minHeight: '100vh',
+    padding: '32px 0 64px',
   },
 });
 
 export default function IndexPage() {
   const classes = useStyles();
   const router = useRouter();
+  const pageLink = getSiteLink(router);
   return (
     <>
       <Head>
@@ -33,7 +36,7 @@ export default function IndexPage() {
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Subroto's Homepage" />
         <meta property="og:site_name" content="Subroto" />
-        <meta property="og:url" content={getSiteLink(router)} />
+        <meta property="og:url" content={pageLink} />
         <meta
           property="og:image"
           content="https://user-images.githubusercontent.com/11786283/81763575-307ed580-94ed-11ea-8551-0b903e32d789.jpg"
@@ -57,6 +60,7 @@ export default function IndexPage() {
         <PolkaPattern />
         <ProfileDetailsHeader />
         <ArchiveList />
+        <Footer title={"Subroto's Homepage"} text={pageLink} url={pageLink} />
       </Container>
     </>
   );

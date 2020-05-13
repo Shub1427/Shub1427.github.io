@@ -3,7 +3,7 @@ import { makeStyles, Typography, Theme, IconButton } from '@material-ui/core';
 import { socialLinks, socialLinksDark } from '@constants/social-links';
 
 import { usePaletteModeStore } from '@hoc/palette-mode';
-import DarkModeSwitch from 'components/dark-mode-switch';
+import { FixedNavbar } from 'components/fixed-navbar';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -44,7 +44,7 @@ export default function ProfileDetailsHeader() {
   const links = darkMode ? socialLinksDark : socialLinks;
   return (
     <div className={classes.root}>
-      <DarkModeSwitch />
+      <FixedNavbar />
       <img height="100%" src="/images/logo-small.png" alt="Shub's logo" />
       <Typography className={classes.title} variant="h2" color="primary">
         Subroto Biswas
