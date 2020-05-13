@@ -33,22 +33,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    [theme.breakpoints.down('xs')]: {
-      flexDirection: 'column',
-    },
+    flexWrap: 'wrap',
   },
   button: {
     '&+&': {
       marginTop: 0,
       marginLeft: 16,
     },
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-      '&+&': {
-        marginTop: 16,
-        marginLeft: 0,
-      },
-    },
+    display: 'inline-flex',
+    flex: 1,
+    maxWidth: 100,
   },
   share: {
     color: '#fff',
@@ -119,18 +113,6 @@ const renderShare = (
       </Button>
     );
   }
-
-  // allShare = (
-  //   <Button
-  //     size="small"
-  //     variant="contained"
-  //     className={shareClasses}
-  //     startIcon={<Share />}
-  //     onClick={() => shareLink(props)}
-  //   >
-  //     Share
-  //   </Button>
-  // );
 
   return (
     <Grid item className={props.classes.buttonWrapper} xs={12} sm={6}>
