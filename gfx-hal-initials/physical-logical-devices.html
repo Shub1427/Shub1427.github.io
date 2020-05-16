@@ -1,4 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Physical &amp; Logical Devices"/><meta name="twitter:description" content="We would be looking into all       instances devices from gfx-hal,       which resembles Vulkan devices.       We will also learn some basics on enumerating these devices and stuff."/><meta property="og:type" content="article"/><meta property="og:title" content="Physical &amp; Logical Devices"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/physical-logical-devices"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82111231-485e8f80-9761-11ea-9f21-8843d4a66752.jpg?2"/><meta property="article:published_time" content="2020/05/16"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Physical &amp; Logical Devices</title><meta name="description" content="We would be looking into all       instances devices from gfx-hal,       which resembles Vulkan devices.       We will also learn some basics on enumerating these devices and stuff."/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner Physical Device Logical Device gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/tvvno8VtrYscx-r2ZAYol/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/tvvno8VtrYscx-r2ZAYol/pages/gfx-hal-initials/physical-logical-devices.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/00317cab64f7fa333a1405b14cb46d1f9ca48e47.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/757b36e6203858caf9b47db0325a683b95c8f95e.e1cf8d97d8da048da4d3.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-7fafcac5094109c02b95.js" as="script"/><style id="jss-server-side">html {
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113155919-1"></script><script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-113155919-1');
+          </script><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Physical &amp; Logical Devices"/><meta name="twitter:description" content="We would be looking into all       instances devices from gfx-hal,       which resembles Vulkan devices.       We will also learn some basics on enumerating these devices and stuff."/><meta property="og:type" content="article"/><meta property="og:title" content="Physical &amp; Logical Devices"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/physical-logical-devices"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82111231-485e8f80-9761-11ea-9f21-8843d4a66752.jpg?2"/><meta property="article:published_time" content="2020/05/16"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Physical &amp; Logical Devices</title><meta name="description" content="We would be looking into all       instances devices from gfx-hal,       which resembles Vulkan devices.       We will also learn some basics on enumerating these devices and stuff."/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner Physical Device Logical Device gfx-hal"/><meta name="next-head-count" content="26"/><link rel="preload" href="/_next/static/Vu3XoXuet-V5Th6jlqQsW/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/Vu3XoXuet-V5Th6jlqQsW/pages/gfx-hal-initials/physical-logical-devices.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/5b0f9681162c0c385e862e1b7d88a19459434705.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/239da53c232abfb343e3f9f82bc0ec8ddda65ba5.e1cf8d97d8da048da4d3.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-96b3ad4cf1d78441d700.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,6 +64,92 @@ body::backdrop {
 }
 .MuiSvgIcon-fontSizeLarge {
   font-size: 2.1875rem;
+}
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
 }
 .MuiButtonBase-root {
   color: inherit;
@@ -536,6 +627,9 @@ body::backdrop {
   }
   .MuiButton-iconSizeLarge > *:first-child {
     font-size: 22px;
+  }
+  .MuiCard-root {
+    overflow: hidden;
   }
   .MuiIconButton-root {
     flex: 0 0 auto;
@@ -1201,15 +1295,39 @@ body::backdrop {
   .MuiLink-button.Mui-focusVisible {
     outline: auto;
   }
-  .jss81 {
+  .jss78 {
     color: #444;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     word-spacing: 3px;
   }
-  .jss81 + .jss81, ol + .jss81, ul + .jss81 {
+  .jss78 + .jss78, ol + .jss78, ul + .jss78 {
     margin-top: 32px;
+  }
+  .jss97 {
+    color: #888;
+    margin: 12px 0;
+    padding: 16px 8px;
+    background: #f2f2f2;
+    font-weight: 400;
+  }
+  .jss97 > p, .jss97 > ul, .jss97 > ol, .jss97 > div {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  p + .jss97, .jss97 + .jss97 {
+    margin-top: 32px;
+  }
+  .jss98 {
+    border-left: 12px solid #64b5f6;
+  }
+  .jss99 {
+    border-left: 12px solid #ffd54f;
+  }
+  .jss100 {
+    border-left: 12px solid #ef5350;
   }
   .jss10 {
     width: 100%;
@@ -1217,7 +1335,7 @@ body::backdrop {
     align-content: center;
     justify-content: flex-end;
   }
-  .jss88 {
+  .jss131 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1226,53 +1344,53 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss88 {
+  .jss131 {
     flex-direction: column;
   }
 }
-  .jss89 {
+  .jss132 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss89 {
+  .jss132 {
     margin-bottom: 16px;
   }
 }
-  .jss90 {
+  .jss133 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss91 {
+  .jss134 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss91+.jss91 {
+  .jss134+.jss134 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss92 {
+  .jss135 {
     color: #fff;
     background: #444;
   }
-  .jss92:hover, .jss92focus, .jss92:active {
+  .jss135:hover, .jss135focus, .jss135:active {
     background: #333;
   }
-  .jss93 {
+  .jss136 {
     color: #fff;
     background: #4361b3;
   }
-  .jss93:hover, .jss93focus, .jss93:active {
+  .jss136:hover, .jss136focus, .jss136:active {
     background: #254395;
   }
-  .jss94 {
+  .jss137 {
     color: #fff;
     background: #4fafed;
   }
-  .jss94:hover, .jss94focus, .jss94:active {
+  .jss137:hover, .jss137focus, .jss137:active {
     background: #3191CF;
   }
   .jss1 {
@@ -1318,6 +1436,13 @@ body::backdrop {
     font-weight: 300;
   }
   .jss77 {
+    color: #222;
+    margin: 32px 0 12px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+  }
+  .jss85 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1326,23 +1451,23 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss78 {
+  .jss86 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss79 {
+  .jss87 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss80 {
+  .jss88 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss80 *::selection {
+  .jss88 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss80 *::-moz-selection {
+  .jss88 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
   .jss76 {
@@ -1350,6 +1475,53 @@ body::backdrop {
     margin: 0 2px;
     padding: 1px 8px;
     background: rgba(0, 0, 0, 0.05);
+  }
+  .jss93 {
+    position: relative;
+  }
+  .jss94 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin-left: -16px;
+  }
+  .jss95 {
+    background: rgba(139, 195, 74, 0.2);
+    border-left: 4px solid rgb(139, 195, 74);
+  }
+  .jss96 {
+    background: rgba(239, 154, 154, 0.2);
+    border-left: 4px solid rgb(239, 154, 154);
+  }
+  .jss89 {
+    padding: 0;
+    overflow: hidden;
+    background: #5491da;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
+    margin-top: 16px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .jss90 {
+    padding: 16px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .jss91 {
+    position: relative;
+    padding-bottom: 8px;
+  }
+  .jss92 {
+    padding: 0 0 64px 16px !important;
+    margin-bottom: -64px !important;
+  }
+  .jss92 *::selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss92 *::-moz-selection {
+    background: rgba(255,171,0,0.2);
   }
   .jss69 {
     width: 100%;
@@ -1372,6 +1544,20 @@ body::backdrop {
     text-align: center;
     font-weight: 400;
   }
+  .jss130 {
+    color: #666;
+    border: medium none;
+    font-size: 32px;
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 300;
+  }
+  .jss130:before {
+    content: '***';
+    line-height: 1.4;
+    text-indent: 1em;
+    letter-spacing: 1em;
+  }
   .jss74 {
     color: #444;
     font-size: 1rem;
@@ -1389,11 +1575,67 @@ body::backdrop {
   }
   .jss75 > ul > .jss75, .jss75 > ol > .jss75 {
     margin-top: 0;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Physical &amp; Logical Devices</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">16 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">1<!-- --> min read</p></div></div><div class="jss69"><img class="jss70 jss71" src="https://user-images.githubusercontent.com/11786283/82109811-ac2f8b00-9756-11ea-88db-3cbc70ee1350.png" alt="Get Physical Device from Backend to Logical Devices"/><p class="MuiTypography-root jss72 MuiTypography-body2">Get Physical Device from Backend to Logical Devices</p></div><h4 class="MuiTypography-root jss73 MuiTypography-h4">What is a Device</h4><ul class="jss74"><li class="jss75">Physical Device - denotes to the actual Hardware device present in your Computer. It gives
-a vector, that has Device details as elements. Each item pointing to the GPU hardware you have.
-So, if you have Single NVidia GPU, you will get a single item vector, having details on that device.</li><li class="jss75">Logical Device - Basically it is a representation of Physical device, that the application will use
-to compute their logic. In <code class="jss76">gfx-hal</code> to get logical device, you need to open <code class="jss76">physical_device</code>.
-(Details discussed at the end).</li></ul><h4 class="MuiTypography-root jss73 MuiTypography-h4">What details does a device has</h4><pre><div class="jss77"><div class="jss78" style="background:#2b2b2b"><div class="jss79"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss80" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// Adapter Info</span>
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Physical &amp; Logical Devices</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">16 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">5<!-- --> min read</p></div></div><div class="jss69"><img class="jss70 jss71" src="https://user-images.githubusercontent.com/11786283/82109811-ac2f8b00-9756-11ea-88db-3cbc70ee1350.png" alt="Get Physical Device from Backend to Logical Devices"/><p class="MuiTypography-root jss72 MuiTypography-body2">Get Physical Device from Backend to Logical Devices</p></div><h4 class="MuiTypography-root jss73 MuiTypography-h4">What is a Device</h4><ul class="jss74"><li class="jss75"><strong>Physical Device</strong> - denotes to actual Hardware device present
+in your Computer. There could be, that has Device details
+as elements. Each item pointing to the GPU hardware you
+have. So, if we have Single NVidia GPU, we will get a
+single item, which we can <code class="jss76">open</code> and later on use as
+<em>Logical Device</em> where command buffers are passed.</li><li class="jss75"><strong>Logical Device</strong> - Basically it is a representation of
+Physical device, that the application will use
+to compute their logic. In <code class="jss76">gfx-hal</code> to get logical device,
+you need to open <code class="jss76">physical_device</code>.
+(Details discussed at later).</li></ul><h4 class="MuiTypography-root jss73 MuiTypography-h4">Physical Device:</h4><h5 class="MuiTypography-root jss77 MuiTypography-h5">Getting Adapters from Instance</h5><p class="MuiTypography-root jss78 MuiTypography-body1">I hope you have already read details on how to get reference
+of <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/display-window">gfx-hal Instance and it&#x27;s Surface</a>. If not, please read it once before continuing.</p><p class="MuiTypography-root jss78 MuiTypography-body1">We would get a list of <code class="jss76">adapters</code> from <code class="jss76">instance</code>, which will
+contain details on Physical Devices present on our system.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Before that, we need to create our Structure for Adapter
+State.</p><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> AdapterState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    adapter<span class="token" style="color:#a9b7c6">:</span> Option<span class="token" style="color:#a9b7c6">&lt;</span>Adapter<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+    memory_types<span class="token" style="color:#a9b7c6">:</span> Vec<span class="token" style="color:#a9b7c6">&lt;</span>MemoryType<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+    limits<span class="token" style="color:#a9b7c6">:</span> Limits<span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">}</span>
+
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> AdapterState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>adapters<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> Vec<span class="token" style="color:#a9b7c6">&lt;</span>Adapter<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#808080">// In my system, I have just one GPU Physical adapter, thus</span>
+        <span class="token" style="color:#808080">// will only work with first instance.</span>
+        <span class="token" style="color:#cc7832">let</span> adapter <span class="token" style="color:#a9b7c6">=</span> adapters<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">remove</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+        <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+            memory_types<span class="token" style="color:#a9b7c6">:</span> adapter<span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">memory_properties</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span>memory_types<span class="token" style="color:#a9b7c6">,</span>
+            limits<span class="token" style="color:#a9b7c6">:</span> adapter<span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">limits</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+            adapter<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span>adapter<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">You can assume <code class="jss76">AdapterState</code> as a state, that maintains Physical Device instance,
+and can be later on used to get device details, or get Logical Device instance and more.
+<em>Details on Memory Type and GPU limits, will be discussed later.</em></p><p class="MuiTypography-root jss78 MuiTypography-body1">We need to add this to <code class="jss76">BackendState</code> as well,
+so as to later on use it for other things.</p><div class="jss89"><div class="jss90" style="background:#2b2b2b"><div class="jss91"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss92" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss93"><span><span class="token" style="color:#808080">// main.rs</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#cc7832">struct</span><span> BackendState</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss93"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss93"><div class="jss94 jss95" style="width:auto"></div><span><span>  </span><span class="token" style="color:#808080">// Vulkan backend surface object</span><span>
+</span></span></div><div class="jss93"><div class="jss94 jss95" style="width:auto"></div><span><span>  adapterState</span><span class="token" style="color:#a9b7c6">:</span><span> AdapterState</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss93"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> BackendState</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss93"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss93"><div class="jss94 jss95" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> adapters </span><span class="token" style="color:#a9b7c6">=</span><span> instance</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">enumerate_adapters</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss93"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss93"><span><span>    BackendState </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss93"><span><span>        instance</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>        surface</span><span class="token" style="color:#a9b7c6">:</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><div class="jss94 jss95" style="width:auto"></div><span><span>        adapterState</span><span class="token" style="color:#a9b7c6">:</span><span> AdapterState</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> adapters</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>        window</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss93"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss93"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss93"><span>
+</span></div></code></pre></div></div><p class="MuiTypography-root jss78 MuiTypography-body1">As you can see, we need to <code class="jss76">enumerate_adapters</code> to get a list of all available
+GpU devices on the system. These device instances could point an Integrated GPU,
+Discrete GPU (Could be internal, or external).</p><h5 class="MuiTypography-root jss77 MuiTypography-h5">What details does an <code class="jss76">Adapter</code> has</h5><div class="MuiPaper-root MuiCard-root jss97 jss99 MuiPaper-elevation0 MuiPaper-rounded">Following are not a complete list of Adapter properties. They mostly consist of all those properties that we have already described earlier. We are just discussing them in detail here.</div><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// `adapter.info`: Adapter Info</span>
 <span class="token" style="color:#a9b7c6">{</span>
   name<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6a8759">&quot;GeForce GTX 1060 6GB&quot;</span><span class="token" style="color:#a9b7c6">,</span>
   vendor<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">4310</span><span class="token" style="color:#a9b7c6">,</span>
@@ -1401,10 +1643,122 @@ to compute their logic. In <code class="jss76">gfx-hal</code> to get logical dev
   <span class="token" style="color:#808080">// Enum - { Other = 0, IntegratedGpu = 1, DiscreteGpu = 2, VirtualGpu = 3, Cpu = 4 }</span>
   device_type<span class="token" style="color:#a9b7c6">:</span> <span class="token maybe-class-name">DiscreteGpu</span><span class="token" style="color:#a9b7c6">,</span>
 <span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">GPU info is quite clear. Getting info is simple - <code class="jss76">adapter.info</code>. It basically gives us details on GPU Hardware.</p><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// `adapter.physical_device.limits()`: Physical Device Limits,</span>
+<span class="token" style="color:#a9b7c6">{</span>
+  max_image_1d_size<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">16384</span><span class="token" style="color:#a9b7c6">,</span>
+  max_image_2d_size<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">16384</span><span class="token" style="color:#a9b7c6">,</span>
+  max_image_3d_size<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">2048</span><span class="token" style="color:#a9b7c6">,</span>
+  max_image_cube_size<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">16384</span><span class="token" style="color:#a9b7c6">,</span>
+  max_image_array_layers<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">2048</span><span class="token" style="color:#a9b7c6">,</span>
+  max_texel_elements<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">268435456</span><span class="token" style="color:#a9b7c6">,</span>
+  <span class="token" style="color:#808080">// ...and more</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">GPU limits is also self explanatory. It gives us a struct containing details on
+GPU Memory, Concurrency etc. limits.</p><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// Memory Types</span>
+<span class="token" style="color:#a9b7c6">[</span>
+    <span class="token maybe-class-name">MemoryType</span> <span class="token" style="color:#a9b7c6">{</span>
+        properties<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#9876aa">DEVICE_LOCAL</span><span class="token" style="color:#a9b7c6">,</span>
+        heap_index<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">,</span>
+    <span class="token maybe-class-name">MemoryType</span> <span class="token" style="color:#a9b7c6">{</span>
+        properties<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#9876aa">CPU_VISIBLE</span> <span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#9876aa">COHERENT</span><span class="token" style="color:#a9b7c6">,</span>
+        heap_index<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#808080">//...more</span>
+<span class="token" style="color:#a9b7c6">]</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">Memory Types are just a collection of GPU supported Memory Details(could be CPU or Local).
+It just helps us to figure our what type of memory GPU supports and when to use which,
+if GPU has the support for it.</p><div class="MuiPaper-root MuiCard-root jss97 jss98 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss78 MuiTypography-body1"><strong>Direct Quote from gfx-hal examples</strong></p><p class="MuiTypography-root jss78 MuiTypography-body1"><em>Using CPU_VISIBLE memory is convenient because it can be</em>
+<em>directly memory mapped and easily updated by the CPU, but it is very slow and so should</em>
+<em>only be used for small pieces of data that need to be updated very frequently.</em>
+<em>For something like a vertex buffer that may be much larger and should not change</em>
+<em>frequently, you should instead use a DEVICE_LOCAL buffer that gets filled by</em>
+<em>copying data from a CPU_VISIBLE staging buffer.</em></p></div><p class="MuiTypography-root jss78 MuiTypography-body1">I can understand if things are getting too intense. Be patient, and force yourself to
+complete the whole tutorial. Ultimately the results will be awesome. Once we are done
+showing graphics on Window, everything here will make sense.</p><hr class="jss130"/><h4 class="MuiTypography-root jss73 MuiTypography-h4">Logical Device</h4><div class="jss69"><img class="jss70 jss71" src="https://user-images.githubusercontent.com/11786283/82109903-8951a680-9757-11ea-8acc-b88bbc173fce.png" alt="How to get Logical Devices from Physical Device"/><p class="MuiTypography-root jss72 MuiTypography-body2">How to get Logical Devices from Physical Device</p></div><p class="MuiTypography-root jss78 MuiTypography-body1">As you can see from the above image, logical device is nothing but a representation
+of actual physical device.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Basically, Physical device (like NVidia GPU) can be used for various things like,
+Games, Graphics Rendering, Data Mining, Machine Learning etc. This vast
+range of use-cases is possible in GPU only due to it&#x27;s support for both,
+CPU intensive tasks, as well as GPU intensive tasks. For us, we are currently
+looking for a Device Capability specific to Graphics intensive task.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Thus Logical Device is a representation of Physical Device, which has
+support for specific capabilities, that it will be working on for the
+time App will be running.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Logical Devices are used to create and manage different resources, like buffers, shader programs and textures.</p><h5 class="MuiTypography-root jss77 MuiTypography-h5">Device Queues &amp; Queue Families</h5><p class="MuiTypography-root jss78 MuiTypography-body1"><strong>What are Device Queues anyways??</strong>
+As the name suggests, it&#x27;s just a queue, that Vulkan API creates according to App&#x27;s
+requirements. We can use this queue to synchronously or parallelly process graphics
+commands. It acts as a link between our app render commands and surface draws.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Cool! Now let&#x27;s move forward towards some actual code example.</p><p class="MuiTypography-root jss78 MuiTypography-body1">We need to get two main instances out of <code class="jss76">adapter</code> we previously got from Hal Instance.</p><ul class="jss74"><li class="jss75">Logical Device that has specific GPU features enabled
+(for us that would be GPU intensive tasks).</li><li class="jss75">Supported Device Queue from Queue Groups</li></ul><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
+</span><span class="react-syntax-highlighter-line-number">2
+</span><span class="react-syntax-highlighter-line-number">3
+</span><span class="react-syntax-highlighter-line-number">4
+</span><span class="react-syntax-highlighter-line-number">5
+</span><span class="react-syntax-highlighter-line-number">6
+</span><span class="react-syntax-highlighter-line-number">7
+</span><span class="react-syntax-highlighter-line-number">8
+</span><span class="react-syntax-highlighter-line-number">9
+</span><span class="react-syntax-highlighter-line-number">10
+</span><span class="react-syntax-highlighter-line-number">11
+</span><span class="react-syntax-highlighter-line-number">12
+</span><span class="react-syntax-highlighter-line-number">13
+</span><span class="react-syntax-highlighter-line-number">14
+</span><span class="react-syntax-highlighter-line-number">15
+</span><span class="react-syntax-highlighter-line-number">16
+</span><span class="react-syntax-highlighter-line-number">17
+</span><span class="react-syntax-highlighter-line-number">18
+</span><span class="react-syntax-highlighter-line-number">19
+</span><span class="react-syntax-highlighter-line-number">20
+</span><span class="react-syntax-highlighter-line-number">21
+</span><span class="react-syntax-highlighter-line-number">22
+</span><span class="react-syntax-highlighter-line-number">23
+</span><span class="react-syntax-highlighter-line-number">24
+</span><span class="react-syntax-highlighter-line-number">25
+</span><span class="react-syntax-highlighter-line-number">26
+</span><span class="react-syntax-highlighter-line-number">27
+</span><span class="react-syntax-highlighter-line-number">28
+</span></code><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    device<span class="token" style="color:#a9b7c6">:</span> B<span class="token" style="color:#a9b7c6">::</span>Device<span class="token" style="color:#a9b7c6">,</span>
+    queues<span class="token" style="color:#a9b7c6">:</span> QueueGroup<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">}</span>
 
-<span class="token" style="color:#808080">// Physical Device, used to fetch details on gpu memory etc.</span>
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>adapter<span class="token" style="color:#a9b7c6">:</span> Adapter<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span> surface<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span>B<span class="token" style="color:#a9b7c6">::</span>Surface<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#cc7832">let</span> supported_family <span class="token" style="color:#a9b7c6">=</span> adapter
+            <span class="token" style="color:#a9b7c6">.</span>queue_families
+            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">iter</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">find</span><span class="token" style="color:#a9b7c6">(</span><span class="token closure-params"><span class="token" style="color:#a9b7c6">|</span>family<span class="token" style="color:#a9b7c6">|</span></span> <span class="token" style="color:#a9b7c6">{</span>
+                surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">supports_queue_family</span><span class="token" style="color:#a9b7c6">(</span>family<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">&amp;&amp;</span> family<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">queue_type</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">supports_graphics</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+            <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span>
+            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
 
-<span class="token" style="color:#808080">// Queue Families</span>
+        <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#cc7832">mut</span> gpu <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
+            adapter
+                <span class="token" style="color:#a9b7c6">.</span>physical_device
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">open</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#a9b7c6">(</span>supported_family<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">1.0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">,</span> Features<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">empty</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+
+        <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+            device<span class="token" style="color:#a9b7c6">:</span> gpu<span class="token" style="color:#a9b7c6">.</span>device<span class="token" style="color:#a9b7c6">,</span>
+            queues<span class="token" style="color:#a9b7c6">:</span> gpu<span class="token" style="color:#a9b7c6">.</span>queue_groups<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">pop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">Defining <code class="jss76">supported_family</code> (lines <em>8-14</em>), you can see that we are trying to
+get a <code class="jss76">queue_family</code>, where:</p><ul class="jss74"><li class="jss75">The family is supported by the current gpu <code class="jss76">surface</code>, meaning is compatible to pass
+commands to current window <code class="jss76">surface</code>.</li><li class="jss75">Secondly, should support graphics commands.</li></ul><p class="MuiTypography-root jss78 MuiTypography-body1">Once we figure out the supported queue family, we then need to get it&#x27;s
+respective Logical Device instance, and actual <code class="jss76">queues</code> that will keep hold of
+our commands from a <em>Command Buffer</em>. This is done from lines <em>16-26</em>.</p><div class="MuiPaper-root MuiCard-root jss97 jss98 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss78 MuiTypography-body1"><strong>Note:</strong> Opening a Physical Device instance to get Logical Device instance
+is <code class="jss76">unsafe</code> in nature. Thus that code-block is wrapped inside <code class="jss76">unsafe {}</code> block.</p><p class="MuiTypography-root jss78 MuiTypography-body1">To get details on <code class="jss76">unsafe</code> usage, read <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html">Rust Nomicon</a></p></div><h5 class="MuiTypography-root jss77 MuiTypography-h5">How do they look internally:</h5><p class="MuiTypography-root jss78 MuiTypography-body1">Logical Device representation is quite complex, so I won&#x27;t describe it here.
+Better to read <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/device/trait.Device.html">Device Docs</a>,
+and understand how to use it&#x27;s apis.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Queue Families are basically collection of supported Queue types,
+for current Surface for the GPU.</p><p class="MuiTypography-root jss78 MuiTypography-body1">(Since I was using MacOS) I got <code class="jss76">supported_family</code> as shown below:</p><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-16T19:22:41.155852+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> enumerate_devices - &gt;&gt;&gt;&gt;&gt;&gt;&gt; Queue Family Type:: General</span>
+<span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-16T19:22:41.155987+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> enumerate_devices - &gt;&gt;&gt;&gt;&gt;&gt;&gt; Queue Max Queues:: 1</span>
+<span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-16T19:22:41.156018+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> enumerate_devices - &gt;&gt;&gt;&gt;&gt;&gt;&gt; Queue Id:: QueueFamilyId(0)</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">where if you see the family id, that points to the first Queue group, in
+<code class="jss76">gpu.queue_groups</code>, which contains the supported queues for creating and
+managing different resources.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Above representation of Queue Family is very different than actual
+Vulkan Queue Family, which you can see in any Linux OS.</p><p class="MuiTypography-root jss78 MuiTypography-body1">Do not get confused with the following log,
+as it differs from system to system.
+Following is a representation of all <code class="jss76">adapter.queue_families</code> (on Linux).</p><pre><div class="jss85"><div class="jss86" style="background:#2b2b2b"><div class="jss87"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss88" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#808080">// Queue Families</span>
 <span class="token" style="color:#a9b7c6">[</span>
   <span class="token" style="color:#a9b7c6">{</span>
     properties<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">{</span>
@@ -1435,16 +1789,4 @@ to compute their logic. In <code class="jss76">gfx-hal</code> to get logical dev
     index<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">,</span>
   <span class="token" style="color:#a9b7c6">}</span>
 <span class="token" style="color:#a9b7c6">]</span>
-</code></pre></div></div></pre><ul class="jss74"><li class="jss75"><p class="MuiTypography-root jss81 MuiTypography-body1">Info is self-explanatory.</p></li><li class="jss75"><p class="MuiTypography-root jss81 MuiTypography-body1">Physical Device - (To be Explored)</p></li><li class="jss75"><p class="MuiTypography-root jss81 MuiTypography-body1">QueueFamilies - consist of multiple queue details a Device supports. A queue excepts Command buffers
-to operate on, but only for a specific type. Each queue detail in queue families, has Queue Flags,
-which determines what type of command-buffers a queue can to pass on to GPU.
-So, <code class="jss76">queue_flags: GRAPHICS</code> can accept only graphics related operations in Command Buffer.</p><p class="MuiTypography-root jss81 MuiTypography-body1">For an ellaborated explanation, see this <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://stackoverflow.com/a/55273688/2849127">thread</a></p></li></ul><h4 class="MuiTypography-root jss73 MuiTypography-h4">Logical Devices</h4><div class="jss69"><img class="jss70 jss71" src="https://user-images.githubusercontent.com/11786283/82109903-8951a680-9757-11ea-8acc-b88bbc173fce.png" alt="How to get Logical Devices from Physical Device"/><p class="MuiTypography-root jss72 MuiTypography-body2">How to get Logical Devices from Physical Device</p></div><pre><div class="jss77"><div class="jss78" style="background:#2b2b2b"><div class="jss79"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss80" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#cc7832">mut</span> gpu <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
-  adapter
-    <span class="token" style="color:#a9b7c6">.</span>physical_device
-    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">open</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>adapter<span class="token" style="color:#a9b7c6">.</span>queue_families<span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">1.0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">,</span> gfx_hal<span class="token" style="color:#a9b7c6">::</span>Features<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">empty</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span>
-    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
-<span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
-
-<span class="token" style="color:#808080">// Logical Device</span>
-<span class="token" style="color:#ffc66d">println!</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Logical Device: {:#?}&quot;</span><span class="token" style="color:#a9b7c6">,</span> gpu<span class="token" style="color:#a9b7c6">.</span>device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss81 MuiTypography-body1">We will be using Logical Devices to create Command Pools and Buffer to pass onto GPU.</p><div class="MuiGrid-root jss88 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss89 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss90 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss91"></span><span class="jss91"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss94 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/physical-logical-devices - Physical &amp; Logical Devices"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss91"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss93 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/physical-logical-devices","query":{},"buildId":"tvvno8VtrYscx-r2ZAYol","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-4bba23f5693a23c407b8.js"></script><script async="" data-next-page="/_app" src="/_next/static/tvvno8VtrYscx-r2ZAYol/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/physical-logical-devices" src="/_next/static/tvvno8VtrYscx-r2ZAYol/pages/gfx-hal-initials/physical-logical-devices.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/00317cab64f7fa333a1405b14cb46d1f9ca48e47.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/757b36e6203858caf9b47db0325a683b95c8f95e.e1cf8d97d8da048da4d3.js" async=""></script><script src="/_next/static/runtime/main-7fafcac5094109c02b95.js" async=""></script><script src="/_next/static/tvvno8VtrYscx-r2ZAYol/_buildManifest.js" async=""></script><script src="/_next/static/tvvno8VtrYscx-r2ZAYol/_ssgManifest.js" async=""></script></body></html>
+</code></pre></div></div></pre><p class="MuiTypography-root jss78 MuiTypography-body1">For a detailed explanation on Queue Family, see this <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://stackoverflow.com/a/55273688/2849127">Stackoverflow thread</a></p><div class="MuiGrid-root jss131 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss132 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss133 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss134"></span><span class="jss134"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss137 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/physical-logical-devices - Physical &amp; Logical Devices"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss134"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss136 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/physical-logical-devices","query":{},"buildId":"Vu3XoXuet-V5Th6jlqQsW","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-2d9d5c8ab48af910834a.js"></script><script async="" data-next-page="/_app" src="/_next/static/Vu3XoXuet-V5Th6jlqQsW/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/physical-logical-devices" src="/_next/static/Vu3XoXuet-V5Th6jlqQsW/pages/gfx-hal-initials/physical-logical-devices.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/5b0f9681162c0c385e862e1b7d88a19459434705.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/239da53c232abfb343e3f9f82bc0ec8ddda65ba5.e1cf8d97d8da048da4d3.js" async=""></script><script src="/_next/static/runtime/main-96b3ad4cf1d78441d700.js" async=""></script><script src="/_next/static/Vu3XoXuet-V5Th6jlqQsW/_buildManifest.js" async=""></script><script src="/_next/static/Vu3XoXuet-V5Th6jlqQsW/_ssgManifest.js" async=""></script></body></html>
