@@ -74,12 +74,16 @@ __Special Thanks to__:
 
 export const displayWindow = halArchiveRecord['display-window'];
 export const devices = halArchiveRecord['physical-logical-devices'];
+export const commandBuffers = halArchiveRecord['command-buffers'];
 
 * <Link href={displayWindow.link}>
     {displayWindow.title}
   </Link>
 * <Link href={devices.link}>
     {devices.title}
+  </Link>
+* <Link href={commandBuffers.link}>
+    {commandBuffers.title}
   </Link>
 
 </PolkaContainer>

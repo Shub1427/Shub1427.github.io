@@ -2,6 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import defaultTheme, { darkTheme } from '@utils/theme';
 import Head from 'next/head';
 import App, { AppInitialProps } from 'next/app';
+import Router from 'next/router';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -30,6 +31,7 @@ import {
   withPaletteModeProvider,
   usePaletteModeStore,
 } from '@hoc/palette-mode';
+import { pageview } from '@utils/gtag';
 
 const mdComponents = {
   a: (props: any) => <Link target="_blank" {...props} />,
@@ -74,6 +76,8 @@ const Content = (props: AppInitialProps & { Component: NextComponentType }) => {
 };
 
 const WithPaletteModeContent = withPaletteModeProvider(Content);
+
+Router.events.on('routeChangeComplete', (url) => pageview(url));
 
 export default class MyApp extends App {
   componentDidMount() {

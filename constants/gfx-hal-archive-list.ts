@@ -40,7 +40,20 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
       'https://user-images.githubusercontent.com/11786283/82111231-485e8f80-9761-11ea-9f21-8843d4a66752.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/16 8:45:00'),
-    updatedAt: new Date('2020/05/16 8:45:00'),
+    updatedAt: new Date('2020/05/16 19:30:00'),
+    isPublished: true,
+  },
+  'command-buffers': {
+    key: 'command-buffers',
+    link: '/gfx-hal-initials/command-buffers',
+    title: 'Command Buffers',
+    description:
+      'We would be looking into Command Buffers and how to instantiate them',
+    ogImage:
+      'https://user-images.githubusercontent.com/11786283/82124794-f0567600-97be-11ea-9023-ea1467a6b734.jpg',
+    tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
+    createdAt: new Date('2020/05/16 21:45:00'),
+    updatedAt: new Date('2020/05/16 21:45:00'),
     isPublished: true,
   },
 };

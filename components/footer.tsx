@@ -2,7 +2,7 @@ import React, { useState, useEffect, SyntheticEvent } from 'react';
 import cx from 'classnames';
 import { makeStyles, Button, Theme, Typography, Grid } from '@material-ui/core';
 import { Share, Facebook, Twitter } from '@material-ui/icons';
-// import { ShareIcon } from './icons';
+import * as gtag from '@utils/gtag';
 
 interface IFixedNavbarProps {
   title: string;
@@ -110,7 +110,13 @@ const renderShare = (
         variant="contained"
         className={shareClasses}
         startIcon={<Share />}
-        onClick={() => shareLink(props)}
+        onClick={() => {
+          gtag.event({
+            action: 'share_click',
+            category: 'Native Share',
+          });
+          shareLink(props);
+        }}
       >
         Share
       </Button>
@@ -141,7 +147,13 @@ const renderShare = (
           variant="contained"
           className={fbClasses}
           startIcon={<Facebook />}
-          onClick={(event) => facebookShare(event, props.url)}
+          onClick={(event) => {
+            gtag.event({
+              action: 'share_click',
+              category: 'Facebook',
+            });
+            facebookShare(event, props.url);
+          }}
         >
           Share
         </Button>
