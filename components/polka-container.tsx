@@ -38,6 +38,8 @@ export default function PolkaContainer(props: IPolkaContainer) {
         <meta name="twitter:site" content="@Shub7241" />
         <meta name="twitter:title" content={props.pageTitle} />
         <meta name="twitter:description" content={props.pageDescription} />
+        <meta name="twitter:image" content={props.ogImage} />
+        <meta name="twitter:image:src" content={props.ogImage} />
         {/* Others */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={props.pageTitle} />

@@ -52,6 +52,11 @@ __Special Thanks to__:
   [here](https://rust-tutorials.github.io/learn-gfx-hal/).
 * [@mistodon](https://twitter.com/mistodon), for writing such a good blog on `gfx-hal` and `vulkan`, which
   you can read [here](https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html).
+* [gfx-rs examples](https://github.com/gfx-rs/gfx/blob/master/examples/),
+  are great to take a look into basics. Most of my code is
+  inspired from those examples, but since there was no way
+  of understanding those examples without other references,
+  you might see changes.
 * [LunarG Vulkan Tutorial](https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html)
 * Special Mentions, (most of them I haven't read completely, but will help me later for reference):
   * [Dusting H Lan](https://www.fasterthan.life/blog/2017/7/11/i-am-graphics-and-so-can-you-part-1)
@@ -66,6 +71,15 @@ __Special Thanks to__:
 ## Table of Contents
 
 ### Draw a Cube
-* <Link href={halArchiveRecord['display-window'].link}>Display a Window</Link>
+
+export const displayWindow = halArchiveRecord['display-window'];
+export const devices = halArchiveRecord['physical-logical-devices'];
+
+* <Link href={displayWindow.link}>
+    {displayWindow.title}
+  </Link>
+* <Link href={devices.link}>
+    {devices.title}
+  </Link>
 
 </PolkaContainer>

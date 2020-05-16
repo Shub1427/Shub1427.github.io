@@ -10,4 +10,5 @@ export enum Tags {
 
   // framework
   REACT = 'reactjs',
+  GFX_HAL = 'gfx-hal',
 }

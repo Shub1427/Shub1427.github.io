@@ -34,6 +34,14 @@ export default function IndexPage() {
           name="twitter:description"
           content="Subroto's Homepage! Get to know him via his Work"
         />
+        <meta
+          name="twitter:image"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
+        />
+        <meta
+          name="twitter:image:src"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
+        />
         {/* Others */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Subroto's Homepage" />
@@ -41,7 +49,7 @@ export default function IndexPage() {
         <meta property="og:url" content={pageLink} />
         <meta
           property="og:image"
-          content="https://user-images.githubusercontent.com/11786283/81851982-ed1d7900-9577-11ea-8f32-6ed8aa7dc2dc.png"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
         />
         <meta property="article:published_time" content="2019-11-14" />
         <meta
