@@ -36,11 +36,11 @@ export default function IndexPage() {
         />
         <meta
           name="twitter:image"
-          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?1"
         />
         <meta
           name="twitter:image:src"
-          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?1"
         />
         {/* Others */}
         <meta property="og:type" content="article" />
