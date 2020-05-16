@@ -10,7 +10,7 @@ export const record = halArchiveRecord['physical-logical-devices'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt} wordCount={520}>
+<H1 updatedAt={record.updatedAt}>
   {record.title}
 </H1>
 

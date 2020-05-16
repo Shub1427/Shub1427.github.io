@@ -37,7 +37,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
       which resembles Vulkan devices. \
       We will also learn some basics on enumerating these devices and stuff.',
     ogImage:
-      'https://user-images.githubusercontent.com/11786283/82110133-848df200-9759-11ea-9b97-d0134d0fa971.jpg',
+      'https://user-images.githubusercontent.com/11786283/82111231-485e8f80-9761-11ea-9f21-8843d4a66752.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/16 8:45:00'),
     updatedAt: new Date('2020/05/16 8:45:00'),

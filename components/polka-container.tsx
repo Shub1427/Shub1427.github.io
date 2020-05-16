@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import Head from 'next/head';
@@ -9,6 +9,7 @@ import { FixedNavbar } from 'components/fixed-navbar';
 import { Footer } from 'components/footer';
 
 import { getSiteLink } from '@utils/generic-utils';
+import { wordCounter } from '@utils/word-counter';
 
 interface IPolkaContainer {
   pageTitle: string;
@@ -26,7 +27,12 @@ const useStyles = makeStyles({
   },
 });
 
+export const MDXWordCountContext = React.createContext(0);
+
 export default function PolkaContainer(props: IPolkaContainer) {
+  const [wordCount] = useState(() => {
+    return wordCounter(props.children);
+  });
   const classes = useStyles();
   const router = useRouter();
   const pageLink = getSiteLink(router);
@@ -38,14 +44,12 @@ export default function PolkaContainer(props: IPolkaContainer) {
         <meta name="twitter:site" content="@Shub7241" />
         <meta name="twitter:title" content={props.pageTitle} />
         <meta name="twitter:description" content={props.pageDescription} />
-        <meta name="twitter:image" content={props.ogImage} />
-        <meta name="twitter:image:src" content={props.ogImage} />
         {/* Others */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={props.pageTitle} />
         <meta property="og:site_name" content="Subroto" />
         <meta property="og:url" content={pageLink} />
-        <meta property="og:image" content={props.ogImage} />
+        <meta property="og:image" content={`${props.ogImage}?2`} />
         <meta
           property="article:published_time"
           content={format(props.publishDate, 'yyyy/MM/dd')}
@@ -63,12 +67,14 @@ export default function PolkaContainer(props: IPolkaContainer) {
           )}`}
         ></meta>
       </Head>
-      <Container maxWidth="md" className={classes.root}>
-        <PolkaPattern />
-        <FixedNavbar />
-        {props.children}
-        <Footer title={props.pageTitle} text={pageLink} url={pageLink} />
-      </Container>
+      <MDXWordCountContext.Provider value={wordCount}>
+        <Container maxWidth="md" className={classes.root}>
+          <PolkaPattern />
+          <FixedNavbar />
+          {props.children}
+          <Footer title={props.pageTitle} text={pageLink} url={pageLink} />
+        </Container>
+      </MDXWordCountContext.Provider>
     </>
   );
 }

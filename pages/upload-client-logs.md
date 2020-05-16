@@ -10,7 +10,7 @@ export const record = archiveRecord['upload-client-logs'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt} wordCount={564}>
+<H1 updatedAt={record.updatedAt}>
   Up And Up <InlineCode>up-n-up</InlineCode>
 </H1>
 

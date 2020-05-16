@@ -11,7 +11,7 @@ export const record = archiveRecord['gfx-hal-basics'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt} wordCount={325}>
+<H1 updatedAt={record.updatedAt}>
   <InlineCode>gfx-hal</InlineCode> & <InlineCode>vulkan</InlineCode> basics
 </H1>
 

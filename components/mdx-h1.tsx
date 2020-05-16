@@ -6,7 +6,6 @@ import NoteSubtitle from './note-subtitle';
 export interface IMDXH1Props {
   children: React.ReactChild;
   updatedAt: Date;
-  wordCount: number;
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -35,12 +34,11 @@ export default function MDXH1(props: IMDXH1Props) {
       <Typography className={classes.heading} variant="h2">
         {props.children}
       </Typography>
-      {props.updatedAt && props.wordCount && (
+      {props.updatedAt && (
         <NoteSubtitle
           className={classes.subtitleWrapper}
           fontClasses={classes.subtitle}
           date={props.updatedAt}
-          totalWords={props.wordCount}
         />
       )}
     </div>

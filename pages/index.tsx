@@ -36,11 +36,11 @@ export default function IndexPage() {
         />
         <meta
           name="twitter:image"
-          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?1"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?2"
         />
         <meta
           name="twitter:image:src"
-          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?1"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?2"
         />
         {/* Others */}
         <meta property="og:type" content="article" />
@@ -49,7 +49,7 @@ export default function IndexPage() {
         <meta property="og:url" content={pageLink} />
         <meta
           property="og:image"
-          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg"
+          content="https://user-images.githubusercontent.com/11786283/82110060-1c3f1080-9759-11ea-81f0-e8457b3b914a.jpg?2"
         />
         <meta property="article:published_time" content="2019-11-14" />
         <meta

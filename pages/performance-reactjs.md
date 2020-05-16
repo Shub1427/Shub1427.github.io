@@ -10,7 +10,7 @@ export const record = archiveRecord['performance-reactjs'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt} wordCount={971}>
+<H1 updatedAt={record.updatedAt}>
   Improve Performance in JS and ReactJS
 </H1>
 

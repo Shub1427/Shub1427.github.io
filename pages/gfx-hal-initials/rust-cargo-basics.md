@@ -10,7 +10,7 @@ export const record = halArchiveRecord['rust-cargo-basics'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt} wordCount={686}>
+<H1 updatedAt={record.updatedAt}>
   {record.title}
 </H1>
 
