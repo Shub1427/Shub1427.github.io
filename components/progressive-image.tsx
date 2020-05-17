@@ -133,45 +133,38 @@ export default function Image(props: IImageProps) {
     };
   }, []);
 
-  useEffect(() => {
-    if (imgRef.current) {
-      console.log(
-        '>>>>>> Image:: ',
-        imgRef.current.naturalWidth,
-        imgRef.current.naturalHeight
-      );
-    }
-  }, [state.imageLoading]);
-
   return (
-    <>
-      {state.isZoomed && (
-        <div className={classes.backdrop} onClick={handleZoom} />
-      )}
-      <div className={rootClasses}>
-        <ProgressiveImage src={props.src} placeholder={props.placeholder}>
-          {(src: string, loading: boolean) => {
-            setTimeout(
-              () =>
-                setState((draft) => {
-                  draft.imageLoading = loading;
-                }),
-              0
-            );
-            const rootClasses = cx(classes.image, {
-              [classes.blur]: loading,
-            });
-            return (
-              <TransformWrapper
-                options={{
-                  disabled: !state.isZoomed,
-                }}
-                wheel={{
-                  wheelEnabled: false,
-                }}
-              >
-                {({ zoomIn, zoomOut, _resetTransform }: any) => (
-                  <React.Fragment>
+    <TransformWrapper
+      options={{
+        disabled: !state.isZoomed,
+      }}
+      wheel={{
+        wheelEnabled: false,
+      }}
+      doubleClick={{
+        mode: 'reset',
+      }}
+    >
+      {({ zoomIn, zoomOut }: any) => (
+        <>
+          {state.isZoomed && (
+            <div className={classes.backdrop} onClick={handleZoom} />
+          )}
+          <div className={rootClasses}>
+            <ProgressiveImage src={props.src} placeholder={props.placeholder}>
+              {(src: string, loading: boolean) => {
+                setTimeout(
+                  () =>
+                    setState((draft) => {
+                      draft.imageLoading = loading;
+                    }),
+                  0
+                );
+                const rootClasses = cx(classes.image, {
+                  [classes.blur]: loading,
+                });
+                return (
+                  <>
                     <TransformComponent>
                       <img
                         ref={imgRef}
@@ -194,23 +187,23 @@ export default function Image(props: IImageProps) {
                         </IconButton>
                       </div>
                     )}
-                  </React.Fragment>
-                )}
-              </TransformWrapper>
-            );
-          }}
-        </ProgressiveImage>
-        <Typography className={descriptionClasses} variant="body2">
-          {props.alt}
-        </Typography>
-        {!state.isZoomed && (
-          <div className={zoomWrapperClasses}>
-            <IconButton aria-label="zoom-in" onClick={handleZoom}>
-              <ZoomOutMap fontSize="inherit" />
-            </IconButton>
+                  </>
+                );
+              }}
+            </ProgressiveImage>
+            <Typography className={descriptionClasses} variant="body2">
+              {props.alt}
+            </Typography>
+            {!state.isZoomed && (
+              <div className={zoomWrapperClasses}>
+                <IconButton aria-label="zoom-in" onClick={handleZoom}>
+                  <ZoomOutMap fontSize="inherit" />
+                </IconButton>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </>
+        </>
+      )}
+    </TransformWrapper>
   );
 }
