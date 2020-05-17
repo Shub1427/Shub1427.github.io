@@ -46,7 +46,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
   'command-buffers': {
     key: 'command-buffers',
     link: '/gfx-hal-initials/command-buffers',
-    title: 'Command Buffers',
+    title: 'Command Buffers & Pool',
     description:
       'We would be looking into Command Buffers and how to instantiate them',
     ogImage:
