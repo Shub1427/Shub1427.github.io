@@ -203,6 +203,16 @@ As the name suggests, it's just a queue, that Vulkan API creates according to Ap
 requirements. We can use this queue to synchronously or parallelly process graphics
 commands. It acts as a link between our app render commands and surface draws.
 
+**What are Queues Families anyways??**
+Queue Families are a collection of support details for a GPU.
+It basically points out what kind of work our GPU hardware
+can really handle, like handling CPU compute operations,
+I/O transfer operations, GPU graphics/render operations etc.
+If all of them are supported by our GPU, then we need
+to make a choice between various queue families to decide on
+what particular operations we want to do via this Logical
+Device anytime.
+
 Cool! Now let's move forward towards some actual code example.
 
 We need to get two main instances out of `adapter` we previously got from Hal Instance.
@@ -284,7 +294,8 @@ Vulkan Queue Family, which you can see in any Linux OS.
 
 Do not get confused with the following log,
 as it differs from system to system.
-Following is a representation of all `adapter.queue_families` (on Linux).
+Following is a representation of all `adapter.queue_families`
+(on Linux for Vulkan Backend).
 
 ```ts
 // Queue Families
