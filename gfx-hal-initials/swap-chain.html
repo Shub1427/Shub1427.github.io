@@ -1,0 +1,1712 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113155919-1"></script><script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-113155919-1', {
+                  page_path: window.location.pathname,
+                });
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Swap Chain"/><meta name="twitter:description" content="Introducing Swap Chain &amp; Double Buffering"/><meta property="og:type" content="article"/><meta property="og:title" content="Swap Chain"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/swap-chain"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Swap Chain</title><meta name="description" content="Introducing Swap Chain &amp; Double Buffering"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/swap-chain.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+strong, b {
+  font-weight: 700;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  font-size: 0.875rem;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  background-color: #FFFFFF;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+body::backdrop {
+  background-color: #FFFFFF;
+}
+.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #5491da;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #8FADDC;
+}
+.MuiSvgIcon-colorAction {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiSvgIcon-colorError {
+  color: #ff1744;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiTypography-root {
+    margin: 0;
+  }
+  .MuiTypography-body2 {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+  }
+  .MuiTypography-body1 {
+    font-size: 1rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .MuiTypography-caption {
+    font-size: 0.75rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.66;
+  }
+  .MuiTypography-button {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    text-transform: uppercase;
+  }
+  .MuiTypography-h1 {
+    font-size: 3.5rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 300;
+    line-height: 1.167;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h1 {
+    font-size: 4.7129rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h1 {
+    font-size: 5.3556rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h1 {
+    font-size: 5.9983rem;
+  }
+}
+  .MuiTypography-h2 {
+    font-size: 2.375rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h2 {
+    font-size: 2.9167rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h2 {
+    font-size: 3.3333rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h2 {
+    font-size: 3.75rem;
+  }
+}
+  .MuiTypography-h3 {
+    font-size: 2rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.167;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h3 {
+    font-size: 2.5707rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h3 {
+    font-size: 2.7849rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h3 {
+    font-size: 2.9991rem;
+  }
+}
+  .MuiTypography-h4 {
+    font-size: 1.5625rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.235;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h4 {
+    font-size: 1.8219rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h4 {
+    font-size: 2.0243rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h4 {
+    font-size: 2.0243rem;
+  }
+}
+  .MuiTypography-h5 {
+    font-size: 1.25rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.334;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h5 {
+    font-size: 1.3118rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h5 {
+    font-size: 1.4993rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h5 {
+    font-size: 1.4993rem;
+  }
+}
+  .MuiTypography-h6 {
+    font-size: 1.125rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+  .MuiTypography-subtitle1 {
+    font-size: 1rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+  .MuiTypography-subtitle2 {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.57;
+  }
+  .MuiTypography-overline {
+    font-size: 0.75rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 2.66;
+    text-transform: uppercase;
+  }
+  .MuiTypography-srOnly {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .MuiTypography-alignLeft {
+    text-align: left;
+  }
+  .MuiTypography-alignCenter {
+    text-align: center;
+  }
+  .MuiTypography-alignRight {
+    text-align: right;
+  }
+  .MuiTypography-alignJustify {
+    text-align: justify;
+  }
+  .MuiTypography-noWrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .MuiTypography-gutterBottom {
+    margin-bottom: 0.35em;
+  }
+  .MuiTypography-paragraph {
+    margin-bottom: 16px;
+  }
+  .MuiTypography-colorInherit {
+    color: inherit;
+  }
+  .MuiTypography-colorPrimary {
+    color: #5491da;
+  }
+  .MuiTypography-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiTypography-colorTextPrimary {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .MuiTypography-colorTextSecondary {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiTypography-colorError {
+    color: #ff1744;
+  }
+  .MuiTypography-displayInline {
+    display: inline;
+  }
+  .MuiTypography-displayBlock {
+    display: block;
+  }
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #5491da;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #8FADDC;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #5491da;
+    border: 1px solid rgba(84, 145, 218, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #5491da;
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #8FADDC;
+    border: 1px solid rgba(143, 173, 220, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #8FADDC;
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #5491da;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f5ea5;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #5491da;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #8FADDC;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #6E7882;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #8FADDC;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiCard-root {
+    overflow: hidden;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #5491da;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiContainer-root {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiContainer-root {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiContainer-disableGutters {
+    padding-left: 0;
+    padding-right: 0;
+  }
+@media (min-width:600px) {
+  .MuiContainer-fixed {
+    max-width: 600px;
+  }
+}
+@media (min-width:960px) {
+  .MuiContainer-fixed {
+    max-width: 960px;
+  }
+}
+@media (min-width:1280px) {
+  .MuiContainer-fixed {
+    max-width: 1280px;
+  }
+}
+@media (min-width:1920px) {
+  .MuiContainer-fixed {
+    max-width: 1920px;
+  }
+}
+@media (min-width:0px) {
+  .MuiContainer-maxWidthXs {
+    max-width: 444px;
+  }
+}
+@media (min-width:600px) {
+  .MuiContainer-maxWidthSm {
+    max-width: 600px;
+  }
+}
+@media (min-width:960px) {
+  .MuiContainer-maxWidthMd {
+    max-width: 960px;
+  }
+}
+@media (min-width:1280px) {
+  .MuiContainer-maxWidthLg {
+    max-width: 1280px;
+  }
+}
+@media (min-width:1920px) {
+  .MuiContainer-maxWidthXl {
+    max-width: 1920px;
+  }
+}
+  .MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .MuiGrid-item {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .MuiGrid-zeroMinWidth {
+    min-width: 0;
+  }
+  .MuiGrid-direction-xs-column {
+    flex-direction: column;
+  }
+  .MuiGrid-direction-xs-column-reverse {
+    flex-direction: column-reverse;
+  }
+  .MuiGrid-direction-xs-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .MuiGrid-wrap-xs-nowrap {
+    flex-wrap: nowrap;
+  }
+  .MuiGrid-wrap-xs-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+  .MuiGrid-align-items-xs-center {
+    align-items: center;
+  }
+  .MuiGrid-align-items-xs-flex-start {
+    align-items: flex-start;
+  }
+  .MuiGrid-align-items-xs-flex-end {
+    align-items: flex-end;
+  }
+  .MuiGrid-align-items-xs-baseline {
+    align-items: baseline;
+  }
+  .MuiGrid-align-content-xs-center {
+    align-content: center;
+  }
+  .MuiGrid-align-content-xs-flex-start {
+    align-content: flex-start;
+  }
+  .MuiGrid-align-content-xs-flex-end {
+    align-content: flex-end;
+  }
+  .MuiGrid-align-content-xs-space-between {
+    align-content: space-between;
+  }
+  .MuiGrid-align-content-xs-space-around {
+    align-content: space-around;
+  }
+  .MuiGrid-justify-xs-center {
+    justify-content: center;
+  }
+  .MuiGrid-justify-xs-flex-end {
+    justify-content: flex-end;
+  }
+  .MuiGrid-justify-xs-space-between {
+    justify-content: space-between;
+  }
+  .MuiGrid-justify-xs-space-around {
+    justify-content: space-around;
+  }
+  .MuiGrid-justify-xs-space-evenly {
+    justify-content: space-evenly;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 8px);
+    margin: -4px;
+  }
+  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    padding: 4px;
+  }
+  .MuiGrid-spacing-xs-2 {
+    width: calc(100% + 16px);
+    margin: -8px;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    padding: 8px;
+  }
+  .MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin: -12px;
+  }
+  .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 12px;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 32px);
+    margin: -16px;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+  .MuiGrid-spacing-xs-5 {
+    width: calc(100% + 40px);
+    margin: -20px;
+  }
+  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+    padding: 20px;
+  }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(100% + 48px);
+    margin: -24px;
+  }
+  .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+    padding: 24px;
+  }
+  .MuiGrid-spacing-xs-7 {
+    width: calc(100% + 56px);
+    margin: -28px;
+  }
+  .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+    padding: 28px;
+  }
+  .MuiGrid-spacing-xs-8 {
+    width: calc(100% + 64px);
+    margin: -32px;
+  }
+  .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+    padding: 32px;
+  }
+  .MuiGrid-spacing-xs-9 {
+    width: calc(100% + 72px);
+    margin: -36px;
+  }
+  .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+    padding: 36px;
+  }
+  .MuiGrid-spacing-xs-10 {
+    width: calc(100% + 80px);
+    margin: -40px;
+  }
+  .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+    padding: 40px;
+  }
+  .MuiGrid-grid-xs-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xs-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xs-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xs-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xs-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xs-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xs-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xs-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xs-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xs-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xs-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xs-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xs-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xs-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+@media (min-width:600px) {
+  .MuiGrid-grid-sm-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-sm-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-sm-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-sm-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-sm-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-sm-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-sm-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-sm-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-sm-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-sm-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-sm-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-sm-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:960px) {
+  .MuiGrid-grid-md-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-md-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-md-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-md-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-md-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-md-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-md-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-md-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-md-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-md-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-md-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-md-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-md-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1280px) {
+  .MuiGrid-grid-lg-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-lg-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-lg-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-lg-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-lg-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-lg-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-lg-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-lg-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-lg-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-lg-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-lg-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-lg-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-lg-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-lg-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1920px) {
+  .MuiGrid-grid-xl-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xl-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xl-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xl-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xl-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xl-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xl-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xl-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xl-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xl-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xl-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xl-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xl-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xl-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+  .MuiLink-underlineNone {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover:hover {
+    text-decoration: underline;
+  }
+  .MuiLink-underlineAlways {
+    text-decoration: underline;
+  }
+  .MuiLink-button {
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiLink-button::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiLink-button.Mui-focusVisible {
+    outline: auto;
+  }
+  .jss69 {
+    color: #444;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    word-spacing: 3px;
+  }
+  .jss69 + .jss69, ol + .jss69, ul + .jss69 {
+    margin-top: 32px;
+  }
+  .jss85 {
+    color: #888;
+    margin: 12px 0;
+    padding: 16px 8px;
+    background: #f2f2f2;
+    font-weight: 400;
+  }
+  .jss85 > p, .jss85 > ul, .jss85 > ol, .jss85 > div {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  p + .jss85, .jss85 + .jss85 {
+    margin-top: 32px;
+  }
+  .jss86 {
+    border-left: 12px solid #64b5f6;
+  }
+  .jss87 {
+    border-left: 12px solid #ffd54f;
+  }
+  .jss88 {
+    border-left: 12px solid #ef5350;
+  }
+  .jss10 {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+  }
+  .jss128 {
+    display: flex;
+    padding: 0 16px;
+    margin-top: 128px;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+@media (max-width:599.95px) {
+  .jss128 {
+    flex-direction: column;
+  }
+}
+  .jss129 {
+    color: #aaa;
+    font-weight: bold;
+  }
+@media (max-width:599.95px) {
+  .jss129 {
+    margin-bottom: 16px;
+  }
+}
+  .jss130 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .jss131 {
+    flex: 1;
+    display: inline-flex;
+    max-width: 100px;
+  }
+  .jss131+.jss131 {
+    margin-top: 0;
+    margin-left: 16px;
+  }
+  .jss132 {
+    color: #fff;
+    background: #444;
+  }
+  .jss132:hover, .jss132focus, .jss132:active {
+    background: #333;
+  }
+  .jss133 {
+    color: #fff;
+    background: #4361b3;
+  }
+  .jss133:hover, .jss133focus, .jss133:active {
+    background: #254395;
+  }
+  .jss134 {
+    color: #fff;
+    background: #4fafed;
+  }
+  .jss134:hover, .jss134focus, .jss134:active {
+    background: #3191CF;
+  }
+  .jss1 {
+    padding: 64px 32px;
+    position: relative;
+  }
+  .jss66 {
+    color: #888;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+  }
+  .jss67 {
+    display: inline-block;
+  }
+  .jss68 {
+    margin: 0 4px;
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 0.8;
+  }
+  .jss32 {
+    color: #222;
+    padding: 0;
+    margin-bottom: 48px;
+  }
+  .jss33 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+  }
+  .jss34 {
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .jss35 {
+    font-weight: 600;
+  }
+  .jss121 {
+    color: #222;
+    margin: 48px 0 16px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+  }
+  .jss126 {
+    color: #222;
+    margin: 32px 0 12px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+  }
+  .jss122 {
+    padding: 0;
+    overflow: hidden;
+    background: #5491da;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
+    margin-top: 32px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .jss123 {
+    padding: 16px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .jss124 {
+    position: relative;
+    padding-bottom: 8px;
+  }
+  .jss125 {
+    padding: 0 0 64px 0 !important;
+    margin-bottom: -64px !important;
+  }
+  .jss125 *::selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss125 *::-moz-selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss118 {
+    color: #933;
+    margin: 0 2px;
+    padding: 1px 8px;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .jss76 {
+    width: 100%;
+    margin: 32px 0;
+    position: relative;
+  }
+  .jss77 {
+    filter: blur(0);
+    max-width: 100%;
+    max-height: 100%;
+    transition: 0.3s ease-out;
+  }
+  .jss78 {
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 24px 0;
+    z-index: 100;
+    position: fixed;
+    transform: translate(-50%, -50%);
+  }
+  .jss79 {
+    width: auto;
+    height: auto;
+  }
+  .jss80 {
+    top: -2.5rem;
+    right: 0;
+    z-index: 100;
+    position: absolute;
+  }
+  .jss81 {
+    top: -1rem;
+  }
+  .jss82 {
+    filter: blur(3px);
+  }
+  .jss83 {
+    color: #aaa;
+    margin: 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    font-weight: 400;
+  }
+  .jss84 {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.90);
+  }
+  .jss127 {
+    color: #666;
+    border: medium none;
+    font-size: 32px;
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 300;
+  }
+  .jss127:before {
+    content: '***';
+    line-height: 1.4;
+    text-indent: 1em;
+    letter-spacing: 1em;
+  }
+  .jss119 {
+    color: #444;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.7;
+  }
+  p + .jss119 {
+    margin-top: 32px;
+  }
+  li > .jss119 {
+    margin-top: initial;
+  }
+  .jss120 + .jss120 {
+    margin-top: 8px;
+  }
+  .jss120 > ul > .jss120, .jss120 > ol > .jss120 {
+    margin-top: 0;
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Swap Chain</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">23 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">5<!-- --> min read</p></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Before diving in, let&#x27;s first understand what Double Buffering is.
+A great video on <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.youtube.com/watch?v=tfzCcN2aIhI&amp;feature=emb_logo">Double Buffering</a>,
+to get a very basic understanding.</p><p class="MuiTypography-root jss69 MuiTypography-body1">As you can see in the video, double buffering is nothing but
+a way to cache images in a buffer. One of the Buffer is used
+to draw on the Window Surface, while other acts as a hidden
+canvas to draw the next frame and keep it in cache, so as to
+get a better performance and framerate.</p><div class="jss76"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss77 jss82" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82720437-51a3ab00-9cd1-11ea-8623-218277d9c519.png" alt="Swapchain to Surface to Window Draw"/></div></div><p class="MuiTypography-root jss83 MuiTypography-body2">Swapchain to Surface to Window Draw</p><div class="jss80"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Swapchain is very similar. It basically can be used to achieve
+double buffering. In simple words, Swapchain is a collection
+Images (Stored in Image Buffers), that can be used to draw frames and present
+them on screen when needed.</p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1"><strong>Quoting directly from <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html">falseidolfactory.com</a></strong></p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>Swapchain is a chain of images that we can render onto and then</em>
+<em>present to our window. While we’re showing one of them</em>
+<em>on screen, we can render to a different one. Then once</em>
+<em>we’re done rendering, we can <strong>swap</strong> them.</em></p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>This is one of the few places where <code class="jss118">gfx</code> departs</em>
+<em>significantly from the <strong>Vulkan API</strong>. In Vulkan, you create</em>
+<em>and manage the <code class="jss118">swapchain</code> yourself. In <code class="jss118">gfx</code>, the surface</em>
+<em>mostly does it for you. You can read more about the</em>
+<em>decision behind that <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://gfx-rs.github.io/2019/10/01/update.html#new-swapchain-model">here</a>.</em></p></div><p class="MuiTypography-root jss69 MuiTypography-body1">Thus, Swapchain in <code class="jss118">gfx-rs</code> can be described in simple words:</p><ul class="jss119"><li class="jss120">Get Swapchain instance from already created <code class="jss118">device</code>
+instance and <code class="jss118">swap</code> config.</li><li class="jss120">Attach/Link this swapchain instance to <code class="jss118">surface</code>, so as
+to draw images from it.</li><li class="jss120">Maintain a swapchain state, to get details on <code class="jss118">window</code>
+getting invalidate (dirty, like when it&#x27;s resized or made
+fullscreen etc.). This <code class="jss118">state</code> which changes on each
+invalidation of the <code class="jss118">window</code>, should re-configure <code class="jss118">swap</code>
+config, and re-create swapchain for that new <code class="jss118">surface</code>.</li></ul><div class="jss76"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss77 jss82" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82650444-56685080-9c38-11ea-960d-770db9795773.png" alt="gfx-hal Swapchain flow"/></div></div><p class="MuiTypography-root jss83 MuiTypography-body2">gfx-hal Swapchain flow</p><div class="jss80"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div><h4 class="MuiTypography-root jss121 MuiTypography-h4">Let&#x27;s Code</h4><p class="MuiTypography-root jss69 MuiTypography-body1">First thing to note, <code class="jss118">device</code> state that we created in earlier
+tutorials, is a state that needs to be shared across
+different states, like creating Swapchain requires an instance
+of <code class="jss118">device</code>. From now on we will be using <code class="jss118">Rc&lt;RefCell&lt;T&gt;&gt;</code>
+to share <code class="jss118">device</code> state across various structs.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>Details on <code class="jss118">Rc&lt;RefCell&lt;T&gt;&gt;</code> can be read</em>
+<em>in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/rust-reference/rust-smart-pointers">this guide</a></em></p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1">I am not pointing few changes that I have made in various
+structs previously created. You can refer to the
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/004-swap_chain/main.rs">full code</a>
+for better understanding on the changes.</p><p class="MuiTypography-root jss69 MuiTypography-body1">To point out few changes, <code class="jss118">DeviceState</code> &amp;
+<code class="jss118">FrameBufferState</code> have been modified.</p></div><p class="MuiTypography-root jss69 MuiTypography-body1">We will first define our struct <code class="jss118">SwapchainState</code>,
+which will maintain Swapchain state and provide API for
+it&#x27;s creation.</p><pre><div class="jss122"><div class="jss123" style="background:#2b2b2b"><div class="jss124"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss125" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    swapchain<span class="token" style="color:#a9b7c6">:</span> Option<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">::</span>Swapchain<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+    backbuffer<span class="token" style="color:#a9b7c6">:</span> Option<span class="token" style="color:#a9b7c6">&lt;</span>Vec<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">::</span>Image<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+    deviceState<span class="token" style="color:#a9b7c6">:</span> Rc<span class="token" style="color:#a9b7c6">&lt;</span>RefCell<span class="token" style="color:#a9b7c6">&lt;</span>DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+    extent<span class="token" style="color:#a9b7c6">:</span> image<span class="token" style="color:#a9b7c6">::</span>Extent<span class="token" style="color:#a9b7c6">,</span>
+    format<span class="token" style="color:#a9b7c6">:</span> hal_format<span class="token" style="color:#a9b7c6">::</span>Format<span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">}</span>
+
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>backendState<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> BackendState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span> deviceState<span class="token" style="color:#a9b7c6">:</span> Rc<span class="token" style="color:#a9b7c6">&lt;</span>RefCell<span class="token" style="color:#a9b7c6">&lt;</span>DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#808080">// Get Surface Capabilities</span>
+        <span class="token" style="color:#cc7832">let</span> caps <span class="token" style="color:#a9b7c6">=</span> backendState
+            <span class="token" style="color:#a9b7c6">.</span>surface
+            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">capabilities</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>deviceState<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+        <span class="token" style="color:#cc7832">let</span> supported_formats <span class="token" style="color:#a9b7c6">=</span> backendState
+            <span class="token" style="color:#a9b7c6">.</span>surface
+            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">supported_formats</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>deviceState<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#808080">// We need a supported format for the OS Window, so that Images drawn on</span>
+        <span class="token" style="color:#808080">// Swapchain are of that same format.</span>
+        <span class="token" style="color:#cc7832">let</span> format <span class="token" style="color:#a9b7c6">=</span> supported_formats<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map_or</span><span class="token" style="color:#a9b7c6">(</span>hal_format<span class="token" style="color:#a9b7c6">::</span>Format<span class="token" style="color:#a9b7c6">::</span>Rgba8Srgb<span class="token" style="color:#a9b7c6">,</span> <span class="token closure-params"><span class="token" style="color:#a9b7c6">|</span>formats<span class="token" style="color:#a9b7c6">|</span></span> <span class="token" style="color:#a9b7c6">{</span>
+            formats
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">iter</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">find</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> format<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">base_format</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#6897bb">1</span> <span class="token" style="color:#a9b7c6">==</span> hal_format<span class="token" style="color:#a9b7c6">::</span>ChannelType<span class="token" style="color:#a9b7c6">::</span>Srgb<span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#a9b7c6">*</span>format<span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap_or</span><span class="token" style="color:#a9b7c6">(</span>formats<span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span>
+        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+        <span class="token" style="color:#cc7832">let</span> swap_config <span class="token" style="color:#a9b7c6">=</span> hal_window<span class="token" style="color:#a9b7c6">::</span>SwapchainConfig<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">from_caps</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>caps<span class="token" style="color:#a9b7c6">,</span> format<span class="token" style="color:#a9b7c6">,</span> backendState<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#cc7832">let</span> extent <span class="token" style="color:#a9b7c6">=</span> swap_config<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_extent</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#a9b7c6">(</span>swapchain<span class="token" style="color:#a9b7c6">,</span> backbuffer<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
+            deviceState
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span>device
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">create_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> backendState<span class="token" style="color:#a9b7c6">.</span>surface<span class="token" style="color:#a9b7c6">,</span> swap_config<span class="token" style="color:#a9b7c6">,</span> None<span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Can&#x27;t create swapchain&quot;</span><span class="token" style="color:#a9b7c6">)</span>
+        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+
+        SwapchainState <span class="token" style="color:#a9b7c6">{</span>
+            swapchain<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span>swapchain<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+            backbuffer<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span>backbuffer<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+            deviceState<span class="token" style="color:#a9b7c6">,</span>
+            extent<span class="token" style="color:#a9b7c6">,</span>
+            format<span class="token" style="color:#a9b7c6">,</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Drop <span class="token" style="color:#cc7832">for</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">drop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
+            <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>deviceState
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span>device
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">destroy_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>swapchain<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">take</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">Let&#x27;s Breakdown the above code in 3 sections:</p><ul class="jss119"><li class="jss120">Structure</li><li class="jss120">Creation</li><li class="jss120">Destruction</li></ul><h5 class="MuiTypography-root jss126 MuiTypography-h5">Structure</h5><p class="MuiTypography-root jss69 MuiTypography-body1">We have <code class="jss118">swapchain</code> instance, which is the actual Swapchain
+instance, which will maintain actual Image Buffers in itself.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">backbuffer</code> is Image Buffer, representing the 2D Image
+that we would be drawing. Since, we are drawing a 3D cube,
+we would also be needing 3<sup>rd</sup> dimension, Z-Buffer
+also known as Depth Buffer, which we will discuss later in
+coming sections.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">deviceState</code> is required, because we would be re-creating
+and thus destroy old <code class="jss118">swapchain</code> in SwapchainState,
+on every window dimension change.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">extent</code> and <code class="jss118">format</code> would be later on used in Render Pass.</p><h5 class="MuiTypography-root jss126 MuiTypography-h5">Creation</h5><p class="MuiTypography-root jss69 MuiTypography-body1">Creating a <code class="jss118">swapchain</code> is a three step process:</p><ul class="jss119"><li class="jss120">We need to first get <code class="jss118">surface</code> capabilities. Details on
+each property in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/struct.SurfaceCapabilities.html">SurfaceCapabilities</a></li><li class="jss120">Next we need to figure out what kind of Image Format
+our <code class="jss118">surface</code> supports, so that Swapchain draws only that
+format image.</li><li class="jss120">Next we need to create <code class="jss118">swap_config</code>, from <code class="jss118">caps</code>, <code class="jss118">format</code>
+(already discussed), and window size extent. This
+<code class="jss118">Extent2D</code> reference should be always up-to-date
+respective to the current Window size. Thus, we will be
+updating our <code class="jss118">window</code> event_loop, as shown below.</li></ul><pre><div class="jss122"><div class="jss123" style="background:#2b2b2b"><div class="jss124"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss125" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
+event<span class="token" style="color:#a9b7c6">::</span>WindowEvent<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">Resized</span><span class="token" style="color:#a9b7c6">(</span>dims<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    backend<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">update_extent</span><span class="token" style="color:#a9b7c6">(</span>hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D <span class="token" style="color:#a9b7c6">{</span>
+        width<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>width<span class="token" style="color:#a9b7c6">,</span>
+        height<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>height<span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#a9b7c6">}</span>
+event<span class="token" style="color:#a9b7c6">::</span>WindowEvent<span class="token" style="color:#a9b7c6">::</span>ScaleFactorChanged <span class="token" style="color:#a9b7c6">{</span> new_inner_size<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">..</span> <span class="token" style="color:#a9b7c6">}</span> <span class="token" style="color:#a9b7c6">=&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    backend<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">update_extent</span><span class="token" style="color:#a9b7c6">(</span>hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D <span class="token" style="color:#a9b7c6">{</span>
+        width<span class="token" style="color:#a9b7c6">:</span> new_inner_size<span class="token" style="color:#a9b7c6">.</span>width<span class="token" style="color:#a9b7c6">,</span>
+        height<span class="token" style="color:#a9b7c6">:</span> new_inner_size<span class="token" style="color:#a9b7c6">.</span>height<span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">...</span>
+</code></pre></div></div></pre><ul class="jss119"><li class="jss120">We would be keeping reference to <code class="jss118">format</code> and <code class="jss118">extent</code>
+(<code class="jss118">image::Extent</code>) for later reference, for creating images.</li><li class="jss120"><code class="jss118">.create_swapchain()</code> is <code class="jss118">unsafe</code> code, thus it is created
+inside <code class="jss118">unsafe</code> block. It&#x27;s quite clear that we need,
+<code class="jss118">device</code>, <code class="jss118">surface</code> and <code class="jss118">swap_config</code> to create <code class="jss118">swapchain</code>
+and link it to <code class="jss118">surface</code>. We also get <code class="jss118">backbuffer</code>, which
+relates to the collection of 2D Image Buffers, where
+we need to save our images and use it with <code class="jss118">swapchain</code> later.</li></ul><h5 class="MuiTypography-root jss126 MuiTypography-h5">Destruction</h5><p class="MuiTypography-root jss69 MuiTypography-body1">Normally we don&#x27;t need <code class="jss118">Drop</code> trait that often in any Rust
+code, but here the situation is a bit different. Problem is
+if we drop <code class="jss118">SwapchainState</code>, it will drop <code class="jss118">swapchain</code>
+instance with it, but will not clear the state of <code class="jss118">surface</code>
+where the <code class="jss118">swapchain</code> was previously linked to, causing
+memory leaks. So, it&#x27;s better to first <code class="jss118">destroy_swapchain</code>
+already linked to <code class="jss118">surface</code> using <code class="jss118">device</code>.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Once that is done, <code class="jss118">swapchain</code> will automatically get
+dropped.</p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1">For cases like this, where an instance needs to pass it&#x27;s
+ownership to someone else, like here to <code class="jss118">device</code> when
+<code class="jss118">destroy_swapchain</code> was called, it&#x27;s better to keep
+those instances inside <code class="jss118">Option</code> enum, because it&#x27;s easy
+to swap the memory and change the ownership, without
+causing Rust Compiler to freak out. This is the reason
+we have used <code class="jss118">Option&lt;B::Swapchain&gt;</code> instead of directly
+owning <code class="jss118">Swapchain</code>, as we needed to swap swapchain
+ownership at runtime, while destroying <code class="jss118">SwapchainState</code>.</p></div><p class="MuiTypography-root jss69 MuiTypography-body1">Details on <code class="jss118">Option.map_or</code> can be found <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map_or">here</a>.</p><h4 class="MuiTypography-root jss121 MuiTypography-h4">Left out things</h4><p class="MuiTypography-root jss69 MuiTypography-body1">Swapchain is easy to understand, but is a little complicated
+to use in real world. For eg., On each window <code class="jss118">resize</code> or
+change in Window size/resolution,
+<code class="jss118">swapchain</code> should be re-created. We haven&#x27;t properly
+discussed such cases yet.
+I want to talk about that in Render Passes, as
+it makes more sense to talk this over there.</p><hr class="jss127"/><p class="MuiTypography-root jss69 MuiTypography-body1">You can find the full code for this Doc,
+here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/004-swap_chain/main.rs">004-swap_chain</a></p><div class="MuiGrid-root jss128 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss129 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss130 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss131"></span><span class="jss131"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss134 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/swap-chain - Swap Chain"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss131"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss133 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/swap-chain","query":{},"buildId":"2lv56kGyXPeBa0JHJyD_i","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/swap-chain" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/swap-chain.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_buildManifest.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_ssgManifest.js" async=""></script></body></html>

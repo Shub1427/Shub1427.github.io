@@ -1,0 +1,1617 @@
+<!DOCTYPE html><html lang="en"><head><meta name="theme-color" content="#5491da"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113155919-1"></script><script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-113155919-1', {
+                  page_path: window.location.pathname,
+                });
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Smart Pointers"/><meta name="twitter:description" content="Some notes on Box&lt;&gt;, Rc&lt;&gt;, RefCell&lt;&gt; etc."/><meta property="og:type" content="article"/><meta property="og:title" content="Smart Pointers"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/rust-reference/rust-smart-pointers"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/81770497-0c77c000-94fe-11ea-95bc-44e5e432b1d8.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Smart Pointers</title><meta name="description" content="Some notes on Box&lt;&gt;, Rc&lt;&gt;, RefCell&lt;&gt; etc."/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Advance Rust"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/rust-reference/rust-smart-pointers.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+strong, b {
+  font-weight: 700;
+}
+body {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  font-size: 0.875rem;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 400;
+  line-height: 1.43;
+  background-color: #FFFFFF;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+body::backdrop {
+  background-color: #FFFFFF;
+}
+.MuiSvgIcon-root {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+.MuiSvgIcon-colorPrimary {
+  color: #5491da;
+}
+.MuiSvgIcon-colorSecondary {
+  color: #8FADDC;
+}
+.MuiSvgIcon-colorAction {
+  color: rgba(0, 0, 0, 0.54);
+}
+.MuiSvgIcon-colorError {
+  color: #ff1744;
+}
+.MuiSvgIcon-colorDisabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+.MuiSvgIcon-fontSizeInherit {
+  font-size: inherit;
+}
+.MuiSvgIcon-fontSizeSmall {
+  font-size: 1.25rem;
+}
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 2.1875rem;
+}
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+}
+.MuiButtonBase-root {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.MuiButtonBase-root::-moz-focus-inner {
+  border-style: none;
+}
+.MuiButtonBase-root.Mui-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+@media print {
+  .MuiButtonBase-root {
+    color-adjust: exact;
+  }
+}
+  .MuiTypography-root {
+    margin: 0;
+  }
+  .MuiTypography-body2 {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.43;
+  }
+  .MuiTypography-body1 {
+    font-size: 1rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .MuiTypography-caption {
+    font-size: 0.75rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.66;
+  }
+  .MuiTypography-button {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    text-transform: uppercase;
+  }
+  .MuiTypography-h1 {
+    font-size: 3.5rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 300;
+    line-height: 1.167;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h1 {
+    font-size: 4.7129rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h1 {
+    font-size: 5.3556rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h1 {
+    font-size: 5.9983rem;
+  }
+}
+  .MuiTypography-h2 {
+    font-size: 2.375rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h2 {
+    font-size: 2.9167rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h2 {
+    font-size: 3.3333rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h2 {
+    font-size: 3.75rem;
+  }
+}
+  .MuiTypography-h3 {
+    font-size: 2rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.167;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h3 {
+    font-size: 2.5707rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h3 {
+    font-size: 2.7849rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h3 {
+    font-size: 2.9991rem;
+  }
+}
+  .MuiTypography-h4 {
+    font-size: 1.5625rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.235;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h4 {
+    font-size: 1.8219rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h4 {
+    font-size: 2.0243rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h4 {
+    font-size: 2.0243rem;
+  }
+}
+  .MuiTypography-h5 {
+    font-size: 1.25rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.334;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h5 {
+    font-size: 1.3118rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h5 {
+    font-size: 1.4993rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h5 {
+    font-size: 1.4993rem;
+  }
+}
+  .MuiTypography-h6 {
+    font-size: 1.125rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+@media (min-width:600px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width:960px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width:1280px) {
+  .MuiTypography-h6 {
+    font-size: 1.25rem;
+  }
+}
+  .MuiTypography-subtitle1 {
+    font-size: 1rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+  }
+  .MuiTypography-subtitle2 {
+    font-size: 0.875rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.57;
+  }
+  .MuiTypography-overline {
+    font-size: 0.75rem;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    line-height: 2.66;
+    text-transform: uppercase;
+  }
+  .MuiTypography-srOnly {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+  }
+  .MuiTypography-alignLeft {
+    text-align: left;
+  }
+  .MuiTypography-alignCenter {
+    text-align: center;
+  }
+  .MuiTypography-alignRight {
+    text-align: right;
+  }
+  .MuiTypography-alignJustify {
+    text-align: justify;
+  }
+  .MuiTypography-noWrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .MuiTypography-gutterBottom {
+    margin-bottom: 0.35em;
+  }
+  .MuiTypography-paragraph {
+    margin-bottom: 16px;
+  }
+  .MuiTypography-colorInherit {
+    color: inherit;
+  }
+  .MuiTypography-colorPrimary {
+    color: #5491da;
+  }
+  .MuiTypography-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiTypography-colorTextPrimary {
+    color: rgba(0, 0, 0, 0.87);
+  }
+  .MuiTypography-colorTextSecondary {
+    color: rgba(0, 0, 0, 0.54);
+  }
+  .MuiTypography-colorError {
+    color: #ff1744;
+  }
+  .MuiTypography-displayInline {
+    display: inline;
+  }
+  .MuiTypography-displayBlock {
+    display: block;
+  }
+  .MuiButton-root {
+    color: rgba(0, 0, 0, 0.87);
+    padding: 6px 16px;
+    font-size: 0.875rem;
+    min-width: 64px;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .MuiButton-root:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-root:hover.Mui-disabled {
+    background-color: transparent;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiButton-text {
+    padding: 6px 8px;
+  }
+  .MuiButton-textPrimary {
+    color: #5491da;
+  }
+  .MuiButton-textPrimary:hover {
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-textSecondary {
+    color: #8FADDC;
+  }
+  .MuiButton-textSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-textSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    padding: 5px 15px;
+  }
+  .MuiButton-outlined.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-outlinedPrimary {
+    color: #5491da;
+    border: 1px solid rgba(84, 145, 218, 0.5);
+  }
+  .MuiButton-outlinedPrimary:hover {
+    border: 1px solid #5491da;
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-outlinedSecondary {
+    color: #8FADDC;
+    border: 1px solid rgba(143, 173, 220, 0.5);
+  }
+  .MuiButton-outlinedSecondary:hover {
+    border: 1px solid #8FADDC;
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+  .MuiButton-outlinedSecondary.Mui-disabled {
+    border: 1px solid rgba(0, 0, 0, 0.26);
+  }
+@media (hover: none) {
+  .MuiButton-outlinedSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiButton-contained {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+  .MuiButton-contained:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+    background-color: #d5d5d5;
+  }
+  .MuiButton-contained.Mui-focusVisible {
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained:active {
+    box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+  }
+  .MuiButton-contained.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+@media (hover: none) {
+  .MuiButton-contained:hover {
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+    background-color: #e0e0e0;
+  }
+}
+  .MuiButton-contained:hover.Mui-disabled {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+  .MuiButton-containedPrimary {
+    color: #fff;
+    background-color: #5491da;
+  }
+  .MuiButton-containedPrimary:hover {
+    background-color: #3f5ea5;
+  }
+@media (hover: none) {
+  .MuiButton-containedPrimary:hover {
+    background-color: #5491da;
+  }
+}
+  .MuiButton-containedSecondary {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: #8FADDC;
+  }
+  .MuiButton-containedSecondary:hover {
+    background-color: #6E7882;
+  }
+@media (hover: none) {
+  .MuiButton-containedSecondary:hover {
+    background-color: #8FADDC;
+  }
+}
+  .MuiButton-disableElevation {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:hover {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-focusVisible {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation:active {
+    box-shadow: none;
+  }
+  .MuiButton-disableElevation.Mui-disabled {
+    box-shadow: none;
+  }
+  .MuiButton-colorInherit {
+    color: inherit;
+    border-color: currentColor;
+  }
+  .MuiButton-textSizeSmall {
+    padding: 4px 5px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-outlinedSizeSmall {
+    padding: 3px 9px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-outlinedSizeLarge {
+    padding: 7px 21px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-containedSizeSmall {
+    padding: 4px 10px;
+    font-size: 0.8125rem;
+  }
+  .MuiButton-containedSizeLarge {
+    padding: 8px 22px;
+    font-size: 0.9375rem;
+  }
+  .MuiButton-fullWidth {
+    width: 100%;
+  }
+  .MuiButton-startIcon {
+    display: inherit;
+    margin-left: -4px;
+    margin-right: 8px;
+  }
+  .MuiButton-startIcon.MuiButton-iconSizeSmall {
+    margin-left: -2px;
+  }
+  .MuiButton-endIcon {
+    display: inherit;
+    margin-left: 8px;
+    margin-right: -4px;
+  }
+  .MuiButton-endIcon.MuiButton-iconSizeSmall {
+    margin-right: -2px;
+  }
+  .MuiButton-iconSizeSmall > *:first-child {
+    font-size: 18px;
+  }
+  .MuiButton-iconSizeMedium > *:first-child {
+    font-size: 20px;
+  }
+  .MuiButton-iconSizeLarge > *:first-child {
+    font-size: 22px;
+  }
+  .MuiCard-root {
+    overflow: hidden;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-root:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  .MuiIconButton-root.Mui-disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background-color: transparent;
+  }
+@media (hover: none) {
+  .MuiIconButton-root:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-edgeStart {
+    margin-left: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeStart {
+    margin-left: -3px;
+  }
+  .MuiIconButton-edgeEnd {
+    margin-right: -12px;
+  }
+  .MuiIconButton-sizeSmall.MuiIconButton-edgeEnd {
+    margin-right: -3px;
+  }
+  .MuiIconButton-colorInherit {
+    color: inherit;
+  }
+  .MuiIconButton-colorPrimary {
+    color: #5491da;
+  }
+  .MuiIconButton-colorPrimary:hover {
+    background-color: rgba(84, 145, 218, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorPrimary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-colorSecondary {
+    color: #8FADDC;
+  }
+  .MuiIconButton-colorSecondary:hover {
+    background-color: rgba(143, 173, 220, 0.04);
+  }
+@media (hover: none) {
+  .MuiIconButton-colorSecondary:hover {
+    background-color: transparent;
+  }
+}
+  .MuiIconButton-sizeSmall {
+    padding: 3px;
+    font-size: 1.125rem;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiContainer-root {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+@media (min-width:600px) {
+  .MuiContainer-root {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+  .MuiContainer-disableGutters {
+    padding-left: 0;
+    padding-right: 0;
+  }
+@media (min-width:600px) {
+  .MuiContainer-fixed {
+    max-width: 600px;
+  }
+}
+@media (min-width:960px) {
+  .MuiContainer-fixed {
+    max-width: 960px;
+  }
+}
+@media (min-width:1280px) {
+  .MuiContainer-fixed {
+    max-width: 1280px;
+  }
+}
+@media (min-width:1920px) {
+  .MuiContainer-fixed {
+    max-width: 1920px;
+  }
+}
+@media (min-width:0px) {
+  .MuiContainer-maxWidthXs {
+    max-width: 444px;
+  }
+}
+@media (min-width:600px) {
+  .MuiContainer-maxWidthSm {
+    max-width: 600px;
+  }
+}
+@media (min-width:960px) {
+  .MuiContainer-maxWidthMd {
+    max-width: 960px;
+  }
+}
+@media (min-width:1280px) {
+  .MuiContainer-maxWidthLg {
+    max-width: 1280px;
+  }
+}
+@media (min-width:1920px) {
+  .MuiContainer-maxWidthXl {
+    max-width: 1920px;
+  }
+}
+  .MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+  .MuiGrid-item {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .MuiGrid-zeroMinWidth {
+    min-width: 0;
+  }
+  .MuiGrid-direction-xs-column {
+    flex-direction: column;
+  }
+  .MuiGrid-direction-xs-column-reverse {
+    flex-direction: column-reverse;
+  }
+  .MuiGrid-direction-xs-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .MuiGrid-wrap-xs-nowrap {
+    flex-wrap: nowrap;
+  }
+  .MuiGrid-wrap-xs-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+  .MuiGrid-align-items-xs-center {
+    align-items: center;
+  }
+  .MuiGrid-align-items-xs-flex-start {
+    align-items: flex-start;
+  }
+  .MuiGrid-align-items-xs-flex-end {
+    align-items: flex-end;
+  }
+  .MuiGrid-align-items-xs-baseline {
+    align-items: baseline;
+  }
+  .MuiGrid-align-content-xs-center {
+    align-content: center;
+  }
+  .MuiGrid-align-content-xs-flex-start {
+    align-content: flex-start;
+  }
+  .MuiGrid-align-content-xs-flex-end {
+    align-content: flex-end;
+  }
+  .MuiGrid-align-content-xs-space-between {
+    align-content: space-between;
+  }
+  .MuiGrid-align-content-xs-space-around {
+    align-content: space-around;
+  }
+  .MuiGrid-justify-xs-center {
+    justify-content: center;
+  }
+  .MuiGrid-justify-xs-flex-end {
+    justify-content: flex-end;
+  }
+  .MuiGrid-justify-xs-space-between {
+    justify-content: space-between;
+  }
+  .MuiGrid-justify-xs-space-around {
+    justify-content: space-around;
+  }
+  .MuiGrid-justify-xs-space-evenly {
+    justify-content: space-evenly;
+  }
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 8px);
+    margin: -4px;
+  }
+  .MuiGrid-spacing-xs-1 > .MuiGrid-item {
+    padding: 4px;
+  }
+  .MuiGrid-spacing-xs-2 {
+    width: calc(100% + 16px);
+    margin: -8px;
+  }
+  .MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    padding: 8px;
+  }
+  .MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin: -12px;
+  }
+  .MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 12px;
+  }
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 32px);
+    margin: -16px;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+  .MuiGrid-spacing-xs-5 {
+    width: calc(100% + 40px);
+    margin: -20px;
+  }
+  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+    padding: 20px;
+  }
+  .MuiGrid-spacing-xs-6 {
+    width: calc(100% + 48px);
+    margin: -24px;
+  }
+  .MuiGrid-spacing-xs-6 > .MuiGrid-item {
+    padding: 24px;
+  }
+  .MuiGrid-spacing-xs-7 {
+    width: calc(100% + 56px);
+    margin: -28px;
+  }
+  .MuiGrid-spacing-xs-7 > .MuiGrid-item {
+    padding: 28px;
+  }
+  .MuiGrid-spacing-xs-8 {
+    width: calc(100% + 64px);
+    margin: -32px;
+  }
+  .MuiGrid-spacing-xs-8 > .MuiGrid-item {
+    padding: 32px;
+  }
+  .MuiGrid-spacing-xs-9 {
+    width: calc(100% + 72px);
+    margin: -36px;
+  }
+  .MuiGrid-spacing-xs-9 > .MuiGrid-item {
+    padding: 36px;
+  }
+  .MuiGrid-spacing-xs-10 {
+    width: calc(100% + 80px);
+    margin: -40px;
+  }
+  .MuiGrid-spacing-xs-10 > .MuiGrid-item {
+    padding: 40px;
+  }
+  .MuiGrid-grid-xs-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xs-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xs-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xs-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xs-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xs-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xs-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xs-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xs-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xs-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xs-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xs-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xs-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xs-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+@media (min-width:600px) {
+  .MuiGrid-grid-sm-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-sm-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-sm-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-sm-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-sm-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-sm-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-sm-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-sm-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-sm-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-sm-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-sm-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-sm-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-sm-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-sm-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:960px) {
+  .MuiGrid-grid-md-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-md-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-md-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-md-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-md-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-md-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-md-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-md-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-md-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-md-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-md-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-md-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-md-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-md-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1280px) {
+  .MuiGrid-grid-lg-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-lg-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-lg-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-lg-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-lg-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-lg-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-lg-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-lg-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-lg-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-lg-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-lg-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-lg-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-lg-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-lg-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+@media (min-width:1920px) {
+  .MuiGrid-grid-xl-auto {
+    flex-grow: 0;
+    max-width: none;
+    flex-basis: auto;
+  }
+  .MuiGrid-grid-xl-true {
+    flex-grow: 1;
+    max-width: 100%;
+    flex-basis: 0;
+  }
+  .MuiGrid-grid-xl-1 {
+    flex-grow: 0;
+    max-width: 8.333333%;
+    flex-basis: 8.333333%;
+  }
+  .MuiGrid-grid-xl-2 {
+    flex-grow: 0;
+    max-width: 16.666667%;
+    flex-basis: 16.666667%;
+  }
+  .MuiGrid-grid-xl-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+  }
+  .MuiGrid-grid-xl-4 {
+    flex-grow: 0;
+    max-width: 33.333333%;
+    flex-basis: 33.333333%;
+  }
+  .MuiGrid-grid-xl-5 {
+    flex-grow: 0;
+    max-width: 41.666667%;
+    flex-basis: 41.666667%;
+  }
+  .MuiGrid-grid-xl-6 {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+  }
+  .MuiGrid-grid-xl-7 {
+    flex-grow: 0;
+    max-width: 58.333333%;
+    flex-basis: 58.333333%;
+  }
+  .MuiGrid-grid-xl-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+  }
+  .MuiGrid-grid-xl-9 {
+    flex-grow: 0;
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+  .MuiGrid-grid-xl-10 {
+    flex-grow: 0;
+    max-width: 83.333333%;
+    flex-basis: 83.333333%;
+  }
+  .MuiGrid-grid-xl-11 {
+    flex-grow: 0;
+    max-width: 91.666667%;
+    flex-basis: 91.666667%;
+  }
+  .MuiGrid-grid-xl-12 {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+  .MuiLink-underlineNone {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover:hover {
+    text-decoration: underline;
+  }
+  .MuiLink-underlineAlways {
+    text-decoration: underline;
+  }
+  .MuiLink-button {
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiLink-button::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiLink-button.Mui-focusVisible {
+    outline: auto;
+  }
+  .jss69 {
+    color: #444;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    word-spacing: 3px;
+  }
+  .jss69 + .jss69, ol + .jss69, ul + .jss69 {
+    margin-top: 32px;
+  }
+  .jss85 {
+    color: #888;
+    margin: 12px 0;
+    padding: 16px 8px;
+    background: #f2f2f2;
+    font-weight: 400;
+  }
+  .jss85 > p, .jss85 > ul, .jss85 > ol, .jss85 > div {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  p + .jss85, .jss85 + .jss85 {
+    margin-top: 32px;
+  }
+  .jss86 {
+    border-left: 12px solid #64b5f6;
+  }
+  .jss87 {
+    border-left: 12px solid #ffd54f;
+  }
+  .jss88 {
+    border-left: 12px solid #ef5350;
+  }
+  .jss10 {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+  }
+  .jss119 {
+    display: flex;
+    padding: 0 16px;
+    margin-top: 128px;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+  }
+@media (max-width:599.95px) {
+  .jss119 {
+    flex-direction: column;
+  }
+}
+  .jss120 {
+    color: #aaa;
+    font-weight: bold;
+  }
+@media (max-width:599.95px) {
+  .jss120 {
+    margin-bottom: 16px;
+  }
+}
+  .jss121 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .jss122 {
+    flex: 1;
+    display: inline-flex;
+    max-width: 100px;
+  }
+  .jss122+.jss122 {
+    margin-top: 0;
+    margin-left: 16px;
+  }
+  .jss123 {
+    color: #fff;
+    background: #444;
+  }
+  .jss123:hover, .jss123focus, .jss123:active {
+    background: #333;
+  }
+  .jss124 {
+    color: #fff;
+    background: #4361b3;
+  }
+  .jss124:hover, .jss124focus, .jss124:active {
+    background: #254395;
+  }
+  .jss125 {
+    color: #fff;
+    background: #4fafed;
+  }
+  .jss125:hover, .jss125focus, .jss125:active {
+    background: #3191CF;
+  }
+  .jss1 {
+    padding: 64px 32px;
+    position: relative;
+  }
+  .jss66 {
+    color: #888;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+  }
+  .jss67 {
+    display: inline-block;
+  }
+  .jss68 {
+    margin: 0 4px;
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 0.8;
+  }
+  .jss32 {
+    color: #222;
+    padding: 0;
+    margin-bottom: 48px;
+  }
+  .jss33 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+  }
+  .jss34 {
+    margin-top: 12px;
+    font-weight: 600;
+  }
+  .jss35 {
+    font-weight: 600;
+  }
+  .jss71 {
+    color: #222;
+    margin: 48px 0 16px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+  }
+  .jss72 {
+    color: #222;
+    margin: 32px 0 12px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+  }
+  .jss81 {
+    padding: 0;
+    overflow: hidden;
+    background: #5491da;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
+    margin-top: 32px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .jss82 {
+    padding: 16px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .jss83 {
+    position: relative;
+    padding-bottom: 8px;
+  }
+  .jss84 {
+    padding: 0 0 64px 0 !important;
+    margin-bottom: -64px !important;
+  }
+  .jss84 *::selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss84 *::-moz-selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss70 {
+    color: #933;
+    margin: 0 2px;
+    padding: 1px 8px;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .jss118 {
+    color: #666;
+    border: medium none;
+    font-size: 32px;
+    margin-top: 32px;
+    text-align: center;
+    font-weight: 300;
+  }
+  .jss118:before {
+    content: '***';
+    line-height: 1.4;
+    text-indent: 1em;
+    letter-spacing: 1em;
+  }
+  .jss79 {
+    color: #444;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.7;
+  }
+  p + .jss79 {
+    margin-top: 32px;
+  }
+  li > .jss79 {
+    margin-top: initial;
+  }
+  .jss80 + .jss80 {
+    margin-top: 8px;
+  }
+  .jss80 > ul > .jss80, .jss80 > ol > .jss80 {
+    margin-top: 0;
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Smart Pointers</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">22 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">4<!-- --> min read</p></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Smart Pointers are normal structs, but they <code class="jss70">impl</code>
+<code class="jss70">Deref</code> and <code class="jss70">Drop</code> traits, so as to work exactly like
+regular pointers. <code class="jss70">Deref</code> trait helps Smart Pointers to be
+allowed to dereferenced like regular pointers, i.e like
+<code class="jss70">*x</code>, where <code class="jss70">x</code> is a pointer. <code class="jss70">Drop</code> helps to memory
+manage the resource Smart Pointers are pointing to, they
+are like destructors in <code class="jss70">C++</code>.</p><h4 class="MuiTypography-root jss71 MuiTypography-h4"><code class="jss70">Box&lt;T&gt;</code></h4><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">Box&lt;T&gt;</code> is very similar to regular pointers, but they can
+store any type in themselves. Also, <code class="jss70">Box&lt;T&gt;</code> owns the data
+that it points to.</p><h5 class="MuiTypography-root jss72 MuiTypography-h5">When to use <code class="jss70">Box&lt;T&gt;</code></h5><p class="MuiTypography-root jss69 MuiTypography-body1"><em>I am directly quoting this from <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://doc.rust-lang.org/book/ch15-01-box.html">Rust Book</a></em></p><ol class="jss79"><li class="jss80">When you have a type whose size can’t be known at compile
+time and you want to use a value of that type in a
+context that requires an exact size</li><li class="jss80">When you have a large amount of data and you want to
+transfer ownership but ensure the data won’t be copied
+when you do so.</li><li class="jss80">When you want to own a value and you care only that
+it’s a type that implements a particular trait rather
+than being of a specific type.</li></ol><p class="MuiTypography-root jss69 MuiTypography-body1"><strong>For Part 1.</strong> Recursive Types like, Linked List requires
+to have Nodes that points itself, where getting a size of
+Node is impossible on Compile Time, <code class="jss70">Box&lt;T&gt;</code> can be used.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">Box&lt;T&gt;</code> is already a part of <code class="jss70">std::prelude</code>, thus
+it doesn&#x27;t has to be imported explicitly from <code class="jss70">std::boxed::Box</code>.</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Node <span class="token" style="color:#a9b7c6">{</span>
+  id<span class="token" style="color:#a9b7c6">:</span> usize<span class="token" style="color:#a9b7c6">,</span>
+  name<span class="token" style="color:#a9b7c6">:</span> String<span class="token" style="color:#a9b7c6">,</span>
+  role<span class="token" style="color:#a9b7c6">:</span> String<span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">}</span>
+
+<span class="token" style="color:#808080">// Now we need to create Box&lt;Node&gt;, like any other object</span>
+<span class="token" style="color:#cc7832">let</span> node<span class="token" style="color:#a9b7c6">:</span> Box<span class="token" style="color:#a9b7c6">&lt;</span>Node<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">=</span> Box<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>Node <span class="token" style="color:#a9b7c6">{</span>
+  id<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">,</span>
+  name<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6a8759">&quot;Harry&quot;</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_owned</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+  role<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6a8759">&quot;CHOSEN_ONE&quot;</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_owned</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+<span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span>
+
+<span class="token" style="color:#808080">// We can use above `node`, like any other object</span>
+<span class="token" style="color:#ffc66d">println!</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Node:: {:?}&quot;</span><span class="token" style="color:#a9b7c6">,</span> node<span class="token" style="color:#a9b7c6">.</span>name<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">Do remember, <code class="jss70">C</code> and <code class="jss70">C++</code> required memory managed pointers,
+but in Rust we don&#x27;t have to explicitly manage Pointers and
+there data. Rust handles it internally using ownership/lifetime
+specs. This applies to Smart Pointers as well.</p><h4 class="MuiTypography-root jss71 MuiTypography-h4"><code class="jss70">Rc&lt;T&gt;</code> (Reference Counter)</h4><p class="MuiTypography-root jss69 MuiTypography-body1">As the name suggests, <code class="jss70">Rc&lt;T&gt;</code> smart pointer stores a count
+of pointers to actual data. If count goes to zero, the
+value can be cleaned up without any references becoming invalid.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">Rc&lt;T&gt;</code> is only for use in single-threaded scenarios.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Should be imported from <code class="jss70">std::rc::Rc</code>.</p><h5 class="MuiTypography-root jss72 MuiTypography-h5">When to use <code class="jss70">Rc&lt;T&gt;</code></h5><p class="MuiTypography-root jss69 MuiTypography-body1">I will explain this with a practical example first.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Let&#x27;s say I have an <code class="jss70">Ball</code> instance, which needs to be
+saved into two different <code class="jss70">List</code>. In <code class="jss70">JS</code>, we would&#x27;ve done
+something like:</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> b1 <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">new</span> <span class="token class-name">Ball</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">let</span> list1 <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">new</span> <span class="token class-name">List</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">let</span> list2 <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">new</span> <span class="token class-name">List</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+list1<span class="token" style="color:#a9b7c6">.</span><span class="token method property-access" style="color:#ffc66d">add</span><span class="token" style="color:#a9b7c6">(</span>b1<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+list2<span class="token" style="color:#a9b7c6">.</span><span class="token method property-access" style="color:#ffc66d">add</span><span class="token" style="color:#a9b7c6">(</span>b1<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">So simple right, but if you look closely, <code class="jss70">b1</code> is the same
+in <code class="jss70">list1</code> and <code class="jss70">list2</code>, so if <code class="jss70">b1</code> changes in <code class="jss70">list1</code>, it
+will change in <code class="jss70">list2</code> as well, as JS creates mutable objects
+by default.</p><p class="MuiTypography-root jss69 MuiTypography-body1">We can solve this, but that is not our concern here right now.
+The main point behind showing this example was, that <code class="jss70">list1</code>
+and <code class="jss70">list2</code> both have shared references to same resource,
+and can read them simultaneously (considering <code class="jss70">JS</code> was not
+single threaded). Internally JS engine would be duplicating
+the pointers to <code class="jss70">b1</code> object when passed to <code class="jss70">list1</code> and <code class="jss70">list2</code>
+, and the Memory would be managed by the GC. Rust doesn&#x27;t has
+any GC and thus to manage multiple pointers to single resource
+we need <code class="jss70">Rc&lt;T&gt;</code>.</p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">Box&lt;T&gt;</code> owns the resource, thus sharing the data between
+two parents is not possible. For such cases <code class="jss70">Rc&lt;T&gt;</code>
+can be used.</p></div><p class="MuiTypography-root jss69 MuiTypography-body1">So, we can write the same thing above in Rust, as follows:</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> b1 <span class="token" style="color:#a9b7c6">=</span> Rc<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>Ball<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">let</span> list1 <span class="token" style="color:#a9b7c6">=</span> List<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">let</span> list2 <span class="token" style="color:#a9b7c6">=</span> List<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+list1<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">add</span><span class="token" style="color:#a9b7c6">(</span>Rc<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">clone</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>b1<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+list1<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">add</span><span class="token" style="color:#a9b7c6">(</span>Rc<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">clone</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>b2<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">Above example would have defined <code class="jss70">List</code> type,
+something like below:</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> List <span class="token" style="color:#a9b7c6">{</span>
+  ball<span class="token" style="color:#a9b7c6">:</span> Rc<span class="token" style="color:#a9b7c6">&lt;</span>Ball<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">The call to <code class="jss70">Rc::clone</code> only increments the reference
+count, which doesn’t take much time.</p><h4 class="MuiTypography-root jss71 MuiTypography-h4"><code class="jss70">RefCell&lt;T&gt;</code></h4><h5 class="MuiTypography-root jss72 MuiTypography-h5">Concept of <em>Interior mutability</em></h5><p class="MuiTypography-root jss69 MuiTypography-body1"><em>Interior mutability</em> is a pattern in Rust, where immutable
+data are allowed to mutate.</p><div class="MuiPaper-root MuiCard-root jss85 jss87 MuiPaper-elevation0 MuiPaper-rounded"><code class="jss70">RefCell&lt;T&gt;</code> gives us power of mutability in immutable pointers in Rust, but this should be used carefully, because if misused, compiler will not throw errors and programs might crash or have memory leaks, just like <code class="jss70">C</code>or <code class="jss70">C++</code> programs</div><p class="MuiTypography-root jss69 MuiTypography-body1">Can be imported using <code class="jss70">std::cell::RefCell</code>.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">RefCell&lt;T&gt;</code> follow all rules defined in Rust for pointers,
+but in runtime. Thus, using two <em>mutable</em> references in same
+scope will result in Program to panic at runtime.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">RefCell&lt;T&gt;</code> lets us have many immutable borrows or one
+mutable borrow at any point in time.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Above is possible, because <code class="jss70">RefCell&lt;T&gt;</code> keeps a count on
+how many mutable or immutable references are present in a
+scope, thus having more than one mutable reference panics.
+The counter for <code class="jss70">RefCell&lt;T&gt;</code> works similar to reference
+counting.</p><h5 class="MuiTypography-root jss72 MuiTypography-h5">Let&#x27;s Code</h5><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> x<span class="token" style="color:#a9b7c6">:</span> RefCell<span class="token" style="color:#a9b7c6">&lt;</span>Vec<span class="token" style="color:#a9b7c6">&lt;</span>String<span class="token" style="color:#a9b7c6">&gt;&gt;</span> <span class="token" style="color:#a9b7c6">=</span> RefCell<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#ffc66d">vec!</span><span class="token" style="color:#a9b7c6">[</span>
+  <span class="token" style="color:#6a8759">&quot;Abra&quot;</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_owned</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+  <span class="token" style="color:#6a8759">&quot;Kadabra&quot;</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_owned</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
+<span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+<span class="token" style="color:#808080">// We can now use it, have n number of immutable references</span>
+x<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">get</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+x<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">get</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+<span class="token" style="color:#808080">// But only one mutable reference at a time.</span>
+x<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow_mut</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">push</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Expelliarmus&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">.borrow()</code> gives us <code class="jss70">Ref&lt;T&gt;</code> object, which is an immutable
+smart pointer.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss70">.borrow_mut()</code> gives us <code class="jss70">RefMut&lt;T&gt;</code> object, which is a
+mutable smart pointer.</p><h4 class="MuiTypography-root jss71 MuiTypography-h4">Using <code class="jss70">Rc&lt;T&gt;</code> and <code class="jss70">RefCell&lt;T&gt;</code> together</h4><p class="MuiTypography-root jss69 MuiTypography-body1">Do you want <code class="jss70">C</code> or <code class="jss70">C++</code> mutable pointers, which can be
+passed around freely in your application code.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Enters <code class="jss70">Rc&lt;RefCell&lt;T&gt;&gt;</code> 😜</p><div class="MuiPaper-root MuiCard-root jss85 jss87 MuiPaper-elevation0 MuiPaper-rounded"><b>Important:</b> Having multiple mutable references present across the code-base can lead to inconsistencies, if not used properly. Though, I think using <code class="jss70">RefCell&lt;T&gt;</code>and <code class="jss70">Rc&lt;T&gt;</code> together will result in program to panic, giving a heads up on the issue.</div><p class="MuiTypography-root jss69 MuiTypography-body1">This provides us with N number of Mutable/Immutable
+references in any scope. We get a value that can have
+multiple owners and that we can mutate!</p><pre><div class="jss81"><div class="jss82" style="background:#2b2b2b"><div class="jss83"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss84" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">let</span> v1 <span class="token" style="color:#a9b7c6">=</span> Rc<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>RefCell<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">5</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">let</span> v2 <span class="token" style="color:#a9b7c6">=</span> Rc<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">clone</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>v1<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+<span class="token" style="color:#808080">// Now we can break rules, have more than one mutable reference to same memory location,</span>
+<span class="token" style="color:#808080">// in this example it&#x27;s usize value `5`.</span>
+<span class="token" style="color:#a9b7c6">*</span>v1<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow_mut</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">+=</span> <span class="token" style="color:#6897bb">10</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#a9b7c6">*</span>v2<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow_mut</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">+=</span> <span class="token" style="color:#6897bb">10</span><span class="token" style="color:#a9b7c6">;</span>
+
+<span class="token" style="color:#ffc66d">println!</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Actual Value now = {:?}&quot;</span><span class="token" style="color:#a9b7c6">,</span> v1<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span> <span class="token" style="color:#808080">// 25</span>
+</code></pre></div></div></pre><h4 class="MuiTypography-root jss71 MuiTypography-h4">Cautions</h4><p class="MuiTypography-root jss69 MuiTypography-body1">I am not writing on this, as even I will have to refer
+to <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://doc.rust-lang.org/book/ch15-06-reference-cycles.html">Rust Memory Leaks</a>
+every now and then to understand it better.</p><hr class="jss118"/><p class="MuiTypography-root jss69 MuiTypography-body1">You can find the Code
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/rust-book/smart-pointers/src/main.rs">here</a></p><div class="MuiGrid-root jss119 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss120 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss121 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss122"></span><span class="jss122"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss125 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/rust-reference/rust-smart-pointers - Smart Pointers"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss122"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss124 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/rust-reference/rust-smart-pointers","query":{},"buildId":"2lv56kGyXPeBa0JHJyD_i","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js"></script><script async="" data-next-page="/rust-reference/rust-smart-pointers" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/rust-reference/rust-smart-pointers.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_buildManifest.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_ssgManifest.js" async=""></script></body></html>

@@ -5,7 +5,7 @@
                 gtag('config', 'UA-113155919-1', {
                   page_path: window.location.pathname,
                 });
-              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Basics on Vulkan using gfx-hal"/><meta name="twitter:description" content="Reference Notes for me (and others) to help get started with Rust and Vulkan"/><meta property="og:type" content="article"/><meta property="og:title" content="Basics on Vulkan using gfx-hal"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/81768708-514d2800-94f9-11ea-95d3-36796815a31f.jpg?2"/><meta property="article:published_time" content="2020/04/26"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Basics on Vulkan using gfx-hal</title><meta name="description" content="Reference Notes for me (and others) to help get started with Rust and Vulkan"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Shaders"/><meta name="twitter:description" content="What are shaders and how to use them with gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="Shaders"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/shaders"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/23"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Shaders</title><meta name="description" content="What are shaders and how to use them with gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/shaders.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,92 +66,6 @@ body::backdrop {
 }
 .MuiSvgIcon-fontSizeLarge {
   font-size: 2.1875rem;
-}
-.MuiPaper-root {
-  color: rgba(0, 0, 0, 0.87);
-  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  background-color: #fff;
-}
-.MuiPaper-rounded {
-  border-radius: 4px;
-}
-.MuiPaper-outlined {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-}
-.MuiPaper-elevation0 {
-  box-shadow: none;
-}
-.MuiPaper-elevation1 {
-  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation2 {
-  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation3 {
-  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation4 {
-  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation5 {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation6 {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation7 {
-  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation8 {
-  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation9 {
-  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation10 {
-  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation11 {
-  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation12 {
-  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation13 {
-  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation14 {
-  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation15 {
-  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation16 {
-  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation17 {
-  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation18 {
-  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation19 {
-  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation20 {
-  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation21 {
-  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation22 {
-  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation23 {
-  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
-}
-.MuiPaper-elevation24 {
-  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
 }
 .MuiButtonBase-root {
   color: inherit;
@@ -629,9 +543,6 @@ body::backdrop {
   }
   .MuiButton-iconSizeLarge > *:first-child {
     font-size: 22px;
-  }
-  .MuiCard-root {
-    overflow: hidden;
   }
   .MuiIconButton-root {
     flex: 0 0 auto;
@@ -1264,80 +1175,13 @@ body::backdrop {
     flex-basis: 100%;
   }
 }
-  .MuiLink-underlineNone {
-    text-decoration: none;
-  }
-  .MuiLink-underlineHover {
-    text-decoration: none;
-  }
-  .MuiLink-underlineHover:hover {
-    text-decoration: underline;
-  }
-  .MuiLink-underlineAlways {
-    text-decoration: underline;
-  }
-  .MuiLink-button {
-    border: 0;
-    cursor: pointer;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    position: relative;
-    user-select: none;
-    border-radius: 0;
-    vertical-align: middle;
-    -moz-appearance: none;
-    background-color: transparent;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .MuiLink-button::-moz-focus-inner {
-    border-style: none;
-  }
-  .MuiLink-button.Mui-focusVisible {
-    outline: auto;
-  }
-  .jss103 {
-    color: #444;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    word-spacing: 3px;
-  }
-  .jss103 + .jss103, ol + .jss103, ul + .jss103 {
-    margin-top: 32px;
-  }
-  .jss70 {
-    color: #888;
-    margin: 12px 0;
-    padding: 16px 8px;
-    background: #f2f2f2;
-    font-weight: 400;
-  }
-  .jss70 > p, .jss70 > ul, .jss70 > ol, .jss70 > div {
-    color: #888;
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-  p + .jss70, .jss70 + .jss70 {
-    margin-top: 32px;
-  }
-  .jss71 {
-    border-left: 12px solid #64b5f6;
-  }
-  .jss72 {
-    border-left: 12px solid #ffd54f;
-  }
-  .jss73 {
-    border-left: 12px solid #ef5350;
-  }
   .jss10 {
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: flex-end;
   }
-  .jss115 {
+  .jss69 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1346,69 +1190,69 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss115 {
+  .jss69 {
     flex-direction: column;
   }
 }
-  .jss116 {
+  .jss70 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss116 {
+  .jss70 {
     margin-bottom: 16px;
   }
 }
-  .jss117 {
+  .jss71 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss118 {
+  .jss72 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss118+.jss118 {
+  .jss72+.jss72 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss119 {
+  .jss73 {
     color: #fff;
     background: #444;
   }
-  .jss119:hover, .jss119focus, .jss119:active {
+  .jss73:hover, .jss73focus, .jss73:active {
     background: #333;
   }
-  .jss120 {
+  .jss74 {
     color: #fff;
     background: #4361b3;
   }
-  .jss120:hover, .jss120focus, .jss120:active {
+  .jss74:hover, .jss74focus, .jss74:active {
     background: #254395;
   }
-  .jss121 {
+  .jss75 {
     color: #fff;
     background: #4fafed;
   }
-  .jss121:hover, .jss121focus, .jss121:active {
+  .jss75:hover, .jss75focus, .jss75:active {
     background: #3191CF;
   }
   .jss1 {
     padding: 64px 32px;
     position: relative;
   }
-  .jss67 {
+  .jss66 {
     color: #888;
     display: flex;
     font-size: 12px;
     align-items: center;
   }
-  .jss68 {
+  .jss67 {
     display: inline-block;
   }
-  .jss69 {
+  .jss68 {
     margin: 0 4px;
     display: inline-block;
     font-size: 1.5em;
@@ -1429,74 +1273,4 @@ body::backdrop {
   }
   .jss35 {
     font-weight: 600;
-  }
-  .jss113 {
-    color: #222;
-    margin: 48px 0 16px;
-    padding: 0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 300;
-  }
-  .jss114 {
-    color: #222;
-    margin: 32px 0 12px;
-    padding: 0;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-  }
-  .jss66 {
-    color: #933;
-    margin: 0 2px;
-    padding: 1px 8px;
-    background: rgba(0, 0, 0, 0.05);
-  }
-  .jss112 {
-    color: #666;
-    border: medium none;
-    font-size: 32px;
-    margin-top: 32px;
-    text-align: center;
-    font-weight: 300;
-  }
-  .jss112:before {
-    content: '***';
-    line-height: 1.4;
-    text-indent: 1em;
-    letter-spacing: 1em;
-  }
-  .jss104 {
-    color: #444;
-    font-size: 1rem;
-    font-weight: 200;
-    line-height: 1.7;
-  }
-  p + .jss104 {
-    margin-top: 32px;
-  }
-  li > .jss104 {
-    margin-top: initial;
-  }
-  .jss105 + .jss105 {
-    margin-top: 8px;
-  }
-  .jss105 > ul > .jss105, .jss105 > ol > .jss105 {
-    margin-top: 0;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2"><code class="jss66">gfx-hal</code> &amp; <code class="jss66">vulkan</code> basics</h2><div class="jss67 jss34"><p class="MuiTypography-root jss68 jss35 MuiTypography-body2">26 Apr, 2020</p><span class="jss69">•</span><p class="MuiTypography-root jss68 jss35 MuiTypography-body2">3<!-- --> min read</p></div></div><div class="MuiPaper-root MuiCard-root jss70 jss72 MuiPaper-elevation0 MuiPaper-rounded">This blog is a <b>Work in Progress</b>. As I complete learning few things one by one, I will update the doc accordingly.<br/><br/><p class="MuiTypography-root jss103 MuiTypography-body1">  ⚠️ <!-- --> <!-- -->For now, read it at your own risk!!!</p></div><p class="MuiTypography-root jss103 MuiTypography-body1">I have found that learning new things every often,
-leads to chaos, and people (specifically ME) tend to forget many things they have already
-learnt before.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1">These notes will help me to keep reference notes for myself,
-as well as for anybody who is willing to
-learn Vulkan API using <code class="jss66">gfx-hal</code>.</p><div class="MuiPaper-root MuiCard-root jss70 jss72 MuiPaper-elevation0 MuiPaper-rounded">Do note that <code class="jss66">gfx-hal</code> provides it&#x27;s own API, which is very similar to Vulkans&#x27;, but is not purely Vulkan. If you are very much interested in understanding pure Vulkan API using Rust, I would recommend taking a look into:<ul class="jss104"><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/MaikKlein/ash" target="_blank" rel="noopener noreferrer">MaikKlein/ash</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/vulkano-rs/vulkano" target="_blank" rel="noopener noreferrer">vulkano-rs/vulkano</a>: I think this module also doesn&#x27;t follow pure Vulkan APIs</li></ul><br/>For <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/MaikKlein/ash" target="_blank" rel="noopener noreferrer">MaikKlein/ash</a>  though, you can find a very good tutorial <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/adrien-ben/vulkan-tutorial-rs" target="_blank" rel="noopener noreferrer">here</a>.<br/><br/>I still prefer <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/gfx-rs/gfx" target="_blank" rel="noopener noreferrer">gfx-rs</a> <i>(I call it <code class="jss66">gfx-hal</code> just to ensure that it&#x27;s a very low level API, providing us just Hardware Abstraction Layer)</i>, because<code class="jss66">gfx-hal</code> is cross-platform and have the best in class support for <b>DX-12</b>,<b>Vulkan</b> and <b>Metal</b>.</div><br/><p class="MuiTypography-root jss103 MuiTypography-body1">Learning <code class="jss66">rust</code> language and <code class="jss66">vulkan</code> APIs, both are very difficult for starters. I am still struggling
-to understand the basics, let aside writing proper Memory Management and Performance optimized Rust
-Code. Reading these notes requires prior knowledge of at-least one statically typed language (like
-<code class="jss66">java</code>, <code class="jss66">C</code> etc.), and some understanding of graphics, though even I am very new to Graphics Programming,
-so even for me many concepts are very new, and I will try to either explain them as much as I could, or
-better point you to some reference to take a look into and understand it better.</p><br/><p class="MuiTypography-root jss103 MuiTypography-body1"><strong>Special Thanks to</strong>:</p><ul class="jss104"><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Lokathor">@lokathor</a>, for writing an open book on learning basics of using <code class="jss66">gfx-hal</code>,
-though with very old <code class="jss66">gfx-hal</code> version, but it still guided me a lot. You can read it
-<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://rust-tutorials.github.io/learn-gfx-hal/">here</a>.</li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://twitter.com/mistodon">@mistodon</a>, for writing such a good blog on <code class="jss66">gfx-hal</code> and <code class="jss66">vulkan</code>, which
-you can read <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html">here</a>.</li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/gfx-rs/gfx/blob/master/examples/">gfx-rs examples</a>,
-are great to take a look into for basics. Most of my code is
-inspired from those examples, but since there was no way
-of understanding those examples without other references,
-you might see some changes.</li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html">LunarG Vulkan Tutorial</a></li><li class="jss105">Special Mentions, (most of them I haven&#x27;t read completely, but will help me later for reference):<ul class="jss104"><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.fasterthan.life/blog/2017/7/11/i-am-graphics-and-so-can-you-part-1">Dusting H Lan</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan-tutorial.com/Introduction">Vulkan Tutorials</a></li></ul></li></ul><div class="MuiPaper-root MuiCard-root jss70 jss71 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss103 MuiTypography-body1">Before moving forward, I would like to clear some basics on Rust and Cargo.
-<em>Follow <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/rust-reference/rust-cargo-basics">this guide</a></em>, if you want to
-clear some basics on the same.</p></div><hr class="jss112"/><h4 class="MuiTypography-root jss113 MuiTypography-h4">Table of Contents</h4><h5 class="MuiTypography-root jss114 MuiTypography-h5">Draw a Cube</h5><ul class="jss104"><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/display-window">Display Window</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/physical-logical-devices">Physical &amp; Logical Devices</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/command-buffers">Command Buffers &amp; Pool</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/swap-chain">Swap Chain</a></li><li class="jss105"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/gfx-hal-initials/shaders">Shaders</a></li></ul><div class="MuiGrid-root jss115 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss116 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss117 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss118"></span><span class="jss118"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss121 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials - Basics on Vulkan using gfx-hal"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss118"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss120 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials","query":{},"buildId":"2lv56kGyXPeBa0JHJyD_i","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_buildManifest.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_ssgManifest.js" async=""></script></body></html>
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Shaders</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">23 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">0<!-- --> min read</p></div></div><div class="MuiGrid-root jss69 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss70 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss71 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss72"></span><span class="jss72"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss75 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/shaders - Shaders"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss72"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss74 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/shaders","query":{},"buildId":"2lv56kGyXPeBa0JHJyD_i","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/shaders" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/shaders.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_buildManifest.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_ssgManifest.js" async=""></script></body></html>
