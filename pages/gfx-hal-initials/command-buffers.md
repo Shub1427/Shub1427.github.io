@@ -24,7 +24,7 @@ export const clientUploadRecord = archiveRecord['upload-client-logs'];
 
 <br />
 
-_Following diagram is a very broad illustration of what_
+_Following diagram is a very high-level illustration of what_
 _Command Buffers and Command Pools are:_
 
 <Image alt="Flow of Command Buffer from Command Pool" src="https://user-images.githubusercontent.com/11786283/77256537-ff281d00-6c94-11ea-8e05-d49d8a24aaab.png" placeholder="https://user-images.githubusercontent.com/11786283/82124868-93a78b00-97bf-11ea-9773-3a66b1f1f096.png" />

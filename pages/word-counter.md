@@ -30,17 +30,29 @@ for better performance and accurate results.
   <br/>
   <ul>
     <li>
-      <Link href="https://github.com/syntax-tree/unist#syntax-tree" target="_blank">
+      <Link
+        href="https://github.com/syntax-tree/unist#syntax-tree"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Syntax Tree
       </Link>
     </li>
     <li>
-      <Link href="https://ruslanspivak.com/lsbasi-part1/" target="_blank">
+      <Link
+        href="https://ruslanspivak.com/lsbasi-part1/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Let's build an Interpreter
       </Link>
     </li>
     <li>
-      <Link href="https://compilers.iecc.com/crenshaw/" target="_blank">
+      <Link
+        href="https://compilers.iecc.com/crenshaw/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Let's build a Compiler
       </Link>
     </li>

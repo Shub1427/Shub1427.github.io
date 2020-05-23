@@ -32,8 +32,69 @@ learnt before.
 
 <br />
 
-These notes will help me to keep reference notes for myself, as well as for anybody who is willing to
+These notes will help me to keep reference notes for myself,
+as well as for anybody who is willing to
 learn Vulkan API using `gfx-hal`.
+
+<Blockquote type="warn">
+  Do note that <InlineCode>gfx-hal</InlineCode> provides it's
+  own API, which is very similar to Vulkans', but is not
+  purely Vulkan. If you are very much interested in
+  understanding pure Vulkan API using Rust,
+  I would recommend taking a look into:
+  <ul>
+    <li>
+      <Link
+        href="https://github.com/MaikKlein/ash"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        MaikKlein/ash
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="https://github.com/vulkano-rs/vulkano"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        vulkano-rs/vulkano
+      </Link>: I think this module also doesn't follow pure
+      Vulkan APIs
+    </li>
+  </ul>
+  <br/>
+  For&nbsp;
+  <Link
+    href="https://github.com/MaikKlein/ash"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    MaikKlein/ash
+  </Link>&nbsp; though, you can find a very good tutorial&nbsp;
+  <Link
+    href="https://github.com/adrien-ben/vulkan-tutorial-rs"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    here
+  </Link>.
+  <br/>
+  <br/>
+  I still prefer&nbsp;
+  <Link
+    href="https://github.com/gfx-rs/gfx"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    gfx-rs
+  </Link>&nbsp;<i>(I call it <InlineCode>gfx-hal</InlineCode> just to
+  ensure that it's a very low level API, providing us just
+  Hardware Abstraction Layer)</i>, because
+  <InlineCode>gfx-hal</InlineCode> is cross-platform
+  and have the best in class support for <b>DX-12</b>,
+  <b>Vulkan</b> and <b>Metal</b>.
+</Blockquote>
 
 <br />
 
@@ -57,7 +118,7 @@ __Special Thanks to__:
   are great to take a look into for basics. Most of my code is
   inspired from those examples, but since there was no way
   of understanding those examples without other references,
-  you might see changes.
+  you might see some changes.
 * [LunarG Vulkan Tutorial](https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html)
 * Special Mentions, (most of them I haven't read completely, but will help me later for reference):
   * [Dusting H Lan](https://www.fasterthan.life/blog/2017/7/11/i-am-graphics-and-so-can-you-part-1)
