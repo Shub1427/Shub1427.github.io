@@ -19,9 +19,6 @@ Vulkan is a very low-level spec, which intends to keep as less overhead of code 
 the developers with clean APIs, that are very similar to Vulkan specs. Also, `gfx-hal` provides
 multiple graphics backends to make our code cross-platform compatible.
 
-_Code for this Note, can be found [here](https://github.com/Shub1427/rustschool/blob/master/gui/gfx-rs/src/001-show_window/main.rs)
-Parts of the code would be referenced here, to make things clear._
-
 ## Vulkan Instance and Surface
 <Image alt="Vulkan Flow Image" src="https://user-images.githubusercontent.com/11786283/77244041-e4bf5680-6c36-11ea-96a1-2be7bd71ccbd.png" placeholder="https://user-images.githubusercontent.com/11786283/80305144-bce48500-87d8-11ea-9832-4baaaf8ce41f.png" />
 
@@ -369,5 +366,10 @@ Details on event listeners:
 ```
 
 ***
+
+## Code
+
+You can find the full code for this Doc,
+here [001-show_window](https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/001-show_window/main.rs)
 
 </PolkaContainer>

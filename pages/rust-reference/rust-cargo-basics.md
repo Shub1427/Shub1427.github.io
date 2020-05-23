@@ -1,6 +1,6 @@
-import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+import { rustArchiveRecord } from '@constants/rust-reference-list';
 
-export const record = halArchiveRecord['rust-cargo-basics'];
+export const record = rustArchiveRecord['rust-cargo-basics'];
 
 <PolkaContainer
   pageTitle={record.title}

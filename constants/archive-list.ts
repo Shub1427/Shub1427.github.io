@@ -16,6 +16,21 @@ export interface IArchiveItem extends ISortParams {
 // I know, it is good to have a DB and a Backend, but
 // for simplicity and saving cost, I am ignoring the Backend
 export const archiveRecord: Record<string, IArchiveItem> = {
+  'rust-reference': {
+    key: 'rust-reference',
+    link: '/rust-reference',
+    title: 'Advance Rust Reference',
+    description:
+      'Some advance concepts in Rust that were difficult for me to understand. \
+      This Doc is trying to keep a reference of all those topics, for me to take \
+      a reference from later for easier understanding',
+    ogImage:
+      'https://user-images.githubusercontent.com/11786283/82665354-47da6300-9c51-11ea-87c7-bb996eb79de1.jpg',
+    tags: [Tags.RUST],
+    createdAt: new Date('2020/05/22 17:25:00'),
+    updatedAt: new Date('2020/05/09 17:25:00'),
+    isPublished: true,
+  },
   'performance-reactjs': {
     key: 'performance-reactjs',
     link: '/performance-reactjs',

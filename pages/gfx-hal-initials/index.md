@@ -1,5 +1,6 @@
 import { archiveRecord } from '@constants/archive-list';
 import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+import { rustArchiveRecord } from '@constants/rust-reference-list';
 
 export const record = archiveRecord['gfx-hal-basics'];
 
@@ -53,7 +54,7 @@ __Special Thanks to__:
 * [@mistodon](https://twitter.com/mistodon), for writing such a good blog on `gfx-hal` and `vulkan`, which
   you can read [here](https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html).
 * [gfx-rs examples](https://github.com/gfx-rs/gfx/blob/master/examples/),
-  are great to take a look into basics. Most of my code is
+  are great to take a look into for basics. Most of my code is
   inspired from those examples, but since there was no way
   of understanding those examples without other references,
   you might see changes.
@@ -63,7 +64,7 @@ __Special Thanks to__:
   * [Vulkan Tutorials](https://vulkan-tutorial.com/Introduction)
 
 > Before moving forward, I would like to clear some basics on Rust and Cargo.
-> _Follow <Link href={halArchiveRecord['rust-cargo-basics'].link}>this guide</Link>_, if you want to
+> _Follow <Link href={rustArchiveRecord['rust-cargo-basics'].link}>this guide</Link>_, if you want to
 > clear some basics on the same.
 
 ***
@@ -75,6 +76,7 @@ __Special Thanks to__:
 export const displayWindow = halArchiveRecord['display-window'];
 export const devices = halArchiveRecord['physical-logical-devices'];
 export const commandBuffers = halArchiveRecord['command-buffers'];
+export const swapChain = halArchiveRecord['swap-chain'];
 
 * <Link href={displayWindow.link}>
     {displayWindow.title}
@@ -84,6 +86,9 @@ export const commandBuffers = halArchiveRecord['command-buffers'];
   </Link>
 * <Link href={commandBuffers.link}>
     {commandBuffers.title}
+  </Link>
+* <Link href={swapChain.link}>
+    {swapChain.title}
   </Link>
 
 </PolkaContainer>
