@@ -53,7 +53,19 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
       'https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/22 10:20:00'),
-    updatedAt: new Date('2020/05/22 10:25:00'),
+    updatedAt: new Date('2020/05/23 14:30:00'),
+    isPublished: true,
+  },
+  shaders: {
+    key: 'shaders',
+    link: '/gfx-hal-initials/shaders',
+    title: 'Shaders',
+    description: 'What are shaders and how to use them with gfx-hal',
+    ogImage:
+      'https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg',
+    tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
+    createdAt: new Date('2020/05/23 19:30:00'),
+    updatedAt: new Date('2020/05/23 19:35:00'),
     isPublished: true,
   },
 };

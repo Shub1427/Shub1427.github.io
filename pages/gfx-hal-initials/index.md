@@ -138,6 +138,7 @@ export const displayWindow = halArchiveRecord['display-window'];
 export const devices = halArchiveRecord['physical-logical-devices'];
 export const commandBuffers = halArchiveRecord['command-buffers'];
 export const swapChain = halArchiveRecord['swap-chain'];
+export const shaders = halArchiveRecord['shaders'];
 
 * <Link href={displayWindow.link}>
     {displayWindow.title}
@@ -150,6 +151,9 @@ export const swapChain = halArchiveRecord['swap-chain'];
   </Link>
 * <Link href={swapChain.link}>
     {swapChain.title}
+  </Link>
+* <Link href={shaders.link}>
+    {shaders.title}
   </Link>
 
 </PolkaContainer>
