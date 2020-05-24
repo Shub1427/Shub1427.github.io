@@ -1,0 +1,6 @@
+Sitemap: https://willofindie.com/sitemap.xml
+
+User-agent: *
+Allow: /*
+
+Disallow:

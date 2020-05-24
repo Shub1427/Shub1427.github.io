@@ -28,7 +28,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
       'https://user-images.githubusercontent.com/11786283/82665354-47da6300-9c51-11ea-87c7-bb996eb79de1.jpg',
     tags: [Tags.RUST],
     createdAt: new Date('2020/05/22 17:25:00'),
-    updatedAt: new Date('2020/05/09 17:25:00'),
+    updatedAt: new Date('2020/05/22 17:25:00'),
     isPublished: true,
   },
   'performance-reactjs': {
