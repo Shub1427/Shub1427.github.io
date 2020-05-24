@@ -5,7 +5,7 @@
                 gtag('config', 'UA-113155919-1', {
                   page_path: window.location.pathname,
                 });
-              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Shaders"/><meta name="twitter:description" content="What are shaders and how to use them with gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="Shaders"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/shaders"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/23"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Shaders</title><meta name="description" content="What are shaders and how to use them with gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/shaders.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Shaders"/><meta name="twitter:description" content="What are shaders and how to use them with gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="Shaders"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/shaders"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/23"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Shaders</title><meta name="description" content="What are shaders and how to use them with gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/iP9Vklx2zvosguAkRsiRK/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/iP9Vklx2zvosguAkRsiRK/pages/gfx-hal-initials/shaders.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7bfb1bff810d920eea7d4ab45ceabaf28c208411.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/469b18b40f18e890ded7b82c2aa7deaeb16abfd1.0c8a210ab239946a2643.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,6 +66,92 @@ body::backdrop {
 }
 .MuiSvgIcon-fontSizeLarge {
   font-size: 2.1875rem;
+}
+.MuiPaper-root {
+  color: rgba(0, 0, 0, 0.87);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: #fff;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-outlined {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.MuiPaper-elevation0 {
+  box-shadow: none;
+}
+.MuiPaper-elevation1 {
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation2 {
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation3 {
+  box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation4 {
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation5 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation6 {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation7 {
+  box-shadow: 0px 4px 5px -2px rgba(0,0,0,0.2),0px 7px 10px 1px rgba(0,0,0,0.14),0px 2px 16px 1px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation9 {
+  box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.2),0px 9px 12px 1px rgba(0,0,0,0.14),0px 3px 16px 2px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation10 {
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2),0px 10px 14px 1px rgba(0,0,0,0.14),0px 4px 18px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation11 {
+  box-shadow: 0px 6px 7px -4px rgba(0,0,0,0.2),0px 11px 15px 1px rgba(0,0,0,0.14),0px 4px 20px 3px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation12 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 12px 17px 2px rgba(0,0,0,0.14),0px 5px 22px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation13 {
+  box-shadow: 0px 7px 8px -4px rgba(0,0,0,0.2),0px 13px 19px 2px rgba(0,0,0,0.14),0px 5px 24px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation14 {
+  box-shadow: 0px 7px 9px -4px rgba(0,0,0,0.2),0px 14px 21px 2px rgba(0,0,0,0.14),0px 5px 26px 4px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation15 {
+  box-shadow: 0px 8px 9px -5px rgba(0,0,0,0.2),0px 15px 22px 2px rgba(0,0,0,0.14),0px 6px 28px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation16 {
+  box-shadow: 0px 8px 10px -5px rgba(0,0,0,0.2),0px 16px 24px 2px rgba(0,0,0,0.14),0px 6px 30px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation17 {
+  box-shadow: 0px 8px 11px -5px rgba(0,0,0,0.2),0px 17px 26px 2px rgba(0,0,0,0.14),0px 6px 32px 5px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation18 {
+  box-shadow: 0px 9px 11px -5px rgba(0,0,0,0.2),0px 18px 28px 2px rgba(0,0,0,0.14),0px 7px 34px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation19 {
+  box-shadow: 0px 9px 12px -6px rgba(0,0,0,0.2),0px 19px 29px 2px rgba(0,0,0,0.14),0px 7px 36px 6px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation20 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 20px 31px 3px rgba(0,0,0,0.14),0px 8px 38px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation21 {
+  box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.2),0px 21px 33px 3px rgba(0,0,0,0.14),0px 8px 40px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation22 {
+  box-shadow: 0px 10px 14px -6px rgba(0,0,0,0.2),0px 22px 35px 3px rgba(0,0,0,0.14),0px 8px 42px 7px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation23 {
+  box-shadow: 0px 11px 14px -7px rgba(0,0,0,0.2),0px 23px 36px 3px rgba(0,0,0,0.14),0px 9px 44px 8px rgba(0,0,0,0.12);
+}
+.MuiPaper-elevation24 {
+  box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
 }
 .MuiButtonBase-root {
   color: inherit;
@@ -543,6 +629,9 @@ body::backdrop {
   }
   .MuiButton-iconSizeLarge > *:first-child {
     font-size: 22px;
+  }
+  .MuiCard-root {
+    overflow: hidden;
   }
   .MuiIconButton-root {
     flex: 0 0 auto;
@@ -1175,13 +1264,80 @@ body::backdrop {
     flex-basis: 100%;
   }
 }
+  .MuiLink-underlineNone {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover {
+    text-decoration: none;
+  }
+  .MuiLink-underlineHover:hover {
+    text-decoration: underline;
+  }
+  .MuiLink-underlineAlways {
+    text-decoration: underline;
+  }
+  .MuiLink-button {
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .MuiLink-button::-moz-focus-inner {
+    border-style: none;
+  }
+  .MuiLink-button.Mui-focusVisible {
+    outline: auto;
+  }
+  .jss69 {
+    color: #444;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    word-spacing: 3px;
+  }
+  .jss69 + .jss69, ol + .jss69, ul + .jss69 {
+    margin-top: 32px;
+  }
+  .jss77 {
+    color: #888;
+    margin: 12px 0;
+    padding: 16px 8px;
+    background: #f2f2f2;
+    font-weight: 400;
+  }
+  .jss77 > p, .jss77 > ul, .jss77 > ol, .jss77 > div {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+  p + .jss77, .jss77 + .jss77 {
+    margin-top: 32px;
+  }
+  .jss78 {
+    border-left: 12px solid #64b5f6;
+  }
+  .jss79 {
+    border-left: 12px solid #ffd54f;
+  }
+  .jss80 {
+    border-left: 12px solid #ef5350;
+  }
   .jss10 {
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: flex-end;
   }
-  .jss69 {
+  .jss111 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1190,53 +1346,53 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss69 {
+  .jss111 {
     flex-direction: column;
   }
 }
-  .jss70 {
+  .jss112 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss70 {
+  .jss112 {
     margin-bottom: 16px;
   }
 }
-  .jss71 {
+  .jss113 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss72 {
+  .jss114 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss72+.jss72 {
+  .jss114+.jss114 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss73 {
+  .jss115 {
     color: #fff;
     background: #444;
   }
-  .jss73:hover, .jss73focus, .jss73:active {
+  .jss115:hover, .jss115focus, .jss115:active {
     background: #333;
   }
-  .jss74 {
+  .jss116 {
     color: #fff;
     background: #4361b3;
   }
-  .jss74:hover, .jss74focus, .jss74:active {
+  .jss116:hover, .jss116focus, .jss116:active {
     background: #254395;
   }
-  .jss75 {
+  .jss117 {
     color: #fff;
     background: #4fafed;
   }
-  .jss75:hover, .jss75focus, .jss75:active {
+  .jss117:hover, .jss117focus, .jss117:active {
     background: #3191CF;
   }
   .jss1 {
@@ -1273,4 +1429,29 @@ body::backdrop {
   }
   .jss35 {
     font-weight: 600;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Shaders</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">23 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">0<!-- --> min read</p></div></div><div class="MuiGrid-root jss69 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss70 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss71 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss72"></span><span class="jss72"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss75 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/shaders - Shaders"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss72"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss74 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/shaders","query":{},"buildId":"2lv56kGyXPeBa0JHJyD_i","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/shaders" src="/_next/static/2lv56kGyXPeBa0JHJyD_i/pages/gfx-hal-initials/shaders.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7fc00c7729b155ef0973325bb27908352e7a99a4.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/c120511ef2b9f02b3873ca9f644bbbcddcd34bc2.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_buildManifest.js" async=""></script><script src="/_next/static/2lv56kGyXPeBa0JHJyD_i/_ssgManifest.js" async=""></script></body></html>
+  }
+  .jss110 {
+    color: #222;
+    margin: 48px 0 16px;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+  }
+  .jss76 {
+    color: #933;
+    margin: 0 2px;
+    padding: 1px 8px;
+    background: rgba(0, 0, 0, 0.05);
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">Shaders</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">23 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">2<!-- --> min read</p></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Shaders are pixel manipulation tools. To create shaders, we
+use some kind of
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://en.wikipedia.org/wiki/Shading_language">Shading Language</a>.</p><p class="MuiTypography-root jss69 MuiTypography-body1">If you have no prior knowledge on Shaders, I would recommend
+to <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://gamedevelopment.tutsplus.com/tutorials/a-beginners-guide-to-coding-graphics-shaders--cms-23313">read this post</a> once.</p><p class="MuiTypography-root jss69 MuiTypography-body1">We would be using <code class="jss76">GLSL</code> as our Shading Language in
+our Demo.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Before moving forward, we should know what
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.khronos.org/registry/spir-v/specs/unified1/SPIRV.html">SPIR-V</a>
+is!!! SPIR-V is an intermediate language defined by Khronos
+Group for Vulkan. It is the language that Vulkan understands
+and thus <code class="jss76">gfx-hal</code> too. So to work with shaders in <code class="jss76">gfx-hal</code>
+we can use any Shading Language, but we need to first
+convert those Shader Code into SPIR-V format and then
+can we use it directly in <code class="jss76">gfx-hal</code>.</p><div class="MuiPaper-root MuiCard-root jss77 jss79 MuiPaper-elevation0 MuiPaper-rounded">Currently Rust does not have any native module to support JIT compilation of any Shading Language to SPIR-V. Thus, currently setting up Shaders in Rust is quite difficult.<br/><br/>There is an ongoing discussion for this on <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/rust-gamedev/wg/issues/23" target="_blank" rel="noopener noreferrer">rust-gamedev working group</a>, but is far from any conclusion.<br/><br/>There are ways to work with shaders in<code class="jss76">gfx-hal</code>, but they are quite complex to setup.<br/><br/>Easiest way is to pre-compile your <code class="jss76">GLSL</code>or <code class="jss76">HLSL</code> code to SPIR-V format and use that directly in <code class="jss76">gfx-hal</code>.<br/><br/>To get a JIT compilation in native Rust, we will have to wait. Currently there is an ongoing project in<code class="jss76">gfx</code> community, named <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/gfx-rs/naga" target="_blank" rel="noopener noreferrer">naga</a>, to support cross-platform, multi Shader Languages all in pure Rust.<br/><br/><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://github.com/gfx-rs/naga/pull/50" target="_blank" rel="noopener noreferrer">GLSL support is on it&#x27;s way</a></div><p class="MuiTypography-root jss69 MuiTypography-body1">Details on <code class="jss76">naga</code>, can be found
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://gfx-rs.github.io/2019/07/13/javelin.html">here</a></p><h4 class="MuiTypography-root jss110 MuiTypography-h4">Pre Compilation of GLSL Shaders</h4><div class="MuiGrid-root jss111 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss112 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss113 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss114"></span><span class="jss114"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss117 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/shaders - Shaders"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss114"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss116 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/shaders","query":{},"buildId":"iP9Vklx2zvosguAkRsiRK","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/iP9Vklx2zvosguAkRsiRK/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/shaders" src="/_next/static/iP9Vklx2zvosguAkRsiRK/pages/gfx-hal-initials/shaders.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7bfb1bff810d920eea7d4ab45ceabaf28c208411.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/469b18b40f18e890ded7b82c2aa7deaeb16abfd1.0c8a210ab239946a2643.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/iP9Vklx2zvosguAkRsiRK/_buildManifest.js" async=""></script><script src="/_next/static/iP9Vklx2zvosguAkRsiRK/_ssgManifest.js" async=""></script></body></html>
