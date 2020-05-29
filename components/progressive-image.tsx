@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: '32px 0',
   },
   image: {
-    maxWidth: '100%',
-    maxHeight: '100%',
+    width: '100%',
     filter: 'blur(0)',
     transition: '0.3s ease-out',
   },
@@ -35,12 +34,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   zoomWrapper: {
     position: 'absolute',
-    zIndex: 100,
     top: '-2.5rem',
     right: 0,
   },
   zoomWrapperZoomed: {
     top: '-1rem',
+    zIndex: 100,
   },
   blur: {
     filter: 'blur(3px)',
@@ -146,7 +145,7 @@ export default function Image(props: IImageProps) {
       }}
     >
       {({ zoomIn, zoomOut }: any) => (
-        <>
+        <div>
           {state.isZoomed && (
             <div className={classes.backdrop} onClick={handleZoom} />
           )}
@@ -202,7 +201,7 @@ export default function Image(props: IImageProps) {
               </div>
             )}
           </div>
-        </>
+        </div>
       )}
     </TransformWrapper>
   );
