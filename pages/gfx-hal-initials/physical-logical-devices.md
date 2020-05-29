@@ -7,7 +7,7 @@ export const prevRecord = halArchiveRecord['display-window'];
 <PolkaContainer
   pageTitle={record.title}
   pageDescription={record.description}
-  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'Physical Device', 'Logical Device', 'gfx-hal']}
+  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'Physical Device', 'Logical Device', 'Learn', 'Device Queue']}
   publishDate={record.createdAt}
   ogImage={record.ogImage}
 >
@@ -23,90 +23,104 @@ export const prevRecord = halArchiveRecord['display-window'];
 
 ## What is a Device
 
-* **Physical Device** - denotes to actual Hardware device present
-  in your Computer. There could be, that has Device details
-  as elements. Each item pointing to the GPU hardware you
+* **Physical Device** - represents an actual Hardware device present
+  in your Computer. It normally contains details on your GPU
+  device and APIs to create a Logical Device. Each item pointing to the GPU hardware you
   have. So, if we have Single NVidia GPU, we will get a
   single item, which we can `open` and later on use as
-  _Logical Device_ where command buffers are passed.
-* **Logical Device** - Basically it is a representation of
-  Physical device, that the application will use
-  to compute their logic. In `gfx-hal` to get logical device,
+  _Logical Device_.
+* **Logical Device** - Basically it is a application interface
+  to communicate with our GPU. In `gfx-hal` to get logical device,
   you need to open `physical_device`.
-  (Details discussed at later).
 
-## Physical Device:
+*Details discussed later.*
 
-### Getting Adapters from Instance
+## Instantiating Adapters, Logical Device and Device Queue Group
+
+In GPU there is not direct relation to Physical Device,
+instead `gfx-hal` provides us API to get Adapter instance,
+which has Physical Device instance and various Queue family
+details.
 
 I hope you have already read details on how to get reference
-of <Link href={`${prevRecord.link}`}>gfx-hal Instance and it's Surface</Link>. If not, please read it once before continuing.
+of <Link href={`${prevRecord.link}`}>gfx-hal Instance and it's Surface</Link>.
+If not, please read it once before continuing.
 
-We would get a list of `adapters` from `instance`, which will
-contain details on Physical Devices present on our system.
+We would get a list of `adapters` from `instance`.
 
-Before that, we need to create our Structure for Adapter
-State.
+We need to update our `Renderer` struct and it's implementation
+a bit for this.
 
 ```rs
-struct AdapterState<B: Backend> {
-    adapter: Option<Adapter<B>>,
-    memory_types: Vec<MemoryType>,
-    limits: Limits,
+struct Renderer<B: Backend> {
+    ...
+    // Device Adpter, containing Physical and Queue details
+    adapter: Adapter<B>,
+    // Logical Device object
+    device: B::Device,
+    // Queue Group for rendering reference
+    queue_group: family::QueueGroup<B>,
 }
 
-impl<B: Backend> AdapterState<B> {
-    fn new(adapters: &mut Vec<Adapter<B>>) -> Self {
-        // In my system, I have just one GPU Physical adapter, thus
-        // will only work with first instance.
-        let adapter = adapters.remove(0);
+impl<B: Backend> Renderer<B> {
+    fn new(instance: B::Instance, surface: B::Surface) -> Self {
+        let mut adapters = instance.enumerate_adapters();
+        let (memory_types, limits, adapter) = {
+            let adapter = adapters.remove(0);
+            (
+                adapter.physical_device.memory_properties().memory_types,
+                adapter.physical_device.limits(),
+                adapter,
+            )
+        };
 
-        Self {
-            memory_types: adapter.physical_device.memory_properties().memory_types,
-            limits: adapter.physical_device.limits(),
-            adapter: Some(adapter),
+        let (device, queue_group, supported_family) = {
+            let supported_family = adapter.queue_families.iter()
+                .find(|family| {
+                    surface.supports_queue_family(family) && family.queue_type().supports_graphics()
+                })
+                .unwrap();
+
+            let mut gpu = unsafe {
+                adapter.physical_device
+                    .open(&[(supported_family, &[1.0])], Features::empty())
+                    .unwrap()
+            };
+
+            (
+                gpu.device,
+                gpu.queue_groups.pop().unwrap(),
+                supported_family,
+            )
+        };
+
+        Renderer {
+            ...
+            adapter,
+            device,
+            queue_group,
         }
     }
 }
+...
 ```
 
-You can assume `AdapterState` as a state, that maintains Physical Device instance,
-and can be later on used to get device details, or get Logical Device instance and more.
-_Details on Memory Type and GPU limits, will be discussed later._
+### Code Breakdown
 
-We need to add this to `BackendState` as well,
-so as to later on use it for other things.
+* `enumerate_adapters` is used to get a list of available adapters,
+  each containing one Physical Device resource in it. From collection
+  of adapters we can get the `adapter` that we need.
+* Getting `supported_family` from a list of Queue Families that our
+  GPU supports. We will discuss on Queues and Queue Families later
+  in this Chapter, for now just understand that `supported_family`
+  is a Family of Queues that will understand the Instructions
+  we want to run on GPU.
+* Physical Device resource uses `supported_family` to get
+  supported Logical Device and Queue Groups (details will be
+  discussed later). `Features::empty()` denotes that we want
+  default features enabled for Logical Device.
 
-<Diff lang="rs" addedLineNumbers={[4,5,15,20]} removedLineNumbers={[]} hideLines>{`// main.rs
-struct BackendState<B: Backend> {
-  ...
-  // Vulkan backend surface object
-  adapterState: AdapterState<B>,
-  ...
-}
-...
-fn create_backend(
-    wb: window::WindowBuilder,
-    ev_loop: &event_loop::EventLoop<()>,
-    extent: hal_window::Extent2D,
-) -> BackendState<back::Backend> {
-    ...
-    let mut adapters = instance.enumerate_adapters();
-    ...
-    BackendState {
-        instance: Some(instance),
-        surface: ManuallyDrop::new(surface),
-        adapterState: AdapterState::new(&mut adapters),
-        window,
-    }
-}
-`}</Diff>
-
-As you can see, we need to `enumerate_adapters` to get a list of all available
-GpU devices on the system. These device instances could point an Integrated GPU,
-Discrete GPU (Could be internal, or external).
-
-### What details does an `Adapter` has
+## What details does an `Adapter` has
 
 <Blockquote type="warn">
   Following are not a complete list of Adapter properties. They mostly
@@ -144,7 +158,7 @@ GPU limits is also self explanatory. It gives us a struct containing details on
 GPU Memory, Concurrency etc. limits.
 
 ```ts
-// Memory Types
+// Memory Types: `adapter.physical_device.memory_properties().memory_types`
 [
     MemoryType {
         properties: DEVICE_LOCAL,
@@ -158,9 +172,9 @@ GPU Memory, Concurrency etc. limits.
 ]
 ```
 
-Memory Types are just a collection of GPU supported Memory Details(could be CPU or Local).
-It just helps us to figure our what type of memory GPU supports and when to use which,
-if GPU has the support for it.
+I won't comment too much on `MemoryType`s, as details on
+`DEVICE_LOCAL` or `CPU_VISIBLE` MemoryTypes is unknown to me
+as well at this point of time.
 
 > **Direct Quote from gfx-hal examples**
 >
@@ -171,9 +185,14 @@ if GPU has the support for it.
 > *frequently, you should instead use a DEVICE_LOCAL buffer that gets filled by*
 > *copying data from a CPU_VISIBLE staging buffer.*
 
-I can understand if things are getting too intense. Be patient, and force yourself to
-complete the whole tutorial. Ultimately the results will be awesome. Once we are done
-showing graphics on Window, everything here will make sense.
+From above quote, I can get that memory_types are used to create
+specific types of Buffers, that are efficient in some places
+and not in the others.
+
+> I can understand if things are getting too intense. Be patient,
+> and force yourself to complete the whole tutorial.
+> Ultimately the results will be awesome. Once we are done
+> showing graphics on Window, everything here will make sense.
 
 ***
 
@@ -187,21 +206,27 @@ of actual physical device.
 Basically, Physical device (like NVidia GPU) can be used for various things like,
 Games, Graphics Rendering, Data Mining, Machine Learning etc. This vast
 range of use-cases is possible in GPU only due to it's support for both,
-CPU intensive tasks, as well as GPU intensive tasks. For us, we are currently
+CPU intensive tasks (tasks that do single operation, but benefit with GPU's
+abundant number of cores for parallel operations),
+as well as GPU intensive tasks. For us, we are currently
 looking for a Device Capability specific to Graphics intensive task.
 
 Thus Logical Device is a representation of Physical Device, which has
-support for specific capabilities, that it will be working on for the
+support for specific capabilities (thus we used `supported_family`
+to open a Logical Device), that it will be working on for the
 time App will be running.
 
-Logical Devices are used to create and manage different resources, like buffers, shader programs and textures.
+Logical Devices are used to create and manage different resources,
+like buffers, shader programs and textures.
 
-### Device Queues & Queue Families
+## Device Queues & Queue Families
 
 **What are Device Queues anyways??**
-As the name suggests, it's just a queue, that Vulkan API creates according to App's
-requirements. We can use this queue to synchronously or parallelly process graphics
-commands. It acts as a link between our app render commands and surface draws.
+As the name suggests, it's just a Queue.
+Every GPU driver provides us with Queues bound to it's
+hardware, which can take Commands from our application
+and process it parallelly.
+Thus, we use queues to parallelly process graphics commands.
 
 **What are Queues Families anyways??**
 Queue Families are a collection of support details for a GPU.
@@ -210,61 +235,21 @@ can really handle, like handling CPU compute operations,
 I/O transfer operations, GPU graphics/render operations etc.
 If all of them are supported by our GPU, then we need
 to make a choice between various queue families to decide on
-what particular operations we want to do via this Logical
+what particular operations we want to do via our Logical
 Device anytime.
 
-Cool! Now let's move forward towards some actual code example.
+Cool! Let's now discuss our above Code example the.
 
-We need to get two main instances out of `adapter` we previously got from Hal Instance.
+Getting a `supported_family` was crucial, because that helped us
+to get a specific Logical Device (`gpu.device`) and Queue groups
+(`gpu.queue_groups`). Supported Family defines, what kind of
+operation we want to perform using the device and queues.
 
-* Logical Device that has specific GPU features enabled
-  (for us that would be GPU intensive tasks).
-* Supported Device Queue from Queue Groups
-
-```rs.true
-struct DeviceState<B: Backend> {
-    device: B::Device,
-    queues: QueueGroup<B>,
-}
-
-impl<B: Backend> DeviceState<B> {
-    fn new(adapter: Adapter<B>, surface: &B::Surface) -> Self {
-        let supported_family = adapter
-            .queue_families
-            .iter()
-            .find(|family| {
-                surface.supports_queue_family(family) && family.queue_type().supports_graphics()
-            })
-            .unwrap();
-
-        let mut gpu = unsafe {
-            adapter
-                .physical_device
-                .open(&[(supported_family, &[1.0])], Features::empty())
-                .unwrap()
-        };
-
-        Self {
-            device: gpu.device,
-            queues: gpu.queue_groups.pop().unwrap(),
-        }
-    }
-}
-```
-
-Defining `supported_family` (lines _8-14_), you can see that we are trying to
-get a `queue_family`, where:
-
-* The family is supported by the current gpu `surface`, meaning is compatible to pass
-  commands to current window `surface`.
-* Secondly, should support graphics commands.
-
-Once we figure out the supported queue family, we then need to get it's
-respective Logical Device instance, and actual `queues` that will keep hold of
-our commands from a _Command Buffer_. This is done from lines _16-26_.
+Queue Groups will be later on used to get `queues` that
+will keep hold of our commands from a _Command Buffer_.
 
 > **Note:** Opening a Physical Device instance to get Logical Device instance
-> is `unsafe` in nature. Thus that code-block is wrapped inside `unsafe {}` block.
+> is `unsafe` in nature. Thus that code-block was wrapped inside `unsafe {}` block.
 >
 > To get details on `unsafe` usage, read [Rust Nomicon](https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html)
 
@@ -274,8 +259,8 @@ Logical Device representation is quite complex, so I won't describe it here.
 Better to read [Device Docs](https://docs.rs/gfx-hal/0.5.0/gfx_hal/device/trait.Device.html),
 and understand how to use it's apis.
 
-Queue Families are basically collection of supported Queue types,
-for current Surface for the GPU.
+Queue Families are basically collection of details on supported
+Queue Groups in a GPU.
 
 (Since I was using MacOS) I got `supported_family` as shown below:
 
@@ -289,10 +274,11 @@ where if you see the family id, that points to the first Queue group, in
 `gpu.queue_groups`, which contains the supported queues for creating and
 managing different resources.
 
-Above representation of Queue Family is very different than actual
+Above representation is for `Metal` GPU driver in MacOS,
+which is very different than actual
 Vulkan Queue Family, which you can see in any Linux OS.
 
-Do not get confused with the following log,
+Do not get confused with the above log,
 as it differs from system to system.
 Following is a representation of all `adapter.queue_families`
 (on Linux for Vulkan Backend).
@@ -339,5 +325,11 @@ For a detailed explanation on Queue Family, see this [Stackoverflow thread](http
 
 You can find the full code for this Doc,
 here [002-enumerate_devices](https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/002-enumerate_devices/main.rs)
+
+To run that code:
+
+`cargo run --bin enumerate_devices --features=metal`
+
+*We don't have any change in the output in this Chapter.*
 
 </PolkaContainer>
