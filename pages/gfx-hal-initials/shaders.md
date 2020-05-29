@@ -1,4 +1,4 @@
-import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+import { halArchiveRecord, size } from '@constants/gfx-hal-archive-list';
 import { archiveRecord } from '@constants/archive-list';
 import { rustArchiveRecord } from '@constants/rust-reference-list';
 
@@ -13,7 +13,7 @@ export const record = halArchiveRecord['shaders'];
 >
 
 <H1 updatedAt={record.updatedAt}>
-  {record.title}
+  T-{`${size - 5}`}: {record.title}
 </H1>
 
 Shaders are pixel manipulation tools. To create shaders, we

@@ -1,4 +1,4 @@
-import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+import { halArchiveRecord, size } from '@constants/gfx-hal-archive-list';
 import { archiveRecord } from '@constants/archive-list';
 
 export const record = halArchiveRecord['command-buffers'];
@@ -13,7 +13,7 @@ export const clientUploadRecord = archiveRecord['upload-client-logs'];
 >
 
 <H1 updatedAt={record.updatedAt}>
-  {record.title}
+  T-{`${size - 4}`}: {record.title}
 </H1>
 
 > This doc is mostly theoretical, where

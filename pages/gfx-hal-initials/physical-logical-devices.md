@@ -1,4 +1,4 @@
-import { halArchiveRecord } from '@constants/gfx-hal-archive-list';
+import { halArchiveRecord, size } from '@constants/gfx-hal-archive-list';
 
 export const record = halArchiveRecord['physical-logical-devices'];
 
@@ -13,7 +13,7 @@ export const prevRecord = halArchiveRecord['display-window'];
 >
 
 <H1 updatedAt={record.updatedAt}>
-  {record.title}
+  T-{`${size - 2}`}: {record.title}
 </H1>
 
 <Image alt="Get Physical Device from Backend to Logical Devices" src="https://user-images.githubusercontent.com/11786283/82109324-a8016e80-9752-11ea-89ba-677880ada6b1.png" placeholder="https://user-images.githubusercontent.com/11786283/82109811-ac2f8b00-9756-11ea-88db-3cbc70ee1350.png" />
