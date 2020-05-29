@@ -25,7 +25,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
       'https://user-images.githubusercontent.com/11786283/82111231-485e8f80-9761-11ea-9f21-8843d4a66752.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/16 8:45:00'),
-    updatedAt: new Date('2020/05/16 19:30:00'),
+    updatedAt: new Date('2020/05/29 9:25:00'),
     isPublished: true,
   },
   'swap-chain': {

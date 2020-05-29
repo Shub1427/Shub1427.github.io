@@ -12,8 +12,6 @@ export const rustBasicsRecord = rustArchiveRecord['rust-cargo-basics'];
   ogImage={record.ogImage}
 >
 
-export const temp = console.log(':: Hal Size ::', size);
-
 <H1 updatedAt={record.updatedAt}>
   T-{`${size - 1}`}: {record.title}
 </H1>

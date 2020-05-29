@@ -86,7 +86,6 @@ const shareLink = async (props: IFixedNavbarProps & { navigator: any }) => {
         text: `Check out ${props.text}`,
         url: props.url,
       }));
-    console.log('Successful share');
   } catch (error) {
     console.log('Error sharing', error);
   }
