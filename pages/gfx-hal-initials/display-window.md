@@ -27,7 +27,7 @@ multiple graphics backends to make our code cross-platform compatible.
 
 ## Project Setup
 
-Setting up project is very simple in any Rust codebase.
+Setting up a project is very simple in any Rust codebase.
 We just need to run: <br /> `cargo new {{project_name}}`
 
 We will be needing some essential modules as our project
@@ -67,7 +67,7 @@ optional = true
 
 #### [features]
 
-We are focusing only for 3 main platforms for now:
+We are focusing only on 3 main platforms for now:
 
 * Linux
 * MacOS
@@ -77,21 +77,21 @@ Thus, we require 3 different modules for each. `gfx-backend-vulkan`
 for Linux/Windows, `gfx-backend-metal` for MacOS, `gfx-backend-dx12`
 for Windows.
 
-Details on how Rust Cargo `features` work, can be read
+Details on how Rust Cargo `features` work can be read
 in <Link href={rustBasicsRecord.link}>Rust &amp; Cargo basics</Link>.
 
 #### [dependencies]
 
-Well this section is quite clear:
+Well, this section is quite clear:
 
-* `winit` is used for Cross Platform Windowing Provider.
-* `gfx-hal` is used for Cross Platform GPU Abstraction Layer Provider.
-* `log` and `log4rs` combined provides us Logging Implementation
-  in our project, since we will not be using `println!` macro.
+* `winit` is used for Cross-Platform Windowing Provider.
+* `gfx-hal` is used for Cross-Platform GPU Abstraction Layer Provider.
+* `log` and `log4rs` combined provide us Logging Implementation
+  in our project since we will not be using `println!` macro.
 
-**[dependencies.{{feature}}]** are the dependencies which will
-be installed conditionally depending on user's Operating System.
-We need to always run our project with any one of the features
+**[dependencies.{{feature}}]** are the dependencies that will
+be installed conditionally depending on the user's Operating System.
+We need to always run our project with one of the features
 enabled.
 
 ### Code Setup
@@ -136,11 +136,11 @@ fn main() {
 }
 ```
 
-Above code is our base structure, moving forward. We will do
+The above code is our base structure, moving forward. We will do
 very little work in `fn main()` which includes making our
 application up and running (also running the main Event Loop).
 The heart of the whole application will lie within `struct Renderer`
-and all it's implementations (Do note, in a real world project
+and all it's implementations (Do note, in a real-world project
 you should properly plan and structure your application).
 
 **Lines 10-15**: are conditional imports, depending on
@@ -167,12 +167,12 @@ to import them as well at *Line-17*.
 
 ## `gfx-hal` Backend
 
-<Image alt="GFX Hal Backends" src="https://user-images.githubusercontent.com/11786283/77244047-03255200-6c37-11ea-885d-2d8b981bb8a8.png" placeholder="https://user-images.githubusercontent.com/11786283/80305177-eb626000-87d8-11ea-9d40-0a632affdd2f.png" />
+<Image alt="GFX Hal Backends" src="https://user-images.githubusercontent.com/11786283/83277422-a70b1b00-a1ef-11ea-8f3e-c0254e40c203.png" placeholder="https://user-images.githubusercontent.com/11786283/83277585-ed607a00-a1ef-11ea-803c-5df40055ecf8.png" />
 
 Backends are specific to what GPU you have and what specs it supports.
 
-Vulkan Backend is cross-compatible and has support in Linux/Windows, on AMD, Intel, NVidia etc.
-> Apple stays out, and I hate this thing about it, it doesn't support Vulkan, and has specific
+Vulkan Backend is cross-compatible and has support in Linux/Windows, on AMD, Intel, NVidia, etc.
+> Apple stays out, and I hate this thing about it, it doesn't support Vulkan and has specific
 > graphics backend called `Metal`. Though `gfx-hal` has `metal` backend as well and since I am using
 > Mac (Yeah! Now don't come and bash me, can't use my Linux system a.t.m.), it would be a good
 > way to know the support of `gfx-hal` for MacOS as well.
@@ -190,13 +190,13 @@ using `gfx-hal` library, which is a wrapper over Vulkan Specs.
 
 * **Application**: this whole project is the Application.
 * **Loader**: here refers to `gfx-hal` and `gfx-backend-vulkan` libraries. An instance of
-  `gfx-backend-vulkan` initializes a Loader. Creating an instance, initializes the loader.
-* **Layers**: is something advanced, and am not sure when or if I will talk about it at-all.
+  `gfx-backend-vulkan` initializes a Loader. Creating an instance initializes the loader.
+* **Layers**: is something advanced, and am not sure when or if I will talk about it at all.
 
 ### Structure
 
-Following structure is the minimal one, without Pipelines,
-Descriptors, Depth/Uniform Buffers, Shaders and more (we will
+The following structure is the minimal one, without Pipelines,
+Descriptors, Depth/Uniform Buffers, Shaders, and more (we will
 re-define our structure in some later chapter).
 
 First few chapters we will be rushing towards understanding
@@ -219,7 +219,7 @@ impl impl<B: Backend> Renderer<B> {
          *  * Get Devices and Device Queues and Supported Family
          *  * Setup Swapchain
          *  * Initialize Render Pass
-         *  * Create Command Pool and Get Command Buffers from them
+         *  * Create Command Pool and get Command Buffers from them
          *  * Initialize Synchronization Primitives
          */
         Renderer {}
@@ -227,7 +227,7 @@ impl impl<B: Backend> Renderer<B> {
 
     fn draw() {
       /**
-       * Draw calls are basically required to update our Window Frames, respective to OS's refresh rate.
+       * Draw calls are required to update our Window Frames, respective to OS's refresh rate.
        *
        * Thus we need the following:
        *  * Update our Current Frame Index, to keep a check on which frame we are.
@@ -241,7 +241,7 @@ impl impl<B: Backend> Renderer<B> {
        *  * Unlock processes
        *
        * (Semaphore and Fence) Locking/Unlocking processes run in parallel, so above sequence
-       * will differ when actually implemented.
+       * will differ when implemented.
        */
     }
 }
@@ -269,7 +269,7 @@ fn main() -> Result<(), &'static str> {
 ```
 
 ## Creating OS Window
-Now let's come back to our code. In real world, to draw
+Now let's come back to our code. In real-world, to draw
 anything we need a canvas, right. Similarly, in
 Computer Graphics to draw anything, we need an OS Window.
 Later we will be binding this OS Window with GPU `surface`
@@ -283,7 +283,7 @@ cross-platform. It requires two major steps to display a blank window:
   it's all GPU capabilities), and listen to user events.
 
 <Blockquote type="warn">
-  How or When re-renders happen, is all very low level details,
+  How or When re-renders happen, is all very low-level details,
   which I don't have much context on right now.
 </Blockquote>
 
@@ -342,14 +342,15 @@ fn build_window(
 
 Everything in the above code is quite simple and
 self-explanatory. The only thing that is confusing is, why
-do we have two device sizes. Best explanation can be found
-[here in `winit` docs](https://docs.rs/winit/0.22.1/winit/dpi/index.html), but in short they are just two different size
+do we have two device sizes. The best explanation can be found
+[here in `winit` docs](https://docs.rs/winit/0.22.1/winit/dpi/index.html),
+but in short, they are just two different size
 instances. One (the `LogicalSize`) is Human understandable,
 i.e., what you ask for is what you get. The other one
 (`PhysicalDevice`) is something specific to OS and hardware,
 where each Computer System might have a different Screen
 display ratio (also known as DPI or PPI), defining how a 720 sized
-Logical window we defined will actually be presented on real
+Logical window we defined will be presented on real
 Screen, calculating the pixel ratio per inch and stuff.
 
 `window` instance, which
@@ -357,7 +358,7 @@ is nothing but `winit`'s Window instance, is built by the
 `WindowBuilder` we instantiated earlier. This `window` will
 be used by `surface` to bind them together.
 
-*We will discuss on Event Loop in later section.*
+*We will discuss the Event Loop in a later section.*
 
 
 ## Vulkan Instance & Surface instance creation
@@ -399,15 +400,15 @@ fn main() {
 }
 `}</Diff>
 
-Above code will give us instances of Vulkan Instance and Surface,
+The above code will give us instances of Vulkan Instance and Surface,
 but we need them in `Renderer` struct as well for later reference.
 
 Thus we need to update our `Renderer` struct as well.
 
-**Details on above code:**
+**Details on the above code:**
 
-> We will discuss about `extent` in other chapter in detail,
-> but in short extent will help us to keep window dimension
+> We will discuss about `extent` in another chapter in detail,
+> but in short, `extent` will help us to keep window dimension
 > details.
 
 
@@ -419,11 +420,11 @@ currently unknown to me.
 
 `instance` is used to create `surface`. Vulkan requires a
 canvas or `surface` to draw things into and a `surface` can
-only exist inside a OS App Window. Usually we use a 3rd-party
+only exist inside an OS App Window. Usually, we use a 3rd-party
 module to create OS specific Window instances,
-like created one from `winit`.
+like we created one from `winit`.
 
-**One thing to note**: `gfx-hal` does not manage every peace of Memory,
+**One thing to note**: `gfx-hal` does not manage every piece of Memory,
 up here, like `surface` was created by us using `instance`, thus we
 need to manage such kind of resources, which needs to be cleared
 from memory before some other resources like `instance`.
@@ -469,8 +470,8 @@ fn main() {
 }
 `}</Diff>
 
-`ManuallyDrop` is a module which gives any developer a
-secure way to clear memory in Rust. Instead of `ManuallyDrop::drop`
+`ManuallyDrop` is a module that gives any developer a
+secure way to clear the memory in Rust. Instead of `ManuallyDrop::drop`
 we are using `ManuallyDrop::into_inner`, because we need to
 get the actual data from memory and pass it's ownership to
 Vulkan `instance` for destruction.
@@ -479,19 +480,19 @@ Vulkan `instance` for destruction.
 ## Bonus Round (Event Loop)
 
 Ok! We have already created `ev_loop` instance for `winit`,
-but we haven't really discussed about it properly. As the
+but we haven't discussed it properly. As the
 name suggests, it is the core of `winit`, used for starting the
 App and listening to User Events.
-We will discuss on Event Handling done inside the `run` loop,
+We will discuss Event Handling done inside the `run` loop,
 where we pass a [Closure](https://doc.rust-lang.org/book/ch13-01-closures.html), which will handle various user events,
-like *Keyboard*, *Joystick*, *Mouse* events etc.
+like *Keyboard*, *Joystick*, *Mouse* events, etc.
 
 <Blockquote type="warn">
   Do remember that a <Link href="https://doc.rust-lang.org/book/ch13-01-closures.html" target="_blank" rel="noopener noreferrer">Closure</Link>&nbsp;
   will completely get the ownership
   of any variables that are passed to it.
 
-  Even the `ev_loop` instance we created, will lose it's
+  Even the `ev_loop` instance we created, will lose its
   ownership after `ev_loop.run` call. This is the reason
   everything we have done till now is done inside `main`
   function to keep instance ownerships temporary.
@@ -517,7 +518,7 @@ fn main() {
                     }
                     event::WindowEvent::ScaleFactorChanged { new_inner_size, .. } => {
                         // Will get called whenever the screen scale factor (DPI) changes,
-                        // like when user move the Window from one less DPI monitor
+                        // like when the user move the Window from one less DPI monitor
                         // to other high scaled DPI Monitor.
                         debug!("Scale Factor Change");
                     }
@@ -542,9 +543,9 @@ fn main() {
 ```
 
 First things first, `ev_loop.run(|| => {})` starts our event
-loop, that actually takes a [closure](https://doc.rust-lang.org/book/ch13-01-closures.html),
+loop, which actually takes a [closure](https://doc.rust-lang.org/book/ch13-01-closures.html),
 thus we need to be a bit careful in using it. This was one of the reasons
-we instantiated everything inside main. Later on we will
+we instantiated everything inside `main`. Later on, we will
 do things inside `struct` `impl`s, but in this section, we have
 sone most of the work inside `main`.
 
@@ -552,7 +553,7 @@ Details on event listeners:
 
 * `CloseRequested` is used for listening close button click.
   Without this our Window won't Shutdown gracefully, we would
-  had to `SIGKILL` our app. We can also listen to Key presses, like `ESC`
+  have to `SIGKILL` our app. We can also listen to Key presses, like `ESC`
   to close the window, but we will cover that later.
 * `Resized` and `ScaleFactorChanged` are called when window is resized and
   when window's DPI changes (like when we move our window from a low DPI
@@ -560,9 +561,9 @@ Details on event listeners:
 * `MainEventsCleared`: If you are from **Android** background
   it resembles the `onMeasure` call, or if from **ReactJS**
   world it resembles the `shouldComponentUpdate` call. What I
-  mean is, this event is called just before any redraw,
+  mean is, this event is called just before any redraw
   and can be used to do calculations before drawing on window.
-  Also keep a note that if you want to redraw you need
+  Also, keep a note that if you want to redraw you need
   to call this `window.request_redraw()`, like we `return true`
   from `shouldComponentUpdate` to do a `render`.
 * `RedrawRequested`: this resembles **Android's** `onDraw`
@@ -572,8 +573,8 @@ Details on event listeners:
 * `RedrawEventsCleared`: this resembles **ReactJS**
   `componentDidUpdate` call, as this event gets triggered on
   each change after a redraw has happened. One thing to note,
-  *if there are no `RedrawRequested` events, it is emitted*
-  *immediately after `MainEventsCleared`.*
+  *if there are no `RedrawRequested` events, it is emitted
+  immediately after `MainEventsCleared`.*
 
 
 
