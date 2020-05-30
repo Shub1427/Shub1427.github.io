@@ -24,12 +24,13 @@ export const prevRecord = halArchiveRecord['display-window'];
 ## What is a Device
 
 * **Physical Device** - represents an actual Hardware device present
-  in your Computer. It normally contains details on your GPU
-  device and APIs to create a Logical Device. Each item pointing to the GPU hardware you
-  have. So, if we have Single NVidia GPU, we will get a
+  in your Computer. It usually contains details on your GPU
+  device and APIs to create a Logical Device. Each item points
+  to the GPU hardware you
+  have. So, if we have Single NVidia GPU, we get a
   single item, which we can `open` and later on use as a
   _Logical Device_.
-* **Logical Device** - Basically it is an application interface
+* **Logical Device** - Basically, it is an application interface
   to communicate with our GPU. In `gfx-hal` to get a logical device,
   you need to open `physical_device`.
 
@@ -37,8 +38,8 @@ export const prevRecord = halArchiveRecord['display-window'];
 
 ## Instantiating Adapters, Logical Device, and Device Queue Group
 
-In GPU there is no direct relation to Physical Device,
-instead `gfx-hal` provides us API to get Adapter instance,
+In GPU, there is no direct relation to Physical Device;
+instead, `gfx-hal` provides us API to get Adapter instance,
 which has Physical Device instance and various Queue family
 details.
 
@@ -48,7 +49,7 @@ If not, please read it once before continuing.
 
 We would get a list of `adapters` from an `instance`.
 
-We need to update our `Renderer` struct and it's implementation
+We need to update our `Renderer` struct, and it's implementation
 a bit for this.
 
 ```rs
@@ -111,12 +112,12 @@ impl<B: Backend> Renderer<B> {
   each containing one Physical Device resource in it. From the collection
   of adapters, we can get the `adapter` that we need.
 * Getting `supported_family` from a list of Queue Families that our
-  GPU supports. We will discuss on Queues and Queue Families later
-  in this Chapter, for now just understand that `supported_family`
-  is a Family of Queues that will understand the Instructions
+  GPU supports. Queues and Queue Families to be discussed later
+  in this Chapter, for now, understand that `supported_family`
+  is a Family of Queues that understands the Instructions
   we want to run on GPU.
 * Physical Device resource uses `supported_family` to get
-  supported Logical Device and Queue Groups (details will be
+  supported Logical Device and Queue Groups (details to be
   discussed later). `Features::empty()` denotes that we want
   default features enabled for Logical Device.
 
@@ -156,7 +157,7 @@ It basically gives us details on GPU Hardware.
 ```
 
 GPU limits are also self-explanatory. It gives us a struct
-containing details on GPU Memory, Concurrency, etc. limits.
+containing details on GPU Memory, Concurrency limits.
 
 ```ts
 // Memory Types: `adapter.physical_device.memory_properties().memory_types`
@@ -175,7 +176,7 @@ containing details on GPU Memory, Concurrency, etc. limits.
 
 I won't comment too much on `MemoryType`s, as details on
 `DEVICE_LOCAL` or `CPU_VISIBLE` MemoryTypes is unknown to me
-as well at this point in time.
+as well at this point.
 
 > **Direct Quote from gfx-hal examples**
 >
@@ -186,13 +187,13 @@ as well at this point in time.
 > *frequently, you should instead use a DEVICE_LOCAL buffer that gets filled by*
 > *copying data from a CPU_VISIBLE staging buffer.*
 
-From the above quote, I can get that memory_types are used to create
-specific types of Buffers, that are efficient in some places
+From the above Quote, I can get that memory_types are used to create
+specific types of buffers that are efficient in some places
 and not in the others.
 
-> I can understand if things are getting too intense. Be patient,
+> I can understand if things are getting too intense. Be patient
 > and force yourself to complete the whole tutorial.
-> Ultimately the results will be awesome. Once we are done
+> Ultimately the results will be excellent. Once we are done
 > showing graphics on the Window, everything here will make sense.
 
 ***
@@ -205,17 +206,17 @@ As you can see from the above image, a logical device is
 nothing but a representation of an actual physical device.
 
 Physical device (like NVidia GPU) can be used for various things like
-Games, Graphics Rendering, Data Mining, Machine Learning, etc. This vast
-range of use-cases is possible in GPU only due to its support for both,
+Games, Graphics Rendering, Data Mining, Machine Learning, and more. This vast
+range of use-cases is possible in GPU only due to its support for both
 CPU intensive tasks (tasks that do a single operation but benefit with GPU's
 abundant number of cores for parallel operations),
 as well as GPU intensive tasks. For us, we are currently
 looking for a Device Capability specific to Graphics intensive task.
 
 Thus Logical Device is a representation of Physical Device, which has
-support for specific capabilities (thus we used `supported_family`
-to open a Logical Device), that it will be working on for the
-time App will be running.
+support for specific capabilities (thus, we used `supported_family`
+to open a Logical Device) that it works on for the
+time App is running.
 
 Logical Devices are used to create and manage different resources,
 like buffers, shader programs, and textures.
@@ -227,36 +228,37 @@ As the name suggests, it's just a Queue.
 Every GPU driver provides us with Queues bound to its
 hardware, which can take Commands from our application
 and process it parallelly.
-Thus, we use queues to parallelly process graphics commands.
+Thus, we use queues to process graphics commands parallelly.
 
 **What are Queues Families anyways??**
 Queue Families are a collection of support details for a GPU.
 It points out what kind of work our GPU hardware
 can handle, like handling CPU compute operations,
-I/O transfer operations, GPU graphics/render operations, etc.
-If all of them are supported by our GPU, then we need
+I/O transfer operations, GPU graphics/render operations, and more.
+If our GPU supports all of them, then we need
 to choose between various queue families to decide on
 what particular operations we want to do via our Logical
 Device anytime.
 
 Cool! Let's now discuss our above Code example.
 
-Getting a `supported_family` was crucial because that helped us
-to get a specific Logical Device (`gpu.device`) and Queue groups
-(`gpu.queue_groups`). Supported Family defines, what kind of
+Getting a `supported_family` was crucial because it helped us
+get a specific Logical Device (`gpu.device`) and Queue groups
+(`gpu.queue_groups`). Supported Family defines what kind of
 operation we want to perform using the device and queues.
 
-Queue Groups will be later on used to get `queues` that
-will keep hold of our commands from a _Command Buffer_.
+Queue Groups are used to get `queues` that
+keep hold of our commands from a _Command Buffer_.
 
 > **Note:** Opening a Physical Device instance to get a Logical Device instance
 > is `unsafe`. Thus that code-block was wrapped inside `unsafe {}` block.
 >
-> To get details on `unsafe` usage, read [Rust Nomicon](https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html)
+> To get details on `unsafe` usage, read [Rust Nomicon](https://doc.rust-lang.org/nomicon/meet-safe-and-unsafe.html).
 
 ### How do they look internally:
 
-Logical Device representation is quite complex, so I won't describe it here.
+Logical Device representation is quite complex; thus,
+I won't describe it here.
 Better to read [Device Docs](https://docs.rs/gfx-hal/0.5.0/gfx_hal/device/trait.Device.html),
 and understand how to use its APIs.
 
@@ -279,7 +281,7 @@ The above representation is for `Metal` GPU driver in MacOS,
 which is very different than actual
 Vulkan Queue Family, which you can see in any Linux OS.
 
-Do not get confused with the above log,
+Please do not get confused with the above log,
 as it differs from system to system.
 Following is a representation of all `adapter.queue_families`
 (on Linux for Vulkan Backend).

@@ -16,26 +16,30 @@ export const rustBasicsRecord = rustArchiveRecord['rust-cargo-basics'];
   T-{`${size - 1}`}: {record.title}
 </H1>
 
-Vulkan is a very low-level spec, which intends to keep as less overhead of code as it can.
-`gfx-hal` is a library which closely resembles the Vulkan specs (not entirely though), to provide
-the developers with clean APIs, that are very similar to Vulkan specs. Also, `gfx-hal` provides
-multiple graphics backends to make our code cross-platform compatible.
+Vulkan is a very low-level spec that intends to keep as
+little code overhead as possible.
+`gfx-hal` is a library that closely resembles -
+though not entirely - the Vulkan spec. It's designed to
+provide developers with a clean Vulkan-like API. Also,
+`gfx-hal` provides multiple graphics backends to make our
+code cross-platform compatible.
 
-> Following is the **Project Setup**, which you can skip and directly
-> go to `Vulkan Instance and Surface` section for getting
-> a heads up on Vulkan Instance and Surface.
+> The following section is about **Project Setup**,
+> which you can skip and directly
+> go to `Vulkan Instance and Surface` section
+> to get a heads-up on Vulkan Instance and Surface.
 
 ## Project Setup
 
-Setting up a project is very simple in any Rust codebase.
+Setting up a project in Rust is quite easy.
 We just need to run: <br /> `cargo new {{project_name}}`
 
-We will be needing some essential modules as our project
-dependencies, which we will be using across every chapter.
+We need some essential modules as our project
+dependencies, used across every chapter.
 
 ### Dependencies and Metadata
 
-Cool so let's dive into `Cargo.toml` file for our dependencies
+Cool, so let's dive into `Cargo.toml` file for our dependencies
 
 ```toml
 ...
@@ -67,7 +71,7 @@ optional = true
 
 #### [features]
 
-We are focusing only on 3 main platforms for now:
+We are focusing only on 3 leading platforms for now:
 
 * Linux
 * MacOS
@@ -86,8 +90,8 @@ Well, this section is quite clear:
 
 * `winit` is used for Cross-Platform Windowing Provider.
 * `gfx-hal` is used for Cross-Platform GPU Abstraction Layer Provider.
-* `log` and `log4rs` combined provide us Logging Implementation
-  in our project since we will not be using `println!` macro.
+* `log` and `log4rs` combined provide us with Logging Implementation
+  in our project since we wouldn't be using `println!` macro.
 
 **[dependencies.{{feature}}]** are the dependencies that will
 be installed conditionally depending on the user's Operating System.
@@ -96,9 +100,8 @@ enabled.
 
 ### Code Setup
 
-We will be maintaining a single `main.rs` file for this whole
-tutorial, with just one `struct` that will manage all the
-`gfx-hal` instances.
+This tutorial maintains a single `main.rs` file with
+just one `struct` that manages all the `gfx-hal` instances.
 
 ```rs.true
 use std::mem::ManuallyDrop;
@@ -137,10 +140,10 @@ fn main() {
 ```
 
 The above code is our base structure, moving forward. We will do
-very little work in `fn main()` which includes making our
+very little work in `fn main()`, which includes making our
 application up and running (also running the main Event Loop).
-The heart of the whole application will lie within `struct Renderer`
-and all it's implementations (Do note, in a real-world project
+The heart of the whole application lies within `struct Renderer`
+and all it's implementations (Do note, in a real-world project,
 you should properly plan and structure your application).
 
 **Lines 10-15**: are conditional imports, depending on
@@ -162,8 +165,8 @@ backend.
 **Lines 17-18 & 32**: are importing our log modules and
 setting it up for logging. Once logging is setup, we can
 call `debug!` macro anywhere in the code. To call other
-Logging APIs, like `info!`, `warn!` etc., we just need
-to import them as well at *Line-17*.
+Logging APIs, like `info!`, `warn!`, and more, we just need
+to import them at *Line-17*.
 
 ## `gfx-hal` Backend
 
@@ -171,35 +174,40 @@ to import them as well at *Line-17*.
 
 Backends are specific to what GPU you have and what specs it supports.
 
-Vulkan Backend is cross-compatible and has support in Linux/Windows, on AMD, Intel, NVidia, etc.
-> Apple stays out, and I hate this thing about it, it doesn't support Vulkan and has specific
-> graphics backend called `Metal`. Though `gfx-hal` has `metal` backend as well and since I am using
-> Mac (Yeah! Now don't come and bash me, can't use my Linux system a.t.m.), it would be a good
+Vulkan Backend is cross-compatible and has support in
+Linux/Windows, on AMD, Intel, NVidia.
+> Apple stays out, and I hate this thing about it. It
+> doesn't support Vulkan and has a specific
+> graphics backend called `Metal`. Though `gfx-hal` has
+> `metal` backend as well and since I am using
+> Mac (Yeah! Now don't come and bash me, can't use my
+> Linux system a.t.m.), it would be a good
 > way to know the support of `gfx-hal` for MacOS as well.
 
 ## Vulkan Instance and Surface
 <Image alt="Vulkan Flow Image" src="https://user-images.githubusercontent.com/11786283/77244041-e4bf5680-6c36-11ea-96a1-2be7bd71ccbd.png" placeholder="https://user-images.githubusercontent.com/11786283/80305144-bce48500-87d8-11ea-9832-4baaaf8ce41f.png" />
 
-This Tutorial is inspired from:
+This tutorial is inspired from:
 
   * [LunarG Vulkan Tutorial](https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html),
   * [Vulkan Tutorial](https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Base_code)
 
-which is written in `C++`. I am trying to learn `Rust` and converting that tutorial into `Rust`,
+They are written in `C++`. I am trying to learn `Rust` and converting that tutorial into `Rust`,
 using `gfx-hal` library, which is a wrapper over Vulkan Specs.
 
-* **Application**: this whole project is the Application.
+* **Application**: this whole project is the application.
 * **Loader**: here refers to `gfx-hal` and `gfx-backend-vulkan` libraries. An instance of
   `gfx-backend-vulkan` initializes a Loader. Creating an instance initializes the loader.
-* **Layers**: is something advanced, and am not sure when or if I will talk about it at all.
+* **Layers**: is something advanced, and I am not sure when
+  or if I will talk about it at all.
 
 ### Structure
 
 The following structure is the minimal one, without Pipelines,
 Descriptors, Depth/Uniform Buffers, Shaders, and more (we will
-re-define our structure in some later chapter).
+re-define our structure in coming chapters).
 
-First few chapters we will be rushing towards understanding
+First few chapters, we will be rushing towards understanding
 the very basics and try to get our application running.
 *Things really get boring if you don't see any results, right!!!*
 
@@ -269,16 +277,17 @@ fn main() -> Result<(), &'static str> {
 ```
 
 ## Creating OS Window
-Now let's come back to our code. In real-world, to draw
-anything we need a canvas, right. Similarly, in
+Now let's come back to our code. In the real-world, to draw
+anything, we need a canvas, right. Similarly, in
 Computer Graphics to draw anything, we need an OS Window.
 Later we will be binding this OS Window with GPU `surface`
 instance that will do the actual drawing. Creating an OS Window
 in Rust is done using `winit` library, which again is
-cross-platform. It requires two major steps to display a blank window:
+cross-platform. It requires two significant steps to
+display a blank window:
 
 * Window Dimensions
-* Event Loop, that will help us to know when to redraw, w.r.t
+* Event Loop will help us know when to redraw, w.r.t
   CPU and GPU capabilities (since we are working with Vulkan,
   it's all GPU capabilities), and listen to user events.
 
@@ -299,7 +308,7 @@ fn main() {
 }
 ```
 
-where, `build_window()` is doing the main job, of instantiating
+`build_window()` is doing the main job of instantiating
 the main OS window, with some logical window size, scaled to
 match the actual physical size.
 
@@ -340,8 +349,8 @@ fn build_window(
 }
 ```
 
-Everything in the above code is quite simple and
-self-explanatory. The only thing that is confusing is, why
+Everything in the above code is quite self-explanatory and
+straightforward. The only thing that seems confusing is, why
 do we have two device sizes. The best explanation can be found
 [here in `winit` docs](https://docs.rs/winit/0.22.1/winit/dpi/index.html),
 but in short, they are just two different size
@@ -365,8 +374,8 @@ be used by `surface` to bind them together.
 
 We now have to create instances of Vulkan Backend Instance
 and Surface. These two states will only be used for instantiating
-and destroying other useful resources, thus we will have to
-keep them in `Renderer` struct as well.
+and destroying other useful resources; thus, we will have to
+keep them in `Renderer` struct.
 
 We will update our `create_backend` function, which will
 give us (instance, surface) instances for later use.
@@ -407,10 +416,9 @@ Thus we need to update our `Renderer` struct as well.
 
 **Details on the above code:**
 
-> We will discuss about `extent` in another chapter in detail,
-> but in short, `extent` will help us to keep window dimension
+> We will discuss `extent` in another chapter in detail,
+> but in short, it` will help us keep window dimension
 > details.
-
 
 
 `instance` is created directly from static functions from
@@ -419,19 +427,19 @@ and a *VERSION* number for the app, whose functionality is
 currently unknown to me.
 
 `instance` is used to create `surface`. Vulkan requires a
-canvas or `surface` to draw things into and a `surface` can
+canvas or `surface` to draw things into, and a `surface` can
 only exist inside an OS App Window. Usually, we use a 3rd-party
 module to create OS specific Window instances,
 like we created one from `winit`.
 
 **One thing to note**: `gfx-hal` does not manage every piece of Memory,
-up here, like `surface` was created by us using `instance`, thus we
-need to manage such kind of resources, which needs to be cleared
-from memory before some other resources like `instance`.
-Therefore, we need to define such instances, like
+up here, like `surface` was created using `instance`. Thus we
+need to manage such resources, which need to be cleared
+from memory before other resources, such as instance.
+Therefore, we define such instances like
 Vulkan `surface`, as manually managed using `ManuallyDrop`
-struct and we need to drop `surface` once done with it,
-i.e. before `Renderer` struct gets dropped.
+struct, and we need to drop `surface` once done with it,
+i.e., before `Renderer` struct gets dropped.
 
 <Diff
   lang="rs"
@@ -485,7 +493,7 @@ name suggests, it is the core of `winit`, used for starting the
 App and listening to User Events.
 We will discuss Event Handling done inside the `run` loop,
 where we pass a [Closure](https://doc.rust-lang.org/book/ch13-01-closures.html), which will handle various user events,
-like *Keyboard*, *Joystick*, *Mouse* events, etc.
+like *Keyboard*, *Joystick*, *Mouse* events.
 
 <Blockquote type="warn">
   Do remember that a <Link href="https://doc.rust-lang.org/book/ch13-01-closures.html" target="_blank" rel="noopener noreferrer">Closure</Link>&nbsp;
@@ -493,8 +501,8 @@ like *Keyboard*, *Joystick*, *Mouse* events, etc.
   of any variables that are passed to it.
 
   Even the `ev_loop` instance we created, will lose its
-  ownership after `ev_loop.run` call. This is the reason
-  everything we have done till now is done inside `main`
+  ownership after `ev_loop.run` call. That's why everything
+  we have done until now is done inside `main`
   function to keep instance ownerships temporary.
 </Blockquote>
 
@@ -543,8 +551,8 @@ fn main() {
 ```
 
 First things first, `ev_loop.run(|| => {})` starts our event
-loop, which actually takes a [closure](https://doc.rust-lang.org/book/ch13-01-closures.html),
-thus we need to be a bit careful in using it. This was one of the reasons
+loop, which actually takes a [closure](https://doc.rust-lang.org/book/ch13-01-closures.html).
+Thus we need to be a bit careful in using it. That's one of the reasons
 we instantiated everything inside `main`. Later on, we will
 do things inside `struct` `impl`s, but in this section, we have
 sone most of the work inside `main`.
@@ -552,26 +560,26 @@ sone most of the work inside `main`.
 Details on event listeners:
 
 * `CloseRequested` is used for listening close button click.
-  Without this our Window won't Shutdown gracefully, we would
-  have to `SIGKILL` our app. We can also listen to Key presses, like `ESC`
+  Without this, our Window won't Shutdown gracefully, we would
+  have to `SIGKILL` our app. We can also listen to Key presses, like `ESC`,
   to close the window, but we will cover that later.
 * `Resized` and `ScaleFactorChanged` are called when window is resized and
   when window's DPI changes (like when we move our window from a low DPI
-  Monitor to High DPI) respectively.
-* `MainEventsCleared`: If you are from **Android** background
+  Monitor to High DPI), respectively.
+* `MainEventsCleared`: If you are from **Android** background,
   it resembles the `onMeasure` call, or if from **ReactJS**
-  world it resembles the `shouldComponentUpdate` call. What I
+  world, it resembles the `shouldComponentUpdate` call. What I
   mean is, this event is called just before any redraw
   and can be used to do calculations before drawing on window.
   Also, keep a note that if you want to redraw you need
   to call this `window.request_redraw()`, like we `return true`
   from `shouldComponentUpdate` to do a `render`.
 * `RedrawRequested`: this resembles **Android's** `onDraw`
-  call and in **ReactJS** resembles `render` call. That means
-  this call is the place where we will have to handle all our
-  canvas drawings, in `gfx_hal` all our `surface` drawings.
-* `RedrawEventsCleared`: this resembles **ReactJS**
-  `componentDidUpdate` call, as this event gets triggered on
+  call and in **ReactJS** resembles a `render` call. That means
+  this call is where we will have to handle all our
+  canvas drawings, in `gfx_hal`, all our `surface` drawings.
+* `RedrawEventsCleared`: this resembles **ReactJS** `componentDidUpdate` call,
+  as this event gets triggered on
   each change after a redraw has happened. One thing to note,
   *if there are no `RedrawRequested` events, it is emitted
   immediately after `MainEventsCleared`.*
