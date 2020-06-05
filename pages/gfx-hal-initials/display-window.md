@@ -2,6 +2,7 @@ import { halArchiveRecord, size } from '@constants/gfx-hal-archive-list';
 import { rustArchiveRecord } from '@constants/rust-reference-list';
 
 export const record = halArchiveRecord['display-window'];
+export const nextRecord = halArchiveRecord['physical-logical-devices'];
 export const rustBasicsRecord = rustArchiveRecord['rust-cargo-basics'];
 
 <PolkaContainer
@@ -607,6 +608,11 @@ you will get the following output.
   alt="Blank Window Surface"
   src="https://user-images.githubusercontent.com/11786283/83215493-b903a400-a184-11ea-997a-6fdf5417954e.png"
   placeholder="https://user-images.githubusercontent.com/11786283/83215617-0b44c500-a185-11ea-8f91-de78c37c4993.png"
+/>
+
+<MoveOtherPage
+  next={nextRecord.link}
+  nextLabel={nextRecord.title}
 />
 
 </PolkaContainer>

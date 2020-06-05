@@ -25,6 +25,7 @@ import Image from '@components/progressive-image';
 import ThematicBreak from '@components/thematic-break';
 import PolkaContainer from '@components/polka-container';
 import NoteSubtitle from '@components/note-subtitle';
+import MoveOtherPage from '@components/move-other-page';
 import { MDXOL, MDXUL, MDXLI } from '@components/mdx-list';
 import { NextComponentType } from 'next';
 import {
@@ -58,6 +59,7 @@ const mdComponents = {
   Image,
   PolkaContainer,
   NoteSubtitle,
+  MoveOtherPage,
 };
 
 const Content = (props: AppInitialProps & { Component: NextComponentType }) => {

@@ -44,7 +44,7 @@ export default function ProfileDetailsHeader() {
   const links = darkMode ? socialLinksDark : socialLinks;
   return (
     <div className={classes.root}>
-      <FixedNavbar />
+      <FixedNavbar hideRootNav />
       <img height="100%" src="/images/logo-small.png" alt="Shub's logo" />
       <Typography className={classes.title} variant="h2" color="primary">
         Subroto Biswas

@@ -335,4 +335,9 @@ To run that code:
 
 *We don't have any change in the output in this Chapter.*
 
+<MoveOtherPage
+  prev={prevRecord.link}
+  prevLabel={prevRecord.title}
+/>
+
 </PolkaContainer>
