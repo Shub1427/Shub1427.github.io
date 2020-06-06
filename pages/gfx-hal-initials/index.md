@@ -147,5 +147,8 @@ export const shaders = halArchiveRecord['shaders'];
 * <Link href={devices.link}>
     {devices.title}
   </Link>
+* <Link href={swapChain.link}>
+    {swapChain.title}
+  </Link>
 
 </PolkaContainer>

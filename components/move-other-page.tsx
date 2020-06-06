@@ -18,23 +18,23 @@ const useStyles = makeStyles({
   button: {
     maxWidth: '100%',
   },
+  buttonLeft: {
+    float: 'left',
+  },
+  buttonRight: {
+    float: 'right',
+  },
   label: {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
-  labelLeft: {
-    textAlign: 'left',
-  },
-  labelRight: {
-    textAlign: 'right',
-  },
 });
 
 export default function MoveOtherPage(props: IMoveLinks) {
   const classes = useStyles();
-  const prevLabelClasses = cx(classes.label, classes.labelLeft);
-  const nextLabelClasses = cx(classes.label, classes.labelRight);
+  const prevLinkClasses = cx(classes.button, classes.buttonLeft);
+  const nextLinkClasses = cx(classes.button, classes.buttonRight);
   return (
     <Grid
       className={classes.root}
@@ -45,13 +45,13 @@ export default function MoveOtherPage(props: IMoveLinks) {
       <Grid item xs={12} md={6}>
         {props.prev && (
           <Button
-            className={classes.button}
+            className={prevLinkClasses}
             color="secondary"
             startIcon={<ChevronLeft />}
             href={props.prev}
           >
             <Tooltip title={props.prevLabel || ''} aria-label={props.prevLabel}>
-              <span className={prevLabelClasses}>{props.prevLabel}</span>
+              <span className={classes.label}>{props.prevLabel}</span>
             </Tooltip>
           </Button>
         )}
@@ -59,13 +59,13 @@ export default function MoveOtherPage(props: IMoveLinks) {
       <Grid item xs={12} md={6}>
         {props.next && (
           <Button
-            className={classes.button}
+            className={nextLinkClasses}
             color="secondary"
             endIcon={<ChevronRight />}
             href={props.next}
           >
             <Tooltip title={props.nextLabel || ''} aria-label={props.nextLabel}>
-              <span className={nextLabelClasses}>{props.nextLabel}</span>
+              <span className={classes.label}>{props.nextLabel}</span>
             </Tooltip>
           </Button>
         )}

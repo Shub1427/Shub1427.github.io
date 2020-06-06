@@ -14,6 +14,10 @@ const useStyles = makeStyles((_theme: Theme) => ({
   root: {
     maxHeight: 48,
   },
+  rootNavWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+  },
   rootNav: {
     cursor: 'pointer',
   },
@@ -30,7 +34,7 @@ export function FixedNavbar({ className, hideRootNav }: IFixedNavbarProps) {
   const rightBoxClasses = cx(classes.rightBox, className);
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={6}>
+      <Grid item className={classes.rootNavWrapper} xs={6}>
         {!hideRootNav && (
           <Link href="/">
             <Tooltip title="Go Home" aria-label="Go Home" placement="right">

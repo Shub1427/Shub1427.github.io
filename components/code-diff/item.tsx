@@ -30,8 +30,8 @@ const useStyles = makeStyles({
     borderLeft: '4px solid rgb(139, 195, 74)',
   },
   diffRemove: {
-    background: 'rgba(239, 154, 154, 0.2)',
-    borderLeft: '4px solid rgb(239, 154, 154)',
+    background: 'rgba(198,40,40, 0.2)',
+    borderLeft: '4px solid rgb(200,104,84)',
   },
 });
 

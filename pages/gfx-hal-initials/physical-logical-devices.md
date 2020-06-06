@@ -3,6 +3,7 @@ import { halArchiveRecord, size } from '@constants/gfx-hal-archive-list';
 export const record = halArchiveRecord['physical-logical-devices'];
 
 export const prevRecord = halArchiveRecord['display-window'];
+export const nextRecord = halArchiveRecord['swap-chain'];
 
 <PolkaContainer
   pageTitle={record.title}
@@ -338,6 +339,8 @@ To run that code:
 <MoveOtherPage
   prev={prevRecord.link}
   prevLabel={prevRecord.title}
+  next={nextRecord.link}
+  nextLabel={nextRecord.title}
 />
 
 </PolkaContainer>
