@@ -339,9 +339,9 @@ To run that code:
 
 <MoveOtherPage
   prev={prevRecord.link}
-  prevLabel={prevRecord.title}
+  prevLabel={prevRecord.titleString}
   next={nextRecord.link}
-  nextLabel={nextRecord.title}
+  nextLabel={nextRecord.titleString}
 />
 
 </PolkaContainer>

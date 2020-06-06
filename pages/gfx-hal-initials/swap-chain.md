@@ -5,12 +5,13 @@ import { rustArchiveRecord } from '@constants/rust-reference-list';
 export const record = halArchiveRecord['swap-chain'];
 
 export const prevRecord = halArchiveRecord['physical-logical-devices'];
+export const nextRecord = halArchiveRecord['render-pass'];
 
 <PolkaContainer
   pageTitle={record.title}
   pageTitleString={record.titleString}
   pageDescription={record.description}
-  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
+  keywords={['Swap Chain', 'Swapchain', 'ImageViews', 'Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
   publishDate={record.createdAt}
   ogImage={record.ogImage}
 >
@@ -314,6 +315,29 @@ impl<B: Backend> Drop for Renderer<B> {
 Once that is done, `swapchain` will automatically get
 dropped by `surface`, before `surface` itself is dropped.
 
+## Image Views
+
+We won't be working with `ImageView`s in `gfx-hal` (at-least
+for this tutorial), but in Vulkan `ImageView` is a very
+integral part when it comes to
+SwapChain. It is just a representation (view) of the actual
+`Image` that SwapChain contains.
+
+> **Quoting directly from [Vulkan Tutorial](https://vulkan-tutorial.com/Drawing_a_triangle/Presentation/Image_views)**
+>
+> *An image view is quite literally a view into an image.
+> It describes how to access the image and which part of
+> the image to access, for example if it should be treated
+> as a 2D texture depth texture without any mipmapping
+> levels.*
+
+Since we do not actually interact with Swapchain in
+`gfx-hal`, `gfx-hal` provides us APIs to get
+[SwapchainImage](https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/trait.PresentationSurface.html#tymethod.unconfigure_swapchain),
+which can be rendered to the screen directly. Consider it as
+a frame per unit time.
+
+
 ***
 
 You can find the full code for this Doc,
@@ -321,7 +345,9 @@ here [003-swap_chain](https://github.com/Shub1427/rustschool/blob/master/gui/dra
 
 <MoveOtherPage
   prev={prevRecord.link}
-  prevLabel={prevRecord.title}
+  prevLabel={prevRecord.titleString}
+  next={nextRecord.link}
+  nextLabel={nextRecord.titleString}
 />
 
 </PolkaContainer>

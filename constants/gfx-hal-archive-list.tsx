@@ -1,5 +1,8 @@
+import React from 'react';
 import { IArchiveItem } from '@constants/archive-list';
 import { Tags } from '@constants/tags';
+
+import InlineCode from '@components/inline-code';
 
 export const halArchiveRecord: Record<string, IArchiveItem> = {
   'display-window': {
@@ -33,7 +36,12 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
   'swap-chain': {
     key: 'swap-chain',
     link: '/gfx-hal-initials/swap-chain',
-    title: 'SwapChain and Image Views in gfx-hal',
+    title: (
+      <span>
+        SwapChain and Image Views in &nbsp;
+        <InlineCode>gfx-hal</InlineCode>
+      </span>
+    ),
     titleString: 'SwapChain and Image Views in gfx-hal',
     description:
       'Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal',
@@ -42,6 +50,19 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/22 10:20:00'),
     updatedAt: new Date('2020/06/06 14:00:00'),
+    isPublished: true,
+  },
+  'render-pass': {
+    key: 'render-pass',
+    link: '/gfx-hal-initials/render-pass',
+    title: 'Render Pass',
+    titleString: 'Render Pass in Vulkan',
+    description: 'Render Pass initialization and basic understanding in Vulkan',
+    ogImage:
+      'https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg',
+    tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
+    createdAt: new Date('2020/06/06 14:30:00'),
+    updatedAt: new Date('2020/06/06 14:30:00'),
     isPublished: true,
   },
   'command-buffers': {

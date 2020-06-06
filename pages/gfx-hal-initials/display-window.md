@@ -613,7 +613,7 @@ you will get the following output.
 
 <MoveOtherPage
   next={nextRecord.link}
-  nextLabel={nextRecord.title}
+  nextLabel={nextRecord.titleString}
 />
 
 </PolkaContainer>
