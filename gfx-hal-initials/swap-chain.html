@@ -5,7 +5,7 @@
                 gtag('config', 'UA-113155919-1', {
                   page_path: window.location.pathname,
                 });
-              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="SwapChain and Image Views in gfx-hal"/><meta name="twitter:description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="SwapChain and Image Views in gfx-hal"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/swap-chain"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>SwapChain and Image Views in gfx-hal</title><meta name="description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/gypo5ssYVobHCCuA96iy7/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/gypo5ssYVobHCCuA96iy7/pages/gfx-hal-initials/swap-chain.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/d5fbf62eded0dc5b55b92fa0dc15104c4ab3f281.07a1336e48c0c14a7846.js" as="script"/><link rel="preload" href="/_next/static/chunks/ed1b2c473d0cd35d0ff178551abea415ddacddfc.d2f707b650b2d7a82c05.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-eb229827e06f1d6c5480.js" as="script"/><style id="jss-server-side">html {
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="SwapChain and Image Views in gfx-hal"/><meta name="twitter:description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="SwapChain and Image Views in gfx-hal"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/swap-chain"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>SwapChain and Image Views in gfx-hal</title><meta name="description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Swap Chain Swapchain ImageViews Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/swap-chain.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" as="script"/><link rel="preload" href="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" as="script"/><link rel="preload" href="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-aa7804989bef611239d5.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,7 +47,7 @@ body::backdrop {
   color: #5491da;
 }
 .MuiSvgIcon-colorSecondary {
-  color: #8FADDC;
+  color: #964130;
 }
 .MuiSvgIcon-colorAction {
   color: rgba(0, 0, 0, 0.54);
@@ -394,7 +394,7 @@ body::backdrop {
     color: #5491da;
   }
   .MuiTypography-colorSecondary {
-    color: #8FADDC;
+    color: #964130;
   }
   .MuiTypography-colorTextPrimary {
     color: rgba(0, 0, 0, 0.87);
@@ -460,10 +460,10 @@ body::backdrop {
   }
 }
   .MuiButton-textSecondary {
-    color: #8FADDC;
+    color: #964130;
   }
   .MuiButton-textSecondary:hover {
-    background-color: rgba(143, 173, 220, 0.04);
+    background-color: rgba(150, 65, 48, 0.04);
   }
 @media (hover: none) {
   .MuiButton-textSecondary:hover {
@@ -491,12 +491,12 @@ body::backdrop {
   }
 }
   .MuiButton-outlinedSecondary {
-    color: #8FADDC;
-    border: 1px solid rgba(143, 173, 220, 0.5);
+    color: #964130;
+    border: 1px solid rgba(150, 65, 48, 0.5);
   }
   .MuiButton-outlinedSecondary:hover {
-    border: 1px solid #8FADDC;
-    background-color: rgba(143, 173, 220, 0.04);
+    border: 1px solid #964130;
+    background-color: rgba(150, 65, 48, 0.04);
   }
   .MuiButton-outlinedSecondary.Mui-disabled {
     border: 1px solid rgba(0, 0, 0, 0.26);
@@ -548,15 +548,15 @@ body::backdrop {
   }
 }
   .MuiButton-containedSecondary {
-    color: rgba(0, 0, 0, 0.87);
-    background-color: #8FADDC;
+    color: #fff;
+    background-color: #964130;
   }
   .MuiButton-containedSecondary:hover {
-    background-color: #6E7882;
+    background-color: #C86854;
   }
 @media (hover: none) {
   .MuiButton-containedSecondary:hover {
-    background-color: #8FADDC;
+    background-color: #964130;
   }
 }
   .MuiButton-disableElevation {
@@ -682,10 +682,10 @@ body::backdrop {
   }
 }
   .MuiIconButton-colorSecondary {
-    color: #8FADDC;
+    color: #964130;
   }
   .MuiIconButton-colorSecondary:hover {
-    background-color: rgba(143, 173, 220, 0.04);
+    background-color: rgba(150, 65, 48, 0.04);
   }
 @media (hover: none) {
   .MuiIconButton-colorSecondary:hover {
@@ -1297,47 +1297,185 @@ body::backdrop {
   .MuiLink-button.Mui-focusVisible {
     outline: auto;
   }
-  .jss69 {
+  .MuiTooltip-popper {
+    z-index: 1500;
+    pointer-events: none;
+  }
+  .MuiTooltip-popperInteractive {
+    pointer-events: auto;
+  }
+  .MuiTooltip-popperArrow[x-placement*="bottom"] .MuiTooltip-arrow {
+    top: 0;
+    left: 0;
+    width: 2em;
+    height: 1em;
+    margin-top: -1em;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  .MuiTooltip-popperArrow[x-placement*="top"] .MuiTooltip-arrow {
+    left: 0;
+    width: 2em;
+    bottom: 0;
+    height: 1em;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: -1em;
+  }
+  .MuiTooltip-popperArrow[x-placement*="right"] .MuiTooltip-arrow {
+    left: 0;
+    width: 1em;
+    height: 2em;
+    margin-top: 4px;
+    margin-left: -1em;
+    margin-bottom: 4px;
+  }
+  .MuiTooltip-popperArrow[x-placement*="left"] .MuiTooltip-arrow {
+    right: 0;
+    width: 1em;
+    height: 2em;
+    margin-top: 4px;
+    margin-right: -1em;
+    margin-bottom: 4px;
+  }
+  .MuiTooltip-popperArrow[x-placement*="left"] .MuiTooltip-arrow::before {
+    border-color: transparent transparent transparent currentcolor;
+    border-width: 1em 0 1em 1em;
+  }
+  .MuiTooltip-popperArrow[x-placement*="right"] .MuiTooltip-arrow::before {
+    border-color: transparent currentcolor transparent transparent;
+    border-width: 1em 1em 1em 0;
+  }
+  .MuiTooltip-popperArrow[x-placement*="top"] .MuiTooltip-arrow::before {
+    border-color: currentcolor transparent transparent transparent;
+    border-width: 1em 1em 0 1em;
+  }
+  .MuiTooltip-popperArrow[x-placement*="bottom"] .MuiTooltip-arrow::before {
+    border-color: transparent transparent currentcolor transparent;
+    border-width: 0 1em 1em 1em;
+  }
+  .MuiTooltip-tooltip {
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 0.625rem;
+    max-width: 300px;
+    word-wrap: break-word;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    line-height: 1.4em;
+    border-radius: 4px;
+    background-color: rgba(97, 97, 97, 0.9);
+  }
+  .MuiTooltip-tooltipArrow {
+    margin: 0;
+    position: relative;
+  }
+  .MuiTooltip-arrow {
+    color: rgba(97, 97, 97, 0.9);
+    position: absolute;
+    font-size: 6px;
+  }
+  .MuiTooltip-arrow::before {
+    width: 0;
+    height: 0;
+    margin: auto;
+    content: "";
+    display: block;
+    border-style: solid;
+  }
+  .MuiTooltip-touch {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.14286em;
+  }
+  .MuiTooltip-tooltipPlacementLeft {
+    margin: 0 24px ;
+    transform-origin: right center;
+  }
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementLeft {
+    margin: 0 14px;
+  }
+}
+  .MuiTooltip-tooltipPlacementRight {
+    margin: 0 24px;
+    transform-origin: left center;
+  }
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementRight {
+    margin: 0 14px;
+  }
+}
+  .MuiTooltip-tooltipPlacementTop {
+    margin: 24px 0;
+    transform-origin: center bottom;
+  }
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementTop {
+    margin: 14px 0;
+  }
+}
+  .MuiTooltip-tooltipPlacementBottom {
+    margin: 24px 0;
+    transform-origin: center top;
+  }
+@media (min-width:600px) {
+  .MuiTooltip-tooltipPlacementBottom {
+    margin: 14px 0;
+  }
+}
+  .jss187 {
     color: #444;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     word-spacing: 3px;
   }
-  .jss69 + .jss69, ol + .jss69, ul + .jss69 {
+  .jss187 + .jss187, ol + .jss187, ul + .jss187 {
     margin-top: 32px;
   }
-  .jss85 {
+  .jss203 {
     color: #888;
     margin: 12px 0;
     padding: 16px 8px;
     background: #f2f2f2;
     font-weight: 400;
   }
-  .jss85 > p, .jss85 > ul, .jss85 > ol, .jss85 > div {
+  .jss203 > p, .jss203 > ul, .jss203 > ol, .jss203 > div {
     color: #888;
     font-size: 0.9rem;
     font-weight: 400;
   }
-  p + .jss85, .jss85 + .jss85 {
+  p + .jss203, .jss203 + .jss203 {
     margin-top: 32px;
   }
-  .jss86 {
+  .jss204 {
     border-left: 12px solid #64b5f6;
   }
-  .jss87 {
+  .jss205 {
     border-left: 12px solid #ffd54f;
   }
-  .jss88 {
+  .jss206 {
     border-left: 12px solid #ef5350;
   }
   .jss10 {
+    max-height: 48px;
+  }
+  .jss11 {
+    display: flex;
+    align-items: center;
+  }
+  .jss12 {
+    cursor: pointer;
+  }
+  .jss13 {
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: flex-end;
   }
-  .jss128 {
+  .jss288 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1346,105 +1484,113 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss128 {
+  .jss288 {
     flex-direction: column;
   }
 }
-  .jss129 {
+  .jss289 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss129 {
+  .jss289 {
     margin-bottom: 16px;
   }
 }
-  .jss130 {
+  .jss290 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss131 {
+  .jss291 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss131+.jss131 {
+  .jss291+.jss291 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss132 {
+  .jss292 {
     color: #fff;
     background: #444;
   }
-  .jss132:hover, .jss132focus, .jss132:active {
+  .jss292:hover, .jss292focus, .jss292:active {
     background: #333;
   }
-  .jss133 {
+  .jss293 {
     color: #fff;
     background: #4361b3;
   }
-  .jss133:hover, .jss133focus, .jss133:active {
+  .jss293:hover, .jss293focus, .jss293:active {
     background: #254395;
   }
-  .jss134 {
+  .jss294 {
     color: #fff;
     background: #4fafed;
   }
-  .jss134:hover, .jss134focus, .jss134:active {
+  .jss294:hover, .jss294focus, .jss294:active {
     background: #3191CF;
   }
   .jss1 {
     padding: 64px 32px;
     position: relative;
   }
-  .jss66 {
+  .jss184 {
     color: #888;
     display: flex;
     font-size: 12px;
     align-items: center;
   }
-  .jss67 {
+  .jss185 {
     display: inline-block;
   }
-  .jss68 {
+  .jss186 {
     margin: 0 4px;
     display: inline-block;
     font-size: 1.5em;
     line-height: 0.8;
   }
-  .jss32 {
+  .jss149 {
     color: #222;
     padding: 0;
     margin-bottom: 48px;
   }
-  .jss33 {
+  .jss150 {
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
   }
-  .jss34 {
+  .jss151 {
     margin-top: 12px;
     font-weight: 600;
   }
-  .jss35 {
+  .jss152 {
     font-weight: 600;
   }
-  .jss121 {
+  .jss238 {
     color: #222;
     margin: 48px 0 16px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
   }
-  .jss126 {
+  .jss239 {
     color: #222;
     margin: 32px 0 12px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
   }
-  .jss122 {
+  .jss240 {
+    color: #222;
+    margin: 32px 0 12px;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+  }
+  .jss241 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1453,42 +1599,89 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss123 {
+  .jss242 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss124 {
+  .jss243 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss125 {
+  .jss244 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss125 *::selection {
+  .jss244 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss125 *::-moz-selection {
+  .jss244 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss118 {
+  .jss183 {
     color: #933;
     margin: 0 2px;
     padding: 1px 8px;
     background: rgba(0, 0, 0, 0.05);
   }
-  .jss76 {
+  .jss249 {
+    position: relative;
+  }
+  .jss250 {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin-left: -16px;
+  }
+  .jss251 {
+    background: rgba(139, 195, 74, 0.2);
+    border-left: 4px solid rgb(139, 195, 74);
+  }
+  .jss252 {
+    background: rgba(198,40,40, 0.2);
+    border-left: 4px solid rgb(200,104,84);
+  }
+  .jss245 {
+    padding: 0;
+    overflow: hidden;
+    background: #5491da;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 10px 32px;
+    margin-top: 16px;
+    border-radius: 4px;
+    margin-bottom: 48px;
+  }
+  .jss246 {
+    padding: 16px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .jss247 {
+    position: relative;
+    padding-bottom: 8px;
+  }
+  .jss248 {
+    padding: 0 0 64px 16px !important;
+    margin-bottom: -64px !important;
+  }
+  .jss248 *::selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss248 *::-moz-selection {
+    background: rgba(255,171,0,0.2);
+  }
+  .jss194 {
     width: 100%;
     margin: 32px 0;
     position: relative;
   }
-  .jss77 {
+  .jss195 {
     width: 100%;
     filter: blur(0);
     transition: 0.3s ease-out;
   }
-  .jss78 {
+  .jss196 {
     top: 50%;
     left: 50%;
     margin: 0;
@@ -1497,23 +1690,23 @@ body::backdrop {
     position: fixed;
     transform: translate(-50%, -50%);
   }
-  .jss79 {
+  .jss197 {
     width: auto;
     height: auto;
   }
-  .jss80 {
+  .jss198 {
     top: -2.5rem;
     right: 0;
     position: absolute;
   }
-  .jss81 {
+  .jss199 {
     top: -1rem;
     z-index: 100;
   }
-  .jss82 {
+  .jss200 {
     filter: blur(3px);
   }
-  .jss83 {
+  .jss201 {
     color: #aaa;
     margin: 0;
     font-size: 0.8rem;
@@ -1521,7 +1714,7 @@ body::backdrop {
     text-align: center;
     font-weight: 400;
   }
-  .jss84 {
+  .jss202 {
     top: 0;
     left: 0;
     width: 100vw;
@@ -1530,7 +1723,7 @@ body::backdrop {
     position: fixed;
     background: rgba(255, 255, 255, 0.90);
   }
-  .jss127 {
+  .jss253 {
     color: #666;
     border: medium none;
     font-size: 32px;
@@ -1538,174 +1731,264 @@ body::backdrop {
     text-align: center;
     font-weight: 300;
   }
-  .jss127:before {
+  .jss253:before {
     content: '***';
     line-height: 1.4;
     text-indent: 1em;
     letter-spacing: 1em;
   }
-  .jss119 {
+  .jss254 {
+    margin-top: 64px;
+  }
+  .jss255 {
+    max-width: 100%;
+  }
+  .jss256 {
+    float: left;
+  }
+  .jss257 {
+    float: right;
+  }
+  .jss258 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .jss236 {
     color: #444;
     font-size: 1rem;
     font-weight: 200;
     line-height: 1.7;
   }
-  p + .jss119 {
+  p + .jss236 {
     margin-top: 32px;
   }
-  li > .jss119 {
+  li > .jss236 {
     margin-top: initial;
   }
-  .jss120 + .jss120 {
+  .jss237 + .jss237 {
     margin-top: 8px;
   }
-  .jss120 > ul > .jss120, .jss120 > ol > .jss120 {
+  .jss237 > ul > .jss237, .jss237 > ol > .jss237 {
     margin-top: 0;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="jss10"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div><div class="jss32"><h2 class="MuiTypography-root jss33 MuiTypography-h2">T-<!-- -->2<!-- -->: <!-- -->SwapChain and Image Views in gfx-hal</h2><div class="jss66 jss34"><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">23 May, 2020</p><span class="jss68">•</span><p class="MuiTypography-root jss67 jss35 MuiTypography-body2">5<!-- --> min read</p></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Before diving in, let&#x27;s first understand what Double Buffering is.
-A great video on <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.youtube.com/watch?v=tfzCcN2aIhI&amp;feature=emb_logo">Double Buffering</a>,
-to get a very basic understanding.</p><p class="MuiTypography-root jss69 MuiTypography-body1">As you can see in the video, double buffering is nothing but
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container"><div class="MuiGrid-root jss11 MuiGrid-item MuiGrid-grid-xs-6"><img class="jss12" height="32" src="/images/logo-small.png" alt="Shub&#x27;s logo" title="Go Home" aria-label="Go Home"/></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"><div class="jss13"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div></div></div><div class="jss149"><h2 class="MuiTypography-root jss150 MuiTypography-h2">T-<!-- -->3<!-- -->: <span>SwapChain and Image Views in  <code class="jss183">gfx-hal</code></span></h2><div class="jss184 jss151"><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">06 Jun, 2020</p><span class="jss186">•</span><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">5<!-- --> min read</p></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Before diving in, let&#x27;s first understand what Double Buffering is.
+A great video on <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.youtube.com/watch?v=tfzCcN2aIhI&amp;feature=emb_logo">Double Buffering</a>
+to get a fundamental understanding.</p><p class="MuiTypography-root jss187 MuiTypography-body1">As you can see in the video, double buffering is nothing but
 a way to cache images in a buffer. One of the Buffer is used
 to draw on the Window Surface, while other acts as a hidden
-canvas to draw the next frame and keep it in cache, so as to
-get a better performance and framerate.</p><div><div class="jss76"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss77 jss82" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82720437-51a3ab00-9cd1-11ea-8623-218277d9c519.png" alt="Swapchain to Surface to Window Draw"/></div></div><p class="MuiTypography-root jss83 MuiTypography-body2">Swapchain to Surface to Window Draw</p><div class="jss80"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss69 MuiTypography-body1">Swapchain is very similar. It basically can be used to achieve
+canvas to draw the next frame and keep it in the cache, to
+get better performance and framerate.</p><div><div class="jss194"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss195 jss200" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82720437-51a3ab00-9cd1-11ea-8623-218277d9c519.png" alt="Swapchain to Surface to Window Draw"/></div></div><p class="MuiTypography-root jss201 MuiTypography-body2">Swapchain to Surface to Window Draw</p><div class="jss198"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Swapchain is very similar. It can be used to achieve
 double buffering. In simple words, Swapchain is a collection
-Images (Stored in Image Buffers), that can be used to draw frames and present
-them on screen when needed.</p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1"><strong>Quoting directly from <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html">falseidolfactory.com</a></strong></p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>Swapchain is a chain of images that we can render onto and then</em>
+Images (Stored in Image Buffers), that can be used to draw
+frames and present them on a screen when needed.</p><div class="MuiPaper-root MuiCard-root jss203 jss204 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss187 MuiTypography-body1"><strong>Quoting directly from <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.falseidolfactory.com/2020/04/01/intro-to-gfx-hal-part-1-drawing-a-triangle.html">falseidolfactory.com</a></strong></p><p class="MuiTypography-root jss187 MuiTypography-body1"><em>Swapchain is a chain of images that we can render onto and then</em>
 <em>present to our window. While we’re showing one of them</em>
-<em>on screen, we can render to a different one. Then once</em>
-<em>we’re done rendering, we can <strong>swap</strong> them.</em></p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>This is one of the few places where <code class="jss118">gfx</code> departs</em>
+<em>on screen, we can render it to a different one. Then once</em>
+<em>we’re done rendering, we can <strong>swap</strong> them.</em></p><p class="MuiTypography-root jss187 MuiTypography-body1"><em>This is one of the few places where <code class="jss183">gfx</code> departs</em>
 <em>significantly from the <strong>Vulkan API</strong>. In Vulkan, you create</em>
-<em>and manage the <code class="jss118">swapchain</code> yourself. In <code class="jss118">gfx</code>, the surface</em>
+<em>and manage the <code class="jss183">swapchain</code> yourself. In <code class="jss183">gfx</code>, the surface</em>
 <em>mostly does it for you. You can read more about the</em>
-<em>decision behind that <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://gfx-rs.github.io/2019/10/01/update.html#new-swapchain-model">here</a>.</em></p></div><p class="MuiTypography-root jss69 MuiTypography-body1">Thus, Swapchain in <code class="jss118">gfx-rs</code> can be described in simple words:</p><ul class="jss119"><li class="jss120">Get Swapchain instance from already created <code class="jss118">device</code>
-instance and <code class="jss118">swap</code> config.</li><li class="jss120">Attach/Link this swapchain instance to <code class="jss118">surface</code>, so as
-to draw images from it.</li><li class="jss120">Maintain a swapchain state, to get details on <code class="jss118">window</code>
-getting invalidate (dirty, like when it&#x27;s resized or made
-fullscreen etc.). This <code class="jss118">state</code> which changes on each
-invalidation of the <code class="jss118">window</code>, should re-configure <code class="jss118">swap</code>
-config, and re-create swapchain for that new <code class="jss118">surface</code>.</li></ul><div><div class="jss76"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss77 jss82" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82650444-56685080-9c38-11ea-960d-770db9795773.png" alt="gfx-hal Swapchain flow"/></div></div><p class="MuiTypography-root jss83 MuiTypography-body2">gfx-hal Swapchain flow</p><div class="jss80"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><h4 class="MuiTypography-root jss121 MuiTypography-h4">Let&#x27;s Code</h4><p class="MuiTypography-root jss69 MuiTypography-body1">First thing to note, <code class="jss118">device</code> state that we created in earlier
-tutorials, is a state that needs to be shared across
-different states, like creating Swapchain requires an instance
-of <code class="jss118">device</code>. From now on we will be using <code class="jss118">Rc&lt;RefCell&lt;T&gt;&gt;</code>
-to share <code class="jss118">device</code> state across various structs.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><em>Details on <code class="jss118">Rc&lt;RefCell&lt;T&gt;&gt;</code> can be read</em>
-<em>in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/rust-reference/rust-smart-pointers">this guide</a></em></p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1">I am not pointing few changes that I have made in various
-structs previously created. You can refer to the
-<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/004-swap_chain/main.rs">full code</a>
-for better understanding on the changes.</p><p class="MuiTypography-root jss69 MuiTypography-body1">To point out few changes, <code class="jss118">DeviceState</code> &amp;
-<code class="jss118">FrameBufferState</code> have been modified.</p></div><p class="MuiTypography-root jss69 MuiTypography-body1">We will first define our struct <code class="jss118">SwapchainState</code>,
-which will maintain Swapchain state and provide API for
-it&#x27;s creation.</p><pre><div class="jss122"><div class="jss123" style="background:#2b2b2b"><div class="jss124"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss125" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
-    swapchain<span class="token" style="color:#a9b7c6">:</span> Option<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">::</span>Swapchain<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
-    backbuffer<span class="token" style="color:#a9b7c6">:</span> Option<span class="token" style="color:#a9b7c6">&lt;</span>Vec<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">::</span>Image<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">,</span>
-    deviceState<span class="token" style="color:#a9b7c6">:</span> Rc<span class="token" style="color:#a9b7c6">&lt;</span>RefCell<span class="token" style="color:#a9b7c6">&lt;</span>DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
-    extent<span class="token" style="color:#a9b7c6">:</span> image<span class="token" style="color:#a9b7c6">::</span>Extent<span class="token" style="color:#a9b7c6">,</span>
+<em>decision behind that <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://gfx-rs.github.io/2019/10/01/update.html#new-swapchain-model">here</a>.</em></p></div><p class="MuiTypography-root jss187 MuiTypography-body1">The above decision, to handle <code class="jss183">swapchain</code> internally in
+gfx-hal, was made to hide logical improvements done by gfx-hal
+to improve performance in MacOS <code class="jss183">Metal</code> and DirectX 12 backends. <code class="jss183">Metal</code>
+backend doesn&#x27;t quite work well with Vulkan Swapchain API;
+thus, the team decided to manage the logic internally to
+provide a performant cross-platform GPU Driver framework.</p><p class="MuiTypography-root jss187 MuiTypography-body1">Discussion on the above issue can be <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/gfx-rs/gfx/issues/2863">read here</a>.</p><p class="MuiTypography-root jss187 MuiTypography-body1">Thus, Swapchain in <code class="jss183">gfx-rs</code> can be described in simple words:</p><ul class="jss236"><li class="jss237">Don&#x27;t do anything, just let the framework handle the
+Swapchain management</li><li class="jss237">To support the above statement, we need to provide a few
+config details to gfx-hal <code class="jss183">surface</code> instance, so that it
+can create the Swapchain instance and manage it internally.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">The following diagram illustrates how Swapchain is created
+in Vulkan, and how we need to bind it to <code class="jss183">surface</code> instance,
+to make it work. <em>(We do not have to worry about all
+these details, in <code class="jss183">gfx-hal</code> though)</em></p><div><div class="jss194"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss195 jss200" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82650444-56685080-9c38-11ea-960d-770db9795773.png" alt="gfx-hal Swapchain flow"/></div></div><p class="MuiTypography-root jss201 MuiTypography-body2">gfx-hal Swapchain flow</p><div class="jss198"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><h4 class="MuiTypography-root jss238 MuiTypography-h4">Let&#x27;s Code</h4><p class="MuiTypography-root jss187 MuiTypography-body1">First, we will discuss on how swapchain is created in Vulkan:</p><ul class="jss236"><li class="jss237">Querying details of Swapchain support, which includes:<ul class="jss236"><li class="jss237"><code class="jss183">surface</code> capabilities, like in which mode image would
+be presented (Presentation Mode), what is image bounds
+to draw on the surface, etc.
+Details - <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/struct.SurfaceCapabilities.html">SurfaceCapabilities</a></li><li class="jss237">Supported image format by the <code class="jss183">surface</code> on which we will draw</li><li class="jss237">Window Dimensions (Viewport) or Window Extent</li><li class="jss237">All of the above to create Swapchain Config.</li></ul></li><li class="jss237">Once Swapchain Config is created, we can use it
+to create our Swapchain Instance</li><li class="jss237">Swapchain will later provide us with inner Image Buffers
+to be used during the render phase.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">In <code class="jss183">gfx-hal</code>, point-2 i.e., the creation of Swapchain is not
+something a developer needs to worry about. We need to use
+the Swapchain support details to <code class="jss183">configure_swapchain</code> using
+the <code class="jss183">surface</code> instance.</p><h5 class="MuiTypography-root jss239 MuiTypography-h5">Let&#x27;s Breakdown the above code in 3 sections:</h5><ul class="jss236"><li class="jss237">Configuration</li><li class="jss237">Re-Configuration</li><li class="jss237">Destruction</li></ul><h6 class="MuiTypography-root jss240 MuiTypography-h6">Configuration</h6><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#a9b7c6">...</span>
+    <span class="token" style="color:#808080">// Collection Swapchain Image, Empty buffer initially</span>
+    frame_count<span class="token" style="color:#a9b7c6">:</span> usize<span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#808080">// Desired Format / Selected Format</span>
     format<span class="token" style="color:#a9b7c6">:</span> hal_format<span class="token" style="color:#a9b7c6">::</span>Format<span class="token" style="color:#a9b7c6">,</span>
 <span class="token" style="color:#a9b7c6">}</span>
 
-<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
-    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>backendState<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> BackendState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span> deviceState<span class="token" style="color:#a9b7c6">:</span> Rc<span class="token" style="color:#a9b7c6">&lt;</span>RefCell<span class="token" style="color:#a9b7c6">&lt;</span>DeviceState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;&gt;</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
-        <span class="token" style="color:#808080">// Get Surface Capabilities</span>
-        <span class="token" style="color:#cc7832">let</span> caps <span class="token" style="color:#a9b7c6">=</span> backendState
-            <span class="token" style="color:#a9b7c6">.</span>surface
-            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">capabilities</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>deviceState<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>instance<span class="token" style="color:#a9b7c6">:</span> B<span class="token" style="color:#a9b7c6">::</span>Instance<span class="token" style="color:#a9b7c6">,</span> surface<span class="token" style="color:#a9b7c6">:</span> B<span class="token" style="color:#a9b7c6">::</span>Surface<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#a9b7c6">...</span>
 
-        <span class="token" style="color:#cc7832">let</span> supported_formats <span class="token" style="color:#a9b7c6">=</span> backendState
-            <span class="token" style="color:#a9b7c6">.</span>surface
-            <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">supported_formats</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>deviceState<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-        <span class="token" style="color:#808080">// We need a supported format for the OS Window, so that Images drawn on</span>
-        <span class="token" style="color:#808080">// Swapchain are of that same format.</span>
-        <span class="token" style="color:#cc7832">let</span> format <span class="token" style="color:#a9b7c6">=</span> supported_formats<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map_or</span><span class="token" style="color:#a9b7c6">(</span>hal_format<span class="token" style="color:#a9b7c6">::</span>Format<span class="token" style="color:#a9b7c6">::</span>Rgba8Srgb<span class="token" style="color:#a9b7c6">,</span> <span class="token closure-params"><span class="token" style="color:#a9b7c6">|</span>formats<span class="token" style="color:#a9b7c6">|</span></span> <span class="token" style="color:#a9b7c6">{</span>
-            formats
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">iter</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">find</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> format<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">base_format</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#6897bb">1</span> <span class="token" style="color:#a9b7c6">==</span> hal_format<span class="token" style="color:#a9b7c6">::</span>ChannelType<span class="token" style="color:#a9b7c6">::</span>Srgb<span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#a9b7c6">*</span>format<span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap_or</span><span class="token" style="color:#a9b7c6">(</span>formats<span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span>
-        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#808080">// Configure Swapchain</span>
+        <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#a9b7c6">(</span>frame_count<span class="token" style="color:#a9b7c6">,</span> format<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#a9b7c6">{</span>
+            <span class="token" style="color:#cc7832">let</span> caps <span class="token" style="color:#a9b7c6">=</span> surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">capabilities</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>adapter<span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
 
-        <span class="token" style="color:#cc7832">let</span> swap_config <span class="token" style="color:#a9b7c6">=</span> hal_window<span class="token" style="color:#a9b7c6">::</span>SwapchainConfig<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">from_caps</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>caps<span class="token" style="color:#a9b7c6">,</span> format<span class="token" style="color:#a9b7c6">,</span> backendState<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-        <span class="token" style="color:#cc7832">let</span> extent <span class="token" style="color:#a9b7c6">=</span> swap_config<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_extent</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-        <span class="token" style="color:#cc7832">let</span> <span class="token" style="color:#a9b7c6">(</span>swapchain<span class="token" style="color:#a9b7c6">,</span> backbuffer<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
-            deviceState
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span>device
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">create_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> backendState<span class="token" style="color:#a9b7c6">.</span>surface<span class="token" style="color:#a9b7c6">,</span> swap_config<span class="token" style="color:#a9b7c6">,</span> None<span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Can&#x27;t create swapchain&quot;</span><span class="token" style="color:#a9b7c6">)</span>
+            <span class="token" style="color:#cc7832">let</span> supported_formats <span class="token" style="color:#a9b7c6">=</span> surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">supported_formats</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>adapter<span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            <span class="token" style="color:#808080">// We need a supported format for the OS Window, so that Images drawn on</span>
+            <span class="token" style="color:#808080">// Swapchain are of that same format.</span>
+            <span class="token" style="color:#cc7832">let</span> format <span class="token" style="color:#a9b7c6">=</span> supported_formats<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map_or</span><span class="token" style="color:#a9b7c6">(</span>hal_format<span class="token" style="color:#a9b7c6">::</span>Format<span class="token" style="color:#a9b7c6">::</span>Rgba8Srgb<span class="token" style="color:#a9b7c6">,</span> <span class="token closure-params"><span class="token" style="color:#a9b7c6">|</span>formats<span class="token" style="color:#a9b7c6">|</span></span> <span class="token" style="color:#a9b7c6">{</span>
+                formats
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">iter</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">find</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> format<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">base_format</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#6897bb">1</span> <span class="token" style="color:#a9b7c6">==</span> hal_format<span class="token" style="color:#a9b7c6">::</span>ChannelType<span class="token" style="color:#a9b7c6">::</span>Srgb<span class="token" style="color:#a9b7c6">)</span>
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">map</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">|</span>format<span class="token" style="color:#a9b7c6">|</span> <span class="token" style="color:#a9b7c6">*</span>format<span class="token" style="color:#a9b7c6">)</span>
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap_or</span><span class="token" style="color:#a9b7c6">(</span>formats<span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">]</span><span class="token" style="color:#a9b7c6">)</span>
+            <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+            <span class="token" style="color:#cc7832">let</span> swap_config <span class="token" style="color:#a9b7c6">=</span> hal_window<span class="token" style="color:#a9b7c6">::</span>SwapchainConfig<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">from_caps</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>caps<span class="token" style="color:#a9b7c6">,</span> format<span class="token" style="color:#a9b7c6">,</span> init_extent<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            <span class="token" style="color:#cc7832">let</span> image_extent <span class="token" style="color:#a9b7c6">=</span> swap_config<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_extent</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+            <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
+                surface
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">configure_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>device<span class="token" style="color:#a9b7c6">,</span> swap_config<span class="token" style="color:#a9b7c6">)</span>
+                    <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Can&#x27;t configure swapchain&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+
+            <span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6897bb">3</span><span class="token" style="color:#a9b7c6">,</span> format<span class="token" style="color:#a9b7c6">)</span>
         <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
 
-        SwapchainState <span class="token" style="color:#a9b7c6">{</span>
-            swapchain<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span>swapchain<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
-            backbuffer<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#ffc66d">Some</span><span class="token" style="color:#a9b7c6">(</span>backbuffer<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span>
-            deviceState<span class="token" style="color:#a9b7c6">,</span>
-            extent<span class="token" style="color:#a9b7c6">,</span>
+        Renderer <span class="token" style="color:#a9b7c6">{</span>
+            <span class="token" style="color:#a9b7c6">...</span>
+            frame_count<span class="token" style="color:#a9b7c6">,</span>
             format<span class="token" style="color:#a9b7c6">,</span>
         <span class="token" style="color:#a9b7c6">}</span>
     <span class="token" style="color:#a9b7c6">}</span>
 <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">...</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss187 MuiTypography-body1">As discussed before, first, we need to query details for
+Swapchain support. Once we have the details, we will use
+them to configure our swapchain using <code class="jss183">gfx-hal</code> <code class="jss183">surface</code>
+instance.</p><p class="MuiTypography-root jss187 MuiTypography-body1">We will keep a reference to <code class="jss183">format</code> for later use, especially
+for re-configuring the swapchain when the window surface
+becomes invalidated, like on window resize and other related
+events.</p><p class="MuiTypography-root jss187 MuiTypography-body1"><code class="jss183">frame_count</code> is the number of frames we would be parallelly
+working with.
+<em>I am not exactly sure right now, why <code class="jss183">3</code> is
+the frame count used in most of the <code class="jss183">gfx-hal</code> examples.
+My guess is, it&#x27;s because it&#x27;s the number of <code class="jss183">image_count</code>s
+any GPU currently supports for buffering.</em></p><h6 class="MuiTypography-root jss240 MuiTypography-h6">Re-Configuration</h6><p class="MuiTypography-root jss187 MuiTypography-body1">Some changes to be done to our code, before moving forward</p><div class="jss245"><div class="jss246" style="background:#2b2b2b"><div class="jss247"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss248" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss249"><span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss249"><span><span>        instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><span><span>        </span><span class="token" style="color:#cc7832">mut</span><span> surface</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>        init_extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#cc7832">Self</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss249"><span><span>        </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss249"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>Window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">build_window</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss249"><span>
+</span></div></code></pre></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Changes from above include:</p><ul class="jss236"><li class="jss237">Window Dimensions (as <code class="jss183">Extent2D</code>) to be used in our <code class="jss183">Renderer</code>
+struct. This extent will help us to create our Surface
+Viewport when the <code class="jss183">Renderer</code> instance is created for the
+first time.</li><li class="jss237">Make our <code class="jss183">renderer</code> instance mutable.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">Re-Configuration is an important part of making Swapchain work.
+It is required to notify the swapchain that the window
+is invalidated, and thus every image that it contains should
+be invalidated and re-created.</p><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    window_dims<span class="token" style="color:#a9b7c6">:</span> hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D<span class="token" style="color:#a9b7c6">,</span>
+    viewport<span class="token" style="color:#a9b7c6">:</span> Viewport<span class="token" style="color:#a9b7c6">,</span>
+    <span class="token" style="color:#a9b7c6">...</span>
+<span class="token" style="color:#a9b7c6">}</span>
 
-<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Drop <span class="token" style="color:#cc7832">for</span> SwapchainState<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+<span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span>
+        <span class="token" style="color:#a9b7c6">...</span>
+    <span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#a9b7c6">...</span>
+        <span class="token" style="color:#cc7832">let</span> viewport <span class="token" style="color:#a9b7c6">=</span> Viewport <span class="token" style="color:#a9b7c6">{</span>
+            rect<span class="token" style="color:#a9b7c6">:</span> Rect <span class="token" style="color:#a9b7c6">{</span>
+                x<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">,</span>
+                y<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">0</span><span class="token" style="color:#a9b7c6">,</span>
+                w<span class="token" style="color:#a9b7c6">:</span> init_extent<span class="token" style="color:#a9b7c6">.</span>width <span class="token" style="color:#cc7832">as</span> _<span class="token" style="color:#a9b7c6">,</span>
+                h<span class="token" style="color:#a9b7c6">:</span> init_extent<span class="token" style="color:#a9b7c6">.</span>height <span class="token" style="color:#cc7832">as</span> _<span class="token" style="color:#a9b7c6">,</span>
+            <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">,</span>
+            depth<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#6897bb">0.0</span><span class="token" style="color:#a9b7c6">..</span><span class="token" style="color:#6897bb">1.0</span><span class="token" style="color:#a9b7c6">,</span>
+        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+
+        Renderer <span class="token" style="color:#a9b7c6">{</span>
+            window_dims<span class="token" style="color:#a9b7c6">:</span> init_extent<span class="token" style="color:#a9b7c6">,</span>
+            viewport<span class="token" style="color:#a9b7c6">,</span>
+            <span class="token" style="color:#a9b7c6">...</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">set_dims</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">,</span> dims<span class="token" style="color:#a9b7c6">:</span> PhysicalSize<span class="token" style="color:#a9b7c6">&lt;</span>u32<span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>window_dims <span class="token" style="color:#a9b7c6">=</span> hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D <span class="token" style="color:#a9b7c6">{</span>
+            width<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>width<span class="token" style="color:#a9b7c6">,</span>
+            height<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>height<span class="token" style="color:#a9b7c6">,</span>
+        <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+
+    <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">recreate_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#cc7832">let</span> caps <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">capabilities</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>adapter<span class="token" style="color:#a9b7c6">.</span>physical_device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#cc7832">let</span> swap_config <span class="token" style="color:#a9b7c6">=</span>
+            hal_window<span class="token" style="color:#a9b7c6">::</span>SwapchainConfig<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">from_caps</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span>caps<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>format<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>window_dims<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#cc7832">let</span> image_extent <span class="token" style="color:#a9b7c6">=</span> swap_config<span class="token" style="color:#a9b7c6">.</span>extent<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">to_extent</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+
+        <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
+            <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>surface
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">configure_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>device<span class="token" style="color:#a9b7c6">,</span> swap_config<span class="token" style="color:#a9b7c6">)</span>
+                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Can&#x27;t create swapchain&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+
+        <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>viewport<span class="token" style="color:#a9b7c6">.</span>rect<span class="token" style="color:#a9b7c6">.</span>w <span class="token" style="color:#a9b7c6">=</span> image_extent<span class="token" style="color:#a9b7c6">.</span>width <span class="token" style="color:#cc7832">as</span> _<span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>viewport<span class="token" style="color:#a9b7c6">.</span>rect<span class="token" style="color:#a9b7c6">.</span>h <span class="token" style="color:#a9b7c6">=</span> image_extent<span class="token" style="color:#a9b7c6">.</span>height <span class="token" style="color:#cc7832">as</span> _<span class="token" style="color:#a9b7c6">;</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+
+<span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> Result<span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">&amp;</span><span class="token lifetime-annotation" style="color:#6897bb">&#x27;static</span> str<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+    <span class="token" style="color:#a9b7c6">...</span>
+    ev_loop<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">run</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">move</span> <span class="token closure-params"><span class="token" style="color:#a9b7c6">|</span>event<span class="token" style="color:#a9b7c6">,</span> _<span class="token" style="color:#a9b7c6">,</span> control_flow<span class="token" style="color:#a9b7c6">|</span></span> <span class="token" style="color:#a9b7c6">{</span>
+        <span class="token" style="color:#a9b7c6">...</span>
+        event<span class="token" style="color:#a9b7c6">::</span>WindowEvent<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">Resized</span><span class="token" style="color:#a9b7c6">(</span>dims<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+            <span class="token" style="color:#808080">// We need to re-configure our swapchain</span>
+            <span class="token" style="color:#808080">// with new window dimensions on every re-size</span>
+            renderer<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">set_dims</span><span class="token" style="color:#a9b7c6">(</span>dims<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            renderer<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">recreate_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+        <span class="token" style="color:#a9b7c6">}</span>
+        <span class="token" style="color:#a9b7c6">...</span>
+    <span class="token" style="color:#a9b7c6">}</span>
+<span class="token" style="color:#a9b7c6">}</span>
+</code></pre></div></div></pre><p class="MuiTypography-root jss187 MuiTypography-body1">We are re-configuring our swapchain on every <code class="jss183">resize</code> event.</p><div class="MuiPaper-root MuiCard-root jss203 jss204 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss187 MuiTypography-body1">Similarly, we should also re-configure for other window
+events that will invalidate the Vulkan <code class="jss183">surface</code> like
+winit&#x27;s <code class="jss183">ScaleFactorChanged</code>, which we will skip for now.</p></div><p class="MuiTypography-root jss187 MuiTypography-body1">The <code class="jss183">viewport</code> will be used later when we will render our images.</p><h6 class="MuiTypography-root jss240 MuiTypography-h6">Destruction</h6><p class="MuiTypography-root jss187 MuiTypography-body1">A part where we need to memory manage our swapchain.
+Since we created (configured) <code class="jss183">swapchain</code> using <code class="jss183">surface</code>, we will
+have to use <code class="jss183">surface</code> again to destroy it as well, before
+our struct <code class="jss183">Renderer</code> gets destroyed.</p><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Drop <span class="token" style="color:#cc7832">for</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">drop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
         <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
-            <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>deviceState
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">borrow</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span>
-                <span class="token" style="color:#a9b7c6">.</span>device
-                <span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">destroy_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>swapchain<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">take</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unwrap</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unconfigure_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
+            <span class="token" style="color:#a9b7c6">...</span>
         <span class="token" style="color:#a9b7c6">}</span>
     <span class="token" style="color:#a9b7c6">}</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><p class="MuiTypography-root jss69 MuiTypography-body1">Let&#x27;s Breakdown the above code in 3 sections:</p><ul class="jss119"><li class="jss120">Structure</li><li class="jss120">Creation</li><li class="jss120">Destruction</li></ul><h5 class="MuiTypography-root jss126 MuiTypography-h5">Structure</h5><p class="MuiTypography-root jss69 MuiTypography-body1">We have <code class="jss118">swapchain</code> instance, which is the actual Swapchain
-instance, which will maintain actual Image Buffers in itself.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">backbuffer</code> is Image Buffer, representing the 2D Image
-that we would be drawing. Since, we are drawing a 3D cube,
-we would also be needing 3<sup>rd</sup> dimension, Z-Buffer
-also known as Depth Buffer, which we will discuss later in
-coming sections.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">deviceState</code> is required, because we would be re-creating
-and thus destroy old <code class="jss118">swapchain</code> in SwapchainState,
-on every window dimension change.</p><p class="MuiTypography-root jss69 MuiTypography-body1"><code class="jss118">extent</code> and <code class="jss118">format</code> would be later on used in Render Pass.</p><h5 class="MuiTypography-root jss126 MuiTypography-h5">Creation</h5><p class="MuiTypography-root jss69 MuiTypography-body1">Creating a <code class="jss118">swapchain</code> is a three step process:</p><ul class="jss119"><li class="jss120">We need to first get <code class="jss118">surface</code> capabilities. Details on
-each property in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/struct.SurfaceCapabilities.html">SurfaceCapabilities</a></li><li class="jss120">Next we need to figure out what kind of Image Format
-our <code class="jss118">surface</code> supports, so that Swapchain draws only that
-format image.</li><li class="jss120">Next we need to create <code class="jss118">swap_config</code>, from <code class="jss118">caps</code>, <code class="jss118">format</code>
-(already discussed), and window size extent. This
-<code class="jss118">Extent2D</code> reference should be always up-to-date
-respective to the current Window size. Thus, we will be
-updating our <code class="jss118">window</code> event_loop, as shown below.</li></ul><pre><div class="jss122"><div class="jss123" style="background:#2b2b2b"><div class="jss124"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss125" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
-event<span class="token" style="color:#a9b7c6">::</span>WindowEvent<span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">Resized</span><span class="token" style="color:#a9b7c6">(</span>dims<span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">=&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
-    backend<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">update_extent</span><span class="token" style="color:#a9b7c6">(</span>hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D <span class="token" style="color:#a9b7c6">{</span>
-        width<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>width<span class="token" style="color:#a9b7c6">,</span>
-        height<span class="token" style="color:#a9b7c6">:</span> dims<span class="token" style="color:#a9b7c6">.</span>height<span class="token" style="color:#a9b7c6">,</span>
-    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-<span class="token" style="color:#a9b7c6">}</span>
-event<span class="token" style="color:#a9b7c6">::</span>WindowEvent<span class="token" style="color:#a9b7c6">::</span>ScaleFactorChanged <span class="token" style="color:#a9b7c6">{</span> new_inner_size<span class="token" style="color:#a9b7c6">,</span> <span class="token" style="color:#a9b7c6">..</span> <span class="token" style="color:#a9b7c6">}</span> <span class="token" style="color:#a9b7c6">=&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
-    backend<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">update_extent</span><span class="token" style="color:#a9b7c6">(</span>hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D <span class="token" style="color:#a9b7c6">{</span>
-        width<span class="token" style="color:#a9b7c6">:</span> new_inner_size<span class="token" style="color:#a9b7c6">.</span>width<span class="token" style="color:#a9b7c6">,</span>
-        height<span class="token" style="color:#a9b7c6">:</span> new_inner_size<span class="token" style="color:#a9b7c6">.</span>height<span class="token" style="color:#a9b7c6">,</span>
-    <span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
-<span class="token" style="color:#a9b7c6">}</span>
-<span class="token" style="color:#a9b7c6">...</span>
-</code></pre></div></div></pre><ul class="jss119"><li class="jss120">We would be keeping reference to <code class="jss118">format</code> and <code class="jss118">extent</code>
-(<code class="jss118">image::Extent</code>) for later reference, for creating images.</li><li class="jss120"><code class="jss118">.create_swapchain()</code> is <code class="jss118">unsafe</code> code, thus it is created
-inside <code class="jss118">unsafe</code> block. It&#x27;s quite clear that we need,
-<code class="jss118">device</code>, <code class="jss118">surface</code> and <code class="jss118">swap_config</code> to create <code class="jss118">swapchain</code>
-and link it to <code class="jss118">surface</code>. We also get <code class="jss118">backbuffer</code>, which
-relates to the collection of 2D Image Buffers, where
-we need to save our images and use it with <code class="jss118">swapchain</code> later.</li></ul><h5 class="MuiTypography-root jss126 MuiTypography-h5">Destruction</h5><p class="MuiTypography-root jss69 MuiTypography-body1">Normally we don&#x27;t need <code class="jss118">Drop</code> trait that often in any Rust
-code, but here the situation is a bit different. Problem is
-if we drop <code class="jss118">SwapchainState</code>, it will drop <code class="jss118">swapchain</code>
-instance with it, but will not clear the state of <code class="jss118">surface</code>
-where the <code class="jss118">swapchain</code> was previously linked to, causing
-memory leaks. So, it&#x27;s better to first <code class="jss118">destroy_swapchain</code>
-already linked to <code class="jss118">surface</code> using <code class="jss118">device</code>.</p><p class="MuiTypography-root jss69 MuiTypography-body1">Once that is done, <code class="jss118">swapchain</code> will automatically get
-dropped.</p><div class="MuiPaper-root MuiCard-root jss85 jss86 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss69 MuiTypography-body1">For cases like this, where an instance needs to pass it&#x27;s
-ownership to someone else, like here to <code class="jss118">device</code> when
-<code class="jss118">destroy_swapchain</code> was called, it&#x27;s better to keep
-those instances inside <code class="jss118">Option</code> enum, because it&#x27;s easy
-to swap the memory and change the ownership, without
-causing Rust Compiler to freak out. This is the reason
-we have used <code class="jss118">Option&lt;B::Swapchain&gt;</code> instead of directly
-owning <code class="jss118">Swapchain</code>, as we needed to swap swapchain
-ownership at runtime, while destroying <code class="jss118">SwapchainState</code>.</p></div><p class="MuiTypography-root jss69 MuiTypography-body1">Details on <code class="jss118">Option.map_or</code> can be found <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://doc.rust-lang.org/std/option/enum.Option.html#method.map_or">here</a>.</p><h4 class="MuiTypography-root jss121 MuiTypography-h4">Left out things</h4><p class="MuiTypography-root jss69 MuiTypography-body1">Swapchain is easy to understand, but is a little complicated
-to use in real world. For eg., On each window <code class="jss118">resize</code> or
-change in Window size/resolution,
-<code class="jss118">swapchain</code> should be re-created. We haven&#x27;t properly
-discussed such cases yet.
-I want to talk about that in Render Passes, as
-it makes more sense to talk this over there.</p><hr class="jss127"/><p class="MuiTypography-root jss69 MuiTypography-body1">You can find the full code for this Doc,
-here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/004-swap_chain/main.rs">004-swap_chain</a></p><div class="MuiGrid-root jss128 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss129 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss130 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss131"></span><span class="jss131"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss134 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/swap-chain - SwapChain and Image Views in gfx-hal"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss131"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss133 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/swap-chain","query":{},"buildId":"gypo5ssYVobHCCuA96iy7","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-89b697dc0b6b1e6d3e11.js"></script><script async="" data-next-page="/_app" src="/_next/static/gypo5ssYVobHCCuA96iy7/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/swap-chain" src="/_next/static/gypo5ssYVobHCCuA96iy7/pages/gfx-hal-initials/swap-chain.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/d5fbf62eded0dc5b55b92fa0dc15104c4ab3f281.07a1336e48c0c14a7846.js" async=""></script><script src="/_next/static/chunks/ed1b2c473d0cd35d0ff178551abea415ddacddfc.d2f707b650b2d7a82c05.js" async=""></script><script src="/_next/static/runtime/main-eb229827e06f1d6c5480.js" async=""></script><script src="/_next/static/gypo5ssYVobHCCuA96iy7/_buildManifest.js" async=""></script><script src="/_next/static/gypo5ssYVobHCCuA96iy7/_ssgManifest.js" async=""></script></body></html>
+</code></pre></div></div></pre><p class="MuiTypography-root jss187 MuiTypography-body1">Once that is done, <code class="jss183">swapchain</code> will automatically get
+dropped by <code class="jss183">surface</code>, before <code class="jss183">surface</code> itself is dropped.</p><h4 class="MuiTypography-root jss238 MuiTypography-h4">Image Views</h4><p class="MuiTypography-root jss187 MuiTypography-body1">We won&#x27;t be working with <code class="jss183">ImageView</code>s in <code class="jss183">gfx-hal</code> (at-least
+for this tutorial), but in Vulkan <code class="jss183">ImageView</code> is a very
+integral part when it comes to
+SwapChain. It is just a representation (view) of the actual
+<code class="jss183">Image</code> that SwapChain contains.</p><div class="MuiPaper-root MuiCard-root jss203 jss204 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss187 MuiTypography-body1"><strong>Quoting directly from <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan-tutorial.com/Drawing_a_triangle/Presentation/Image_views">Vulkan Tutorial</a></strong></p><p class="MuiTypography-root jss187 MuiTypography-body1"><em>An image view is quite literally a view into an image.
+It describes how to access the image and which part of
+the image to access, for example if it should be treated
+as a 2D texture depth texture without any mipmapping
+levels.</em></p></div><p class="MuiTypography-root jss187 MuiTypography-body1">Since we do not actually interact with Swapchain in
+<code class="jss183">gfx-hal</code>, <code class="jss183">gfx-hal</code> provides us APIs to get
+<a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/trait.PresentationSurface.html#tymethod.unconfigure_swapchain">SwapchainImage</a>,
+which can be rendered to the screen directly. Consider it as
+a frame per unit time.</p><hr class="jss253"/><p class="MuiTypography-root jss187 MuiTypography-body1">You can find the full code for this Doc,
+here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/003-swap_chain/main.rs">003-swap_chain</a></p><div class="MuiGrid-root jss254 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-space-between"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss255 jss256 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/physical-logical-devices"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></span><span class="jss258" title="Adapters &amp; Physical/Logical Devices &amp; Device Queues" aria-label="Adapters &amp; Physical/Logical Devices &amp; Device Queues">Adapters &amp; Physical/Logical Devices &amp; Device Queues</span></span></a></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss255 jss257 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/render-pass"><span class="MuiButton-label"><span class="jss258" title="Render Pass in Vulkan" aria-label="Render Pass in Vulkan">Render Pass in Vulkan</span><span class="MuiButton-endIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></span></span></a></div></div><div class="MuiGrid-root jss288 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss289 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss290 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss291"></span><span class="jss291"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss294 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/swap-chain - SwapChain and Image Views in gfx-hal"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss291"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss293 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/swap-chain","query":{},"buildId":"w6G4_G4BucmqEky-Zi_DD","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-85bd6957125321bbf99b.js"></script><script async="" data-next-page="/_app" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/swap-chain" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/swap-chain.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" async=""></script><script src="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" async=""></script><script src="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" async=""></script><script src="/_next/static/runtime/main-aa7804989bef611239d5.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_buildManifest.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_ssgManifest.js" async=""></script></body></html>
