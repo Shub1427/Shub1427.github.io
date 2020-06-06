@@ -6,6 +6,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
     key: 'display-window',
     link: '/gfx-hal-initials/display-window',
     title: 'Setup & Display Blank Window',
+    titleString: 'Setup & Display Blank Window',
     description:
       'Learn Displaying a Blank Window using winit and bind it to gfx-hal surface instance',
     ogImage:
@@ -19,6 +20,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
     key: 'physical-logical-devices',
     link: '/gfx-hal-initials/physical-logical-devices',
     title: 'Adapters & Physical/Logical Devices & Device Queues',
+    titleString: 'Adapters & Physical/Logical Devices & Device Queues',
     description:
       'Learn to Instantiate Vulkan Physical/Logical Devices and get Device Queue from gfx-hal adapters',
     ogImage:
@@ -32,19 +34,21 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
     key: 'swap-chain',
     link: '/gfx-hal-initials/swap-chain',
     title: 'SwapChain and Image Views in gfx-hal',
+    titleString: 'SwapChain and Image Views in gfx-hal',
     description:
       'Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal',
     ogImage:
       'https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST, Tags.GFX_HAL],
     createdAt: new Date('2020/05/22 10:20:00'),
-    updatedAt: new Date('2020/05/23 14:30:00'),
+    updatedAt: new Date('2020/06/06 14:00:00'),
     isPublished: true,
   },
   'command-buffers': {
     key: 'command-buffers',
     link: '/gfx-hal-initials/command-buffers',
     title: 'Command Buffers & Pool',
+    titleString: 'Command Buffers & Pool',
     description:
       'Understanding Command Pools and Command Buffers in Vulkan and gfx-hal',
     ogImage:
@@ -58,6 +62,7 @@ export const halArchiveRecord: Record<string, IArchiveItem> = {
     key: 'shaders',
     link: '/gfx-hal-initials/shaders',
     title: 'Shaders',
+    titleString: 'Shaders',
     description:
       'Understanding Shaders & writing minimal Shader using GLSL Shading language',
     ogImage:

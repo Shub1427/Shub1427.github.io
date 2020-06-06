@@ -1,11 +1,15 @@
+import React from 'react';
+
 import { Tags } from './tags';
 import { ISortParams } from '@utils/sort-by';
 import { toArray } from '@utils/array-utils';
+import InlineCode from '@components/inline-code';
 
 export interface IArchiveItem extends ISortParams {
   key: string;
   link: string;
   title: React.ReactNode;
+  titleString: string;
   description: React.ReactNode;
   ogImage: string;
   tags: Tags[];
@@ -20,6 +24,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     key: 'rust-reference',
     link: '/rust-reference',
     title: 'Advance Rust Reference',
+    titleString: 'Advance Rust Reference',
     description:
       'Some advance concepts in Rust that were difficult for me to understand. \
       This Doc is trying to keep a reference of all those topics, for me to take \
@@ -35,6 +40,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     key: 'performance-reactjs',
     link: '/performance-reactjs',
     title: 'Performance Improvements in JS and ReactJS',
+    titleString: 'Performance Improvements in JS and ReactJS',
     description:
       'Recent Performance related findings of mine, which I am jotting down here for later reference',
     ogImage:
@@ -48,6 +54,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     key: 'upload-client-logs',
     link: '/upload-client-logs',
     title: 'Client Browser Log to your Server',
+    titleString: 'Client Browser Log to your Server',
     description:
       "Sometimes (like to get details on performance) there is a requirement to log data \
       from end-user's browser to you own servers, for which this note will talk about.",
@@ -62,6 +69,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     key: 'word-counter',
     link: '/word-counter',
     title: 'Word Counter in Rust',
+    titleString: 'Word Counter in Rust',
     description:
       'Just a fun bin script for my project, to count words in my MDX files.',
     ogImage:
@@ -74,9 +82,16 @@ export const archiveRecord: Record<string, IArchiveItem> = {
   'gfx-hal-basics': {
     key: 'gfx-hal-basics',
     link: '/gfx-hal-initials',
-    title: 'Basics on Vulkan using gfx-hal',
+    title: (
+      <span>
+        Learn to Draw a Cube using&nbsp;
+        <InlineCode>gfx-hal</InlineCode>
+      </span>
+    ),
+    titleString: 'Learn to Draw a Cube using gfx-hal',
     description:
-      'Reference Notes for me (and others) to help get started with Rust and Vulkan',
+      'Learn to draw a cube using gfx-hal. Also understand \
+      concepts of Vulkan while learning to draw a cube',
     ogImage:
       'https://user-images.githubusercontent.com/11786283/81768708-514d2800-94f9-11ea-95d3-36796815a31f.jpg',
     tags: [Tags.TUTORIAL, Tags.RUST],
@@ -88,6 +103,7 @@ export const archiveRecord: Record<string, IArchiveItem> = {
     key: 'astro-v2',
     link: '/astro-v2',
     title: 'Astro Blaster v2 in Rust',
+    titleString: 'Astro Blaster v2 in Rust',
     description: 'A very minimal game making tutorial in Rust using ggez',
     ogImage:
       'https://user-images.githubusercontent.com/11786283/81768159-f1a24d00-94f7-11ea-83e3-8b9212d4851c.jpg',

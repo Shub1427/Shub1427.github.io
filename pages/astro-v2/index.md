@@ -11,6 +11,7 @@ export const record = archiveRecord['astro-v2'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Astro Blaster']}
   publishDate={record.createdAt}

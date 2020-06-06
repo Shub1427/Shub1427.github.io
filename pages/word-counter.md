@@ -4,6 +4,7 @@ export const record = archiveRecord['word-counter'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Word Counter']}
   publishDate={record.createdAt}

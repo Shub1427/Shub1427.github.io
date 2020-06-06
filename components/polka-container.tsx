@@ -12,7 +12,8 @@ import { getSiteLink } from '@utils/generic-utils';
 import { wordCounter } from '@utils/word-counter';
 
 interface IPolkaContainer {
-  pageTitle: string;
+  pageTitle: React.ReactNode;
+  pageTitleString: string;
   pageDescription: string;
   keywords: string[];
   publishDate: Date;
@@ -42,11 +43,11 @@ export default function PolkaContainer(props: IPolkaContainer) {
         {/* Twtitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@Shub7241" />
-        <meta name="twitter:title" content={props.pageTitle} />
+        <meta name="twitter:title" content={props.pageTitleString} />
         <meta name="twitter:description" content={props.pageDescription} />
         {/* Others */}
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={props.pageTitle} />
+        <meta property="og:title" content={props.pageTitleString} />
         <meta property="og:site_name" content="Subroto" />
         <meta property="og:url" content={pageLink} />
         <meta property="og:image" content={`${props.ogImage}?2`} />
@@ -58,7 +59,7 @@ export default function PolkaContainer(props: IPolkaContainer) {
           property="article:author"
           content="https://twitter.com/Shub7241"
         />
-        <title>{props.pageTitle}</title>
+        <title>{props.pageTitleString}</title>
         <meta name="description" content={props.pageDescription} />
         <meta
           name="keywords"
@@ -72,7 +73,11 @@ export default function PolkaContainer(props: IPolkaContainer) {
           <PolkaPattern />
           <FixedNavbar />
           {props.children}
-          <Footer title={props.pageTitle} text={pageLink} url={pageLink} />
+          <Footer
+            title={props.pageTitleString}
+            text={pageLink}
+            url={pageLink}
+          />
         </Container>
       </MDXWordCountContext.Provider>
     </>

@@ -7,6 +7,7 @@ export const rustBasicsRecord = rustArchiveRecord['rust-cargo-basics'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'Surface', 'Window', 'learn gfx-hal', 'learn']}
   publishDate={record.createdAt}

@@ -6,14 +6,15 @@ export const record = archiveRecord['gfx-hal-basics'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
-  keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
+  keywords={['Learn', 'Draw Cube', 'Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
   publishDate={record.createdAt}
   ogImage={record.ogImage}
 >
 
 <H1 updatedAt={record.updatedAt}>
-  <InlineCode>gfx-hal</InlineCode> & <InlineCode>vulkan</InlineCode> basics
+  {record.title}
 </H1>
 
 <Blockquote type="warn">

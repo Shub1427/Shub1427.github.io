@@ -4,6 +4,7 @@ export const record = rustArchiveRecord['rust-cargo-basics'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Basics', 'Fundamental', 'Beginner']}
   publishDate={record.createdAt}

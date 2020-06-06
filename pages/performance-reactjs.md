@@ -4,6 +4,7 @@ export const record = archiveRecord['performance-reactjs'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Performance']}
   publishDate={record.createdAt}

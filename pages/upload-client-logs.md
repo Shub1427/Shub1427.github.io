@@ -4,6 +4,7 @@ export const record = archiveRecord['upload-client-logs'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Client Logs']}
   publishDate={record.createdAt}

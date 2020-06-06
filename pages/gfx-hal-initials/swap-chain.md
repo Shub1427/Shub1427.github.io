@@ -8,6 +8,7 @@ export const prevRecord = halArchiveRecord['physical-logical-devices'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'gfx-hal']}
   publishDate={record.createdAt}

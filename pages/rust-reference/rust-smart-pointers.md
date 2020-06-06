@@ -4,6 +4,7 @@ export const record = rustArchiveRecord['rust-smart-pointers'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Advance Rust']}
   publishDate={record.createdAt}

@@ -5,6 +5,7 @@ export const record = archiveRecord['rust-reference'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Advance Rust']}
   publishDate={record.createdAt}

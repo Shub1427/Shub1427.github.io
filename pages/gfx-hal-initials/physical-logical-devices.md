@@ -7,6 +7,7 @@ export const nextRecord = halArchiveRecord['swap-chain'];
 
 <PolkaContainer
   pageTitle={record.title}
+  pageTitleString={record.titleString}
   pageDescription={record.description}
   keywords={['Vulkan', 'Basics', 'Fundamental', 'Beginner', 'Physical Device', 'Logical Device', 'Learn', 'Device Queue']}
   publishDate={record.createdAt}

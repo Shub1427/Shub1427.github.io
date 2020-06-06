@@ -6,6 +6,7 @@ export const rustArchiveRecord: Record<string, IArchiveItem> = {
     key: 'rust-cargo-basics',
     link: '/rust-reference/rust-cargo-basics',
     title: 'Basics on Rust & Cargo',
+    titleString: 'Basics on Rust & Cargo',
     description: 'Basics on Rust & Cargo',
     ogImage:
       'https://user-images.githubusercontent.com/11786283/81770497-0c77c000-94fe-11ea-95bc-44e5e432b1d8.jpg',
@@ -18,6 +19,7 @@ export const rustArchiveRecord: Record<string, IArchiveItem> = {
     key: 'rust-smart-pointers',
     link: '/rust-reference/rust-smart-pointers',
     title: 'Smart Pointers',
+    titleString: 'Smart Pointers',
     description: 'Some notes on Box<>, Rc<>, RefCell<> etc.',
     ogImage:
       'https://user-images.githubusercontent.com/11786283/81770497-0c77c000-94fe-11ea-95bc-44e5e432b1d8.jpg',
