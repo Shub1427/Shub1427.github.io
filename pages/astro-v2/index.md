@@ -18,7 +18,7 @@ export const record = archiveRecord['astro-v2'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt}>
+<H1 id={record.titleString} updatedAt={record.updatedAt}>
   Astro Blaster
 </H1>
 

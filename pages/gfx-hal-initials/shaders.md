@@ -13,7 +13,7 @@ export const record = halArchiveRecord['shaders'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt}>
+<H1 id={record.titleString} updatedAt={record.updatedAt}>
   T-{`${size - 5}`}: {record.title}
 </H1>
 

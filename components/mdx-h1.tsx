@@ -1,9 +1,11 @@
 import React from 'react';
+import kebabCase from 'lodash/kebabCase';
 
 import { Typography, makeStyles, Theme } from '@material-ui/core';
 import NoteSubtitle from './note-subtitle';
 
 export interface IMDXH1Props {
+  id: string;
   children: React.ReactChild;
   updatedAt: Date;
 }
@@ -28,13 +30,19 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export default function MDXH1(props: IMDXH1Props) {
+  const { id, children, updatedAt, ...rest } = props;
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography className={classes.heading} variant="h2">
-        {props.children}
+      <Typography
+        id={kebabCase(id)}
+        className={classes.heading}
+        variant="h2"
+        {...rest}
+      >
+        {children}
       </Typography>
-      {props.updatedAt && (
+      {updatedAt && (
         <NoteSubtitle
           className={classes.subtitleWrapper}
           fontClasses={classes.subtitle}

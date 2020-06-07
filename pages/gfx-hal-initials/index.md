@@ -13,7 +13,7 @@ export const record = archiveRecord['gfx-hal-basics'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt}>
+<H1 id={record.titleString} updatedAt={record.updatedAt}>
   {record.title}
 </H1>
 

@@ -13,7 +13,7 @@ export const clientUploadRecord = archiveRecord['upload-client-logs'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt}>
+<H1 id={record.titleString} updatedAt={record.updatedAt}>
   T-{`${size - 4}`}: {record.title}
 </H1>
 

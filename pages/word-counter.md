@@ -11,7 +11,7 @@ export const record = archiveRecord['word-counter'];
   ogImage={record.ogImage}
 >
 
-<H1 updatedAt={record.updatedAt}>
+<H1 id={record.titleString} updatedAt={record.updatedAt}>
   Word Counter
 </H1>
 
