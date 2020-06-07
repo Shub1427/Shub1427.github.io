@@ -5,7 +5,7 @@
                 gtag('config', 'UA-113155919-1', {
                   page_path: window.location.pathname,
                 });
-              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="SwapChain and Image Views in gfx-hal"/><meta name="twitter:description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="SwapChain and Image Views in gfx-hal"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/swap-chain"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>SwapChain and Image Views in gfx-hal</title><meta name="description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Swap Chain Swapchain ImageViews Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/swap-chain.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" as="script"/><link rel="preload" href="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" as="script"/><link rel="preload" href="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-aa7804989bef611239d5.js" as="script"/><style id="jss-server-side">html {
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="SwapChain and Image Views in gfx-hal"/><meta name="twitter:description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta property="og:type" content="article"/><meta property="og:title" content="SwapChain and Image Views in gfx-hal"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/swap-chain"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82640938-22396380-9c29-11ea-9ee5-9a7fc01920da.jpg?2"/><meta property="article:published_time" content="2020/05/22"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>SwapChain and Image Views in gfx-hal</title><meta name="description" content="Learning about Swapchain, Double Buffering and Image Views. Understanding the implementation of SwapChain in gfx-hal"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Swap Chain Swapchain ImageViews Vulkan Basics Fundamental Beginner gfx-hal"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/gfx-hal-initials/swap-chain.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7a9f8aa4a58264a473f76b67f4d497b5fa320a44.75fca39be327dd97eb46.js" as="script"/><link rel="preload" href="/_next/static/chunks/4ef8210ae4c0392728d7714008d90e6dea2372af.bc7b38f90d260cd24e73.js" as="script"/><link rel="preload" href="/_next/static/chunks/19e43df172edbfcaa9a3d589a578de7969720f91.a9f98bf57217bbf79057.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-665f7de5a68b1d1ec122.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1475,7 +1475,7 @@ body::backdrop {
     align-content: center;
     justify-content: flex-end;
   }
-  .jss288 {
+  .jss294 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1484,53 +1484,53 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss288 {
+  .jss294 {
     flex-direction: column;
   }
 }
-  .jss289 {
+  .jss295 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss289 {
+  .jss295 {
     margin-bottom: 16px;
   }
 }
-  .jss290 {
+  .jss296 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss291 {
+  .jss297 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss291+.jss291 {
+  .jss297+.jss297 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss292 {
+  .jss298 {
     color: #fff;
     background: #444;
   }
-  .jss292:hover, .jss292focus, .jss292:active {
+  .jss298:hover, .jss298focus, .jss298:active {
     background: #333;
   }
-  .jss293 {
+  .jss299 {
     color: #fff;
     background: #4361b3;
   }
-  .jss293:hover, .jss293focus, .jss293:active {
+  .jss299:hover, .jss299focus, .jss299:active {
     background: #254395;
   }
-  .jss294 {
+  .jss300 {
     color: #fff;
     background: #4fafed;
   }
-  .jss294:hover, .jss294focus, .jss294:active {
+  .jss300:hover, .jss300focus, .jss300:active {
     background: #3191CF;
   }
   .jss1 {
@@ -1569,20 +1569,50 @@ body::backdrop {
     font-weight: 600;
   }
   .jss238 {
+    display: flex;
+  }
+  .jss238:hover > button {
+    opacity: 1;
+  }
+  .jss239 {
     color: #222;
     margin: 48px 0 16px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
   }
-  .jss239 {
+  .jss240 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 2.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss241 {
+    display: flex;
+  }
+  .jss241:hover > button {
+    opacity: 1;
+  }
+  .jss242 {
     color: #222;
     margin: 32px 0 12px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
   }
-  .jss240 {
+  .jss243 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss244 {
+    display: flex;
+  }
+  .jss244:hover > button {
+    opacity: 1;
+  }
+  .jss245 {
     color: #222;
     margin: 32px 0 12px;
     padding: 0;
@@ -1590,7 +1620,13 @@ body::backdrop {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
   }
-  .jss241 {
+  .jss246 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss247 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1599,23 +1635,23 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss242 {
+  .jss248 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss243 {
+  .jss249 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss244 {
+  .jss250 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss244 *::selection {
+  .jss250 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss244 *::-moz-selection {
+  .jss250 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
   .jss183 {
@@ -1624,10 +1660,10 @@ body::backdrop {
     padding: 1px 8px;
     background: rgba(0, 0, 0, 0.05);
   }
-  .jss249 {
+  .jss255 {
     position: relative;
   }
-  .jss250 {
+  .jss256 {
     top: 0;
     left: 0;
     right: 0;
@@ -1635,15 +1671,15 @@ body::backdrop {
     position: absolute;
     margin-left: -16px;
   }
-  .jss251 {
+  .jss257 {
     background: rgba(139, 195, 74, 0.2);
     border-left: 4px solid rgb(139, 195, 74);
   }
-  .jss252 {
+  .jss258 {
     background: rgba(198,40,40, 0.2);
     border-left: 4px solid rgb(200,104,84);
   }
-  .jss245 {
+  .jss251 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1652,23 +1688,23 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss246 {
+  .jss252 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss247 {
+  .jss253 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss248 {
+  .jss254 {
     padding: 0 0 64px 16px !important;
     margin-bottom: -64px !important;
   }
-  .jss248 *::selection {
+  .jss254 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss248 *::-moz-selection {
+  .jss254 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
   .jss194 {
@@ -1723,7 +1759,7 @@ body::backdrop {
     position: fixed;
     background: rgba(255, 255, 255, 0.90);
   }
-  .jss253 {
+  .jss259 {
     color: #666;
     border: medium none;
     font-size: 32px;
@@ -1731,25 +1767,25 @@ body::backdrop {
     text-align: center;
     font-weight: 300;
   }
-  .jss253:before {
+  .jss259:before {
     content: '***';
     line-height: 1.4;
     text-indent: 1em;
     letter-spacing: 1em;
   }
-  .jss254 {
+  .jss260 {
     margin-top: 64px;
   }
-  .jss255 {
+  .jss261 {
     max-width: 100%;
   }
-  .jss256 {
+  .jss262 {
     float: left;
   }
-  .jss257 {
+  .jss263 {
     float: right;
   }
-  .jss258 {
+  .jss264 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -1771,7 +1807,7 @@ body::backdrop {
   }
   .jss237 > ul > .jss237, .jss237 > ol > .jss237 {
     margin-top: 0;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container"><div class="MuiGrid-root jss11 MuiGrid-item MuiGrid-grid-xs-6"><img class="jss12" height="32" src="/images/logo-small.png" alt="Shub&#x27;s logo" title="Go Home" aria-label="Go Home"/></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"><div class="jss13"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div></div></div><div class="jss149"><h2 class="MuiTypography-root jss150 MuiTypography-h2">T-<!-- -->3<!-- -->: <span>SwapChain and Image Views in  <code class="jss183">gfx-hal</code></span></h2><div class="jss184 jss151"><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">06 Jun, 2020</p><span class="jss186">•</span><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">5<!-- --> min read</p></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Before diving in, let&#x27;s first understand what Double Buffering is.
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container"><div class="MuiGrid-root jss11 MuiGrid-item MuiGrid-grid-xs-6"><img class="jss12" height="32" src="/images/logo-small.png" alt="Shub&#x27;s logo" title="Go Home" aria-label="Go Home"/></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"><div class="jss13"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div></div></div><div class="jss149"><h2 class="MuiTypography-root jss150 MuiTypography-h2" id="swap-chain-and-image-views-in-gfx-hal">T-<!-- -->3<!-- -->: <span>SwapChain and Image Views in  <code class="jss183">gfx-hal</code></span></h2><div class="jss184 jss151"><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">06 Jun, 2020</p><span class="jss186">•</span><p class="MuiTypography-root jss185 jss152 MuiTypography-body2">5<!-- --> min read</p></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Before diving in, let&#x27;s first understand what Double Buffering is.
 A great video on <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://www.youtube.com/watch?v=tfzCcN2aIhI&amp;feature=emb_logo">Double Buffering</a>
 to get a fundamental understanding.</p><p class="MuiTypography-root jss187 MuiTypography-body1">As you can see in the video, double buffering is nothing but
 a way to cache images in a buffer. One of the Buffer is used
@@ -1798,7 +1834,7 @@ config details to gfx-hal <code class="jss183">surface</code> instance, so that 
 can create the Swapchain instance and manage it internally.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">The following diagram illustrates how Swapchain is created
 in Vulkan, and how we need to bind it to <code class="jss183">surface</code> instance,
 to make it work. <em>(We do not have to worry about all
-these details, in <code class="jss183">gfx-hal</code> though)</em></p><div><div class="jss194"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss195 jss200" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82650444-56685080-9c38-11ea-960d-770db9795773.png" alt="gfx-hal Swapchain flow"/></div></div><p class="MuiTypography-root jss201 MuiTypography-body2">gfx-hal Swapchain flow</p><div class="jss198"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><h4 class="MuiTypography-root jss238 MuiTypography-h4">Let&#x27;s Code</h4><p class="MuiTypography-root jss187 MuiTypography-body1">First, we will discuss on how swapchain is created in Vulkan:</p><ul class="jss236"><li class="jss237">Querying details of Swapchain support, which includes:<ul class="jss236"><li class="jss237"><code class="jss183">surface</code> capabilities, like in which mode image would
+these details, in <code class="jss183">gfx-hal</code> though)</em></p><div><div class="jss194"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss195 jss200" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/82650444-56685080-9c38-11ea-960d-770db9795773.png" alt="gfx-hal Swapchain flow"/></div></div><p class="MuiTypography-root jss201 MuiTypography-body2">gfx-hal Swapchain flow</p><div class="jss198"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><div class="jss238"><h4 class="MuiTypography-root jss239 MuiTypography-h4" id="lets-code">Let&#x27;s Code</h4><button class="MuiButtonBase-root MuiIconButton-root jss240" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss187 MuiTypography-body1">First, we will discuss on how swapchain is created in Vulkan:</p><ul class="jss236"><li class="jss237">Querying details of Swapchain support, which includes:<ul class="jss236"><li class="jss237"><code class="jss183">surface</code> capabilities, like in which mode image would
 be presented (Presentation Mode), what is image bounds
 to draw on the surface, etc.
 Details - <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/struct.SurfaceCapabilities.html">SurfaceCapabilities</a></li><li class="jss237">Supported image format by the <code class="jss183">surface</code> on which we will draw</li><li class="jss237">Window Dimensions (Viewport) or Window Extent</li><li class="jss237">All of the above to create Swapchain Config.</li></ul></li><li class="jss237">Once Swapchain Config is created, we can use it
@@ -1806,7 +1842,7 @@ to create our Swapchain Instance</li><li class="jss237">Swapchain will later pro
 to be used during the render phase.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">In <code class="jss183">gfx-hal</code>, point-2 i.e., the creation of Swapchain is not
 something a developer needs to worry about. We need to use
 the Swapchain support details to <code class="jss183">configure_swapchain</code> using
-the <code class="jss183">surface</code> instance.</p><h5 class="MuiTypography-root jss239 MuiTypography-h5">Let&#x27;s Breakdown the above code in 3 sections:</h5><ul class="jss236"><li class="jss237">Configuration</li><li class="jss237">Re-Configuration</li><li class="jss237">Destruction</li></ul><h6 class="MuiTypography-root jss240 MuiTypography-h6">Configuration</h6><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+the <code class="jss183">surface</code> instance.</p><div class="jss241"><h5 class="MuiTypography-root jss242 MuiTypography-h5" id="lets-breakdown-the-above-code-in-3-sections">Let&#x27;s Breakdown the above code in 3 sections:</h5><button class="MuiButtonBase-root MuiIconButton-root jss243" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><ul class="jss236"><li class="jss237">Configuration</li><li class="jss237">Re-Configuration</li><li class="jss237">Destruction</li></ul><div class="jss244"><h6 class="MuiTypography-root jss245 MuiTypography-h6" id="configuration">Configuration</h6><button class="MuiButtonBase-root MuiIconButton-root jss246" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><pre><div class="jss247"><div class="jss248" style="background:#2b2b2b"><div class="jss249"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss250" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#a9b7c6">...</span>
     <span class="token" style="color:#808080">// Collection Swapchain Image, Empty buffer initially</span>
     frame_count<span class="token" style="color:#a9b7c6">:</span> usize<span class="token" style="color:#a9b7c6">,</span>
@@ -1864,42 +1900,42 @@ working with.
 <em>I am not exactly sure right now, why <code class="jss183">3</code> is
 the frame count used in most of the <code class="jss183">gfx-hal</code> examples.
 My guess is, it&#x27;s because it&#x27;s the number of <code class="jss183">image_count</code>s
-any GPU currently supports for buffering.</em></p><h6 class="MuiTypography-root jss240 MuiTypography-h6">Re-Configuration</h6><p class="MuiTypography-root jss187 MuiTypography-body1">Some changes to be done to our code, before moving forward</p><div class="jss245"><div class="jss246" style="background:#2b2b2b"><div class="jss247"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss248" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss249"><span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>
-</span></span></div><div class="jss249"><span><span>        instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>        </span><span class="token" style="color:#cc7832">mut</span><span> surface</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>        init_extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#cc7832">Self</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>        </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
-</span></span></div><div class="jss249"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>Window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">build_window</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss252" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span>
+any GPU currently supports for buffering.</em></p><div class="jss244"><h6 class="MuiTypography-root jss245 MuiTypography-h6" id="re-configuration">Re-Configuration</h6><button class="MuiButtonBase-root MuiIconButton-root jss246" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss187 MuiTypography-body1">Some changes to be done to our code, before moving forward</p><div class="jss251"><div class="jss252" style="background:#2b2b2b"><div class="jss253"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss254" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss255"><span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss255"><span><span>        instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>        </span><span class="token" style="color:#cc7832">mut</span><span> surface</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>        init_extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#cc7832">Self</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>        </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss255"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss258" style="width:auto"></div><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>Window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">build_window</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss258" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss258" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#cc7832">mut</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span>
 </span></div></code></pre></div></div><p class="MuiTypography-root jss187 MuiTypography-body1">Changes from above include:</p><ul class="jss236"><li class="jss237">Window Dimensions (as <code class="jss183">Extent2D</code>) to be used in our <code class="jss183">Renderer</code>
 struct. This extent will help us to create our Surface
 Viewport when the <code class="jss183">Renderer</code> instance is created for the
 first time.</li><li class="jss237">Make our <code class="jss183">renderer</code> instance mutable.</li></ul><p class="MuiTypography-root jss187 MuiTypography-body1">Re-Configuration is an important part of making Swapchain work.
 It is required to notify the swapchain that the window
 is invalidated, and thus every image that it contains should
-be invalidated and re-created.</p><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+be invalidated and re-created.</p><pre><div class="jss247"><div class="jss248" style="background:#2b2b2b"><div class="jss249"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss250" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">struct</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
     window_dims<span class="token" style="color:#a9b7c6">:</span> hal_window<span class="token" style="color:#a9b7c6">::</span>Extent2D<span class="token" style="color:#a9b7c6">,</span>
     viewport<span class="token" style="color:#a9b7c6">:</span> Viewport<span class="token" style="color:#a9b7c6">,</span>
     <span class="token" style="color:#a9b7c6">...</span>
@@ -1966,10 +2002,10 @@ be invalidated and re-created.</p><pre><div class="jss241"><div class="jss242" s
 <span class="token" style="color:#a9b7c6">}</span>
 </code></pre></div></div></pre><p class="MuiTypography-root jss187 MuiTypography-body1">We are re-configuring our swapchain on every <code class="jss183">resize</code> event.</p><div class="MuiPaper-root MuiCard-root jss203 jss204 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss187 MuiTypography-body1">Similarly, we should also re-configure for other window
 events that will invalidate the Vulkan <code class="jss183">surface</code> like
-winit&#x27;s <code class="jss183">ScaleFactorChanged</code>, which we will skip for now.</p></div><p class="MuiTypography-root jss187 MuiTypography-body1">The <code class="jss183">viewport</code> will be used later when we will render our images.</p><h6 class="MuiTypography-root jss240 MuiTypography-h6">Destruction</h6><p class="MuiTypography-root jss187 MuiTypography-body1">A part where we need to memory manage our swapchain.
+winit&#x27;s <code class="jss183">ScaleFactorChanged</code>, which we will skip for now.</p></div><p class="MuiTypography-root jss187 MuiTypography-body1">The <code class="jss183">viewport</code> will be used later when we will render our images.</p><div class="jss244"><h6 class="MuiTypography-root jss245 MuiTypography-h6" id="destruction">Destruction</h6><button class="MuiButtonBase-root MuiIconButton-root jss246" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss187 MuiTypography-body1">A part where we need to memory manage our swapchain.
 Since we created (configured) <code class="jss183">swapchain</code> using <code class="jss183">surface</code>, we will
 have to use <code class="jss183">surface</code> again to destroy it as well, before
-our struct <code class="jss183">Renderer</code> gets destroyed.</p><pre><div class="jss241"><div class="jss242" style="background:#2b2b2b"><div class="jss243"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss244" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Drop <span class="token" style="color:#cc7832">for</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
+our struct <code class="jss183">Renderer</code> gets destroyed.</p><pre><div class="jss247"><div class="jss248" style="background:#2b2b2b"><div class="jss249"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss250" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Drop <span class="token" style="color:#cc7832">for</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">drop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span> <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
         <span class="token" style="color:#cc7832">unsafe</span> <span class="token" style="color:#a9b7c6">{</span>
             <span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>surface<span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">unconfigure_swapchain</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span>device<span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span>
@@ -1978,7 +2014,7 @@ our struct <code class="jss183">Renderer</code> gets destroyed.</p><pre><div cla
     <span class="token" style="color:#a9b7c6">}</span>
 <span class="token" style="color:#a9b7c6">}</span>
 </code></pre></div></div></pre><p class="MuiTypography-root jss187 MuiTypography-body1">Once that is done, <code class="jss183">swapchain</code> will automatically get
-dropped by <code class="jss183">surface</code>, before <code class="jss183">surface</code> itself is dropped.</p><h4 class="MuiTypography-root jss238 MuiTypography-h4">Image Views</h4><p class="MuiTypography-root jss187 MuiTypography-body1">We won&#x27;t be working with <code class="jss183">ImageView</code>s in <code class="jss183">gfx-hal</code> (at-least
+dropped by <code class="jss183">surface</code>, before <code class="jss183">surface</code> itself is dropped.</p><div class="jss238"><h4 class="MuiTypography-root jss239 MuiTypography-h4" id="image-views">Image Views</h4><button class="MuiButtonBase-root MuiIconButton-root jss240" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss187 MuiTypography-body1">We won&#x27;t be working with <code class="jss183">ImageView</code>s in <code class="jss183">gfx-hal</code> (at-least
 for this tutorial), but in Vulkan <code class="jss183">ImageView</code> is a very
 integral part when it comes to
 SwapChain. It is just a representation (view) of the actual
@@ -1990,5 +2026,5 @@ levels.</em></p></div><p class="MuiTypography-root jss187 MuiTypography-body1">S
 <code class="jss183">gfx-hal</code>, <code class="jss183">gfx-hal</code> provides us APIs to get
 <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://docs.rs/gfx-hal/0.5.0/gfx_hal/window/trait.PresentationSurface.html#tymethod.unconfigure_swapchain">SwapchainImage</a>,
 which can be rendered to the screen directly. Consider it as
-a frame per unit time.</p><hr class="jss253"/><p class="MuiTypography-root jss187 MuiTypography-body1">You can find the full code for this Doc,
-here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/003-swap_chain/main.rs">003-swap_chain</a></p><div class="MuiGrid-root jss254 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-space-between"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss255 jss256 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/physical-logical-devices"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></span><span class="jss258" title="Adapters &amp; Physical/Logical Devices &amp; Device Queues" aria-label="Adapters &amp; Physical/Logical Devices &amp; Device Queues">Adapters &amp; Physical/Logical Devices &amp; Device Queues</span></span></a></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss255 jss257 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/render-pass"><span class="MuiButton-label"><span class="jss258" title="Render Pass in Vulkan" aria-label="Render Pass in Vulkan">Render Pass in Vulkan</span><span class="MuiButton-endIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></span></span></a></div></div><div class="MuiGrid-root jss288 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss289 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss290 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss291"></span><span class="jss291"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss294 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/swap-chain - SwapChain and Image Views in gfx-hal"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss291"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss293 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/swap-chain","query":{},"buildId":"w6G4_G4BucmqEky-Zi_DD","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-85bd6957125321bbf99b.js"></script><script async="" data-next-page="/_app" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/swap-chain" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/swap-chain.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" async=""></script><script src="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" async=""></script><script src="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" async=""></script><script src="/_next/static/runtime/main-aa7804989bef611239d5.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_buildManifest.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_ssgManifest.js" async=""></script></body></html>
+a frame per unit time.</p><hr class="jss259"/><p class="MuiTypography-root jss187 MuiTypography-body1">You can find the full code for this Doc,
+here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/003-swap_chain/main.rs">003-swap_chain</a></p><div class="MuiGrid-root jss260 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-space-between"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss261 jss262 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/physical-logical-devices"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></span><span class="jss264" title="Adapters &amp; Physical/Logical Devices &amp; Device Queues" aria-label="Adapters &amp; Physical/Logical Devices &amp; Device Queues">Adapters &amp; Physical/Logical Devices &amp; Device Queues</span></span></a></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss261 jss263 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/render-pass"><span class="MuiButton-label"><span class="jss264" title="Render Pass in Vulkan" aria-label="Render Pass in Vulkan">Render Pass in Vulkan</span><span class="MuiButton-endIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></span></span></a></div></div><div class="MuiGrid-root jss294 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss295 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss296 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss297"></span><span class="jss297"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss300 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/swap-chain - SwapChain and Image Views in gfx-hal"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss297"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss299 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/swap-chain","query":{},"buildId":"U2tyd1uGHDr2xOW4PfTtq","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-4b5edee7d135456a15d5.js"></script><script async="" data-next-page="/_app" src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/swap-chain" src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/gfx-hal-initials/swap-chain.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7a9f8aa4a58264a473f76b67f4d497b5fa320a44.75fca39be327dd97eb46.js" async=""></script><script src="/_next/static/chunks/4ef8210ae4c0392728d7714008d90e6dea2372af.bc7b38f90d260cd24e73.js" async=""></script><script src="/_next/static/chunks/19e43df172edbfcaa9a3d589a578de7969720f91.a9f98bf57217bbf79057.js" async=""></script><script src="/_next/static/runtime/main-665f7de5a68b1d1ec122.js" async=""></script><script src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/_buildManifest.js" async=""></script><script src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/_ssgManifest.js" async=""></script></body></html>

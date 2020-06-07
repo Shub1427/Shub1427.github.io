@@ -5,7 +5,7 @@
                 gtag('config', 'UA-113155919-1', {
                   page_path: window.location.pathname,
                 });
-              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Setup &amp; Display Blank Window"/><meta name="twitter:description" content="Learn Displaying a Blank Window using winit and bind it to gfx-hal surface instance"/><meta property="og:type" content="article"/><meta property="og:title" content="Setup &amp; Display Blank Window"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/display-window"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82109997-98852400-9758-11ea-84a0-aa3996c67f86.jpg?2"/><meta property="article:published_time" content="2020/04/25"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Setup &amp; Display Blank Window</title><meta name="description" content="Learn Displaying a Blank Window using winit and bind it to gfx-hal surface instance"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner Surface Window learn gfx-hal learn"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/display-window.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" as="script"/><link rel="preload" href="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" as="script"/><link rel="preload" href="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-aa7804989bef611239d5.js" as="script"/><style id="jss-server-side">html {
+              </script><meta name="viewport" content="width=device-width, initial-scale=1"/><meta charSet="utf-8"/><meta name="author" content="Subroto Biswas"/><link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/11786283/81848987-81d1a800-9573-11ea-9b04-2f7bc9a8ee21.png"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849133-b80f2780-9573-11ea-87c5-1b91ecdd0786.png" sizes="16x16"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849184-cfe6ab80-9573-11ea-8e90-017a74baa812.png" sizes="32x32"/><link rel="icon" type="image/png" href="https://user-images.githubusercontent.com/11786283/81849345-06242b00-9574-11ea-9d22-43c549f88e01.png" sizes="192x192"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&amp;display=swap" rel="stylesheet"/><link href="/css/main.css" rel="stylesheet"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@Shub7241"/><meta name="twitter:title" content="Setup &amp; Display Blank Window"/><meta name="twitter:description" content="Learn Displaying a Blank Window using winit and bind it to gfx-hal surface instance"/><meta property="og:type" content="article"/><meta property="og:title" content="Setup &amp; Display Blank Window"/><meta property="og:site_name" content="Subroto"/><meta property="og:url" content="https://shub1427.github.io/gfx-hal-initials/display-window"/><meta property="og:image" content="https://user-images.githubusercontent.com/11786283/82109997-98852400-9758-11ea-84a0-aa3996c67f86.jpg?2"/><meta property="article:published_time" content="2020/04/25"/><meta property="article:author" content="https://twitter.com/Shub7241"/><title>Setup &amp; Display Blank Window</title><meta name="description" content="Learn Displaying a Blank Window using winit and bind it to gfx-hal surface instance"/><meta name="keywords" content="Subroto, Subroto Biswas, Shub, Blog, Articles, Archives, ReactJS, Rust, Javascript, CSS3, upGrad, Software Engineer, Developer, Programmer, Graphics, Games, Rendering Vulkan Basics Fundamental Beginner Surface Window learn gfx-hal learn"/><meta name="next-head-count" content="24"/><link rel="preload" href="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/_app.js" as="script"/><link rel="preload" href="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/gfx-hal-initials/display-window.js" as="script"/><link rel="preload" href="/_next/static/runtime/webpack-c212667a5f965e81e004.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" as="script"/><link rel="preload" href="/_next/static/chunks/7a9f8aa4a58264a473f76b67f4d497b5fa320a44.75fca39be327dd97eb46.js" as="script"/><link rel="preload" href="/_next/static/chunks/4ef8210ae4c0392728d7714008d90e6dea2372af.bc7b38f90d260cd24e73.js" as="script"/><link rel="preload" href="/_next/static/chunks/19e43df172edbfcaa9a3d589a578de7969720f91.a9f98bf57217bbf79057.js" as="script"/><link rel="preload" href="/_next/static/runtime/main-665f7de5a68b1d1ec122.js" as="script"/><style id="jss-server-side">html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1475,7 +1475,7 @@ body::backdrop {
     align-content: center;
     justify-content: flex-end;
   }
-  .jss288 {
+  .jss294 {
     display: flex;
     padding: 0 16px;
     margin-top: 128px;
@@ -1484,53 +1484,53 @@ body::backdrop {
     justify-content: space-between;
   }
 @media (max-width:599.95px) {
-  .jss288 {
+  .jss294 {
     flex-direction: column;
   }
 }
-  .jss289 {
+  .jss295 {
     color: #aaa;
     font-weight: bold;
   }
 @media (max-width:599.95px) {
-  .jss289 {
+  .jss295 {
     margin-bottom: 16px;
   }
 }
-  .jss290 {
+  .jss296 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
   }
-  .jss291 {
+  .jss297 {
     flex: 1;
     display: inline-flex;
     max-width: 100px;
   }
-  .jss291+.jss291 {
+  .jss297+.jss297 {
     margin-top: 0;
     margin-left: 16px;
   }
-  .jss292 {
+  .jss298 {
     color: #fff;
     background: #444;
   }
-  .jss292:hover, .jss292focus, .jss292:active {
+  .jss298:hover, .jss298focus, .jss298:active {
     background: #333;
   }
-  .jss293 {
+  .jss299 {
     color: #fff;
     background: #4361b3;
   }
-  .jss293:hover, .jss293focus, .jss293:active {
+  .jss299:hover, .jss299focus, .jss299:active {
     background: #254395;
   }
-  .jss294 {
+  .jss300 {
     color: #fff;
     background: #4fafed;
   }
-  .jss294:hover, .jss294focus, .jss294:active {
+  .jss300:hover, .jss300focus, .jss300:active {
     background: #3191CF;
   }
   .jss1 {
@@ -1569,20 +1569,50 @@ body::backdrop {
     font-weight: 600;
   }
   .jss221 {
+    display: flex;
+  }
+  .jss221:hover > button {
+    opacity: 1;
+  }
+  .jss222 {
     color: #222;
     margin: 48px 0 16px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
   }
-  .jss222 {
+  .jss223 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 2.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss224 {
+    display: flex;
+  }
+  .jss224:hover > button {
+    opacity: 1;
+  }
+  .jss225 {
     color: #222;
     margin: 32px 0 12px;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
   }
-  .jss227 {
+  .jss226 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss231 {
+    display: flex;
+  }
+  .jss231:hover > button {
+    opacity: 1;
+  }
+  .jss232 {
     color: #222;
     margin: 32px 0 12px;
     padding: 0;
@@ -1590,7 +1620,13 @@ body::backdrop {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
   }
-  .jss223 {
+  .jss233 {
+    opacity: 0;
+    align-self: center;
+    margin-top: 1.5rem;
+    transition: opacity 0.3s ease-out;
+  }
+  .jss227 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1599,23 +1635,23 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss224 {
+  .jss228 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss225 {
+  .jss229 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss226 {
+  .jss230 {
     padding: 0 0 64px 0 !important;
     margin-bottom: -64px !important;
   }
-  .jss226 *::selection {
+  .jss230 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss226 *::-moz-selection {
+  .jss230 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
   .jss187 {
@@ -1624,10 +1660,10 @@ body::backdrop {
     padding: 1px 8px;
     background: rgba(0, 0, 0, 0.05);
   }
-  .jss249 {
+  .jss255 {
     position: relative;
   }
-  .jss250 {
+  .jss256 {
     top: 0;
     left: 0;
     right: 0;
@@ -1635,15 +1671,15 @@ body::backdrop {
     position: absolute;
     margin-left: -16px;
   }
-  .jss251 {
+  .jss257 {
     background: rgba(139, 195, 74, 0.2);
     border-left: 4px solid rgb(139, 195, 74);
   }
-  .jss252 {
+  .jss258 {
     background: rgba(198,40,40, 0.2);
     border-left: 4px solid rgb(200,104,84);
   }
-  .jss245 {
+  .jss251 {
     padding: 0;
     overflow: hidden;
     background: #5491da;
@@ -1652,36 +1688,36 @@ body::backdrop {
     border-radius: 4px;
     margin-bottom: 48px;
   }
-  .jss246 {
+  .jss252 {
     padding: 16px;
     position: relative;
     border-radius: 4px;
   }
-  .jss247 {
+  .jss253 {
     position: relative;
     padding-bottom: 8px;
   }
-  .jss248 {
+  .jss254 {
     padding: 0 0 64px 16px !important;
     margin-bottom: -64px !important;
   }
-  .jss248 *::selection {
+  .jss254 *::selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss248 *::-moz-selection {
+  .jss254 *::-moz-selection {
     background: rgba(255,171,0,0.2);
   }
-  .jss236 {
+  .jss242 {
     width: 100%;
     margin: 32px 0;
     position: relative;
   }
-  .jss237 {
+  .jss243 {
     width: 100%;
     filter: blur(0);
     transition: 0.3s ease-out;
   }
-  .jss238 {
+  .jss244 {
     top: 50%;
     left: 50%;
     margin: 0;
@@ -1690,23 +1726,23 @@ body::backdrop {
     position: fixed;
     transform: translate(-50%, -50%);
   }
-  .jss239 {
+  .jss245 {
     width: auto;
     height: auto;
   }
-  .jss240 {
+  .jss246 {
     top: -2.5rem;
     right: 0;
     position: absolute;
   }
-  .jss241 {
+  .jss247 {
     top: -1rem;
     z-index: 100;
   }
-  .jss242 {
+  .jss248 {
     filter: blur(3px);
   }
-  .jss243 {
+  .jss249 {
     color: #aaa;
     margin: 0;
     font-size: 0.8rem;
@@ -1714,7 +1750,7 @@ body::backdrop {
     text-align: center;
     font-weight: 400;
   }
-  .jss244 {
+  .jss250 {
     top: 0;
     left: 0;
     width: 100vw;
@@ -1723,7 +1759,7 @@ body::backdrop {
     position: fixed;
     background: rgba(255, 255, 255, 0.90);
   }
-  .jss253 {
+  .jss259 {
     color: #666;
     border: medium none;
     font-size: 32px;
@@ -1731,47 +1767,47 @@ body::backdrop {
     text-align: center;
     font-weight: 300;
   }
-  .jss253:before {
+  .jss259:before {
     content: '***';
     line-height: 1.4;
     text-indent: 1em;
     letter-spacing: 1em;
   }
-  .jss254 {
+  .jss260 {
     margin-top: 64px;
   }
-  .jss255 {
+  .jss261 {
     max-width: 100%;
   }
-  .jss256 {
+  .jss262 {
     float: left;
   }
-  .jss257 {
+  .jss263 {
     float: right;
   }
-  .jss258 {
+  .jss264 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .jss228 {
+  .jss234 {
     color: #444;
     font-size: 1rem;
     font-weight: 200;
     line-height: 1.7;
   }
-  p + .jss228 {
+  p + .jss234 {
     margin-top: 32px;
   }
-  li > .jss228 {
+  li > .jss234 {
     margin-top: initial;
   }
-  .jss229 + .jss229 {
+  .jss235 + .jss235 {
     margin-top: 8px;
   }
-  .jss229 > ul > .jss229, .jss229 > ol > .jss229 {
+  .jss235 > ul > .jss235, .jss235 > ol > .jss235 {
     margin-top: 0;
-  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container"><div class="MuiGrid-root jss11 MuiGrid-item MuiGrid-grid-xs-6"><img class="jss12" height="32" src="/images/logo-small.png" alt="Shub&#x27;s logo" title="Go Home" aria-label="Go Home"/></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"><div class="jss13"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div></div></div><div class="jss149"><h2 class="MuiTypography-root jss150 MuiTypography-h2">T-<!-- -->5<!-- -->: <!-- -->Setup &amp; Display Blank Window</h2><div class="jss183 jss151"><p class="MuiTypography-root jss184 jss152 MuiTypography-body2">28 May, 2020</p><span class="jss185">•</span><p class="MuiTypography-root jss184 jss152 MuiTypography-body2">9<!-- --> min read</p></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">Vulkan is a very low-level spec that intends to keep as
+  }</style></head><body><div id="__next"><div class="MuiContainer-root jss1 MuiContainer-maxWidthMd"><svg width="100%" height="100%" style="position:absolute;z-index:-1;left:0;top:0"><defs><pattern id="polka-dots" x="0" y="0" patternUnits="userSpaceOnUse" width="50" height="50"><circle fill="#e3f2fd" cx="12.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="37.5" cy="12.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="0" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="25" cy="37.5" r="2.0833"></circle><circle fill="#e3f2fd" cx="50" cy="37.5" r="2.0833"></circle></pattern></defs><rect x="0" y="0" width="100%" height="100%" fill="url(#polka-dots)"></rect></svg><div class="MuiGrid-root jss10 MuiGrid-container"><div class="MuiGrid-root jss11 MuiGrid-item MuiGrid-grid-xs-6"><img class="jss12" height="32" src="/images/logo-small.png" alt="Shub&#x27;s logo" title="Go Home" aria-label="Go Home"/></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"><div class="jss13"><button class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary" tabindex="0" type="button" aria-label="Toggle light/dark theme"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg></span></button></div></div></div><div class="jss149"><h2 class="MuiTypography-root jss150 MuiTypography-h2" id="setup-display-blank-window">T-<!-- -->5<!-- -->: <!-- -->Setup &amp; Display Blank Window</h2><div class="jss183 jss151"><p class="MuiTypography-root jss184 jss152 MuiTypography-body2">28 May, 2020</p><span class="jss185">•</span><p class="MuiTypography-root jss184 jss152 MuiTypography-body2">9<!-- --> min read</p></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">Vulkan is a very low-level spec that intends to keep as
 little code overhead as possible.
 <code class="jss187">gfx-hal</code> is a library that closely resembles -
 though not entirely - the Vulkan spec. It&#x27;s designed to
@@ -1780,9 +1816,9 @@ provide developers with a clean Vulkan-like API. Also,
 code cross-platform compatible.</p><div class="MuiPaper-root MuiCard-root jss188 jss189 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss186 MuiTypography-body1">The following section is about <strong>Project Setup</strong>,
 which you can skip and directly
 go to <code class="jss187">Vulkan Instance and Surface</code> section
-to get a heads-up on Vulkan Instance and Surface.</p></div><h4 class="MuiTypography-root jss221 MuiTypography-h4">Project Setup</h4><p class="MuiTypography-root jss186 MuiTypography-body1">Setting up a project in Rust is quite easy.
+to get a heads-up on Vulkan Instance and Surface.</p></div><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="project-setup">Project Setup</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">Setting up a project in Rust is quite easy.
 We just need to run: <br/> <code class="jss187">cargo new {{project_name}}</code></p><p class="MuiTypography-root jss186 MuiTypography-body1">We need some essential modules as our project
-dependencies, used across every chapter.</p><h5 class="MuiTypography-root jss222 MuiTypography-h5">Dependencies and Metadata</h5><p class="MuiTypography-root jss186 MuiTypography-body1">Cool, so let&#x27;s dive into <code class="jss187">Cargo.toml</code> file for our dependencies</p><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">.</span>
+dependencies, used across every chapter.</p><div class="jss224"><h5 class="MuiTypography-root jss225 MuiTypography-h5" id="dependencies-and-metadata">Dependencies and Metadata</h5><button class="MuiButtonBase-root MuiIconButton-root jss226" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">Cool, so let&#x27;s dive into <code class="jss187">Cargo.toml</code> file for our dependencies</p><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#a9b7c6">.</span>
 <span class="token" style="color:#a9b7c6">[</span><span class="token table class-name">features</span><span class="token" style="color:#a9b7c6">]</span>
 <span class="token key" style="color:#9876aa">default</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#a9b7c6">]</span>
 <span class="token key" style="color:#9876aa">metal</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#a9b7c6">[</span><span class="token" style="color:#6a8759">&quot;gfx-backend-metal&quot;</span><span class="token" style="color:#a9b7c6">]</span>
@@ -1807,15 +1843,15 @@ dependencies, used across every chapter.</p><h5 class="MuiTypography-root jss222
 <span class="token" style="color:#a9b7c6">[</span><span class="token table class-name">target.&#x27;cfg(windows)&#x27;.dependencies.gfx-backend-dx12</span><span class="token" style="color:#a9b7c6">]</span>
 <span class="token key" style="color:#9876aa">version</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#6a8759">&quot;0.5.0&quot;</span>
 <span class="token key" style="color:#9876aa">optional</span> <span class="token" style="color:#a9b7c6">=</span> <span class="token" style="color:#cc7832">true</span>
-</code></pre></div></div></pre><h6 class="MuiTypography-root jss227 MuiTypography-h6">[features]</h6><p class="MuiTypography-root jss186 MuiTypography-body1">We are focusing only on 3 leading platforms for now:</p><ul class="jss228"><li class="jss229">Linux</li><li class="jss229">MacOS</li><li class="jss229">Windows</li></ul><p class="MuiTypography-root jss186 MuiTypography-body1">Thus, we require 3 different modules for each. <code class="jss187">gfx-backend-vulkan</code>
+</code></pre></div></div></pre><div class="jss231"><h6 class="MuiTypography-root jss232 MuiTypography-h6" id="features">[features]</h6><button class="MuiButtonBase-root MuiIconButton-root jss233" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">We are focusing only on 3 leading platforms for now:</p><ul class="jss234"><li class="jss235">Linux</li><li class="jss235">MacOS</li><li class="jss235">Windows</li></ul><p class="MuiTypography-root jss186 MuiTypography-body1">Thus, we require 3 different modules for each. <code class="jss187">gfx-backend-vulkan</code>
 for Linux/Windows, <code class="jss187">gfx-backend-metal</code> for MacOS, <code class="jss187">gfx-backend-dx12</code>
 for Windows.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Details on how Rust Cargo <code class="jss187">features</code> work can be read
-in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/rust-reference/rust-cargo-basics">Rust <!-- -->&amp;<!-- --> Cargo basics</a>.</p><h6 class="MuiTypography-root jss227 MuiTypography-h6">[dependencies]</h6><p class="MuiTypography-root jss186 MuiTypography-body1">Well, this section is quite clear:</p><ul class="jss228"><li class="jss229"><code class="jss187">winit</code> is used for Cross-Platform Windowing Provider.</li><li class="jss229"><code class="jss187">gfx-hal</code> is used for Cross-Platform GPU Abstraction Layer Provider.</li><li class="jss229"><code class="jss187">log</code> and <code class="jss187">log4rs</code> combined provide us with Logging Implementation
+in <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="/rust-reference/rust-cargo-basics">Rust <!-- -->&amp;<!-- --> Cargo basics</a>.</p><div class="jss231"><h6 class="MuiTypography-root jss232 MuiTypography-h6" id="dependencies">[dependencies]</h6><button class="MuiButtonBase-root MuiIconButton-root jss233" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">Well, this section is quite clear:</p><ul class="jss234"><li class="jss235"><code class="jss187">winit</code> is used for Cross-Platform Windowing Provider.</li><li class="jss235"><code class="jss187">gfx-hal</code> is used for Cross-Platform GPU Abstraction Layer Provider.</li><li class="jss235"><code class="jss187">log</code> and <code class="jss187">log4rs</code> combined provide us with Logging Implementation
 in our project since we wouldn&#x27;t be using <code class="jss187">println!</code> macro.</li></ul><p class="MuiTypography-root jss186 MuiTypography-body1"><strong>[dependencies.{{feature}}]</strong> are the dependencies that will
 be installed conditionally depending on the user&#x27;s Operating System.
 We need to always run our project with one of the features
-enabled.</p><h5 class="MuiTypography-root jss222 MuiTypography-h5">Code Setup</h5><p class="MuiTypography-root jss186 MuiTypography-body1">This tutorial maintains a single <code class="jss187">main.rs</code> file with
-just one <code class="jss187">struct</code> that manages all the <code class="jss187">gfx-hal</code> instances.</p><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
+enabled.</p><div class="jss224"><h5 class="MuiTypography-root jss225 MuiTypography-h5" id="code-setup">Code Setup</h5><button class="MuiButtonBase-root MuiIconButton-root jss226" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">This tutorial maintains a single <code class="jss187">main.rs</code> file with
+just one <code class="jss187">struct</code> that manages all the <code class="jss187">gfx-hal</code> instances.</p><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;float:left;padding-right:10px"><span class="react-syntax-highlighter-line-number">1
 </span><span class="react-syntax-highlighter-line-number">2
 </span><span class="react-syntax-highlighter-line-number">3
 </span><span class="react-syntax-highlighter-line-number">4
@@ -1890,27 +1926,27 @@ you should properly plan and structure your application).</p><p class="MuiTypogr
 which <code class="jss187">feature</code> we would be running our application or build
 it for release. If <code class="jss187">--features=metal</code> is passed to <code class="jss187">cargo run</code>,
 it will run our application with <code class="jss187">gfx_backend_metal</code>
-backend.</p><ul class="jss228"><li class="jss229"><code class="jss187">gfx-backend-vulkan</code><ul class="jss228"><li class="jss229">Gets installed and used when <code class="jss187">vulkan</code> feature is enabled</li><li class="jss229">For Linux and Windows: <code class="jss187">cargo run --features=vulkan</code></li></ul></li><li class="jss229"><code class="jss187">gfx-backend-metal</code><ul class="jss228"><li class="jss229">Gets installed and used when <code class="jss187">metal</code> feature is enabled</li><li class="jss229">For MacOS only: <code class="jss187">cargo run --features=metal</code></li></ul></li><li class="jss229"><code class="jss187">gfx-backend-dx12</code><ul class="jss228"><li class="jss229">Gets installed and used when <code class="jss187">dx12</code> feature is enabled</li><li class="jss229">For Windows only: <code class="jss187">cargo run --features=dx12</code></li></ul></li></ul><p class="MuiTypography-root jss186 MuiTypography-body1"><strong>Lines 17-18 &amp; 32</strong>: are importing our log modules and
+backend.</p><ul class="jss234"><li class="jss235"><code class="jss187">gfx-backend-vulkan</code><ul class="jss234"><li class="jss235">Gets installed and used when <code class="jss187">vulkan</code> feature is enabled</li><li class="jss235">For Linux and Windows: <code class="jss187">cargo run --features=vulkan</code></li></ul></li><li class="jss235"><code class="jss187">gfx-backend-metal</code><ul class="jss234"><li class="jss235">Gets installed and used when <code class="jss187">metal</code> feature is enabled</li><li class="jss235">For MacOS only: <code class="jss187">cargo run --features=metal</code></li></ul></li><li class="jss235"><code class="jss187">gfx-backend-dx12</code><ul class="jss234"><li class="jss235">Gets installed and used when <code class="jss187">dx12</code> feature is enabled</li><li class="jss235">For Windows only: <code class="jss187">cargo run --features=dx12</code></li></ul></li></ul><p class="MuiTypography-root jss186 MuiTypography-body1"><strong>Lines 17-18 &amp; 32</strong>: are importing our log modules and
 setting it up for logging. Once logging is setup, we can
 call <code class="jss187">debug!</code> macro anywhere in the code. To call other
 Logging APIs, like <code class="jss187">info!</code>, <code class="jss187">warn!</code>, and more, we just need
-to import them at <em>Line-17</em>.</p><h4 class="MuiTypography-root jss221 MuiTypography-h4"><code class="jss187">gfx-hal</code> Backend</h4><div><div class="jss236"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss237 jss242" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/83277585-ed607a00-a1ef-11ea-803c-5df40055ecf8.png" alt="GFX Hal Backends"/></div></div><p class="MuiTypography-root jss243 MuiTypography-body2">GFX Hal Backends</p><div class="jss240"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">Backends are specific to what GPU you have and what specs it supports.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Vulkan Backend is cross-compatible and has support in
+to import them at <em>Line-17</em>.</p><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="gfx-hal-backend"><code class="jss187">gfx-hal</code> Backend</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><div><div class="jss242"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss243 jss248" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/83277585-ed607a00-a1ef-11ea-803c-5df40055ecf8.png" alt="GFX Hal Backends"/></div></div><p class="MuiTypography-root jss249 MuiTypography-body2">GFX Hal Backends</p><div class="jss246"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">Backends are specific to what GPU you have and what specs it supports.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Vulkan Backend is cross-compatible and has support in
 Linux/Windows, on AMD, Intel, NVidia.</p><div class="MuiPaper-root MuiCard-root jss188 jss189 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss186 MuiTypography-body1">Apple stays out, and I hate this thing about it. It
 doesn&#x27;t support Vulkan and has a specific
 graphics backend called <code class="jss187">Metal</code>. Though <code class="jss187">gfx-hal</code> has
 <code class="jss187">metal</code> backend as well and since I am using
 Mac (Yeah! Now don&#x27;t come and bash me, can&#x27;t use my
 Linux system a.t.m.), it would be a good
-way to know the support of <code class="jss187">gfx-hal</code> for MacOS as well.</p></div><h4 class="MuiTypography-root jss221 MuiTypography-h4">Vulkan Instance and Surface</h4><div><div class="jss236"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss237 jss242" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/80305144-bce48500-87d8-11ea-9832-4baaaf8ce41f.png" alt="Vulkan Flow Image"/></div></div><p class="MuiTypography-root jss243 MuiTypography-body2">Vulkan Flow Image</p><div class="jss240"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">This tutorial is inspired from:</p><ul class="jss228"><li class="jss229"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html">LunarG Vulkan Tutorial</a>,</li><li class="jss229"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Base_code">Vulkan Tutorial</a></li></ul><p class="MuiTypography-root jss186 MuiTypography-body1">They are written in <code class="jss187">C++</code>. I am trying to learn <code class="jss187">Rust</code> and converting that tutorial into <code class="jss187">Rust</code>,
-using <code class="jss187">gfx-hal</code> library, which is a wrapper over Vulkan Specs.</p><ul class="jss228"><li class="jss229"><strong>Application</strong>: this whole project is the application.</li><li class="jss229"><strong>Loader</strong>: here refers to <code class="jss187">gfx-hal</code> and <code class="jss187">gfx-backend-vulkan</code> libraries. An instance of
-<code class="jss187">gfx-backend-vulkan</code> initializes a Loader. Creating an instance initializes the loader.</li><li class="jss229"><strong>Layers</strong>: is something advanced, and I am not sure when
-or if I will talk about it at all.</li></ul><h5 class="MuiTypography-root jss222 MuiTypography-h5">Structure</h5><p class="MuiTypography-root jss186 MuiTypography-body1">The following structure is the minimal one, without Pipelines,
+way to know the support of <code class="jss187">gfx-hal</code> for MacOS as well.</p></div><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="vulkan-instance-and-surface">Vulkan Instance and Surface</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><div><div class="jss242"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss243 jss248" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/80305144-bce48500-87d8-11ea-9832-4baaaf8ce41f.png" alt="Vulkan Flow Image"/></div></div><p class="MuiTypography-root jss249 MuiTypography-body2">Vulkan Flow Image</p><div class="jss246"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">This tutorial is inspired from:</p><ul class="jss234"><li class="jss235"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan.lunarg.com/doc/sdk/1.2.131.2/linux/tutorial/html/index.html">LunarG Vulkan Tutorial</a>,</li><li class="jss235"><a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://vulkan-tutorial.com/Drawing_a_triangle/Setup/Base_code">Vulkan Tutorial</a></li></ul><p class="MuiTypography-root jss186 MuiTypography-body1">They are written in <code class="jss187">C++</code>. I am trying to learn <code class="jss187">Rust</code> and converting that tutorial into <code class="jss187">Rust</code>,
+using <code class="jss187">gfx-hal</code> library, which is a wrapper over Vulkan Specs.</p><ul class="jss234"><li class="jss235"><strong>Application</strong>: this whole project is the application.</li><li class="jss235"><strong>Loader</strong>: here refers to <code class="jss187">gfx-hal</code> and <code class="jss187">gfx-backend-vulkan</code> libraries. An instance of
+<code class="jss187">gfx-backend-vulkan</code> initializes a Loader. Creating an instance initializes the loader.</li><li class="jss235"><strong>Layers</strong>: is something advanced, and I am not sure when
+or if I will talk about it at all.</li></ul><div class="jss224"><h5 class="MuiTypography-root jss225 MuiTypography-h5" id="structure">Structure</h5><button class="MuiButtonBase-root MuiIconButton-root jss226" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">The following structure is the minimal one, without Pipelines,
 Descriptors, Depth/Uniform Buffers, Shaders, and more (we will
 re-define our structure in coming chapters).</p><p class="MuiTypography-root jss186 MuiTypography-body1">First few chapters, we will be rushing towards understanding
 the very basics and try to get our application running.
 <em>Things really get boring if you don&#x27;t see any results, right!!!</em></p><p class="MuiTypography-root jss186 MuiTypography-body1">Comments in the following code block are for reference, which you can skip
 and refer them later, once you start understanding the overall
-process better.</p><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
+process better.</p><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
 <span class="token" style="color:#cc7832">impl</span> <span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">:</span> Backend<span class="token" style="color:#a9b7c6">&gt;</span> Renderer<span class="token" style="color:#a9b7c6">&lt;</span>B<span class="token" style="color:#a9b7c6">&gt;</span> <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">-&gt;</span> <span class="token" style="color:#cc7832">Self</span> <span class="token" style="color:#a9b7c6">{</span>
         <span class="token" style="color:#808080">/**
@@ -1968,16 +2004,16 @@ process better.</p><pre><div class="jss223"><div class="jss224" style="backgroun
      *  * Application gets Killed, Event Loop drops.
      */</span>
 <span class="token" style="color:#a9b7c6">}</span>
-</code></pre></div></div></pre><h4 class="MuiTypography-root jss221 MuiTypography-h4">Creating OS Window</h4><p class="MuiTypography-root jss186 MuiTypography-body1">Now let&#x27;s come back to our code. In the real-world, to draw
+</code></pre></div></div></pre><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="creating-os-window">Creating OS Window</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">Now let&#x27;s come back to our code. In the real-world, to draw
 anything, we need a canvas, right. Similarly, in
 Computer Graphics to draw anything, we need an OS Window.
 Later we will be binding this OS Window with GPU <code class="jss187">surface</code>
 instance that will do the actual drawing. Creating an OS Window
 in Rust is done using <code class="jss187">winit</code> library, which again is
 cross-platform. It requires two significant steps to
-display a blank window:</p><ul class="jss228"><li class="jss229">Window Dimensions</li><li class="jss229">Event Loop will help us know when to redraw, w.r.t
+display a blank window:</p><ul class="jss234"><li class="jss235">Window Dimensions</li><li class="jss235">Event Loop will help us know when to redraw, w.r.t
 CPU and GPU capabilities (since we are working with Vulkan,
-it&#x27;s all GPU capabilities), and listen to user events.</li></ul><div class="MuiPaper-root MuiCard-root jss188 jss190 MuiPaper-elevation0 MuiPaper-rounded">How or When re-renders happen, is all very low-level details, which I don&#x27;t have much context on right now.</div><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
+it&#x27;s all GPU capabilities), and listen to user events.</li></ul><div class="MuiPaper-root MuiCard-root jss188 jss190 MuiPaper-elevation0 MuiPaper-rounded">How or When re-renders happen, is all very low-level details, which I don&#x27;t have much context on right now.</div><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
 <span class="token" style="color:#808080">// main function will start instantiation of static instances.</span>
 <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
   <span class="token" style="color:#a9b7c6">...</span>
@@ -1988,7 +2024,7 @@ it&#x27;s all GPU capabilities), and listen to user events.</li></ul><div class=
 <span class="token" style="color:#a9b7c6">}</span>
 </code></pre></div></div></pre><p class="MuiTypography-root jss186 MuiTypography-body1"><code class="jss187">build_window()</code> is doing the main job of instantiating
 the main OS window, with some logical window size, scaled to
-match the actual physical size.</p><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
+match the actual physical size.</p><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#a9b7c6">...</span>
 <span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span>
     wb<span class="token" style="color:#a9b7c6">:</span> window<span class="token" style="color:#a9b7c6">::</span>WindowBuilder<span class="token" style="color:#a9b7c6">,</span>
     ev_loop<span class="token" style="color:#a9b7c6">:</span> <span class="token" style="color:#a9b7c6">&amp;</span>event_loop<span class="token" style="color:#a9b7c6">::</span>EventLoop<span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span>
@@ -2036,37 +2072,37 @@ Logical window we defined will be presented on real
 Screen, calculating the pixel ratio per inch and stuff.</p><p class="MuiTypography-root jss186 MuiTypography-body1"><code class="jss187">window</code> instance, which
 is nothing but <code class="jss187">winit</code>&#x27;s Window instance, is built by the
 <code class="jss187">WindowBuilder</code> we instantiated earlier. This <code class="jss187">window</code> will
-be used by <code class="jss187">surface</code> to bind them together.</p><p class="MuiTypography-root jss186 MuiTypography-body1"><em>We will discuss the Event Loop in a later section.</em></p><h4 class="MuiTypography-root jss221 MuiTypography-h4">Vulkan Instance &amp; Surface instance creation</h4><p class="MuiTypography-root jss186 MuiTypography-body1">We now have to create instances of Vulkan Backend Instance
+be used by <code class="jss187">surface</code> to bind them together.</p><p class="MuiTypography-root jss186 MuiTypography-body1"><em>We will discuss the Event Loop in a later section.</em></p><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="vulkan-instance--surface-instance-creation">Vulkan Instance &amp; Surface instance creation</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">We now have to create instances of Vulkan Backend Instance
 and Surface. These two states will only be used for instantiating
 and destroying other useful resources; thus, we will have to
 keep them in <code class="jss187">Renderer</code> struct.</p><p class="MuiTypography-root jss186 MuiTypography-body1">We will update our <code class="jss187">create_backend</code> function, which will
-give us (instance, surface) instances for later use.</p><div class="jss245"><div class="jss246" style="background:#2b2b2b"><div class="jss247"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss248" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss249"><span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
-</span></span></div><div class="jss249"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>Window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> instance </span><span class="token" style="color:#a9b7c6">=</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">create</span><span class="token" style="color:#a9b7c6">(</span><span>APP_NAME</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Failed to create an instance!&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> surface </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#cc7832">unsafe</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span>        instance
-</span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">create_surface</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span>window</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Failed to create a surface!&quot;</span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">(</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>      instance</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>      surface</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span>      window
-</span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>  </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span>
+give us (instance, surface) instances for later use.</p><div class="jss251"><div class="jss252" style="background:#2b2b2b"><div class="jss253"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss254" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss255"><span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss255"><span><span>    wb</span><span class="token" style="color:#a9b7c6">:</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>WindowBuilder</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>    ev_loop</span><span class="token" style="color:#a9b7c6">:</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>event_loop</span><span class="token" style="color:#a9b7c6">::</span><span>EventLoop</span><span class="token" style="color:#a9b7c6">&lt;</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>    extent</span><span class="token" style="color:#a9b7c6">:</span><span> hal_window</span><span class="token" style="color:#a9b7c6">::</span><span>Extent2D</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">::</span><span>Window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> instance </span><span class="token" style="color:#a9b7c6">=</span><span> back</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">create</span><span class="token" style="color:#a9b7c6">(</span><span>APP_NAME</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#6897bb">1</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Failed to create an instance!&quot;</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">let</span><span> surface </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#cc7832">unsafe</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span>        instance
+</span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">create_surface</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span>window</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            </span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">expect</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#6a8759">&quot;Failed to create a surface!&quot;</span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">(</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>      instance</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>      surface</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span>      window
+</span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">)</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>  </span><span class="token" style="color:#cc7832">let</span><span> </span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">,</span><span> window</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">=</span><span> </span><span class="token" style="color:#ffc66d">create_backend</span><span class="token" style="color:#a9b7c6">(</span><span>window_builder</span><span class="token" style="color:#a9b7c6">,</span><span> </span><span class="token" style="color:#a9b7c6">&amp;</span><span>ev_loop</span><span class="token" style="color:#a9b7c6">,</span><span> extent</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span>
 </span></div></code></pre></div></div><p class="MuiTypography-root jss186 MuiTypography-body1">The above code will give us instances of Vulkan Instance and Surface,
 but we need them in <code class="jss187">Renderer</code> struct as well for later reference.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Thus we need to update our <code class="jss187">Renderer</code> struct as well.</p><p class="MuiTypography-root jss186 MuiTypography-body1"><strong>Details on the above code:</strong></p><div class="MuiPaper-root MuiCard-root jss188 jss189 MuiPaper-elevation0 MuiPaper-rounded"><p class="MuiTypography-root jss186 MuiTypography-body1">We will discuss <code class="jss187">extent</code> in another chapter in detail,
 but in short, it` will help us keep window dimension
@@ -2084,42 +2120,42 @@ from memory before other resources, such as instance.
 Therefore, we define such instances like
 Vulkan <code class="jss187">surface</code>, as manually managed using <code class="jss187">ManuallyDrop</code>
 struct, and we need to drop <code class="jss187">surface</code> once done with it,
-i.e., before <code class="jss187">Renderer</code> struct gets dropped.</p><div class="jss245"><div class="jss246" style="background:#2b2b2b"><div class="jss247"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss248" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss249"><span><span class="token" style="color:#cc7832">struct</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#808080">// Vulkan backend instance object</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#808080">// Vulkan backend surface object</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    surface</span><span class="token" style="color:#a9b7c6">:</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#cc7832">Self</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>        Renderer </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            instance</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            surface</span><span class="token" style="color:#a9b7c6">:</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
-</span></span></div><div class="jss249"><span><span>        </span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Drop </span><span class="token" style="color:#cc7832">for</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">drop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">unsafe</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            </span><span class="token" style="color:#cc7832">let</span><span> surface </span><span class="token" style="color:#a9b7c6">=</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">into_inner</span><span class="token" style="color:#a9b7c6">(</span><span>ptr</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">read</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>            </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>instance</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">destroy_surface</span><span class="token" style="color:#a9b7c6">(</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>        </span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
-</span></span></div><div class="jss249"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><div class="jss250 jss251" style="width:auto"></div><span><span>  </span><span class="token" style="color:#cc7832">let</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
-</span></span></div><div class="jss249"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
-</span></span></div><div class="jss249"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
-</span></span></div><div class="jss249"><span>
+i.e., before <code class="jss187">Renderer</code> struct gets dropped.</p><div class="jss251"><div class="jss252" style="background:#2b2b2b"><div class="jss253"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss254" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><div class="jss255"><span><span class="token" style="color:#cc7832">struct</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#808080">// Vulkan backend instance object</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#808080">// Vulkan backend surface object</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    surface</span><span class="token" style="color:#a9b7c6">:</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">:</span><span> B</span><span class="token" style="color:#a9b7c6">::</span><span>Surface</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">-&gt;</span><span> </span><span class="token" style="color:#cc7832">Self</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>        Renderer </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            instance</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            surface</span><span class="token" style="color:#a9b7c6">:</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">,</span><span>
+</span></span></div><div class="jss255"><span><span>        </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span></span><span class="token" style="color:#cc7832">impl</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">:</span><span> Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span> Drop </span><span class="token" style="color:#cc7832">for</span><span> Renderer</span><span class="token" style="color:#a9b7c6">&lt;</span><span>B</span><span class="token" style="color:#a9b7c6">&gt;</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">drop</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">mut</span><span> </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>        </span><span class="token" style="color:#cc7832">unsafe</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            </span><span class="token" style="color:#cc7832">let</span><span> surface </span><span class="token" style="color:#a9b7c6">=</span><span> ManuallyDrop</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">into_inner</span><span class="token" style="color:#a9b7c6">(</span><span>ptr</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">read</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">&amp;</span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>            </span><span class="token" style="color:#cc7832">self</span><span class="token" style="color:#a9b7c6">.</span><span>instance</span><span class="token" style="color:#a9b7c6">.</span><span class="token" style="color:#ffc66d">destroy_surface</span><span class="token" style="color:#a9b7c6">(</span><span>surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>        </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>    </span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#cc7832">fn</span><span> </span><span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span><span> </span><span class="token" style="color:#a9b7c6">{</span><span>
+</span></span></div><div class="jss255"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><div class="jss256 jss257" style="width:auto"></div><span><span>  </span><span class="token" style="color:#cc7832">let</span><span> renderer </span><span class="token" style="color:#a9b7c6">=</span><span> Renderer</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#a9b7c6">&lt;</span><span>back</span><span class="token" style="color:#a9b7c6">::</span><span>Backend</span><span class="token" style="color:#a9b7c6">&gt;</span><span class="token" style="color:#a9b7c6">::</span><span class="token" style="color:#ffc66d">new</span><span class="token" style="color:#a9b7c6">(</span><span>instance</span><span class="token" style="color:#a9b7c6">,</span><span> surface</span><span class="token" style="color:#a9b7c6">)</span><span class="token" style="color:#a9b7c6">;</span><span>
+</span></span></div><div class="jss255"><span><span>  </span><span class="token" style="color:#a9b7c6">...</span><span>
+</span></span></div><div class="jss255"><span><span></span><span class="token" style="color:#a9b7c6">}</span><span>
+</span></span></div><div class="jss255"><span>
 </span></div></code></pre></div></div><p class="MuiTypography-root jss186 MuiTypography-body1"><code class="jss187">ManuallyDrop</code> is a module that gives any developer a
 secure way to clear the memory in Rust. Instead of <code class="jss187">ManuallyDrop::drop</code>
 we are using <code class="jss187">ManuallyDrop::into_inner</code>, because we need to
 get the actual data from memory and pass it&#x27;s ownership to
-Vulkan <code class="jss187">instance</code> for destruction.</p><h4 class="MuiTypography-root jss221 MuiTypography-h4">Bonus Round (Event Loop)</h4><p class="MuiTypography-root jss186 MuiTypography-body1">Ok! We have already created <code class="jss187">ev_loop</code> instance for <code class="jss187">winit</code>,
+Vulkan <code class="jss187">instance</code> for destruction.</p><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="bonus-round-event-loop">Bonus Round (Event Loop)</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">Ok! We have already created <code class="jss187">ev_loop</code> instance for <code class="jss187">winit</code>,
 but we haven&#x27;t discussed it properly. As the
 name suggests, it is the core of <code class="jss187">winit</code>, used for starting the
 App and listening to User Events.
@@ -2128,7 +2164,7 @@ where we pass a <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover
 like <em>Keyboard</em>, <em>Joystick</em>, <em>Mouse</em> events.</p><div class="MuiPaper-root MuiCard-root jss188 jss190 MuiPaper-elevation0 MuiPaper-rounded">Do remember that a <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" href="https://doc.rust-lang.org/book/ch13-01-closures.html" target="_blank" rel="noopener noreferrer">Closure</a>  will completely get the ownership of any variables that are passed to it.<p class="MuiTypography-root jss186 MuiTypography-body1">  Even the <code class="jss187">ev_loop</code> instance we created, will lose its
 ownership after <code class="jss187">ev_loop.run</code> call. That&#x27;s why everything
 we have done until now is done inside <code class="jss187">main</code>
-function to keep instance ownerships temporary.</p></div><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
+function to keep instance ownerships temporary.</p></div><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#cc7832">fn</span> <span class="token" style="color:#ffc66d">main</span><span class="token" style="color:#a9b7c6">(</span><span class="token" style="color:#a9b7c6">)</span> <span class="token" style="color:#a9b7c6">{</span>
     <span class="token" style="color:#808080">// Previous instantiations, before starting the</span>
     <span class="token" style="color:#808080">// event_loop</span>
     <span class="token" style="color:#a9b7c6">...</span>
@@ -2174,28 +2210,28 @@ loop, which actually takes a <a class="MuiTypography-root MuiLink-root MuiLink-u
 Thus we need to be a bit careful in using it. That&#x27;s one of the reasons
 we instantiated everything inside <code class="jss187">main</code>. Later on, we will
 do things inside <code class="jss187">struct</code> <code class="jss187">impl</code>s, but in this section, we have
-sone most of the work inside <code class="jss187">main</code>.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Details on event listeners:</p><ul class="jss228"><li class="jss229"><code class="jss187">CloseRequested</code> is used for listening close button click.
+sone most of the work inside <code class="jss187">main</code>.</p><p class="MuiTypography-root jss186 MuiTypography-body1">Details on event listeners:</p><ul class="jss234"><li class="jss235"><code class="jss187">CloseRequested</code> is used for listening close button click.
 Without this, our Window won&#x27;t Shutdown gracefully, we would
 have to <code class="jss187">SIGKILL</code> our app. We can also listen to Key presses, like <code class="jss187">ESC</code>,
-to close the window, but we will cover that later.</li><li class="jss229"><code class="jss187">Resized</code> and <code class="jss187">ScaleFactorChanged</code> are called when window is resized and
+to close the window, but we will cover that later.</li><li class="jss235"><code class="jss187">Resized</code> and <code class="jss187">ScaleFactorChanged</code> are called when window is resized and
 when window&#x27;s DPI changes (like when we move our window from a low DPI
-Monitor to High DPI), respectively.</li><li class="jss229"><code class="jss187">MainEventsCleared</code>: If you are from <strong>Android</strong> background,
+Monitor to High DPI), respectively.</li><li class="jss235"><code class="jss187">MainEventsCleared</code>: If you are from <strong>Android</strong> background,
 it resembles the <code class="jss187">onMeasure</code> call, or if from <strong>ReactJS</strong>
 world, it resembles the <code class="jss187">shouldComponentUpdate</code> call. What I
 mean is, this event is called just before any redraw
 and can be used to do calculations before drawing on window.
 Also, keep a note that if you want to redraw you need
 to call this <code class="jss187">window.request_redraw()</code>, like we <code class="jss187">return true</code>
-from <code class="jss187">shouldComponentUpdate</code> to do a <code class="jss187">render</code>.</li><li class="jss229"><code class="jss187">RedrawRequested</code>: this resembles <strong>Android&#x27;s</strong> <code class="jss187">onDraw</code>
+from <code class="jss187">shouldComponentUpdate</code> to do a <code class="jss187">render</code>.</li><li class="jss235"><code class="jss187">RedrawRequested</code>: this resembles <strong>Android&#x27;s</strong> <code class="jss187">onDraw</code>
 call and in <strong>ReactJS</strong> resembles a <code class="jss187">render</code> call. That means
 this call is where we will have to handle all our
-canvas drawings, in <code class="jss187">gfx_hal</code>, all our <code class="jss187">surface</code> drawings.</li><li class="jss229"><code class="jss187">RedrawEventsCleared</code>: this resembles <strong>ReactJS</strong> <code class="jss187">componentDidUpdate</code> call,
+canvas drawings, in <code class="jss187">gfx_hal</code>, all our <code class="jss187">surface</code> drawings.</li><li class="jss235"><code class="jss187">RedrawEventsCleared</code>: this resembles <strong>ReactJS</strong> <code class="jss187">componentDidUpdate</code> call,
 as this event gets triggered on
 each change after a redraw has happened. One thing to note,
 <em>if there are no <code class="jss187">RedrawRequested</code> events, it is emitted
-immediately after <code class="jss187">MainEventsCleared</code>.</em></li></ul><pre><div class="jss223"><div class="jss224" style="background:#2b2b2b"><div class="jss225"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss226" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-11T06:59:42.987942+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> show_window - MainEventsCleared</span>
+immediately after <code class="jss187">MainEventsCleared</code>.</em></li></ul><pre><div class="jss227"><div class="jss228" style="background:#2b2b2b"><div class="jss229"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></div><pre class="jss230" style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;background:#2b2b2b"><code style="color:#a9b7c6;font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-11T06:59:42.987942+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> show_window - MainEventsCleared</span>
 <span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-11T06:59:42.988007+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> show_window - RedrawRequested</span>
 <span class="token" style="color:#6a8759"><span class="token datetime" style="color:#6897bb">2020-05-11T06:59:42.988033+05:30</span> <span class="token" style="color:#cc7832">DEBUG</span> show_window - RedrawEventsCleared</span>
-</code></pre></div></div></pre><hr class="jss253"/><h4 class="MuiTypography-root jss221 MuiTypography-h4">Code &amp; Output</h4><p class="MuiTypography-root jss186 MuiTypography-body1">You can find the full code for this Doc,
+</code></pre></div></div></pre><hr class="jss259"/><div class="jss221"><h4 class="MuiTypography-root jss222 MuiTypography-h4" id="code--output">Code &amp; Output</h4><button class="MuiButtonBase-root MuiIconButton-root jss223" tabindex="0" type="button" aria-label="anchor link"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span></button></div><p class="MuiTypography-root jss186 MuiTypography-body1">You can find the full code for this Doc,
 here <a class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorPrimary" target="_blank" href="https://github.com/Shub1427/rustschool/blob/master/gui/draw-cube/src/001-show_window/main.rs">001-show_window</a></p><p class="MuiTypography-root jss186 MuiTypography-body1">Once you run the code (<code class="jss187">cargo run --bin show_window --features=vulkan</code>),
-you will get the following output.</p><div><div class="jss236"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss237 jss242" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/83215617-0b44c500-a185-11ea-8f91-de78c37c4993.png" alt="Blank Window Surface"/></div></div><p class="MuiTypography-root jss243 MuiTypography-body2">Blank Window Surface</p><div class="jss240"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><div class="MuiGrid-root jss254 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-space-between"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss255 jss257 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/physical-logical-devices"><span class="MuiButton-label"><span class="jss258" title="Adapters &amp; Physical/Logical Devices &amp; Device Queues" aria-label="Adapters &amp; Physical/Logical Devices &amp; Device Queues">Adapters &amp; Physical/Logical Devices &amp; Device Queues</span><span class="MuiButton-endIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></span></span></a></div></div><div class="MuiGrid-root jss288 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss289 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss290 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss291"></span><span class="jss291"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss294 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/display-window - Setup &amp; Display Blank Window"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss291"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss293 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/display-window","query":{},"buildId":"w6G4_G4BucmqEky-Zi_DD","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-85bd6957125321bbf99b.js"></script><script async="" data-next-page="/_app" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/display-window" src="/_next/static/w6G4_G4BucmqEky-Zi_DD/pages/gfx-hal-initials/display-window.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/75b87b8fb470ea9c89cd3ca9ded3e280f828a6a1.75fca39be327dd97eb46.js" async=""></script><script src="/_next/static/chunks/8b2d4e155bf6f54d61af8430db987203f873b264.bc7b38f90d260cd24e73.js" async=""></script><script src="/_next/static/chunks/1cd9885f519f6afb5b15f8ade9fbe7d63c9970ab.a9f98bf57217bbf79057.js" async=""></script><script src="/_next/static/runtime/main-aa7804989bef611239d5.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_buildManifest.js" async=""></script><script src="/_next/static/w6G4_G4BucmqEky-Zi_DD/_ssgManifest.js" async=""></script></body></html>
+you will get the following output.</p><div><div class="jss242"><div class="react-transform-component TransformComponent-module_container__3NwNd "><div class="react-transform-element TransformComponent-module_content__TZU5O " style="-webkit-transform:translate(0px, 0px) scale(1);transform:translate(0px, 0px) scale(1)"><img class="jss243 jss248" style="width:100%;height:auto" src="https://user-images.githubusercontent.com/11786283/83215617-0b44c500-a185-11ea-8f91-de78c37c4993.png" alt="Blank Window Surface"/></div></div><p class="MuiTypography-root jss249 MuiTypography-body2">Blank Window Surface</p><div class="jss246"><button class="MuiButtonBase-root MuiIconButton-root" tabindex="0" type="button" aria-label="zoom-in"><span class="MuiIconButton-label"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3h-6zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3v6zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6h6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6v-6z"></path></svg></span></button></div></div></div><div class="MuiGrid-root jss260 MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-justify-xs-space-between"><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"></div><div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"><a class="MuiButtonBase-root MuiButton-root MuiButton-text jss261 jss263 MuiButton-textSecondary" tabindex="0" aria-disabled="false" href="/gfx-hal-initials/physical-logical-devices"><span class="MuiButton-label"><span class="jss264" title="Adapters &amp; Physical/Logical Devices &amp; Device Queues" aria-label="Adapters &amp; Physical/Logical Devices &amp; Device Queues">Adapters &amp; Physical/Logical Devices &amp; Device Queues</span><span class="MuiButton-endIcon MuiButton-iconSizeMedium"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></span></span></a></div></div><div class="MuiGrid-root jss294 MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12"><p class="MuiTypography-root jss295 MuiTypography-body2">© Copyright 2020 Subroto Biswas</p><div class="MuiGrid-root jss296 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"><span class="jss297"></span><span class="jss297"><a class="MuiButtonBase-root MuiButton-root MuiButton-contained jss300 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" aria-disabled="false" target="_blank" rel="noopener noreferrer" href="https://twitter.com/intent/tweet?text=https://shub1427.github.io/gfx-hal-initials/display-window - Setup &amp; Display Blank Window"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg></span>Share</span></a></span><span class="jss297"><button class="MuiButtonBase-root MuiButton-root MuiButton-contained jss299 MuiButton-containedSizeSmall MuiButton-sizeSmall" tabindex="0" type="button"><span class="MuiButton-label"><span class="MuiButton-startIcon MuiButton-iconSizeSmall"><svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"></path></svg></span>Share</span></button></span></div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/gfx-hal-initials/display-window","query":{},"buildId":"U2tyd1uGHDr2xOW4PfTtq","nextExport":true,"autoExport":true,"isFallback":false}</script><script nomodule="" src="/_next/static/runtime/polyfills-4b5edee7d135456a15d5.js"></script><script async="" data-next-page="/_app" src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/_app.js"></script><script async="" data-next-page="/gfx-hal-initials/display-window" src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/pages/gfx-hal-initials/display-window.js"></script><script src="/_next/static/runtime/webpack-c212667a5f965e81e004.js" async=""></script><script src="/_next/static/chunks/framework.c8d289f8b96717e32d7a.js" async=""></script><script src="/_next/static/chunks/7a9f8aa4a58264a473f76b67f4d497b5fa320a44.75fca39be327dd97eb46.js" async=""></script><script src="/_next/static/chunks/4ef8210ae4c0392728d7714008d90e6dea2372af.bc7b38f90d260cd24e73.js" async=""></script><script src="/_next/static/chunks/19e43df172edbfcaa9a3d589a578de7969720f91.a9f98bf57217bbf79057.js" async=""></script><script src="/_next/static/runtime/main-665f7de5a68b1d1ec122.js" async=""></script><script src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/_buildManifest.js" async=""></script><script src="/_next/static/U2tyd1uGHDr2xOW4PfTtq/_ssgManifest.js" async=""></script></body></html>
