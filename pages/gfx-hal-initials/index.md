@@ -47,8 +47,7 @@ learn Vulkan API using `gfx-hal`.
     <li>
       <Link
         href="https://github.com/MaikKlein/ash"
-        target="_blank"
-        rel="noopener noreferrer"
+        external
       >
         MaikKlein/ash
       </Link>
@@ -56,8 +55,7 @@ learn Vulkan API using `gfx-hal`.
     <li>
       <Link
         href="https://github.com/vulkano-rs/vulkano"
-        target="_blank"
-        rel="noopener noreferrer"
+        external
       >
         vulkano-rs/vulkano
       </Link>: I think this module also doesn't follow pure
@@ -68,15 +66,13 @@ learn Vulkan API using `gfx-hal`.
   For&nbsp;
   <Link
     href="https://github.com/MaikKlein/ash"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     MaikKlein/ash
   </Link>&nbsp; though, you can find a very good tutorial&nbsp;
   <Link
     href="https://github.com/adrien-ben/vulkan-tutorial-rs"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     here
   </Link>.
@@ -85,8 +81,7 @@ learn Vulkan API using `gfx-hal`.
   I still prefer&nbsp;
   <Link
     href="https://github.com/gfx-rs/gfx"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     gfx-rs
   </Link>&nbsp;<i>(I call it <InlineCode>gfx-hal</InlineCode> just to

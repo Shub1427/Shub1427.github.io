@@ -32,9 +32,8 @@ for better performance and accurate results.
   <ul>
     <li>
       <Link
+        external
         href="https://github.com/syntax-tree/unist#syntax-tree"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         Syntax Tree
       </Link>
@@ -42,8 +41,7 @@ for better performance and accurate results.
     <li>
       <Link
         href="https://ruslanspivak.com/lsbasi-part1/"
-        target="_blank"
-        rel="noopener noreferrer"
+        external
       >
         Let's build an Interpreter
       </Link>
@@ -51,8 +49,7 @@ for better performance and accurate results.
     <li>
       <Link
         href="https://compilers.iecc.com/crenshaw/"
-        target="_blank"
-        rel="noopener noreferrer"
+        external
       >
         Let's build a Compiler
       </Link>

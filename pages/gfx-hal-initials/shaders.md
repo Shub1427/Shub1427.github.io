@@ -45,8 +45,7 @@ can we use it directly in `gfx-hal`.
   There is an ongoing discussion for this on&nbsp;
   <Link
     href="https://github.com/rust-gamedev/wg/issues/23"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     rust-gamedev working group
   </Link>, but is far from any conclusion.
@@ -67,8 +66,7 @@ can we use it directly in `gfx-hal`.
   <InlineCode>gfx</InlineCode> community, named&nbsp;
   <Link
     href="https://github.com/gfx-rs/naga"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     naga
   </Link>, to support cross-platform, multi Shader Languages
@@ -77,8 +75,7 @@ can we use it directly in `gfx-hal`.
   <br/>
   <Link
     href="https://github.com/gfx-rs/naga/pull/50"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     GLSL support is on it's way
   </Link>
@@ -143,8 +140,7 @@ project, which we will be using as well.
   <InlineCode>HLSL</InlineCode> Shaders, or we can use&nbsp;
   <Link
     href="https://github.com/google/shaderc-rs"
-    target="_blank"
-    rel="noopener noreferrer"
+    external
   >
     Rust Shaderc Bindings
   </Link>&nbsp;

@@ -166,8 +166,11 @@ is something worth looking at, has OKayish support in major browsers.
 ## Buffering Events that change state in less than an Animation Frame
 
 <Blockquote type="warn">
-I would suggest you to read this blog before going forward <Link href="https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7" target="_blank" rel="noopener noreferrer">Handle Too many Socket events creating Backpressure</Link>, as it elaborates on basic concepts of
-Back Buffering.
+  I would suggest you to read this blog before going
+  forward <Link href="https://medium.com/@jayphelps/backpressure-explained-the-flow-of-data-through-software-2350b3e77ce7" external>
+    Handle Too many Socket events creating Backpressure
+  </Link>, as it elaborates on basic concepts of
+  Back Buffering.
 </Blockquote>
 
 **TLDR;** I am giving a small reference on how to implement buffering of events

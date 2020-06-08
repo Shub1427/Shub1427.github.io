@@ -498,7 +498,7 @@ where we pass a [Closure](https://doc.rust-lang.org/book/ch13-01-closures.html),
 like *Keyboard*, *Joystick*, *Mouse* events.
 
 <Blockquote type="warn">
-  Do remember that a <Link href="https://doc.rust-lang.org/book/ch13-01-closures.html" target="_blank" rel="noopener noreferrer">Closure</Link>&nbsp;
+  Do remember that a <Link external href="https://doc.rust-lang.org/book/ch13-01-closures.html">Closure</Link>&nbsp;
   will completely get the ownership
   of any variables that are passed to it.
 
