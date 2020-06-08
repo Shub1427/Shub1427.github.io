@@ -11,7 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 // Using Redux Store is the only way to use LocalStorage with NextJS app
 // right now, it doesn't support pure static builds
 import { staticStore } from 'store';
-import { Button, Link } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import Para from '@components/para';
 import Blockquote from '@components/blockquote';
 import MDXH1 from '@components/mdx-h1';
@@ -26,6 +26,7 @@ import ThematicBreak from '@components/thematic-break';
 import PolkaContainer from '@components/polka-container';
 import NoteSubtitle from '@components/note-subtitle';
 import MoveOtherPage from '@components/move-other-page';
+import Link from '@components/link';
 import { MDXOL, MDXUL, MDXLI } from '@components/mdx-list';
 import { NextComponentType } from 'next';
 import {
@@ -35,7 +36,7 @@ import {
 import { pageview } from '@utils/gtag';
 
 const mdComponents = {
-  a: (props: any) => <Link target="_blank" {...props} />,
+  a: (props: any) => <Link external {...props} />,
   h1: (props: any) => <MDXH1 {...props} />,
   h2: (props: any) => <MDXH2 {...props} />,
   h3: (props: any) => <MDXH3 {...props} />,

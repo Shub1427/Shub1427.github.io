@@ -19,29 +19,42 @@ export const prevRecord = halArchiveRecord['swap-chain'];
   T-{`${size - 4}`}: {record.title}
 </H1>
 
+> **Quoting directly from [LunarG Tutorials](https://vulkan.lunarg.com/doc/view/1.2.131.2/linux/tutorial/html/10-init_render_pass.html)**
+>
+> *A render pass describes the scope of a rendering
+> operation by specifying the collection of attachments,
+> subpasses, and dependencies used during the rendering
+> operation. A render pass consists of at least one subpass.
+> The communication of this information to the driver
+> allows the driver to know what to expect when rendering
+> begins and to set up the hardware optimally for the
+> rendering operation.*
+
+As we all know, a Train cannot fly or sail, as it's
+scope is limited to rails. Similarly, RenderPass helps
+to define a scope for rendering, i.e., what kind of rendering
+will happen when commands are executed on GPU. For e.g. a
+shader pass will only handle shading an image while
+rendering.
+
+Since GPU can handle many parallel tasks in one go, we can
+create different render passes to do different scoped
+rendering per thread.
+
 <Blockquote type="warn">
-    I won't talk about this topic much, as I have little to no
-    knowledge about Render Passes, but will surely update this
-    topic when I do.
+  I won't discuss this topic in-depth, as even I have
+  to explore this topic a lot more.
+
+  <br />
+
+  For now, I would
+  suggest you read <Link external href="https://vulkan.lunarg.com/doc/view/1.2.131.2/linux/tutorial/html/10-init_render_pass.html">LunarG RenderPass Post</Link>.
+
 </Blockquote>
 
-In simple words (in my view), a RenderPass is a rendering
-phase where we connect a particular Rendering task to spit
-out a desired modified image. Think of it as a machine,
-which can take some details and output something.
-
-A RenderPass in gfx-hal take details like `Attachment`
-and `SubpassDesc`riptor.
-
-An Attachment contains details
-on image, operations that will be performed on that image,
-etc. As per `gfx-hal` docs *an Attachment is a description
-of a resource provided to a render subpass. It includes
-things such as render targets, images that were produced
-from previous subpasses, etc*.
-
-In this post, we will just create an instance of
-RenderPass.
+*In this section, we will only be creating and defining
+the render pass and not using it in a command buffer
+until later.*
 
 ## Code
 
@@ -99,6 +112,17 @@ impl<B: Backend> Drop for Renderer<B> {
 }
 ```
 
+[Attachment](https://docs.rs/gfx-hal/0.5.0/gfx_hal/pass/struct.Attachment.html)s
+are details about resources that will be passed in this RenderPass.
+For example, we will be initially working with only Colors;
+thus, a Color Attachment (which would be an Image for a color) will
+be passed as an Attachment to Render Pass.
+
+Later on, we will also be adding an attachment to Depth Buffer,
+which will be used as Z depth of the cube.
+
+`Subpass` here is used for defining which attachment to use
+while rendering during the subpass.
 
 <MoveOtherPage
   prev={prevRecord.link}
